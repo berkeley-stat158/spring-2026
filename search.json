@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "01-components-design-1/notes.html",
+    "href": "01-components-design-1/notes.html",
+    "title": "Welcome to Class",
+    "section": "",
+    "text": "Concept Acquisition\n\nData is stored on a computer disk in files.\nFiles are stored in directories (or folders).\nFiles and directories can be structured using a tree.\nEach file’s location is defined by its path.\n\n\n\nTool Acquisition\n\nPaths are defined by concatenating nodes separated by a /.\n\n\n\nConcept Application\n\nGiven a file system tree,\n\nwrite down the absolute path to a file.\ngiven two file system items, write the relative path from one to the other.\n\nGiven a set of file paths, reconstruct the file system tree.\n\n\n\n\n**Before Class*:\n\nProject first slide showing laptop policy.\nWrite lab section number / times / GSIS on board.\nPass out index cards, one to each student."
+  },
+  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "Syllabus",
@@ -8,146 +15,6 @@
     "crumbs": [
       "Syllabus"
     ]
-  },
-  {
-    "objectID": "01-welcome/slides.html#welcome-to-stat-133",
-    "href": "01-welcome/slides.html#welcome-to-stat-133",
-    "title": "Concepts in Computing with Data",
-    "section": "Welcome to STAT 133!",
-    "text": "Welcome to STAT 133!\nWe will begin at ten past. By that time, please\n\nsilence phones and put into your bag\nclose and stow your laptops"
-  },
-  {
-    "objectID": "01-welcome/slides.html#making-data",
-    "href": "01-welcome/slides.html#making-data",
-    "title": "Concepts in Computing with Data",
-    "section": "Making Data",
-    "text": "Making Data\nOn one side of your card write answers to the following questions (borrow a pen from a neighbor if needed):\n\nWhat is your lab number? (integer)\nHow many years have you been at Cal? (integer)\nAre you a Statistics major? (true / false)\n\nOn the other side of the card write answers to the following questions:\n\nWhat was your “song of the summer”? (character string)\nWhat is the farthest that you were from Cal this summer in miles? (numeric)"
-  },
-  {
-    "objectID": "01-welcome/slides.html#with-the-people-around-you",
-    "href": "01-welcome/slides.html#with-the-people-around-you",
-    "title": "Concepts in Computing with Data",
-    "section": "With the people around you…",
-    "text": "With the people around you…\nTake a few minutes to share your name and the answers to the questions that you wrote down.\n\n  \n    −\n    +\n \n 03:00"
-  },
-  {
-    "objectID": "01-welcome/slides.html#section-1",
-    "href": "01-welcome/slides.html#section-1",
-    "title": "Concepts in Computing with Data",
-    "section": "",
-    "text": "1998 Oregon 1st state to conduct elections by mail.\nVoters mailed a ballot a month before.\nThey return it at their leisure.\n\n\n\nWhat are the dynamics of this form of voting?\nWhat is “turnout” over time?\n\n\nIn 1998, Oregon became the first state to conduct its elections exclusively by mail. Every election, all registered voters are automatically mailed ballots to their home address roughly a month before the election. Voters then vote at their leisure and mail back or drop off their ballot sometime before the election closes. Due to concerns about the Covid-19 pandemic, many other states have implemented some version of Oregon’s voting system in preparation for the November 3rd, 2020 election next Tuesday.\nAt the end, before switching slides, ask: “What data would be useful to answer this question? Where could I find it?”"
-  },
-  {
-    "objectID": "01-welcome/slides.html#section-5",
-    "href": "01-welcome/slides.html#section-5",
-    "title": "Concepts in Computing with Data",
-    "section": "",
-    "text": "Ask: “What appears to be stored in each cell?”\nAnswer: the number of ballots received since last recorded date in that county."
-  },
-  {
-    "objectID": "01-welcome/slides.html#analysis-workflow",
-    "href": "01-welcome/slides.html#analysis-workflow",
-    "title": "Concepts in Computing with Data",
-    "section": "Analysis workflow",
-    "text": "Analysis workflow\n\nAccess and store data\nPerform Optical Character Recognition (OCR): PDF &gt; .xls, .csv"
-  },
-  {
-    "objectID": "01-welcome/slides.html#section-6",
-    "href": "01-welcome/slides.html#section-6",
-    "title": "Concepts in Computing with Data",
-    "section": "",
-    "text": "What is “turnout” over time?"
-  },
-  {
-    "objectID": "01-welcome/slides.html#section-7",
-    "href": "01-welcome/slides.html#section-7",
-    "title": "Concepts in Computing with Data",
-    "section": "",
-    "text": "Boardwork"
-  },
-  {
-    "objectID": "01-welcome/slides.html#section-8",
-    "href": "01-welcome/slides.html#section-8",
-    "title": "Concepts in Computing with Data",
-    "section": "",
-    "text": "What is “turnout” over time?"
-  },
-  {
-    "objectID": "01-welcome/slides.html#analysis-workflow-1",
-    "href": "01-welcome/slides.html#analysis-workflow-1",
-    "title": "Concepts in Computing with Data",
-    "section": "Analysis workflow",
-    "text": "Analysis workflow\n\nAccess and store data\nPerform Optical Character Recognition (OCR): PDF &gt; .xls, .csv\nIsolate data from Deschutes County\nConvert day from words to numbers\nCreate new column of cumulative returns\nCreate line plot"
-  },
-  {
-    "objectID": "01-welcome/slides.html#section-9",
-    "href": "01-welcome/slides.html#section-9",
-    "title": "Concepts in Computing with Data",
-    "section": "",
-    "text": "Boardwork"
-  },
-  {
-    "objectID": "01-welcome/slides.html#who-takes-it",
-    "href": "01-welcome/slides.html#who-takes-it",
-    "title": "Concepts in Computing with Data",
-    "section": "Who takes it",
-    "text": "Who takes it"
-  },
-  {
-    "objectID": "01-welcome/slides.html#statistics-major",
-    "href": "01-welcome/slides.html#statistics-major",
-    "title": "Concepts in Computing with Data",
-    "section": "Statistics major",
-    "text": "Statistics major"
-  },
-  {
-    "objectID": "01-welcome/slides.html#cornerstones",
-    "href": "01-welcome/slides.html#cornerstones",
-    "title": "Concepts in Computing with Data",
-    "section": "Cornerstones",
-    "text": "Cornerstones"
-  },
-  {
-    "objectID": "01-welcome/slides.html#lecture",
-    "href": "01-welcome/slides.html#lecture",
-    "title": "Concepts in Computing with Data",
-    "section": "Lecture",
-    "text": "Lecture\n\nStow laptops and phones\nI’ll do mix of slides and boardwork\nTake handwritten notes (paper or tablet)"
-  },
-  {
-    "objectID": "01-welcome/slides.html#lab",
-    "href": "01-welcome/slides.html#lab",
-    "title": "Concepts in Computing with Data",
-    "section": "Lab",
-    "text": "Lab\n\nA mix of new ideas, practice, and working on lab assignments.\nEvery other week you take a quiz in lab."
-  },
-  {
-    "objectID": "01-welcome/slides.html#assignment-types",
-    "href": "01-welcome/slides.html#assignment-types",
-    "title": "Concepts in Computing with Data",
-    "section": "Assignment types",
-    "text": "Assignment types\n\n5% Problem Sets (credit / no credit): Small practice problems\n15% Labs (credit / no credit): Explorations of real data and computing workflows\n50% Quizzes: Every two weeks in lab\n30% Final Exam: Wednesday of finals week 7 - 10 pm"
-  },
-  {
-    "objectID": "01-welcome/slides.html#about-those-quizzes",
-    "href": "01-welcome/slides.html#about-those-quizzes",
-    "title": "Concepts in Computing with Data",
-    "section": "About those quizzes",
-    "text": "About those quizzes\n\nAsks questions similar to previous problem sets and labs\nRoughly 45 minutes to take a paper-and-pencil quiz individually\nRoughly 25 minutes to take a very similar quiz in a group\nYour grade is the average of the two"
-  },
-  {
-    "objectID": "01-welcome/slides.html#in-lab-tomorrow",
-    "href": "01-welcome/slides.html#in-lab-tomorrow",
-    "title": "Concepts in Computing with Data",
-    "section": "In lab tomorrow",
-    "text": "In lab tomorrow\n\nBring a laptop! (no need to install anything)\n\nYou will:\n\nMeet your GSI\nDiscuss the syllabus\nLearn fundamentals of storing and structuring data in files on a computer"
-  },
-  {
-    "objectID": "01-welcome/slides.html#parting-words",
-    "href": "01-welcome/slides.html#parting-words",
-    "title": "Concepts in Computing with Data",
-    "section": "Parting words",
-    "text": "Parting words\n\n\nThere has never been a more exciting time to compute with data.\nYou’ll get out of this course what you put into it.\nWe’re here to support you"
   },
   {
     "objectID": "labs/01-components-and-eda/lab.html",
@@ -199,16 +66,149 @@
     "href": "index.html",
     "title": "STAT 158",
     "section": "",
-    "text": "The Design and Analysis of Experiments\nStat 158 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n  \n  Week 1\n  \n\n  \n    \n    \n    \n    Jan 19\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    Jan 21\n    \n    \n    Components of Experimental Design I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    Jan 23\n    \n    \n    Components of Experimental Design II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      \n        \n          \n          \n          \n            code\n          \n        \n      \n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
+    "text": "The Design and Analysis of Experiments\nStat 158 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n  \n  Week 1\n  \n\n  \n    \n    \n    \n    Jan 19\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    Jan 21\n    \n    \n    Components of Experimental Design I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      \n        \n          \n          \n          \n            boardwork\n          \n        \n      \n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    Jan 23\n    \n    \n    Components of Experimental Design II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      \n        \n          \n          \n          \n            boardwork\n          \n        \n      \n        \n          \n          \n          \n            code\n          \n        \n      \n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
     "crumbs": [
       "Home"
     ]
   },
   {
-    "objectID": "01-welcome/notes.html",
-    "href": "01-welcome/notes.html",
-    "title": "Welcome to Class",
+    "objectID": "01-components-design-1/slides.html#welcome-to-stat-133",
+    "href": "01-components-design-1/slides.html#welcome-to-stat-133",
+    "title": "Concepts in Computing with Data",
+    "section": "Welcome to STAT 133!",
+    "text": "Welcome to STAT 133!\nWe will begin at ten past. By that time, please\n\nsilence phones and put into your bag\nclose and stow your laptops"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#making-data",
+    "href": "01-components-design-1/slides.html#making-data",
+    "title": "Concepts in Computing with Data",
+    "section": "Making Data",
+    "text": "Making Data\nOn one side of your card write answers to the following questions (borrow a pen from a neighbor if needed):\n\nWhat is your lab number? (integer)\nHow many years have you been at Cal? (integer)\nAre you a Statistics major? (true / false)\n\nOn the other side of the card write answers to the following questions:\n\nWhat was your “song of the summer”? (character string)\nWhat is the farthest that you were from Cal this summer in miles? (numeric)"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#with-the-people-around-you",
+    "href": "01-components-design-1/slides.html#with-the-people-around-you",
+    "title": "Concepts in Computing with Data",
+    "section": "With the people around you…",
+    "text": "With the people around you…\nTake a few minutes to share your name and the answers to the questions that you wrote down.\n\n  \n    −\n    +\n \n 03:00"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#section-1",
+    "href": "01-components-design-1/slides.html#section-1",
+    "title": "Concepts in Computing with Data",
     "section": "",
-    "text": "Concept Acquisition\n\nData is stored on a computer disk in files.\nFiles are stored in directories (or folders).\nFiles and directories can be structured using a tree.\nEach file’s location is defined by its path.\n\n\n\nTool Acquisition\n\nPaths are defined by concatenating nodes separated by a /.\n\n\n\nConcept Application\n\nGiven a file system tree,\n\nwrite down the absolute path to a file.\ngiven two file system items, write the relative path from one to the other.\n\nGiven a set of file paths, reconstruct the file system tree.\n\n\n\n\n**Before Class*:\n\nProject first slide showing laptop policy.\nWrite lab section number / times / GSIS on board.\nPass out index cards, one to each student."
+    "text": "1998 Oregon 1st state to conduct elections by mail.\nVoters mailed a ballot a month before.\nThey return it at their leisure.\n\n\n\nWhat are the dynamics of this form of voting?\nWhat is “turnout” over time?\n\n\nIn 1998, Oregon became the first state to conduct its elections exclusively by mail. Every election, all registered voters are automatically mailed ballots to their home address roughly a month before the election. Voters then vote at their leisure and mail back or drop off their ballot sometime before the election closes. Due to concerns about the Covid-19 pandemic, many other states have implemented some version of Oregon’s voting system in preparation for the November 3rd, 2020 election next Tuesday.\nAt the end, before switching slides, ask: “What data would be useful to answer this question? Where could I find it?”"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#section-5",
+    "href": "01-components-design-1/slides.html#section-5",
+    "title": "Concepts in Computing with Data",
+    "section": "",
+    "text": "Ask: “What appears to be stored in each cell?”\nAnswer: the number of ballots received since last recorded date in that county."
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#analysis-workflow",
+    "href": "01-components-design-1/slides.html#analysis-workflow",
+    "title": "Concepts in Computing with Data",
+    "section": "Analysis workflow",
+    "text": "Analysis workflow\n\nAccess and store data\nPerform Optical Character Recognition (OCR): PDF &gt; .xls, .csv"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#section-6",
+    "href": "01-components-design-1/slides.html#section-6",
+    "title": "Concepts in Computing with Data",
+    "section": "",
+    "text": "What is “turnout” over time?"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#section-7",
+    "href": "01-components-design-1/slides.html#section-7",
+    "title": "Concepts in Computing with Data",
+    "section": "",
+    "text": "Boardwork"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#section-8",
+    "href": "01-components-design-1/slides.html#section-8",
+    "title": "Concepts in Computing with Data",
+    "section": "",
+    "text": "What is “turnout” over time?"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#analysis-workflow-1",
+    "href": "01-components-design-1/slides.html#analysis-workflow-1",
+    "title": "Concepts in Computing with Data",
+    "section": "Analysis workflow",
+    "text": "Analysis workflow\n\nAccess and store data\nPerform Optical Character Recognition (OCR): PDF &gt; .xls, .csv\nIsolate data from Deschutes County\nConvert day from words to numbers\nCreate new column of cumulative returns\nCreate line plot"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#section-9",
+    "href": "01-components-design-1/slides.html#section-9",
+    "title": "Concepts in Computing with Data",
+    "section": "",
+    "text": "Boardwork"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#who-takes-it",
+    "href": "01-components-design-1/slides.html#who-takes-it",
+    "title": "Concepts in Computing with Data",
+    "section": "Who takes it",
+    "text": "Who takes it"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#statistics-major",
+    "href": "01-components-design-1/slides.html#statistics-major",
+    "title": "Concepts in Computing with Data",
+    "section": "Statistics major",
+    "text": "Statistics major"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#cornerstones",
+    "href": "01-components-design-1/slides.html#cornerstones",
+    "title": "Concepts in Computing with Data",
+    "section": "Cornerstones",
+    "text": "Cornerstones"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#lecture",
+    "href": "01-components-design-1/slides.html#lecture",
+    "title": "Concepts in Computing with Data",
+    "section": "Lecture",
+    "text": "Lecture\n\nStow laptops and phones\nI’ll do mix of slides and boardwork\nTake handwritten notes (paper or tablet)"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#lab",
+    "href": "01-components-design-1/slides.html#lab",
+    "title": "Concepts in Computing with Data",
+    "section": "Lab",
+    "text": "Lab\n\nA mix of new ideas, practice, and working on lab assignments.\nEvery other week you take a quiz in lab."
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#assignment-types",
+    "href": "01-components-design-1/slides.html#assignment-types",
+    "title": "Concepts in Computing with Data",
+    "section": "Assignment types",
+    "text": "Assignment types\n\n5% Problem Sets (credit / no credit): Small practice problems\n15% Labs (credit / no credit): Explorations of real data and computing workflows\n50% Quizzes: Every two weeks in lab\n30% Final Exam: Wednesday of finals week 7 - 10 pm"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#about-those-quizzes",
+    "href": "01-components-design-1/slides.html#about-those-quizzes",
+    "title": "Concepts in Computing with Data",
+    "section": "About those quizzes",
+    "text": "About those quizzes\n\nAsks questions similar to previous problem sets and labs\nRoughly 45 minutes to take a paper-and-pencil quiz individually\nRoughly 25 minutes to take a very similar quiz in a group\nYour grade is the average of the two"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#in-lab-tomorrow",
+    "href": "01-components-design-1/slides.html#in-lab-tomorrow",
+    "title": "Concepts in Computing with Data",
+    "section": "In lab tomorrow",
+    "text": "In lab tomorrow\n\nBring a laptop! (no need to install anything)\n\nYou will:\n\nMeet your GSI\nDiscuss the syllabus\nLearn fundamentals of storing and structuring data in files on a computer"
+  },
+  {
+    "objectID": "01-components-design-1/slides.html#parting-words",
+    "href": "01-components-design-1/slides.html#parting-words",
+    "title": "Concepts in Computing with Data",
+    "section": "Parting words",
+    "text": "Parting words\n\n\nThere has never been a more exciting time to compute with data.\nYou’ll get out of this course what you put into it.\nWe’re here to support you"
   }
 ]

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>office-hours – STAT 158</title>
+<title>Problem Set 1 – STAT 158</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +23,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8a0808be5b7c0f3678666e7f6e600685.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8a0808be5b7c0f3678666e7f6e600685.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,8 +72,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="assets/neural.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../assets/neural.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -83,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">STAT 158</span>
     </a>
   </div>
@@ -97,33 +126,33 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./office-hours.html">Office Hours</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">PS 1</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./office-hours.html" class="sidebar-item-text sidebar-link active">
+  <a href="../office-hours.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Office Hours</span></a>
   </div>
 </li>
@@ -139,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem-sets/ps1.html" class="sidebar-item-text sidebar-link">
+  <a href="../problem-sets/ps1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">PS 1</span></a>
   </div>
 </li>
@@ -156,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/01-components-and-eda/lab1.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../labs/01-components-and-eda/lab1.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 1</span></a>
   </div>
 </li>
@@ -167,23 +196,71 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ps1.pdf"><i class="bi bi-file-pdf"></i>Typst (stat158handout)</a></li><li><a href="ps1.tex"><i class="bi bi-file"></i>LaTeX</a></li><li><a href="ps1.md"><i class="bi bi-file-code"></i>Markdown</a></li></ul></div></div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">PS 1</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Problem Set 1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<ol class="example" type="1">
+<li><p><strong>Polio<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></strong>. Polio is now a very rare disease, thanks to medical research, which developed a vaccine, and thanks to statistical work, which proved the vaccine to be effective. The testing of the vaccine involved two different studies. One was a true experiment, with the treatment and placebo assigned by a coin flip, but the other study was observational.</p>
+<p>The observational study used the children who didn’t get parental permission for the vaccine as a control group and gave the vaccine to everyone who got permission. In what ways do you think the treatment and control groups are likely to be different? How might that make it more challenging to identify the casual factor?</p></li>
+</ol>
+<div style="page-break-after: always;"></div>
+<ol start="2" class="example" type="1">
+<li><p><strong>The Free-Choice Paradigm</strong>. The Free-Choice Paradigm<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> is a term for a type of experiment designed to test what is termed the “cognitive dissonance” of a subject. Cognitive dissonance says that individuals strive to decrease the discomfort generated by conflicting cognitions (i.e.&nbsp;opinions or thoughts) by modifying them.</p>
+<p>A traditional free-choice paradigm experiment has a subject do the following:</p>
+<p><em>Step A</em>. Rate items individually according to their desirability (e.g.&nbsp;oranges, clementines, apples, bananas, etc.), say on a score between 1-10.</p>
+<p><em>Step B</em>. Choose between pairs of items that they previously rated similarly (“do you prefer oranges or clementines?”, “do you prefer apples or bananas?”, etc.)</p>
+<p><em>Step C</em>. Rate items individually from the first step (again).</p>
+<p>Results from such experiments over the past decades show that items ranked highly in the 1st step get increased ratings when they are repeated in step C, and those ranking lowly in the 1st step get even lower ratings in the repetition of step C. To be concrete, consider the following response: for each subject, take those items rated with a value above 5 in step A, calculate a difference in the rankings between step C and step A and take an average over all such items for the subject. Then this response is found to be significantly greater than zero based on appropriate statistical tests.</p>
+<p>The cognitive dissonance theory explains this phenomena by the theory that forcing individuals to specify preferences between particular items in step B (“do you prefer oranges or clementines?”) forces them to recognize inconsistencies in their preferences and to alter them, hence the changes between step A and step C (i.e.&nbsp;the process of going through step B caused the change in preferences seen in step C).</p>
+<ol type="a">
+<li>What is the nature of the treatments?</li>
+<li>What are the units?</li>
+<li>How were units assigned to treatments?</li>
+<li>What is the nature of the response?</li>
+<li>Do any of the answers to the previous questions parts make it difficult to assess the psychological theory that they’re trying to test? If so, explain why.</li>
+</ol>
+<p>To help you answer this last question, consider the follow-up study proposed by a critic of this paper. The critic reruns the above experiment, only changing the order of the steps: step A, step C, step B. They find a similar value of the response (after appropriate statistical tests) as when running the original experiment of step A, step B, step C.</p></li>
+</ol>
+<div style="page-break-after: always;"></div>
+<ol start="3" class="example" type="1">
+<li><p><strong>Estimation under Imbalance</strong>. Consider the setting where we seek to estimate the Average Treatment Effect (ATE) using as our estimator the observed difference in the mean responses in the two groups, <span class="math inline">\(\overline{Y}_1 - \overline{Y}_0\)</span>. Let <span class="math inline">\(D_i\)</span> track whether unit <span class="math inline">\(i\)</span> receives the treatment (1) or the control (0) and let the set of indices in the treatment and control groups be be <span class="math inline">\(g1\)</span> and <span class="math inline">\(g0\)</span> respectively. Also let <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_0\)</span> be the number of units in each group.</p>
+<p>So far, we’ve analyzed the case where <span class="math inline">\(n_1 = n_2\)</span>, a case where the groups are <em>balanced</em>. What happens to the estimator when the groups are <em>unbalanced</em>?</p>
+<p>Determine whether or not the estimator is biased when <span class="math inline">\(n_1\)</span> is twice the size of <span class="math inline">\(n_0\)</span>. Units are assigned to groups by randomly shuffling the list of their unique identifiers and assigning the first <span class="math inline">\(n_1\)</span> to the treatment and the remaining to the control. If the estimator is biased, suggest an alternative bias-corrected estimator.</p></li>
+</ol>
+<div style="page-break-after: always;"></div>
+<p>The last few questions will be released by 1/31/26!</p>
 
 
 
 
-<section id="office-hours" class="level1">
-<h1>Office Hours</h1>
-<p>Please stop by during office hours to chat in a small group setting with the instructor or GSI.</p>
-<iframe src="https://calendar.google.com/calendar/embed?src=c_4277774f6cd45f3f280de964cfa0d6186a3a9c0022bdb8ab2e2c96c64addb4fd%40group.calendar.google.com&amp;ctz=America%2FLos_Angeles&amp;mode=WEEK" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no">
-</iframe>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
-
-</section>
-
-</main> <!-- /main -->
+<ol>
+<li id="fn1"><p>This is a revised version of question 4.E.5 from Cobb, , 1998.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Salti et al, ``Cognitive dissonance resolution is related to episodic memory,’’ PLoS One, 2014.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

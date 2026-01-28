@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="STAT 158">
 
 <title>Lab: Donations – STAT 158</title>
 <style>
@@ -20,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -77,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../assets/neural.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -140,8 +174,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../problem-sets/ps1.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../../problem-sets/ps1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../labs/01-components-and-eda/lab1.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1</span></a>
   </div>
 </li>
       </ul>
@@ -151,7 +202,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab1.pdf"><i class="bi bi-file-pdf"></i>Typst (stat158handout)</a></li><li><a href="lab1.tex"><i class="bi bi-file"></i>LaTeX</a></li><li><a href="lab1.md"><i class="bi bi-file-code"></i>Markdown</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -165,12 +217,6 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>STAT 158 </p>
-          </div>
-  </div>
     
   
     
@@ -181,20 +227,119 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Please answer the following questions in complete sentences.</p>
-<section id="components-of-experimental-design" class="level3">
-<h3 class="anchored" data-anchor-id="components-of-experimental-design">Components of Experimental Design</h3>
-<ol type="1">
-<li>Describe the nature of the treatments.</li>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Welcome to Stat 158! The goal of this exercise is to better understand the key components of an experiment by comparing concepts from lecture to a real study. The domain and setting of the research question often impose unique constraints, leading to different approaches to designing an experiment. We examine these below, before starting to work with the data ourselves.</p>
+</section>
+<section id="understanding-the-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-the-experiment">Understanding the Experiment</h2>
+<p>We will be working with data from the Karlan and List (2007) study, which investigates how matching grants affects charitable giving using a large-scale experiment. Read through the paper while keeping a lookout for concepts from lecture, and try to understand the motivations for their design based on their setting and constraints. Use this to answer the following questions in complete sentences.</p>
+<ol class="example" type="1">
+<li><p>Identify and list the four components of the experimental design they used, i.e.</p>
+<ul>
+<li><p>The Nature of the Treatments.</p></li>
+<li><p>Choice of the Experimental Units.</p></li>
+<li><p>Manner of Assigning Units to Treatments</p></li>
+<li><p>The Nature of the Response</p></li>
+</ul></li>
 </ol>
-</section>
-<section id="what-if" class="level3">
-<h3 class="anchored" data-anchor-id="what-if">What if…</h3>
-</section>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ol start="2" class="example" type="1">
+<li>What is the underlying research question? Please be as precise as possible.<br>
+</li>
+</ol>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ol start="3" class="example" type="1">
+<li>Why does this study use a <em>natural</em> field experiment rather than a traditional <em>lab</em> experiment? List one advantage and disadvantage of using natural experiments over lab experiments.<br>
+</li>
+</ol>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ol start="4" class="example" type="1">
+<li>List any three changes in design you think may benefit the study. What are their advantages?</li>
+</ol>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ol start="5" class="example" type="1">
+<li>What is the population that the results of this study would generalize to? Are there any limitations to this because of the design?</li>
+</ol>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+<div style="page-break-after: always;"></div>
 <section id="exploratory-data-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h3>
+<p>The dataset is stored in a <code>.csv</code> file. To load it into <code>R</code>, you’ll need the <code>readr</code> package, which is included inside the <code>tidyverse</code>. If you haven’t installed the tidyverse before, you can do so by running <code>install.packages("tidyverse")</code> once.</p>
+<p>Once you’ve installed the package, you can load it by running the following line.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load tidyverse (includes readr for CSVs)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(knitr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>To read a <code>.csv</code> file into <code>R</code>, use the <code>read_csv()</code> function from <code>readr</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the data into R</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>donations <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"donations.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="6" class="example" type="1">
+<li><p>Take some time to acquaint yourself with the data; this process of exploratory data analysis is very important. Some basic questions to consider:</p>
+<ul>
+<li>What do each of the columns and rows represent?</li>
+<li>What are the units of measurement?</li>
+<li>What datatypes are used for each column?</li>
+</ul></li>
+<li><p>Often when working with categorical variables in our data, it is useful to convert them to the ‘factor’ data structure in R. This is easily done in base R with <code>df$col &lt;- as.factor(df$col)</code> or with the <code>mutate()</code> function in the <code>tidyverse</code> . Convert the “treatment” and “control” columns to factors.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert columns to factor here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+<li><p>Answer the following questions from the data:</p>
+<ul>
+<li>Are there any missing values?</li>
+<li>How are the data distributed in the sample?</li>
+<li>Are there any outlying values?</li>
+</ul>
+<p>Note that, for our purposes, we are interested only in the columns labeled “treatment,” “control,” and “amount.” However, you may find it interesting to explore the rest of the data. Graphs such as barplots and density plots, contingency tables and summary statistics may be good starting points.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save any exploratory analysis you do here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+<li><p>Create a visualization that aims to convey broadly the effect of the treatment on the outcome here. This could be in the form of a graph or a table. Aim to convey a simple message clearly, and feel free to be creative!</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the final visualization of treatment effect here </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

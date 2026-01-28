@@ -1,0 +1,293 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Problem Set 1},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Problem Set 1}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Polio\footnote{This is a revised version of question 4.E.5
+    from Cobb,
+    \emph{Introduction to Design and Analysis of Experiments}, 1998.}}.
+  Polio is now a very rare disease, thanks to medical research, which
+  developed a vaccine, and thanks to statistical work, which proved the
+  vaccine to be effective. The testing of the vaccine involved two
+  different studies. One was a true experiment, with the treatment and
+  placebo assigned by a coin flip, but the other study was
+  observational.
+
+  The observational study used the children who didn't get parental
+  permission for the vaccine as a control group and gave the vaccine to
+  everyone who got permission. In what ways do you think the treatment
+  and control groups are likely to be different? How might that make it
+  more challenging to identify the casual factor?
+\end{enumerate}
+
+\newpage{}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{The Free-Choice Paradigm}. The Free-Choice Paradigm\footnote{Salti
+    et al, ``Cognitive dissonance resolution is related to episodic
+    memory,'\,' PLoS One, 2014.} is a term for a type of experiment
+  designed to test what is termed the ``cognitive dissonance'' of a
+  subject. Cognitive dissonance says that individuals strive to decrease
+  the discomfort generated by conflicting cognitions (i.e.~opinions or
+  thoughts) by modifying them.
+
+  A traditional free-choice paradigm experiment has a subject do the
+  following:
+
+  \emph{Step A}. Rate items individually according to their desirability
+  (e.g.~oranges, clementines, apples, bananas, etc.), say on a score
+  between 1-10.
+
+  \emph{Step B}. Choose between pairs of items that they previously
+  rated similarly (``do you prefer oranges or clementines?'', ``do you
+  prefer apples or bananas?'', etc.)
+
+  \emph{Step C}. Rate items individually from the first step (again).
+
+  Results from such experiments over the past decades show that items
+  ranked highly in the 1st step get increased ratings when they are
+  repeated in step C, and those ranking lowly in the 1st step get even
+  lower ratings in the repetition of step C. To be concrete, consider
+  the following response: for each subject, take those items rated with
+  a value above 5 in step A, calculate a difference in the rankings
+  between step C and step A and take an average over all such items for
+  the subject. Then this response is found to be significantly greater
+  than zero based on appropriate statistical tests.
+
+  The cognitive dissonance theory explains this phenomena by the theory
+  that forcing individuals to specify preferences between particular
+  items in step B (``do you prefer oranges or clementines?'') forces
+  them to recognize inconsistencies in their preferences and to alter
+  them, hence the changes between step A and step C (i.e.~the process of
+  going through step B caused the change in preferences seen in step C).
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    What is the nature of the treatments?
+  \item
+    What are the units?
+  \item
+    How were units assigned to treatments?
+  \item
+    What is the nature of the response?
+  \item
+    Do any of the answers to the previous questions parts make it
+    difficult to assess the psychological theory that they're trying to
+    test? If so, explain why.
+  \end{enumerate}
+
+  To help you answer this last question, consider the follow-up study
+  proposed by a critic of this paper. The critic reruns the above
+  experiment, only changing the order of the steps: step A, step C, step
+  B. They find a similar value of the response (after appropriate
+  statistical tests) as when running the original experiment of step A,
+  step B, step C.
+\end{enumerate}
+
+\newpage{}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \textbf{Estimation under Imbalance}. Consider the setting where we
+  seek to estimate the Average Treatment Effect (ATE) using as our
+  estimator the observed difference in the mean responses in the two
+  groups, \(\overline{Y}_1 - \overline{Y}_0\). Let \(D_i\) track whether
+  unit \(i\) receives the treatment (1) or the control (0) and let the
+  set of indices in the treatment and control groups be be \(g1\) and
+  \(g0\) respectively. Also let \(n_1\) and \(n_0\) be the number of
+  units in each group.
+
+  So far, we've analyzed the case where \(n_1 = n_2\), a case where the
+  groups are \emph{balanced}. What happens to the estimator when the
+  groups are \emph{unbalanced}?
+
+  Determine whether or not the estimator is biased when \(n_1\) is twice
+  the size of \(n_0\). Units are assigned to groups by randomly
+  shuffling the list of their unique identifiers and assigning the first
+  \(n_1\) to the treatment and the remaining to the control. If the
+  estimator is biased, suggest an alternative bias-corrected estimator.
+\end{enumerate}
+
+\newpage{}
+
+The last few questions will be released by 1/31/26!
+
+
+
+
+\end{document}

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STAT 158</title>
+<title>ps – STAT 158</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +23,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8a0808be5b7c0f3678666e7f6e600685.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8a0808be5b7c0f3678666e7f6e600685.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-wall-calendar .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-week','listing-days',{ data: ['index'] },{ data: ['categories'] }],
-      
-      searchColumns: ["listing-week","listing-days"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-wall-calendar'] = new List('listing-wall-calendar', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -133,7 +102,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="assets/neural.css">
+<link rel="stylesheet" href="../assets/neural.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
@@ -143,7 +112,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">STAT 158</span>
     </a>
   </div>
@@ -157,7 +126,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -171,19 +140,19 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./office-hours.html" class="sidebar-item-text sidebar-link">
+  <a href="../office-hours.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Office Hours</span></a>
   </div>
 </li>
@@ -199,7 +168,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem-sets/ps1.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../problem-sets/ps1.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 1</span></a>
   </div>
 </li>
@@ -217,319 +186,11 @@ window.Quarto = {
 
 
 
-<div class="banner-grid">
-<div class="banner-left">
-<p><span class="banner-text">The Design and Analysis of Experiments</span></p>
-<p><span class="smallcaps">Stat 158 UC Berkeley</span></p>
-</div>
-<div class="banner-right">
-<p><img src="assets/stat158green.png" class="img-fluid" alt="Hex logo of Stat 158 showing a green bear." width="312"></p>
-</div>
-</div>
-<!-- :::{#this-week}
-::: -->
-<div id="listing-wall-calendar" class="quarto-listing quarto-listing-container-custom">
-<style>
-.calendar, .this-week {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.calendar .week-x-box, .this-week .week-x-box {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  min-height: 200px;
-  gap: 8px;
-}
-.calendar .week-x-box .daily-sched, .this-week .week-x-box .daily-sched {
-  padding: 3px 8px 17px 8px;
-  border-radius: 8px; 
-  /* background-color: #F5F5F7; */
-}
-.calendar .week-x-box .daily-sched .date-cell, .this-week .week-x-box .daily-sched .date-cell {
-  text-align: center;
-  font-variant: small-caps;
-  font-size: 0.8em;
-}
-.calendar .week-x-box .daily-sched .daily-topic-cell, .this-week .week-x-box .daily-sched .daily-topic-cell {
-  padding: .0rem .75rem .5rem .75rem; 
-}
-.calendar .week-x-box .daily-sched .daily-topic-cell .daily-topic, .this-week .week-x-box .daily-sched .daily-topic-cell .daily-topic {
-  font-size: 1.1em;
-}
-.calendar .week-x-box .daily-sched .items-cell, .this-week .week-x-box .daily-sched .items-cell {
-  padding-left: 12px;
-}
-.calendar .week-x-box .daily-sched .items-cell .before-in-class, .this-week .week-x-box .daily-sched .items-cell .before-in-class {
-  font-size: 0.8em;
-}
-
-.assignment-list {
-  font-size: 0.8em;
-}
-
-@media (max-width: 768px) {
-  .calendar .week-x-box, .this-week .week-x-box {
-    grid-auto-flow: row; /* Ensures it flows in one column */
-    grid-template-columns: 1fr;
-  }
-}
-/* resource links */
-.res {
-  display:inline-flex; align-items:center; gap:.25rem;
-  font-size:.8rem;
-  padding:.25rem .5rem;
-  /* border:1px solid #d1d5db; */
-  border-radius:.5rem;
-  background:#0e6600;
-  color:#f8f9fa;
-  text-decoration:none;
-  transition:background .15s ease, border-color .15s ease;
-}
-.res:hover {
-  background:#4d8e42; /* light gray hover */
-  /* border-color:#9ca3af; */
-}
-.res i { font-size:.9em; }
-
-.res.unpublished, .res[aria-disabled="true"] {
-  color: #9ca3af;          /* gray text */
-  border-color: #d1d5db;   /* lighter border */
-  background: #f3f4f6;     /* muted background */
-  cursor: not-allowed;
-  pointer-events: none;    /* actually blocks clicking */
-}
-
-/* TODO: set up unit color in upper right corner */
-/* if you uncomment the next line you can see the design. */
-/* .daily-sched   { --unit-color: #d74d57; } */
-
-.daily-sched{
-  position:relative;
-  border-radius:10px; background:#f6f7f9; overflow:hidden;
-}
-
-/* diagonal corner ribbon */
-.daily-sched::after{
-  content:"";
-  position:absolute; top:0; right:0;
-  width:0; height:0;
-  border-top: 22px solid var(--unit-color, transparent);
-  border-left:22px solid transparent;
-  opacity:.9;
-}
-
-/* optional: rounded corner look instead of triangle */
-.daily-sched.unit--rounded::after{
-  border-top-right-radius:10px;  /* when using a block instead of triangle */
-}
-
-</style>
-<div class="calendar">
-
-  <!-- Create each week -->
-  <h4 class="anchored">Week 1</h4>
-  <div class="week-x-box">
-
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Jan 19</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Jan 21</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Components of Experimental Design I</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <a href="01-components-design-1/1. Components Of An Experiment.pdf" class="res boardwork-res">boardwork</a>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Jan 23</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Components of Experimental Design II</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <a href="02-components-design-2/2. Components Of An Experiment 2.pdf" class="res boardwork-res">boardwork</a>
-          
-        
-      
-        
-          
-          
-          
-            <a href="./02-components-design-2/code.html" class="res code-res">code</a>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-  
-  </div>
-
-  <!-- Create each week -->
-  <h4 class="anchored">Week 2</h4>
-  <div class="week-x-box">
-
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Jan 26</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Potential Outcomes</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <a href="03-potential-outcomes/3. Potential Outcomes.pdf" class="res boardwork-res">boardwork</a>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Jan 28</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Jan 30</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-  
-  </div>
-
-</div>
-
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-
+<ol class="example" type="1">
+<li><p><strong>Estimation under Imbalance</strong>. Consider the setting where we seek to estimate the Average Treatment Effect (ATE) using as our estimator the observed difference in the mean responses in the two groups, <span class="math inline">\(\overline{Y}_1 - \overline{Y}_0\)</span>. Let <span class="math inline">\(D_i\)</span> track whether unit <span class="math inline">\(i\)</span> receives the treatment (1) or the control (0) and let the set of indices in the treatment and control groups be be <span class="math inline">\(g1\)</span> and <span class="math inline">\(g0\)</span> respectively. Also let <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_0\)</span> be the number of units in each group.</p>
+<p>So far, we’ve analyzed the case where <span class="math inline">\(n_1 = n_2\)</span>, a case where the groups are <em>balanced</em>. What happens to the estimator when the groups are <em>unbalanced</em>?</p>
+<p>Determine whether or not the estimator is biased when <span class="math inline">\(n_1\)</span> is twice the size of <span class="math inline">\(n_0\)</span>. Units are assigned to groups by randomly shuffling the list of their unique identifiers and assigning the first <span class="math inline">\(n_1\)</span> to the treatment and the remaining to the control. If the estimator is biased, suggest an alternative bias-corrected estimator.</p></li>
+</ol>
 
 
 

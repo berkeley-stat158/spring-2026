@@ -1,8 +1,7 @@
 ---
 resources:
-- ../01-components-design-1/1. Components Of An Experiment.pdf
-- ../02-components-design-2/2. Components Of An Experiment 2.pdf
-- ../03-potential-outcomes/3. Potential Outcomes.pdf
+- \*\*/\*Starter.pdf
+- data/\*\*/\*.csv
 solutions: false
 title: Problem Set 1
 toc-title: Table of contents
@@ -100,6 +99,48 @@ toc-title: Table of contents
     estimator.
 
 
+
+------------------------------------------------------------------------
+
+**Sampling Distributions**. Consider the following schedule of potential
+outcomes corresponding to six students in the anchoring experiment.
+
+:::: cell
+``` {.r .cell-code}
+library(tidyverse)
+anchor_mini_sched <- tibble(Y_0 = c(15, 15, 19, 2, 10, 8),
+                            Y_1 = c(31, 22, 45, 20, 20, 15))
+anchor_mini_sched
+```
+
+::: {.cell-output .cell-output-stdout}
+    # A tibble: 6 × 2
+        Y_0   Y_1
+      <dbl> <dbl>
+    1    15    31
+    2    15    22
+    3    19    45
+    4     2    20
+    5    10    20
+    6     8    15
+:::
+::::
+
+4.  If the random assignment in the experiment involved assigning
+    indices to the students, randomly permuting a vector of three 1s and
+    three 0s, then assigning the units to either treatment (1) or
+    control (0) based on whether the index in the vector was a 1 or a 0,
+    what is the sampling distribution of $\widehat{ATE}$? Display the
+    distribution as a table with two columns (one for the value of the
+    RV, the other for the probability) and as a plot.
+
+5.  Using this sampling distribution, calculate the expected value and
+    variance of $\widehat{ATE}$.
+
+6.  What is the smallest number of permutations / partitions that you
+    need to consider in order to know the sampling distribution?
+
+------------------------------------------------------------------------
 
 The last few questions will be released by 1/31/26!
 

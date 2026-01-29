@@ -113,7 +113,7 @@ To read a `.csv` file into `R`, use the `read_csv()` function from
 ::: cell
 ``` {.r .cell-code}
 # load the data into R
-donations <- read_csv("https://stat158.berkeley.edu/spring-2026/labs/01-components-and-eda/donations.csv")
+donations <- read_csv("https://stat158.berkeley.edu/spring-2026/data/donations/donations.csv")
 ```
 :::
 

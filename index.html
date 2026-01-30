@@ -101,7 +101,36 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-this-week .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-week','listing-days',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-week","listing-days"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-this-week'] = new List('listing-this-week', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
+<script src="assets/scroll-branding.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -243,50 +272,193 @@ window.Quarto = {
 <p><img src="assets/stat158green.png" class="img-fluid" alt="Hex logo of Stat 158 showing a green bear." width="312"></p>
 </div>
 </div>
-<!-- :::{#this-week}
-::: -->
+<div id="listing-this-week" class="quarto-listing quarto-listing-container-custom">
+<style>
+
+.this-week {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 3.5rem;
+}
+
+.this-week::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  width: 4px;
+  border-radius: 2px;
+  background: #5dab4fc2;
+}
+
+.calendar {
+  padding-top: 1.5rem;
+}
+@media (max-width: 768px) {
+  .this-week .week-x-box {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+
+<!-- Create each week -->
+<div class="this-week">
+
+<div class="week-x-box">
+
+  <!-- Create each day -->
+  <div class="daily-sched">
+  <div class="date-cell">
+  <span>Jan 26</span>
+  </div>
+  <div class="daily-topic-cell">
+  <span class="daily-topic">Potential Outcomes</span>
+  </div>
+  <div class="items-cell">
+  <!-- Create btns for docs -->
+  <!-- ...docs listed under before-class key -->
+  
+  <!-- ...docs listed under in-class key -->
+  
+  <!-- ...docs listed directly under day item -->
+  
+    <div>
+    
+      
+        
+        
+        
+          <a href="03-potential-outcomes/3. Potential Outcomes.pdf" class="res boardwork-res">boardwork</a>
+        
+      
+    
+    </div>
+  
+  <!-- ...things that are due tomorrow -->
+  
+  </div>
+  </div>
+  
+
+  <!-- Create each day -->
+  <div class="daily-sched">
+  <div class="date-cell">
+  <span>Jan 28</span>
+  </div>
+  <div class="daily-topic-cell">
+  <span class="daily-topic">Sampling Distributions</span>
+  </div>
+  <div class="items-cell">
+  <!-- Create btns for docs -->
+  <!-- ...docs listed under before-class key -->
+  
+  <!-- ...docs listed under in-class key -->
+  
+  <!-- ...docs listed directly under day item -->
+  
+    <div>
+    
+      
+        
+        
+        
+          <a href="04-sampling-distributions/4. Sampling Distributions Starter.pdf" class="res boardwork-res">boardwork</a>
+        
+      
+    
+      
+        
+        
+        
+          <a href="./04-sampling-distributions/code.html" class="res code-res">code</a>
+        
+      
+    
+    </div>
+  
+  <!-- ...things that are due tomorrow -->
+  
+  </div>
+  </div>
+  
+
+  <!-- Create each day -->
+  <div class="daily-sched">
+  <div class="date-cell">
+  <span>Jan 30</span>
+  </div>
+  <div class="daily-topic-cell">
+  <span class="daily-topic">Testing</span>
+  </div>
+  <div class="items-cell">
+  <!-- Create btns for docs -->
+  <!-- ...docs listed under before-class key -->
+  
+  <!-- ...docs listed under in-class key -->
+  
+  <!-- ...docs listed directly under day item -->
+  
+  <!-- ...things that are due tomorrow -->
+  
+  </div>
+  </div>
+  
+
+</div>
+</div>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 <div id="listing-wall-calendar" class="quarto-listing quarto-listing-container-custom">
 <style>
-.calendar, .this-week {
+.calendar {
   padding-left: 15px;
   padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.calendar .week-x-box, .this-week .week-x-box {
+.week-x-box {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   min-height: 200px;
   gap: 8px;
 }
-.calendar .week-x-box .daily-sched, .this-week .week-x-box .daily-sched {
+.week-x-box .daily-sched {
   padding: 3px 8px 17px 8px;
   border-radius: 8px; 
   /* background-color: #F5F5F7; */
 }
-.calendar .week-x-box .daily-sched .date-cell, .this-week .week-x-box .daily-sched .date-cell {
+.week-x-box .daily-sched .date-cell {
   text-align: center;
   font-variant: small-caps;
   font-size: 0.8em;
-}
-.calendar .week-x-box .daily-sched .daily-topic-cell, .this-week .week-x-box .daily-sched .daily-topic-cell {
-  padding: .0rem .75rem .5rem .75rem; 
-}
-.calendar .week-x-box .daily-sched .daily-topic-cell .daily-topic, .this-week .week-x-box .daily-sched .daily-topic-cell .daily-topic {
-  font-size: 1.1em;
-}
-.calendar .week-x-box .daily-sched .items-cell, .this-week .week-x-box .daily-sched .items-cell {
-  padding-left: 12px;
-}
-.calendar .week-x-box .daily-sched .items-cell .before-in-class, .this-week .week-x-box .daily-sched .items-cell .before-in-class {
-  font-size: 0.8em;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.55)
 }
 
+.week-x-box .daily-sched .daily-topic-cell {
+  padding: .0rem .75rem .5rem .75rem; 
+}
+.week-x-box .daily-sched .daily-topic-cell .daily-topic {
+  font-size: 1.1em;
+  line-height: 1.25;
+}
+.week-x-box .daily-sched .items-cell {
+  padding-left: 12px;
+}
+.week-x-box .daily-sched .items-cell .before-in-class{
+  font-size: 0.8em;
+}
 .assignment-list {
   font-size: 0.8em;
 }
-
 @media (max-width: 768px) {
-  .calendar .week-x-box, .this-week .week-x-box {
+  .week-x-box {
     grid-auto-flow: row; /* Ensures it flows in one column */
     grid-template-columns: 1fr;
   }
@@ -321,13 +493,29 @@ window.Quarto = {
 /* if you uncomment the next line you can see the design. */
 /* .daily-sched   { --unit-color: #d74d57; } */
 
-.daily-sched{
+.daily-sched {
   position:relative;
-  border-radius:10px; background:#f6f7f9; overflow:hidden;
+  border-radius:10px;
+  background: #f3f4f6;
+  overflow:hidden;
+}
+
+.calendar .daily-sched {
+  opacity: 0.92;
+}
+
+.daily-sched:hover {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .daily-sched:hover {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
 }
 
 /* diagonal corner ribbon */
-.daily-sched::after{
+.daily-sched::after {
   content:"";
   position:absolute; top:0; right:0;
   width:0; height:0;
@@ -345,7 +533,7 @@ window.Quarto = {
 <div class="calendar">
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 1</h4>
+  <!-- <h4>Week 1</h4> -->
   <div class="week-x-box">
 
   
@@ -454,7 +642,7 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 2</h4>
+  <!-- <h4>Week 2</h4> -->
   <div class="week-x-box">
 
   
@@ -563,7 +751,7 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 3</h4>
+  <!-- <h4>Week 3</h4> -->
   <div class="week-x-box">
 
   
@@ -640,7 +828,7 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 4</h4>
+  <!-- <h4>Week 4</h4> -->
   <div class="week-x-box">
 
   

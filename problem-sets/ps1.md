@@ -142,7 +142,32 @@ anchor_mini_sched
 
 ------------------------------------------------------------------------
 
-The last few questions will be released by 1/31/26!
+
+
+7.  **Testing Anchoring**. Conduct a hypothesis test that the first
+    question on the Anchoring Experiment had no effect on the guess for
+    the percent of UN Nations that are in Africa. Use $\alpha = .05$,
+    consider only the randomness induced by the random assignment to X =
+    11 or X = 73, use the sharp null hypothesis, use the difference in
+    group means as your statistic, and use a two-tailed test.
+    Approximate the sampling distribution of the test statistic by first
+    creating the schedule of outcomes implied by the null hypothesis,
+    then use the `rand_test()` function in the code sample from lecture
+    to calculate 1000 test statistics under the null.
+
+    Provide the code that you used, a plot of the sampling distribution
+    (a.k.a. the null distribution), the p-value, and a clearly written
+    interpretation about what this analysis says about our original
+    research question.
+
+    Use the full anchoring data set collected on the first day of class:
+
+    ::: cell
+    ``` {.r .cell-code}
+    library(tidyverse)
+    anchoring <- read.csv("https://stat158.berkeley.edu/spring-2026/data/anchoring/anchoring.csv")
+    ```
+    :::
 
 [^1]: This is a revised version of question 4.E.5 from Cobb,
     `\emph{Introduction to Design and Analysis of Experiments}`{=tex},

@@ -310,7 +310,16 @@ window.Quarto = {
 <li><p>What is the smallest number of permutations / partitions that you need to consider in order to know the sampling distribution?</p></li>
 </ol>
 <hr>
-<p>The last few questions will be released by 1/31/26!</p>
+<div style="page-break-after: always;"></div>
+<ol start="7" class="example" type="1">
+<li><p><strong>Testing Anchoring</strong>. Conduct a hypothesis test that the first question on the Anchoring Experiment had no effect on the guess for the percent of UN Nations that are in Africa. Use <span class="math inline">\(\alpha = .05\)</span>, consider only the randomness induced by the random assignment to X = 11 or X = 73, use the sharp null hypothesis, use the difference in group means as your statistic, and use a two-tailed test. Approximate the sampling distribution of the test statistic by first creating the schedule of outcomes implied by the null hypothesis, then use the <code>rand_test()</code> function in the code sample from lecture to calculate 1000 test statistics under the null.</p>
+<p>Provide the code that you used, a plot of the sampling distribution (a.k.a. the null distribution), the p-value, and a clearly written interpretation about what this analysis says about our original research question.</p>
+<p>Use the full anchoring data set collected on the first day of class:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>anchoring <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/anchoring/anchoring.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+</ol>
 
 
 

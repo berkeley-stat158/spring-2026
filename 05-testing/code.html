@@ -621,7 +621,7 @@ window.Quarto = {
 <span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(stats)</span>
 <span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Here’s a demonstation of how this version works.</p>
+<p>Here’s a demonstation of how this version works. The order of the elements in <code>d_i</code> do not matter but the total number and type do: they illustrate the size of the different groups.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>stats <span class="ot">&lt;-</span> <span class="fu">rand_stats</span>(<span class="at">schedule =</span> my_null_sched, <span class="at">d_i =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -629,7 +629,7 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">abs</span>(stats) <span class="sc">&gt;</span> ATE_obs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.093</code></pre>
+<pre><code>[1] 0.088</code></pre>
 </div>
 </div>
 
@@ -1310,7 +1310,7 @@ window.Quarto = {
 <span id="cb41-254"><a href="#cb41-254" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb41-255"><a href="#cb41-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb41-256"><a href="#cb41-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-257"><a href="#cb41-257" aria-hidden="true" tabindex="-1"></a>Here's a demonstation of how this version works.</span>
+<span id="cb41-257"><a href="#cb41-257" aria-hidden="true" tabindex="-1"></a>Here's a demonstation of how this version works. The order of the elements in <span class="in">`d_i`</span> do not matter but the total number and type do: they illustrate the size of the different groups.</span>
 <span id="cb41-258"><a href="#cb41-258" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-261"><a href="#cb41-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb41-262"><a href="#cb41-262" aria-hidden="true" tabindex="-1"></a>stats <span class="ot">&lt;-</span> <span class="fu">rand_stats</span>(<span class="at">schedule =</span> my_null_sched, <span class="at">d_i =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ps – STAT 158</title>
+<title>Initial Proposal Guidelines – STAT 158</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -108,35 +73,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="../assets/scroll-branding.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../assets/neural.css">
 </head>
@@ -162,7 +98,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/overview.html">Project</a></li><li class="breadcrumb-item"><a href="../project/proposal.html">Proposal</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -210,7 +146,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/proposal.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/proposal.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Proposal</span></a>
   </div>
 </li>
@@ -263,22 +199,88 @@ window.Quarto = {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/overview.html">Project</a></li><li class="breadcrumb-item"><a href="../project/proposal.html">Proposal</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Initial Proposal Guidelines</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<ol class="example" type="1">
-<li><p><strong>Testing Anchoring</strong>. Conduct a hypothesis test that the first question on the Anchoring Experiment had no effect on the guess for the percent of UN Nations that are in Africa. Use <span class="math inline">\(\alpha = .05\)</span>, consider only the randomness induced by the random assignment to X = 11 or X = 73, use the sharp null hypothesis, use the difference in group means as your statistic, and use a two-tailed test. Approximate the sampling distribution of the test statistic by first creating the schedule of outcomes implied by the null hypothesis, then use the <code>rand_test()</code> function in the code sample from lecture to calculate 1000 test statistics under the null.</p>
-<p>Provide the code that you used, a plot of the sampling distribution (a.k.a. the null distribution), the p-value, and a clearly written interpretation about what this analysis says about our original research question.</p>
-<p>Use the full anchoring data set collected on the first day of class:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>anchoring <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/anchoring/anchoring.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></li>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Start off by reviewing the General Project Guidlines for a start on brainstorming an idea for an experiment. You’re aiming to be able to propose an experiment that takes a form like: “we intend to study X and measure Y and for different runs we could change Z”. That’s to say, you’ll need to decide on your experimental unit, your response, and conditions of interest.</p>
+<p>Here are some tasks I suggest doing to evaluate whether you’re on the right track with your topic (these are in no particular order):</p>
+<ol type="1">
+<li><p>Do a few runs (e.g.&nbsp;5-8) under a single, fixed set of conditions. By a run, I mean perform the experiment and measure the outcome. You should stash this data away: later, in the protocol stage, you may be able to use this data to help calculate more precisely how many units you will reasonably need, which would avoid having to do it again later. If your experimental unit is a person, you should try one person doing it several times, and then switch to someone else doing it several times. It’s not a bad idea to also change the condition of interest, but make sure you get 5-8 runs where everything is the same. If you can’t reasonably do 5-8 runs in preparation for this proposal, you may have picked a topic that you won’t have time for in the constraints of this project.</p></li>
+<li><p>Assess how much measurement variability there seems to be, intuitively. If you see that the measurements of the same unit under the same conditions vary rather a lot this is a warning sign. It might indicate some factors that you need to control more carefully to get more precise measurements. Or it may be intrinsically a highly variable measurement either from person to person or even on the same person/unit. In other words, your response has poor <em>reliability</em>. Think of measuring how far a basketball bounced or how much someone likes something using a scale of 1-5: these are things that the measurement could change a lot even if the thing you are measuring hasn’t changed. In this case, if you’ve chosen conditions that you think will have only a small effect on the response relative to this level of variability, you will need a lot of observations to feel confident.</p></li>
+<li><p>Try to identify other possible factors that could affect the response, other than your initial conditions of interest (your trial runs may help you here). When you identify such factors, you should characterize them as:</p>
+<ul>
+<li>Factors that might be of interest in manipulating to see how they affect your response. In this case, you would add them to your design to include them as a condition of interest (this would require them to be experimental factors). Remember only around 3 conditions of interest, so you need to be choosy about what’s both interesting to you and what might have an effect.</li>
+<li>Factors that can be reasonably made exactly the same in every experiment by carefully controlling the conditions of the experiment (these could be factors above that aren’t interesting to you to manipulate as a condition of interest).</li>
+<li>If you cannot reasonably make these factors the same across all runs (e.g.&nbsp;for an experiment that necessitates being run over several days, it will not be possible to make the day the same) or if you think that doing so would make the conclusions less relevant if you forced them to be the same (e.g.&nbsp;limiting to men or women might make your results less relevant or create too small of a sample size), then these factors are candidates for becoming blocking factors when you make your final decision about the design. Often these factors are either: 1) something you can’t experimentally manipulate (e.g.&nbsp;the sex or major of a person) or 2) Some thing you can assign but can’t easily make it the same across experiments (like time of day of the experiment), but it is not interesting to systematically measure the effect by choosing certain levels.</li>
+</ul></li>
+<li><p>Think about the feasibility of the experiment (again your trial runs will help). Can you finish this in a timely fashion? Do you have the materials? If you have subjects, where will they come from? If you plan to use the section time at the end of the semester to get subjects, can you run the <em>entire</em> experiment <em>in the classroom</em> in the time allotted (see note below for a general description of how experiments are run during section). And finally, is this still the experiment you want?</p></li>
 </ol>
+<p>Don’t get too caught up into intricate details of every element you need to take account. Also don’t give up too easily if there’s some complications (a lot of picking a design is working around obstacles) but identifying insurmountable ones is important.</p>
+<section id="how-are-experiments-run-in-section" class="level3">
+<h3 class="anchored" data-anchor-id="how-are-experiments-run-in-section">How are experiments run in section?</h3>
+<p>You do not get to have the entire section sit down at the same time and do your experiment <em>en masse</em>. The important thing for feasibility is that these experiments must be feasible for being run one subject at a time, and you have to be able to get all the subjects you need from the class. Experiments run in section will be generally run in parallel (i.e.&nbsp;at the same time in the same room so consider if the noise is a problem). Half the experiments are run in the first 1/2 of section. Those not currently running their own experiments will rotate among other experiments and act as subjects.</p>
+</section>
+<section id="structure-of-proposal" class="level3">
+<h3 class="anchored" data-anchor-id="structure-of-proposal">Structure of Proposal</h3>
+<p>Your proposal should be in paragraph format. You should not include lists or bullet points unless you are describing steps in a process; if you want to briefly summarize material, make it into a nicely formatted table to which you can refer in your text. You can make sections to correspond to the elements below, as relevant.</p>
+<ol type="1">
+<li><p>Start with a short description of the basic experiment. This should briefly (in 1-2 sentences) describe the core parts of the experiment without getting in to the detail described below (e.g.&nbsp;“We plan evaluate the effect of x, y, and z on a subject’s ability to xxx by observing abc”.)</p></li>
+<li><p><strong>Background</strong> of the experiment:</p>
+<ul>
+<li>Statement of the specific “scientific” question your experiment will address. The “scientific” question can be about what affects the performance of bike, or the threading of a needle. It does not need to be of general importance to the rest of the world. Your scientific question is important in how we judge whether you made reasonable choices in your experiment and if you appropriately discuss your experiment: e.g.&nbsp;are your conditions relevant your question? Is your response reasonable for your question? Everything in the experiment proposal should be coherent and framed around this question.</li>
+<li>Explanation as to why you want to conduct this particular experiment. Why does it interest you? Even if you are adapting known experiments, there should have a personal reason or interest to your group and an underlying question that you want to address. I want you to explain both the question for the experiment and where it came from. For example, “our group members want to know what things impact our ability to study for final exams, of which an important component is the ability to memorize a large number of facts in a short period of time.” is the flavor of what I want. This is your general motivation (“study for final exams”) and the specific question you are trying to answer with your experiment (“what affects our ability to memorize lots in a little time”). Try to avoid vague, general statements like “Memory is a fascinating subject, but what influences memory? How do we memorize things? Can humans improve their ability to memorize?” and be clear and concise about what drove you to select the specifics of the experiment.</li>
+<li>If you are extending experiment ideas that you have seen in class or in a book, include a reference to the literature on the subject.</li>
+</ul></li>
+<li><p>Give more <strong>details</strong> of the experiment. These should include the following information:</p>
+<ul>
+<li>Describe the basic components of the design you have chosen, including the conditions of interest you want to manipulate (at least 3), the levels of the conditions, what type of material the conditions are being applied to (people, pots of food, paper, etc), the response, and the data type of the response (and it must be a data type that is appropriate to ANOVA). Each condition of interest should be experimental. If there is an observational condition of interest (e.g.&nbsp;sex or major might be relevant for a person), you may find that they would be logical blocking variables down the road and in this way included.</li>
+<li>Describe why these are the components you have chosen. The reasons for the conditions you chose should be a combination of interest and why you have a reasonable expectation that they might affect the response. The `interest’ of a condition can be personal, but should also be related to your general guiding question. %– sitting outside by a rippling brook while taking a timed math test conceivably may affect the performance, but doesn’t have any relation to a scientific question that involves what things affect your ability to take tests in a classroom since that’s not a choice you have in taking a test.</li>
+<li>Describe a single run, in general terms (e.g.&nbsp;`at each run, the experimental conditions will be set and a subject will be shown a list of 30 words and asked to identify as many words that are green as possible in a 20 second interval’). You do not need to specify the precise nature of how the subjects will be assigned to a particular treatment, as that will be part of the design proposal. But you need to give a general picture of what the experiment will be so that I can evaluate it.</li>
+</ul></li>
+<li><p>Discuss the <strong>feasibility</strong> of running this experiment. Depending on your experiment, this can involve addressing one or more of the following questions.</p>
+<ul>
+<li>Where you will get your subjects? If you plan to use the time in section for running experiments in section, you can state that, but then you need to address the feasibility of running your experiment in the classroom and if the classroom population has the appropriate characteristics for this experiment (e.g.&nbsp;if you need Spanish language speakers, the sections of 158 are unlikely to have enough of such people to be able to run the experiment).
+<ul>
+<li>How long will it take for a single run of your experiment (i.e.&nbsp;the time to get a single treatment applied to a unit and observe a single response)? Will you have to break up the experiment into smaller portions? (If so, this introduces other relevant factors that you need to address in the next section)</li>
+<li>Where are you going to get the materials needed for your experiment?</li>
+</ul></li>
+</ul></li>
+<li><p>Discussion of <strong>possible issues</strong> with the experiment. This section will reflect what you have learned and thought about your experiment based on the exercises I asked you to do above. You should include:</p>
+<ul>
+<li>A discussion of the validity of the response. Please remember that validity of a response refers to how relevant any changes you detect in the response are to answering the scientific question. It should not be a discussion of how reasonable it is to draw conclusions from your units/subjects to the general population. It should be a reflection about the response you chose and how it relates to your scientific question.</li>
+<li>A discussion of the reliability of the response. This involves assessing the inherent measurement variability of the response – how accurately will your measurement of the response reflect the actual thing you are measuring? This discussion should also reflect your experience from your trial runs. You can report quantities from your trial runs to help quantify the variability, but please offer context and discussion rather than just reporting a number.</li>
+<li>You should also include discussion of other possible factors beyond the conditions of interest you identified. You should characterize them as described above - factors you can control and factors that are candidates for blocking.</li>
+</ul></li>
+</ol>
+<p>In your initial proposal please do not:</p>
+<ul>
+<li>State what kind of design you will have</li>
+<li>Decide how many people/units you will have</li>
+<li>State what your experimental units will be (you need your design to say that); you can say what your measurement units and materials would be for a single run, but experimental units are defined by how you assign your treatments, which you are not describing here.</li>
+<li>Describe how you will assign treatments to units [no discussion of randomization, etc.]</li>
+</ul>
+<p>These questions will be addressed in detail in the design proposal.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

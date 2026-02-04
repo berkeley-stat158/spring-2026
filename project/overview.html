@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ps – STAT 158</title>
+<title>Experimental Design Project Overview – STAT 158</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -108,35 +73,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="../assets/scroll-branding.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../assets/neural.css">
 </head>
@@ -162,7 +98,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/overview.html">Project</a></li><li class="breadcrumb-item"><a href="../project/overview.html">Overview</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -204,7 +140,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/overview.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
@@ -263,22 +199,105 @@ window.Quarto = {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/overview.html">Project</a></li><li class="breadcrumb-item"><a href="../project/overview.html">Overview</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Experimental Design Project Overview</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<ol class="example" type="1">
-<li><p><strong>Testing Anchoring</strong>. Conduct a hypothesis test that the first question on the Anchoring Experiment had no effect on the guess for the percent of UN Nations that are in Africa. Use <span class="math inline">\(\alpha = .05\)</span>, consider only the randomness induced by the random assignment to X = 11 or X = 73, use the sharp null hypothesis, use the difference in group means as your statistic, and use a two-tailed test. Approximate the sampling distribution of the test statistic by first creating the schedule of outcomes implied by the null hypothesis, then use the <code>rand_test()</code> function in the code sample from lecture to calculate 1000 test statistics under the null.</p>
-<p>Provide the code that you used, a plot of the sampling distribution (a.k.a. the null distribution), the p-value, and a clearly written interpretation about what this analysis says about our original research question.</p>
-<p>Use the full anchoring data set collected on the first day of class:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>anchoring <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/anchoring/anchoring.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></li>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>For this project, you are to design, carry out, analyze, and report on the results of an experiment. You will work in groups of three on this project.</p>
+<section id="guidelines-for-the-experiment" class="level3">
+<h3 class="anchored" data-anchor-id="guidelines-for-the-experiment">Guidelines for the experiment</h3>
+<p>The best projects are often inspired by students’ everyday lives. Successful past projects have included finding the best places for cellphone reception and finding the best position for holding chopsticks for different tasks. Students sometimes propose experiments that try to vary some kind well-known experiment from psychology (e.g.&nbsp;the Stroop effect). This is allowable if you adapt the experiment rather than just rerun it.</p>
+<p>Avoid experiments that are “testing” things to which you would be reasonably expected to know the answer. Bad examples: Is a water balloon more likely to pop thrown from a height of 3 feet or 6 feet? Does oatmeal heat up faster if there is only a little in the pan? Basic physical phenomena are often bad candidates unless you add a personal element to them that makes them have a unique behavior for which the answer cannot be found on Wikipedia. Also do not propose to test things that a reasonable person wouldn’t expect to affect the response, unless you really have personal knowledge to suggest otherwise. Bad example: Does the color of a balloon affect how easy it is to pop?</p>
+<p>Make sure that you are proposing something feasible in the time limits you have. A single observation from the experiment should not take more than a few minutes to observe and measure, in general. Do not propose projects that are dangerous, that involve the violation of laws or University policies, or that could be expected to cause harm to people or property.</p>
+</section>
+<section id="stages-of-the-project" class="level3">
+<h3 class="anchored" data-anchor-id="stages-of-the-project">Stages of the Project</h3>
+<section id="stage-1-initial-proposal" class="level4">
+<h4 class="anchored" data-anchor-id="stage-1-initial-proposal">Stage 1: Initial Proposal</h4>
+<p>Write a brief proposal for an experiment where you describe the question you are trying to address, the specific response, conditions, and units you are plan to use. At this point, we will not have covered the specific designs you are to pick from, and so you will not know for certain how many conditions the relevant designs need. You should give at least three conditions you wish to consider.</p>
+<p>The lab session during the final week of classes will be required for all students and will be devoted to running experiments for those experiments that need subjects (i.e.&nbsp;humans) as its unit. However, if this is the case for your experiment, you must have an experiment that can be run in the confines of the classroom and in the time limits such that you can get through the necessary subjects during the section. If you plan to use subjects that are not from the sections, you must clearly explain where these subjects will come from, and have volunteers already agreed and a date set for the experiment.</p>
+<p>In preparation for the design stage, you should also run and record several replications of your experiment with a single set of conditions so as to get an idea of the measurement error/replicability of your experiment and how long it takes. This will be essential for power calculations in the next stage. You should not be actually running your full experiment.</p>
+<p>The point of the initial proposal is to consider carefully the feasibility of your design. We will evaluate each proposal, and if we think that the proposal is either too ambitious (or not ambitious enough – think about the balloon examples above), we will send you back to the drawing board. You should think of this proposal as your opportunity to convince us to allow your experiment to go forward.</p>
+<p>After writing the initial proposal, if you do not think your group will work together well this is the best time to come to us because we can reassign people and form new groups. After this point, it will be difficult to change the project members.</p>
+</section>
+<section id="stage-2-design-proposal" class="level4">
+<h4 class="anchored" data-anchor-id="stage-2-design-proposal">Stage 2: Design Proposal</h4>
+<p>In this proposal, you should now give specific description of the design you will use to carry out your experiment. The experiment should be one of the following designs that we will learn about during the semester:</p>
+<ol type="1">
+<li>A replicated Latin Squares design (only one factor of interest necessary, but at least 4 levels for the factor): repeated LS[1]</li>
+<li>A Split Plot / Repeated Measures design (only one factor of interest necessary for a block, and one for subunits within block): SP/RM[1,1]</li>
+<li>A Complete Block design or Generalized Complete Block Design with at least two factors of interest: (CB[2])</li>
+<li>A basic factorial design with at least 3 factors of interest, with at least one factor with more than levels (&gt;2) and relevant contrasts between the levels beyond all pairwise.</li>
 </ol>
+<p>For this proposal, you should specify the important components of your design: what are your specific treatments, what type of design will you use, how many units do you need for this design, how you will assign your units to treatments. You need to justify the design decisions you make. You should imagine you were asking me for money to fund your experiment – what would I want to know before I gave you money?</p>
+<p>We will again evaluate each proposal and may require you to redo the proposal, if, for example, we think another design more naturally fits your data or if you seem to be misunderstanding the components of the design.</p>
+</section>
+<section id="stage-3-protocol" class="level4">
+<h4 class="anchored" data-anchor-id="stage-3-protocol">Stage 3: Protocol</h4>
+<p>Write up a protocol for your experiment. This should include a detailed set of instructions for how to carry out the experiment, including an explicit assignment of treatments to the units which you should report. Also describe possible sources of variation and how they have been controlled and be prepared for what to do if there was a non-response or missing run.</p>
+<p>Conduct a dry run of the experiment based on this protocol, and revise your protocol based on your findings. Describe what happened in your dry run and how you chose to address the issues that arose.</p>
+</section>
+<section id="stage-4-experiment" class="level4">
+<h4 class="anchored" data-anchor-id="stage-4-experiment">Stage 4: Experiment</h4>
+<p>Conduct your experiment. Record your results carefully, and note any unusual occurrences in the experimental process. For example, if your experiment is conducted outside over several days, you might want to record the temperature and whether or not it was rainy that day, even if those were not factors in your original design structure. Or, if a run was interrupted and continued later or abandoned, record what happened. Your should record this information on a spreadsheet or a piece of paper, with a table that looks something like this:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Run</th>
+<th>Block Level</th>
+<th>Factor Level</th>
+<th>Response</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>15.5</td>
+<td>interrupted</td>
+</tr>
+</tbody>
+</table>
+<p>These are what I refer to as your lab notes that you <em>must</em> include in your writeup.</p>
+</section>
+<section id="stage-5-final-report" class="level4">
+<h4 class="anchored" data-anchor-id="stage-5-final-report">Stage 5: Final Report</h4>
+<p>Enter your data into R and analyze it using graphical techniques as well as the appropriate inferential methods. Write a report as a format technical document. If you have done well on the previous components, you should be able to reuse much of the material written for the previous stages.</p>
+</section>
+<section id="stage-6-self-evaluation" class="level4">
+<h4 class="anchored" data-anchor-id="stage-6-self-evaluation">Stage 6: Self-evaluation</h4>
+<p>Each member of the group must individually submit a description of how the work was distributed throughout the project. You should describe specifically the organization strategy you took in the project (see suggestions below). These do not need to be formal, but should be about 2-3 paragraphs.</p>
+<p>If there is a problem with one of the group members, this is a time you can describe it, though it is better to bring it up with me before this point.</p>
+</section>
+</section>
+<section id="suggestions-for-organizing-your-project" class="level3">
+<h3 class="anchored" data-anchor-id="suggestions-for-organizing-your-project">Suggestions for Organizing Your Project</h3>
+<p>If you are having problems working with someone in the group, please come and talk to us as soon as possible.</p>
+<p>Students in the past have found Google Docs to be a good tool for people to be able to work on a document jointly, minimizing the need to pass around a document by email.</p>
+<p>There might be a temptation to delegate each component of the project (design, analysis, writing) to a different group member. We strongly advise against this as it often leads to disjointed projects. The writing of the final report is a task that can be well-divided among group members but the design and analysis should be done jointly.</p>
+<p>A possible way to avoid all of the organizational duties falling to one person: at the beginning, assign someone for each of the stages (1-5) to be the organizer for that stage. This person will send out emails reminding everyone of duties, pressure everyone to get their part done, do a final check that the required writeup is not missing any requested components, etc. The final writeup is probably more work to organize, so for a group of 3, I would suggest that the organizer for stages 1-4 alternate between two people, and stage 5 be the third person.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

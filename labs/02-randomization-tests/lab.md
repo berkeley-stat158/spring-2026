@@ -2,7 +2,8 @@
 execute:
   eval: false
 resources:
-- framing.csv
+- \*\*/\*Starter.pdf
+- data/\*\*/\*.csv
 subtitle: Building an Experiment and Statistical Tests
 title: "Lab: Framing"
 toc-title: Table of contents
@@ -135,7 +136,7 @@ library(tidyverse)
 ::: cell
 ``` {.r .cell-code}
 # load the data into R
-framing <- read_csv("https://stat158.berkeley.edu/spring-2026/data/donations/framing.csv")
+framing <- read_csv("https://stat158.berkeley.edu/spring-2026/data/framing/framing.csv")
 ```
 :::
 

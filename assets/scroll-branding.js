@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (navbarBrand && !document.querySelector('.navbar-brand-logo')) {
         const logoElement = document.createElement('div');
         logoElement.className = 'navbar-brand-logo';
-        logoElement.innerHTML = '<img src="assets/stat158logo_small_green.png" alt="STAT 133 Logo">';
+        logoElement.innerHTML = '<img src="/assets/stat158logo_small_green.png" alt="STAT 158 Logo">';
         navbarBrand.appendChild(logoElement);
     }
 

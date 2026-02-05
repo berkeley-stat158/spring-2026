@@ -152,7 +152,7 @@ anchor_mini_sched
     group means as your statistic, and use a two-tailed test.
     Approximate the sampling distribution of the test statistic by first
     creating the schedule of outcomes implied by the null hypothesis,
-    then use the `rand_test()` function in the code sample from lecture
+    then use the `rand_stats()` function in the code sample from lecture
     to calculate 1000 test statistics under the null.
 
     Provide the code that you used, a plot of the sampling distribution

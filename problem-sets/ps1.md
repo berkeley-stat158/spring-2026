@@ -2,7 +2,6 @@
 resources:
 - \*\*/\*Starter.pdf
 - data/\*\*/\*.csv
-solutions: false
 title: Problem Set 1
 toc-title: Table of contents
 ---
@@ -134,8 +133,12 @@ anchor_mini_sched
     distribution as a table with two columns (one for the value of the
     RV, the other for the probability) and as a plot.
 
+<!-- -->
+
 5.  Using this sampling distribution, calculate the expected value and
     variance of $\widehat{ATE}$.
+
+<!-- -->
 
 6.  What is the smallest number of permutations / partitions that you
     need to consider in order to know the sampling distribution?

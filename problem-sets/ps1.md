@@ -17,7 +17,7 @@ toc-title: Table of contents
     permission for the vaccine as a control group and gave the vaccine
     to everyone who got permission. In what ways do you think the
     treatment and control groups are likely to be different? How might
-    that make it more challenging to identify the casual factor?
+    that make it more challenging to identify the causal factor?
 
 
 

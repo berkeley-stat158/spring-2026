@@ -1,0 +1,116 @@
+---
+execute:
+  eval: false
+resources:
+- \*\*/\*Starter.pdf
+- data/\*\*/\*.csv
+title: Problem Set 2
+toc-title: Table of contents
+---
+
+1.  **Cancer and Group Therapy**. Researchers randomly assigned
+    metastatic breast cancer patients to either a control group or a
+    group that received weekly 90-minute sessions of group therapy and
+    self-hypnosis. The group therapy involved discussion and support for
+    coping with the disease. The goal of the experiment was to see
+    whether the latter treatment improved the patients' quality of life
+    at the time, but a followup study on these patients collected data
+    on the number of months of survival after the beginning of the
+    study[^1].
+
+    You can access the data from this study using the following code.
+
+    ::: cell
+    ``` {.r .cell-code}
+    library(tidyverse)
+    cancer <- read.csv("https://stat158.berkeley.edu/spring-2026/data/breast-cancer/breast-cancer.csv")
+    ```
+    :::
+
+    `GROUP` is the original group assigned to the subject. `SURVIVAL` is
+    the survival time in months from the beginning of the study. At the
+    time the survival data was collected (10 years later), some subjects
+    were still alive. They are flagged in the `CENSOR` column. Data (in
+    this case survival time) that can only be known up to some bound is
+    called *censored*.
+
+    a.  Choose an effective way to visualize the data and present the
+        plot. Comment on what you see.
+    b.  Is there evidence of an effect of the group therapy on survival
+        time?
+        i.  Answer this using randomization inference and two different
+            test statistics: the difference in means and the difference
+            in medians[^2].
+        ii. Answer this using model-based inference using a two-sample
+            t-test using the pooled estimate of the standard
+            deviation[^3].
+        iii. Compare the methods by first describing the different ways
+             they conceive of randomness and then comparing the results
+             and what they say about the research question.
+    c.  When conducting Randomization Based Inference, as you did above,
+        what group of units does the inference directly apply to? Said
+        another way, the parameter under study is a function of which
+        group of units?
+    d.  What problems do you see with having censored data and what
+        problem could it *potentially* create for your analysis? Do you
+        think it has affected your conclusions for this particular
+        dataset?
+
+
+
+2.  **Statistical Errors in Testing**. Consider the study of whether
+    group therapy can have an effect on breast cancer survival.
+
+    a.  What would constitute a type I error?
+    b.  What would constitute a type II error?
+    c.  Why do statistical errors in testing take place? Is there any
+        way to completely eliminate them?
+
+3.  **The Levers of Power**. Consider the study of whether group therapy
+    can have an effect on breast cancer survival.
+
+    a.  What is statistical power in this context?
+    b.  Imagine you were advising the researchers who planning to study
+        this question. What are four different parameters that effect
+        the power that they could consider optimizing? Realizing that
+        they have practical constraints on what they can do, what
+        guidance can you give for selecting values of those parameters?
+
+
+
+4.  **Anchoring Power Curve (function of effect size)**. A power curve
+    shows, for a particular experiment, the relationship between some
+    parameter in the experiment and the statistical power. In
+    Randomization-Based Inference, they are approximated point-by-point,
+    calculating the power for different values of one parameter while
+    keeping the others fixed.
+
+    Create a power curve that shows the relationship between the effect
+    size (as measured by $\tau$, a "constant shift" ITE) and the power
+    for the Anchoring Experiment. Recall this is a two-tailed test
+    conducted at $\alpha = .05$. Fix the sample size at the values
+    observed in the data. Consider at least five values for $\tau$
+    between 0 and 20 (you're encouraged to consider more values and
+    consider negative values). Put those values of $\tau$ along the
+    x-axis and the corresponding values of power on the y-axis.
+
+    *Tip: this exercise will require a lot of code unless you wrap
+    stretches of it in functions. See the last slides from class for
+    functions that you're welcome to use (if you'd like more practice,
+    try writing your own first)*.
+
+
+
+More questions will be added to this PS with each passing lecture!
+
+[^1]: Data from Q 4.31 in *Statistical Sleuth*.
+
+[^2]: You can augment the `rand_stats()` function to take
+    `stat = c("diff in mean", "diff in medians")` as an argumnent and
+    then copy and modify the `if` block to calculate the appropriate
+    statistic when `stat == "diff in medians"`.
+
+[^3]: This should be a review from your course in Statistical Inference.
+    If you need a brush up, see
+    <https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm>
+    and `?t.test` in R.

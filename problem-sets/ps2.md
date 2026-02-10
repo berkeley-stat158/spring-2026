@@ -66,15 +66,17 @@ toc-title: Table of contents
     c.  Why do statistical errors in testing take place? Is there any
         way to completely eliminate them?
 
+<!-- -->
+
 3.  **The Levers of Power**. Consider the study of whether group therapy
     can have an effect on breast cancer survival.
 
     a.  What is statistical power in this context?
-    b.  Imagine you were advising the researchers who planning to study
-        this question. What are four different parameters that effect
-        the power that they could consider optimizing? Realizing that
-        they have practical constraints on what they can do, what
-        guidance can you give for selecting values of those parameters?
+    b.  Imagine you were advising the researchers as they were planning
+        their study. What are four different parameters that effect the
+        power that they could consider optimizing? Realizing that they
+        have practical constraints on what they can do, what guidance
+        can you give for selecting values of those parameters?
 
 
 

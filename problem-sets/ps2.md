@@ -103,7 +103,36 @@ toc-title: Table of contents
 
 
 
-More questions will be added to this PS with each passing lecture!
+5.  **Practice with the t**.[^4] Create a visualization of each of the
+    following functions. Ensure the axes are labelled in an informative
+    manner and add appropriate titles. Choose x-axis limits that focus
+    on the most interesting part of the functions.[^5]
+
+    a.  The probability density function (PDF) of the $t$ distribution
+        with 4 degrees of freedom with vertical lines marking the .025
+        and .975 quantiles of the distribution.
+    b.  The cumulative distribution function (CDF) of the $t$
+        distribution with 4 dsegrees of freedom.
+    c.  The PDF of the non-central $t$ distribution with 4 degrees of
+        freedom and a non-centrality parameter of .3.
+
+<!-- -->
+
+6.  **Anchoring Model-Based Power Curve (function of effect size)**.
+
+    a.  Using the $t$ distribution, create a power curve that shows, for
+        the Anchoring Experiment, the relationship between the effect
+        size (as measured by $\mu_1 - \mu_0$) and the power for a
+        two-tailed test conducted at $\alpha = .05$. Fix the sample size
+        at the values observed in the data and use 400 as your value of
+        $s^2_p$.
+
+    b.  At what effect size does the power reach .8?
+
+    c.  *Optional Challenge:* Overlay the power curve you created in
+        part a with the power curve you via randomization-based
+        inference in the previous exercise. Do they look similar? If
+        not, can you explain why not?
 
 [^1]: Data from Q 4.31 in *Statistical Sleuth*.
 
@@ -116,3 +145,15 @@ More questions will be added to this PS with each passing lecture!
     If you need a brush up, see
     <https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm>
     and `?t.test` in R.
+
+[^4]: In R, for the $t$ distribution, the PDF is `dt()`, the quantile
+    function is `qt()`, and the CDF is `pt()`. There are analogously
+    named functions for all common named probability distributions,
+    e.g. `dbinom()` and `pnorm()`.
+
+[^5]: An easy way to plot functions in R is to create a data frame with
+    a column `x` that has a sequence of many evenly-spaced values along
+    the x-axis (try 100 values). You can then add additional columns for
+    each function of `x` that you wish to visualize. You can plot a pair
+    of those columns against one another and connect the points with a
+    line.

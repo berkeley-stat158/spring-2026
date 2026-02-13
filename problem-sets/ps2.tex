@@ -356,7 +356,64 @@
 
 \newpage{}
 
-More questions will be added to this PS with each passing lecture!
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  \textbf{Practice with the t}.\footnote{In R, for the \(t\)
+    distribution, the PDF is \texttt{dt()}, the quantile function is
+    \texttt{qt()}, and the CDF is \texttt{pt()}. There are analogously
+    named functions for all common named probability distributions,
+    e.g.~\texttt{dbinom()} and \texttt{pnorm()}.} Create a visualization
+  of each of the following functions. Ensure the axes are labelled in an
+  informative manner and add appropriate titles. Choose x-axis limits
+  that focus on the most interesting part of the functions.\footnote{An
+    easy way to plot functions in R is to create a data frame with a
+    column \texttt{x} that has a sequence of many evenly-spaced values
+    along the x-axis (try 100 values). You can then add additional
+    columns for each function of \texttt{x} that you wish to visualize.
+    You can plot a pair of those columns against one another and connect
+    the points with a line.}
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    The probability density function (PDF) of the \(t\) distribution
+    with 4 degrees of freedom with vertical lines marking the .025 and
+    .975 quantiles of the distribution.
+  \item
+    The cumulative distribution function (CDF) of the \(t\) distribution
+    with 4 dsegrees of freedom.
+  \item
+    The PDF of the non-central \(t\) distribution with 4 degrees of
+    freedom and a non-centrality parameter of .3.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  \textbf{Anchoring Model-Based Power Curve (function of effect size)}.
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    Using the \(t\) distribution, create a power curve that shows, for
+    the Anchoring Experiment, the relationship between the effect size
+    (as measured by \(\mu_1 - \mu_0\)) and the power for a two-tailed
+    test conducted at \(\alpha = .05\). Fix the sample size at the
+    values observed in the data and use 400 as your value of \(s^2_p\).
+  \item
+    At what effect size does the power reach .8?
+  \item
+    \emph{Optional Challenge:} Overlay the power curve you created in
+    part a with the power curve you via randomization-based inference in
+    the previous exercise. Do they look similar? If not, can you explain
+    why not?
+  \end{enumerate}
+\end{enumerate}
 
 
 

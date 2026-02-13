@@ -76,9 +76,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-4f715aacf3ce83c626833d417be19703.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7b9390e4c235a498622f4dee709cb677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7b9390e4c235a498622f4dee709cb677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7b9390e4c235a498622f4dee709cb677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -334,7 +334,22 @@ window.Quarto = {
 <p><em>Tip: this exercise will require a lot of code unless you wrap stretches of it in functions. See the last slides from class for functions that you’re welcome to use (if you’d like more practice, try writing your own first)</em>.</p></li>
 </ol>
 <div style="page-break-after: always;"></div>
-<p>More questions will be added to this PS with each passing lecture!</p>
+<ol start="5" class="example" type="1">
+<li><p><strong>Practice with the t</strong>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Create a visualization of each of the following functions. Ensure the axes are labelled in an informative manner and add appropriate titles. Choose x-axis limits that focus on the most interesting part of the functions.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<ol type="a">
+<li>The probability density function (PDF) of the <span class="math inline">\(t\)</span> distribution with 4 degrees of freedom with vertical lines marking the .025 and .975 quantiles of the distribution.</li>
+<li>The cumulative distribution function (CDF) of the <span class="math inline">\(t\)</span> distribution with 4 dsegrees of freedom.</li>
+<li>The PDF of the non-central <span class="math inline">\(t\)</span> distribution with 4 degrees of freedom and a non-centrality parameter of .3.</li>
+</ol></li>
+</ol>
+<ol start="6" class="example" type="1">
+<li><p><strong>Anchoring Model-Based Power Curve (function of effect size)</strong>.</p>
+<ol type="a">
+<li><p>Using the <span class="math inline">\(t\)</span> distribution, create a power curve that shows, for the Anchoring Experiment, the relationship between the effect size (as measured by <span class="math inline">\(\mu_1 - \mu_0\)</span>) and the power for a two-tailed test conducted at <span class="math inline">\(\alpha = .05\)</span>. Fix the sample size at the values observed in the data and use 400 as your value of <span class="math inline">\(s^2_p\)</span>.</p></li>
+<li><p>At what effect size does the power reach .8?</p></li>
+<li><p><em>Optional Challenge:</em> Overlay the power curve you created in part a with the power curve you via randomization-based inference in the previous exercise. Do they look similar? If not, can you explain why not?</p></li>
+</ol></li>
+</ol>
 
 
 
@@ -345,6 +360,8 @@ window.Quarto = {
 <li id="fn1"><p>Data from Q 4.31 in <em>Statistical Sleuth</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>You can augment the <code>rand_stats()</code> function to take <code>stat = c("diff in mean", "diff in medians")</code> as an argumnent and then copy and modify the <code>if</code> block to calculate the appropriate statistic when <code>stat == "diff in medians"</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>This should be a review from your course in Statistical Inference. If you need a brush up, see <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm" class="uri">https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm</a> and <code>?t.test</code> in R.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>In R, for the <span class="math inline">\(t\)</span> distribution, the PDF is <code>dt()</code>, the quantile function is <code>qt()</code>, and the CDF is <code>pt()</code>. There are analogously named functions for all common named probability distributions, e.g.&nbsp;<code>dbinom()</code> and <code>pnorm()</code>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>An easy way to plot functions in R is to create a data frame with a column <code>x</code> that has a sequence of many evenly-spaced values along the x-axis (try 100 values). You can then add additional columns for each function of <code>x</code> that you wish to visualize. You can plot a pair of those columns against one another and connect the points with a line.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

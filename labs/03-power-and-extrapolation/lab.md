@@ -183,9 +183,9 @@ library(tidyverse)
 ``` {.r .cell-code}
 # load the data into R
 
-data_randomized <- read_csv("https://stat158.berkeley.edu/spring-2026/data/hormone_risk/hormone_risk_randomized.csv")
+data_randomized <- read_csv("https://stat158.berkeley.edu/spring-2026/data/hormone-risk/hormone_risk_randomized.csv")
 
-data_observations <- read_csv("https://stat158.berkeley.edu/spring-2026/data/hormone_risk/hormone_risk_observational.csv")
+data_observations <- read_csv("https://stat158.berkeley.edu/spring-2026/data/hormone-risk/hormone_risk_observational.csv")
 ```
 :::
 

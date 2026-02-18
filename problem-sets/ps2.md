@@ -125,7 +125,7 @@ toc-title: Table of contents
         size (as measured by $\mu_1 - \mu_0$) and the power for a
         two-tailed test conducted at $\alpha = .05$. Fix the sample size
         at the values observed in the data and use 400 as your value of
-        $s^2_p$.
+        $\sigma^2$.
 
     b.  At what effect size does the power reach .8?
 

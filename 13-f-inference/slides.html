@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
+
+  <title>STAT 158 – Designs with One Factor</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-6248525f1bfeb46420cc643b2d6e76f6.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Designs with One Factor</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="babies-walking" class="slide level2">
+<h2>Babies Walking</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>babies</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>   walk       program
+1     9       Special
+2     9       Special
+3    10       Special
+4    10       Special
+5    13       Special
+6    11       Regular
+7    10       Regular
+8    10       Regular
+9    12       Regular
+10   10       Regular
+11   11 Weekly report
+12   12 Weekly report
+13    9 Weekly report
+14   12 Weekly report
+15   13 Weekly report
+16   13 Single report
+17   11 Single report
+18   12 Single report
+19   13 Single report
+20   11 Single report</code></pre>
+</div>
+</div>
+</section>
+<section id="eda" class="slide level2">
+<h2>EDA</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a></a><span class="fu">library</span>(ggbeeswarm)</span>
+<span id="cb3-3"><a></a>babies <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> program, <span class="at">y =</span> walk)) <span class="sc">+</span></span>
+<span id="cb3-5"><a></a>  <span class="fu">geom_beeswarm</span>(<span class="at">cex =</span> <span class="dv">3</span>, <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="eda-1" class="slide level2">
+<h2>EDA</h2>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="estimates-contrasts" class="slide level2">
+<h2>Estimates: contrasts</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-2"><a></a>group_means <span class="ot">&lt;-</span> babies <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a></a>  <span class="fu">group_by</span>(program) <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(walk))</span>
+<span id="cb4-5"><a></a>group_means</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  program         avg
+  &lt;fct&gt;         &lt;dbl&gt;
+1 Special        10.2
+2 Regular        10.6
+3 Weekly report  11.4
+4 Single report  12  </code></pre>
+</div>
+</div>
+</section>
+<section id="estimates-contrasts-1" class="slide level2">
+<h2>Estimates: contrasts</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>group_means<span class="sc">$</span>avg[<span class="dv">1</span>] <span class="sc">-</span> group_means<span class="sc">$</span>avg[<span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>group_means<span class="sc">$</span>avg[<span class="dv">1</span>] <span class="sc">-</span> group_means<span class="sc">$</span>avg[<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>group_means<span class="sc">$</span>avg[<span class="dv">1</span>] <span class="sc">-</span> group_means<span class="sc">$</span>avg[<span class="dv">4</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.8</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>group_means<span class="sc">$</span>avg[<span class="dv">2</span>] <span class="sc">-</span> group_means<span class="sc">$</span>avg[<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.8</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>group_means<span class="sc">$</span>avg[<span class="dv">2</span>] <span class="sc">-</span> group_means<span class="sc">$</span>avg[<span class="dv">4</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>group_means<span class="sc">$</span>avg[<span class="dv">3</span>] <span class="sc">-</span> group_means<span class="sc">$</span>avg[<span class="dv">4</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.6</code></pre>
+</div>
+</div>
+</section>
+<section id="estimates-effects-relative-to-benchmark" class="slide level2">
+<h2>Estimates: Effects relative to benchmark</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>overall_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(babies<span class="sc">$</span>walk)</span>
+<span id="cb18-2"><a></a>a_hat1 <span class="ot">&lt;-</span> group_means<span class="sc">$</span>avg[<span class="dv">1</span>] <span class="sc">-</span> overall_mean</span>
+<span id="cb18-3"><a></a>a_hat2 <span class="ot">&lt;-</span> group_means<span class="sc">$</span>avg[<span class="dv">2</span>] <span class="sc">-</span> overall_mean</span>
+<span id="cb18-4"><a></a>a_hat3 <span class="ot">&lt;-</span> group_means<span class="sc">$</span>avg[<span class="dv">3</span>] <span class="sc">-</span> overall_mean</span>
+<span id="cb18-5"><a></a>a_hat4 <span class="ot">&lt;-</span> group_means<span class="sc">$</span>avg[<span class="dv">4</span>] <span class="sc">-</span> overall_mean</span>
+<span id="cb18-6"><a></a><span class="fu">c</span>(a_hat1, a_hat2, a_hat3, a_hat4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.85 -0.45  0.35  0.95</code></pre>
+</div>
+</div>
+</section>
+<section id="randomization-based-inference" class="slide level2">
+<h2>Randomization-based Inference</h2>
+<p>The base R engine for randomization: <code>sample()</code>.</p>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>)</span>
+<span id="cb20-2"><a></a><span class="fu">sample</span>(<span class="at">x =</span> a, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3 9</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">sample</span>(a, <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5 3 9 7</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">sample</span>(a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5 9 3 7</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="simulating-five-draws-under-null" class="slide level2">
+<h2>Simulating five draws under Null</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>shuffle4 <span class="ot">&lt;-</span> <span class="cf">function</span>(y, z) {</span>
+<span id="cb26-2"><a></a>  Z <span class="ot">&lt;-</span> <span class="fu">sample</span>(z) <span class="co"># source of randomness</span></span>
+<span id="cb26-3"><a></a></span>
+<span id="cb26-4"><a></a>  babies_sim <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">walk =</span> y,</span>
+<span id="cb26-5"><a></a>                           <span class="at">program =</span> Z)</span>
+<span id="cb26-6"><a></a>  group_means <span class="ot">&lt;-</span> babies_sim <span class="sc">|&gt;</span></span>
+<span id="cb26-7"><a></a>    <span class="fu">group_by</span>(program) <span class="sc">|&gt;</span></span>
+<span id="cb26-8"><a></a>    <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(walk))</span>
+<span id="cb26-9"><a></a>  overall_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(babies_sim<span class="sc">$</span>walk)</span>
+<span id="cb26-10"><a></a>  stats <span class="ot">&lt;-</span> <span class="fu">c</span>(group_means<span class="sc">$</span>avg[<span class="dv">1</span>] <span class="sc">-</span> overall_mean,</span>
+<span id="cb26-11"><a></a>             group_means<span class="sc">$</span>avg[<span class="dv">2</span>] <span class="sc">-</span> overall_mean,</span>
+<span id="cb26-12"><a></a>             group_means<span class="sc">$</span>avg[<span class="dv">3</span>] <span class="sc">-</span> overall_mean,</span>
+<span id="cb26-13"><a></a>             group_means<span class="sc">$</span>avg[<span class="dv">4</span>] <span class="sc">-</span> overall_mean)</span>
+<span id="cb26-14"><a></a>  stats</span>
+<span id="cb26-15"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+
+</div>
+</section>
+<section id="simulating-five-draws-under-null-1" class="slide level2">
+<h2>Simulating five draws under Null</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>null_stats <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">5</span>, <span class="fu">shuffle4</span>(<span class="at">y =</span> babies<span class="sc">$</span>walk, <span class="at">z =</span> babies<span class="sc">$</span>program))</span>
+<span id="cb27-2"><a></a>null_stats</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>      [,1]  [,2]  [,3]  [,4]  [,5]
+[1,]  0.15 -0.05  0.35  0.15  0.35
+[2,] -0.85  0.15 -0.45  0.15 -0.45
+[3,]  0.75 -0.05  0.75 -0.25 -0.05
+[4,] -0.05 -0.05 -0.65 -0.05  0.15</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>To access simulations from <span class="math inline">\(\hat{\alpha}_1\)</span>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>null_stats[<span class="dv">1</span>, ] <span class="co"># extract first row as a vector.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  0.15 -0.05  0.35  0.15  0.35</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="simulating-500-draws-under-null" class="slide level2">
+<h2>Simulating 500 draws under null</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>null_stats <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">500</span>, <span class="fu">shuffle4</span>(<span class="at">y =</span> babies<span class="sc">$</span>walk, <span class="at">z =</span> babies<span class="sc">$</span>program))</span>
+<span id="cb31-2"><a></a>null_1 <span class="ot">&lt;-</span> null_stats[<span class="dv">1</span>, ] </span>
+<span id="cb31-3"><a></a>null_2 <span class="ot">&lt;-</span> null_stats[<span class="dv">2</span>, ]</span>
+<span id="cb31-4"><a></a>null_3 <span class="ot">&lt;-</span> null_stats[<span class="dv">3</span>, ]</span>
+<span id="cb31-5"><a></a>null_4 <span class="ot">&lt;-</span> null_stats[<span class="dv">4</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+
+</div>
+</section>
+<section id="null-dist-of-hatalpha_1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Null dist of <span class="math inline">\(\hat{\alpha}_1\)</span></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb32-1" class="hljs-ln-code"><a></a>null1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">stat =</span> null_1)</span>
+<span id="cb32-2" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(null1, <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb32-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="null-dist-of-hatalpha_1-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Null dist of <span class="math inline">\(\hat{\alpha}_1\)</span></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb33-1" class="hljs-ln-code"><a></a>null1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">stat =</span> null_1)</span>
+<span id="cb33-2" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(null1, <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb33-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb33-4" class="hljs-ln-code"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> a_hat1, <span class="at">color =</span> <span class="st">"tomato"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="p-value-for-hatalpha_1" class="slide level2">
+<h2>p-value for <span class="math inline">\(\hat{\alpha}_1\)</span></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>null1 <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a></a>  <span class="fu">summarize</span>(<span class="at">pval =</span> <span class="fu">mean</span>(stat <span class="sc">&lt;</span> a_hat1) <span class="sc">*</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>   pval
+1 0.088</code></pre>
+</div>
+</div>
+<blockquote>
+<p>What is our decision regarding <span class="math inline">\(H_0\)</span>? . . .</p>
+</blockquote>
+<p>At threshold of .05, we fail to reject the null.</p>
+</section>
+<section id="what-about-say-hatalpha_3" class="slide level2">
+<h2>What about, say, <span class="math inline">\(\hat{\alpha}_3\)</span></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>null3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">stat =</span> null_3)</span>
+<span id="cb36-2"><a></a><span class="fu">ggplot</span>(null3, <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb36-3"><a></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb36-4"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> a_hat3, <span class="at">color =</span> <span class="st">"tomato"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-a-single-statistic" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Creating a single statistic</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb37-1" class="hljs-ln-code"><a></a>babies <span class="sc">|&gt;</span></span>
+<span id="cb37-2" class="hljs-ln-code"><a></a>  <span class="fu">group_by</span>(program) <span class="sc">|&gt;</span></span>
+<span id="cb37-3" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">var =</span> <span class="fu">var</span>(walk))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  program         var
+  &lt;fct&gt;         &lt;dbl&gt;
+1 Special         2.7
+2 Regular         0.8
+3 Weekly report   2.3
+4 Single report   1  </code></pre>
+</div>
+</div>
+</section>
+<section id="creating-a-single-statistic-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Creating a single statistic</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb39-1" class="hljs-ln-code"><a></a>babies <span class="sc">|&gt;</span></span>
+<span id="cb39-2" class="hljs-ln-code"><a></a>  <span class="fu">group_by</span>(program) <span class="sc">|&gt;</span></span>
+<span id="cb39-3" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">var =</span> <span class="fu">var</span>(walk)) <span class="sc">|&gt;</span></span>
+<span id="cb39-4" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">avg_var =</span> <span class="fu">mean</span>(var))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  avg_var
+    &lt;dbl&gt;
+1     1.7</code></pre>
+</div>
+</div>
+</section>
+<section id="creating-a-single-statistic-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Creating a single statistic</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb41-1" class="hljs-ln-code"><a></a>avg_var <span class="ot">&lt;-</span> babies <span class="sc">|&gt;</span></span>
+<span id="cb41-2" class="hljs-ln-code"><a></a>  <span class="fu">group_by</span>(program) <span class="sc">|&gt;</span></span>
+<span id="cb41-3" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">var =</span> <span class="fu">var</span>(walk)) <span class="sc">|&gt;</span></span>
+<span id="cb41-4" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">avg_var =</span> <span class="fu">mean</span>(var)) <span class="sc">|&gt;</span></span>
+<span id="cb41-5" class="hljs-ln-code"><a></a>  <span class="fu">pull</span>(avg_var)</span>
+<span id="cb41-6" class="hljs-ln-code"><a></a>avg_var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.7</code></pre>
+</div>
+</div>
+</section>
+<section id="creating-a-single-statistic-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Creating a single statistic</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb43-1" class="hljs-ln-code"><a></a>babies <span class="sc">|&gt;</span></span>
+<span id="cb43-2" class="hljs-ln-code"><a></a>  <span class="fu">group_by</span>(program) <span class="sc">|&gt;</span></span>
+<span id="cb43-3" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(walk))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  program         avg
+  &lt;fct&gt;         &lt;dbl&gt;
+1 Special        10.2
+2 Regular        10.6
+3 Weekly report  11.4
+4 Single report  12  </code></pre>
+</div>
+</div>
+</section>
+<section id="creating-a-single-statistic-4" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Creating a single statistic</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb45-1" class="hljs-ln-code"><a></a>babies <span class="sc">|&gt;</span></span>
+<span id="cb45-2" class="hljs-ln-code"><a></a>  <span class="fu">group_by</span>(program) <span class="sc">|&gt;</span></span>
+<span id="cb45-3" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(walk)) <span class="sc">|&gt;</span></span>
+<span id="cb45-4" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">var_avg =</span> <span class="fu">var</span>(avg))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  var_avg
+    &lt;dbl&gt;
+1   0.650</code></pre>
+</div>
+</div>
+</section>
+<section id="creating-a-single-statistic-5" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Creating a single statistic</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb47-1" class="hljs-ln-code"><a></a>var_avg <span class="ot">&lt;-</span> babies <span class="sc">|&gt;</span></span>
+<span id="cb47-2" class="hljs-ln-code"><a></a>  <span class="fu">group_by</span>(program) <span class="sc">|&gt;</span></span>
+<span id="cb47-3" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(walk)) <span class="sc">|&gt;</span></span>
+<span id="cb47-4" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">var_avg =</span> <span class="fu">var</span>(avg)) <span class="sc">|&gt;</span></span>
+<span id="cb47-5" class="hljs-ln-code"><a></a>  <span class="fu">pull</span>(var_avg)</span>
+<span id="cb47-6" class="hljs-ln-code"><a></a>var_avg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.65</code></pre>
+</div>
+</div>
+</section>
+<section id="bringing-them-together" class="slide level2">
+<h2>Bringing them together</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>f_stat <span class="ot">&lt;-</span> var_avg <span class="sc">/</span> avg_var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+
+</div>
+</section>
+<section id="randomization-based-inference-1" class="slide level2">
+<h2>Randomization-based Inference</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>shuffle4_f <span class="ot">&lt;-</span> <span class="cf">function</span>(y, z) {</span>
+<span id="cb50-2"><a></a>  Z <span class="ot">&lt;-</span> <span class="fu">sample</span>(z) <span class="co"># source of randomness</span></span>
+<span id="cb50-3"><a></a></span>
+<span id="cb50-4"><a></a>  babies_sim <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">walk =</span> y,</span>
+<span id="cb50-5"><a></a>                           <span class="at">program =</span> Z)</span>
+<span id="cb50-6"><a></a>  </span>
+<span id="cb50-7"><a></a>  avg_var <span class="ot">&lt;-</span> babies_sim <span class="sc">|&gt;</span></span>
+<span id="cb50-8"><a></a>    <span class="fu">group_by</span>(program) <span class="sc">|&gt;</span></span>
+<span id="cb50-9"><a></a>    <span class="fu">summarize</span>(<span class="at">var =</span> <span class="fu">var</span>(walk)) <span class="sc">|&gt;</span></span>
+<span id="cb50-10"><a></a>    <span class="fu">summarize</span>(<span class="at">avg_var =</span> <span class="fu">mean</span>(var)) <span class="sc">|&gt;</span></span>
+<span id="cb50-11"><a></a>    <span class="fu">pull</span>(avg_var)</span>
+<span id="cb50-12"><a></a>  var_avg <span class="ot">&lt;-</span> babies_sim <span class="sc">|&gt;</span></span>
+<span id="cb50-13"><a></a>    <span class="fu">group_by</span>(program) <span class="sc">|&gt;</span></span>
+<span id="cb50-14"><a></a>    <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(walk)) <span class="sc">|&gt;</span></span>
+<span id="cb50-15"><a></a>    <span class="fu">summarize</span>(<span class="at">var_avg =</span> <span class="fu">var</span>(avg)) <span class="sc">|&gt;</span></span>
+<span id="cb50-16"><a></a>    <span class="fu">pull</span>(var_avg)</span>
+<span id="cb50-17"><a></a></span>
+<span id="cb50-18"><a></a>  var_avg <span class="sc">/</span> avg_var</span>
+<span id="cb50-19"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+
+</div>
+</section>
+<section id="draws-from-the-null" class="slide level2">
+<h2>5 draws from the null</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>null_stats <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">5</span>, <span class="fu">shuffle4_f</span>(<span class="at">y =</span> babies<span class="sc">$</span>walk, <span class="at">z =</span> babies<span class="sc">$</span>program))</span>
+<span id="cb51-2"><a></a>null_stats</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.12048193 0.06590038 0.34095238 0.22982456 0.44923077</code></pre>
+</div>
+</div>
+</section>
+<section id="draws-from-the-null-1" class="slide level2">
+<h2>500 draws from the null</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>null_stats <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">500</span>, <span class="fu">shuffle4_f</span>(<span class="at">y =</span> babies<span class="sc">$</span>walk, <span class="at">z =</span> babies<span class="sc">$</span>program))</span>
+<span id="cb53-2"><a></a>null <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">stats =</span> null_stats)</span>
+<span id="cb53-3"><a></a></span>
+<span id="cb53-4"><a></a><span class="fu">ggplot</span>(null, <span class="fu">aes</span>(<span class="at">x =</span> stats)) <span class="sc">+</span></span>
+<span id="cb53-5"><a></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb53-6"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> f_stat, <span class="at">color =</span> <span class="st">"tomato"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-28-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="p-value-for-f" class="slide level2">
+<h2>p-value for F</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a>null <span class="sc">|&gt;</span></span>
+<span id="cb54-2"><a></a>  <span class="fu">summarize</span>(<span class="at">pval =</span> <span class="fu">mean</span>(stats <span class="sc">&gt;</span> f_stat))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>   pval
+1 0.154</code></pre>
+</div>
+</div>
+</section>
+<section>
+<section id="model-based-inference" class="title-slide slide level1 center">
+<h1>Model-Based Inference</h1>
+
+</section>
+<section id="anova-table-in-r" class="slide level2">
+<h2>ANOVA Table in R</h2>
+<p>The workhorse function: <code>aov()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a>babies_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(walk <span class="sc">~</span> <span class="fu">factor</span>(program), <span class="at">data =</span> babies)</span>
+<span id="cb56-2"><a></a>anova_table <span class="ot">&lt;-</span> <span class="fu">summary</span>(babies_anova)</span>
+<span id="cb56-3"><a></a>anova_table</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>                Df Sum Sq Mean Sq F value Pr(&gt;F)
+factor(program)  3   9.75    3.25   1.912  0.168
+Residuals       16  27.20    1.70               </code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a>obs_f_stat <span class="ot">&lt;-</span> anova_table[[<span class="dv">1</span>]]<span class="sc">$</span><span class="st">`</span><span class="at">F value</span><span class="st">`</span>[<span class="dv">1</span>]</span>
+<span id="cb58-2"><a></a>obs_f_stat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.911765</code></pre>
+</div>
+</div>
+<!-- 
+## Two draws from generative model
+
+Under the null:
+
+:::{.columns}
+
+:::{.column width="50%"}
+
+
+::: {.cell}
+
+```{.r .cell-code}
+y <- rnorm(n = 20, mean = 10, sd = 2) # source of randomness
+z <- rep(c(1, 2, 3, 4), each = 5)
+df1 <- data.frame(y, z)
+df1
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+           y z
+1   9.285286 1
+2  11.875125 1
+3   7.500334 1
+4   8.498278 1
+5   7.304682 1
+6  12.582879 2
+7  10.231740 2
+8  11.219629 2
+9  14.134069 2
+10  8.733930 2
+11 10.515805 3
+12  9.531838 3
+13  7.513696 3
+14  7.385000 3
+15  7.299524 3
+16  9.190818 4
+17  6.609946 4
+18 11.920639 4
+19  8.367872 4
+20  7.135494 4
+```
+
+
+:::
+:::
+
+
+:::
+
+:::{.column .fragment width="50%"}
+
+
+::: {.cell}
+
+```{.r .cell-code}
+y <- rnorm(n = 20, mean = 10, sd = 2) # source of randomness
+z <- rep(c(1, 2, 3, 4), each = 5)
+df2 <- data.frame(y, z)
+df2
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+           y z
+1   9.503327 1
+2  10.300277 1
+3  10.331663 1
+4  11.463603 1
+5   9.795761 1
+6  11.209353 2
+7  11.248504 2
+8  10.397366 2
+9   6.042388 2
+10  9.253135 2
+11 10.758041 3
+12  8.286085 3
+13 11.607194 3
+14  9.172313 3
+15 12.776182 3
+16 11.872289 4
+17  8.732530 4
+18  5.964147 4
+19  7.607431 4
+20 11.556682 4
+```
+
+
+:::
+:::
+
+
+:::
+
+:::
+
+
+## Two draws from generative model {auto-animate=true}
+
+:::{.columns}
+
+:::{.column width="50%"}
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/unnamed-chunk-34-1.png){width=960}
+:::
+:::
+
+
+:::
+
+:::{.column .fragment width="50%"}
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/unnamed-chunk-35-1.png){width=960}
+:::
+:::
+
+
+:::
+
+:::
+
+
+## Simulated F stats -->
+<!-- ## The null distribution (500 reps) -->
+<!-- 
+
+
+::: {.cell}
+
+```{.r .cell-code}
+null_stats
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+          f_vec
+1   1.761924930
+2   1.190897448
+3   1.004203834
+4   0.780024390
+5   0.121731668
+6   1.532509563
+7   0.419227802
+8   2.471586979
+9   0.413712367
+10  0.542608824
+11  1.900411538
+12  0.952744417
+13  1.095548435
+14  0.580042427
+15  0.559049838
+16  0.925952846
+17  1.161079634
+18  0.476943824
+19  1.840409294
+20  0.378798844
+21  0.666681053
+22  0.210808867
+23  2.800043776
+24  0.695189098
+25  0.988795580
+26  0.473020074
+27  0.018489875
+28  1.637547419
+29  0.669786255
+30  0.258247523
+31  0.343068977
+32  0.448760733
+33  0.665488724
+34  1.536112945
+35  2.884356634
+36  2.571280622
+37  2.502103692
+38  2.675546221
+39  0.555602339
+40  1.247660308
+41  1.864028805
+42  0.114971996
+43  0.323739575
+44  1.169790093
+45  0.098766019
+46  0.313765057
+47  0.876041914
+48  2.095350223
+49  1.034748967
+50  1.351502873
+51  3.165158095
+52  1.833346364
+53  0.731733366
+54  0.583029309
+55  3.355378663
+56  1.110258297
+57  0.679866707
+58  0.325310192
+59  1.532395487
+60  0.459870720
+61  0.571193264
+62  3.604954063
+63  0.280374778
+64  1.468916114
+65  0.089970178
+66  1.541119739
+67  0.349094050
+68  3.963247369
+69  0.085812636
+70  0.705642641
+71  2.287949737
+72  0.496394528
+73  2.245762397
+74  0.299225701
+75  1.241197130
+76  2.881581593
+77  1.216424744
+78  0.217630459
+79  0.885113994
+80  2.846498374
+81  4.196948376
+82  0.480054349
+83  1.979142621
+84  0.438291407
+85  2.028640114
+86  3.818549694
+87  2.569138885
+88  0.203659356
+89  0.766105680
+90  0.608711624
+91  0.350047548
+92  0.555086531
+93  0.241261125
+94  1.963294530
+95  0.029353227
+96  1.482003966
+97  0.083379489
+98  0.037536368
+99  2.652120084
+100 1.729927346
+101 1.042719013
+102 0.554917044
+103 0.280514292
+104 3.230327640
+105 1.432831421
+106 0.704902185
+107 2.266434771
+108 0.736007627
+109 0.028554631
+110 5.974879797
+111 0.416712736
+112 0.901780743
+113 0.208890058
+114 0.273132578
+115 1.057209323
+116 0.173036994
+117 1.390908872
+118 0.276058580
+119 0.859601568
+120 0.219631600
+121 0.383784221
+122 0.129075101
+123 1.106457742
+124 2.532648568
+125 0.009998748
+126 0.653127030
+127 0.906977678
+128 1.724132436
+129 2.688595532
+130 0.278012258
+131 0.155895793
+132 2.060101623
+133 4.835049679
+134 0.326699722
+135 1.036132925
+136 0.445583309
+137 0.607385111
+138 0.583271563
+139 0.396658016
+140 1.471311583
+141 0.449123631
+142 2.455525951
+143 0.461640881
+144 0.410888888
+145 1.673653350
+146 0.521873008
+147 0.811065871
+148 2.232200297
+149 1.698961507
+150 1.427282249
+151 0.771381726
+152 1.267391774
+153 0.451604057
+154 0.557455029
+155 1.244182287
+156 0.445784811
+157 0.707594810
+158 1.663016867
+159 0.316685737
+160 2.012580667
+161 0.715276336
+162 3.968010128
+163 2.748239852
+164 0.845011693
+165 0.405290323
+166 0.256626596
+167 0.992513454
+168 1.798681340
+169 3.862826931
+170 4.660973254
+171 0.259015625
+172 3.790393164
+173 0.368962101
+174 2.064369498
+175 5.741584989
+176 0.345131023
+177 0.695991861
+178 0.803106521
+179 1.281344839
+180 0.992868668
+181 1.776227882
+182 0.963571611
+183 0.891253479
+184 0.037931118
+185 7.119917318
+186 0.911944451
+187 2.758931929
+188 0.270435178
+189 0.463764310
+190 0.750974441
+191 1.914269902
+192 0.403095752
+193 0.892589055
+194 0.083215457
+195 2.943015750
+196 0.063325989
+197 0.466653825
+198 1.709397733
+199 0.976492803
+200 1.165184238
+201 2.268547586
+202 0.533194877
+203 0.025357690
+204 1.850506848
+205 0.644055173
+206 1.157019891
+207 1.632589970
+208 0.634504179
+209 1.552810284
+210 0.526079232
+211 0.795900819
+212 0.322467622
+213 2.371571041
+214 0.130271184
+215 0.636175227
+216 0.534239738
+217 0.373900585
+218 0.736272124
+219 1.400271455
+220 0.413122386
+221 0.613964781
+222 3.135793741
+223 1.431452145
+224 3.077790931
+225 1.315480223
+226 1.005742795
+227 1.916249186
+228 1.170546302
+229 0.578258791
+230 3.188220944
+231 0.408613400
+232 0.914954292
+233 0.520393476
+234 0.774425747
+235 0.818613560
+236 1.835779076
+237 0.598530450
+238 0.027374161
+239 1.778960944
+240 0.241649339
+241 2.375884511
+242 0.027638210
+243 0.166647877
+244 0.592550999
+245 0.514678886
+246 1.067876710
+247 1.882998952
+248 0.602163815
+249 0.426525879
+250 0.450261716
+251 1.044344887
+252 0.541440669
+253 4.760164545
+254 2.581673118
+255 0.262668799
+256 2.665829049
+257 1.287881650
+258 0.658455131
+259 1.192579953
+260 2.002569474
+261 0.373989445
+262 1.158164012
+263 0.038576486
+264 2.157335937
+265 0.198433196
+266 0.745888075
+267 2.682333428
+268 0.391436269
+269 0.439020514
+270 0.902989951
+271 1.401700672
+272 2.957017199
+273 1.280481143
+274 1.022148534
+275 2.426657129
+276 0.937889125
+277 1.402776330
+278 0.311990665
+279 2.511345447
+280 1.803739306
+281 0.516355971
+282 2.501490196
+283 0.309152073
+284 2.998740727
+285 1.523638689
+286 1.358510979
+287 0.639944296
+288 0.168197206
+289 0.570432349
+290 0.206243227
+291 0.449090394
+292 1.863150017
+293 0.803371087
+294 1.983177808
+295 0.036894985
+296 1.098617804
+297 3.817947868
+298 0.513972228
+299 0.884281867
+300 0.783665057
+301 0.412777833
+302 0.265016800
+303 0.269644271
+304 0.607162274
+305 0.808307800
+306 1.245567480
+307 1.531669712
+308 1.295135220
+309 1.037298530
+310 0.638914758
+311 4.291524611
+312 0.646485972
+313 0.714391022
+314 0.307167058
+315 2.339151154
+316 1.290512789
+317 2.203685125
+318 1.198467472
+319 0.041167728
+320 1.648398065
+321 0.046853997
+322 0.687295630
+323 2.082756054
+324 0.655059344
+325 0.424886024
+326 2.576685008
+327 1.422591654
+328 0.044183264
+329 0.597108026
+330 0.242276517
+331 1.223561340
+332 0.289686743
+333 1.576127341
+334 1.781091484
+335 1.232323513
+336 0.777176264
+337 1.861340397
+338 1.168936511
+339 1.827519168
+340 1.037898405
+341 1.520270487
+342 2.076585808
+343 0.606934941
+344 0.235704950
+345 0.255855396
+346 0.359811621
+347 2.121453405
+348 2.212463426
+349 0.837436097
+350 2.001298547
+351 0.678081351
+352 0.754131478
+353 0.992879967
+354 0.412866805
+355 0.236820832
+356 0.232842179
+357 0.412413388
+358 3.106061481
+359 0.680406806
+360 0.216848525
+361 0.303061357
+362 0.440662760
+363 0.845696854
+364 2.035265255
+365 2.323695838
+366 0.307614781
+367 1.185106383
+368 0.462924431
+369 1.497824642
+370 2.784386320
+371 1.335796811
+372 0.209818445
+373 0.614890636
+374 0.963267840
+375 0.197496329
+376 0.372095288
+377 0.776970028
+378 0.508418390
+379 1.108517960
+380 1.976390481
+381 0.879221116
+382 0.484740173
+383 0.560059253
+384 0.837999146
+385 3.379367810
+386 2.237553806
+387 0.545894432
+388 0.761154183
+389 2.307012064
+390 0.452227989
+391 1.329713853
+392 1.096715962
+393 1.033979256
+394 1.206485141
+395 0.523137685
+396 0.420958276
+397 1.571737266
+398 0.281053582
+399 1.080030347
+400 0.069811595
+401 0.334514696
+402 0.535766499
+403 0.704226087
+404 2.708128998
+405 3.217175193
+406 1.849812948
+407 0.617803739
+408 0.021957275
+409 0.717259511
+410 1.115459815
+411 0.769890941
+412 0.359192142
+413 0.472093419
+414 0.206006839
+415 0.904181302
+416 1.753121987
+417 1.965789548
+418 0.448636753
+419 0.682855640
+420 1.616544870
+421 0.245030754
+422 2.207273113
+423 2.085601088
+424 0.622318048
+425 2.246000418
+426 0.033528106
+427 4.167209990
+428 2.278718189
+429 0.394448721
+430 0.746639899
+431 0.333325536
+432 0.338611958
+433 1.334809760
+434 1.147386571
+435 0.554670051
+436 0.552682164
+437 1.837538059
+438 1.013670909
+439 0.253522331
+440 2.058032332
+441 2.136236559
+442 1.823952651
+443 0.088432217
+444 0.129746675
+445 0.427268350
+446 0.443452133
+447 0.413109816
+448 0.269770418
+449 0.159962706
+450 2.520318068
+451 0.807379974
+452 0.811990865
+453 1.317253312
+454 0.848009605
+455 0.819133660
+456 0.968866568
+457 0.284302542
+458 0.277667560
+459 0.429417933
+460 0.194159632
+461 1.161937563
+462 2.131083552
+463 0.450869199
+464 1.361502147
+465 0.261923705
+466 0.145738942
+467 0.614994830
+468 0.636338383
+469 0.288996040
+470 3.045493664
+471 0.207080510
+472 0.455876768
+473 1.907938479
+474 0.654965077
+475 0.731850470
+476 1.055426706
+477 1.190404584
+478 1.796460645
+479 0.368905587
+480 0.826940526
+481 0.829200186
+482 1.944338901
+483 2.263163571
+484 0.535404810
+485 0.089466369
+486 1.599213520
+487 0.102538248
+488 0.831704125
+489 0.019641992
+490 0.955533567
+491 0.022229407
+492 0.783013463
+493 0.139628514
+494 1.087507794
+495 1.512615251
+496 0.729982042
+497 1.211757456
+498 0.033849030
+499 1.328940588
+500 0.730642120
+```
+
+
+:::
+:::
+
+
+
+## The null distribution
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(ggplot2)
+ggplot(null_stats, aes(x = f_vec)) +
+  geom_histogram()
+```
+
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/unnamed-chunk-39-1.png){width=960}
+:::
+:::
+
+
+
+## The null distribution
+
+
+::: {.cell}
+
+```{.r .cell-code}
+ggplot(null_stats, aes(x = f_vec)) +
+  geom_histogram() +
+  geom_vline(xintercept = obs_f_stat, color = "tomato", lwd = 2)
+```
+
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/unnamed-chunk-40-1.png){width=960}
+:::
+:::
+
+
+
+## The p-value
+
+
+::: {.cell}
+
+```{.r .cell-code}
+model_pval <- null_stats |>
+  summarize(pval = mean(f_vec > obs_f_stat))
+model_pval
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+  pval
+1 0.19
+```
+
+
+:::
+:::
+
+-->
+</div>
+</section>
+<section id="an-analytical-null" class="slide level2">
+<h2>An analytical null</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a><span class="fu">ggplot</span>(null_stats, <span class="fu">aes</span>(<span class="at">x =</span> f_vec)) <span class="sc">+</span></span>
+<span id="cb60-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..)) <span class="sc">+</span></span>
+<span id="cb60-3"><a></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> df, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">df1 =</span> <span class="dv">3</span>, <span class="at">df2 =</span> <span class="dv">16</span>), </span>
+<span id="cb60-4"><a></a>                <span class="at">color =</span> <span class="st">"goldenrod"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb60-5"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> obs_f_stat, <span class="at">color =</span> <span class="st">"tomato"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-42-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":false,"chalkEffect":0.2},
+'drop': {"button":false,"shortcut":"`","engine":"webr","webr":{"packages":[]},"pyodide":{"packages":[]}},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: false,
+
+        // Display the page number of the current slide
+        slideNumber: 'c',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

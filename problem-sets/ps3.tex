@@ -1,0 +1,283 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Problem Set 3},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Problem Set 3}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{The Secret to Longevity}. Scientists are interested in whether
+  the energy costs involved in reproduction affect longevity\footnote{Question
+    from Problem 3.2 in Oehlert textbook, original data from Hanley and
+    Shapiro (1994), ``Sexual activity and the lifespan of male
+    fruitflies: a dataset that gets attention,'' \emph{Journal of
+    Statistics Education 2}.}. In this experiment, 125 male fruit flies
+  were divided at random into five sets of 25. In group 1, the males
+  were kept by themselves. In groups 3 and 5, the males were supplied
+  with one or eight receptive virgin female fruit flies per day,
+  respectively. In groups 2 and 4, the males were supplied with one or
+  eight unreceptive (pregnant) female fruit flies per day, respectively.
+  Other than the number and type of companions, the males were treated
+  identically. The longevity of the flies was observed.
+
+  You can access the data as a csv file at:
+  \url{https://stat158.berkeley.edu/spring-2026/data/fruit-flies/fruit-flies.csv}
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    Visualize the data and interpret what you see. Be sure to comment
+    both on the center of the distributions and their spread.
+  \item
+    \emph{ANOVA ``by hand''}. Without using any of the built-in commands
+    (\texttt{aov()}, \texttt{anova()}) create a one-way ANOVA table
+    minus the p-values. You're welcome to use either a base R or
+    \texttt{dplyr} approach. It is a bit tedious, however it's useful to
+    cobble together each of the statistics in an ANOVA table just once
+    in your lives. You can check your answers with the output of
+    \texttt{aov()} shown below.
+  \end{enumerate}
+
+\begin{verbatim}
+             Df Sum Sq Mean Sq F value Pr(>F)
+factor(trt)   4  11939  2984.8   13.61       
+Residuals   120  26314   219.3               
+\end{verbatim}
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \setcounter{enumii}{2}
+  \item
+    State your conclusion about the scientific question using
+    Model-based inference. Be clear about the data generation model your
+    approach relies upon and the null hypothesis that you're evaluating.
+    To calculate the p-value, use the \texttt{pf()} function and then
+    verify it using the \texttt{aov()} function\footnote{Recall all
+      named probability distributions have a CDF in R with the prefix
+      \texttt{p}. The F-distribution is no exception, so you can use
+      \texttt{pf()} to calculate the p-value for your ANOVA table. The
+      arguments to \texttt{pf()} are the F-statistic, the degrees of
+      freedom for the numerator, and the degrees of freedom for the
+      denominator. Recall a test using the F statistic is a right-tailed
+      test. The standard anova output is available with
+      \texttt{summary(aov(y\ \textasciitilde{}\ x,\ data))} (be sure
+      your \texttt{x} is a factor vector).}.
+  \item
+    State your conclusion about the scientific question using
+    Randomization-based Inference. Be clear about the data generation
+    model your approach relies upon and the null hypothesis that you're
+    evaluating. For your test statistic, use the F-statistic that you
+    built the code for from part a above.
+  \item
+    How do the results of the model-based and randomization-based
+    inference compare? Do they lead to the same conclusion? Do they rely
+    on the same assumptions? Which do you think is more appropriate for
+    this problem?
+  \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{More Comparisons for Longevity}. In the experiment regarding
+  the fruit flies, the ANOVA analysis only tests whether there were any
+  differences between the group means. Suppose there was further
+  interest in whether the 1 pregnant group was different from the 1
+  virgin group (for questions a and b, restrict the data set to these
+  two groups).
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    Perform a randomization test to compare these two groups using the
+    t-statistic. Assume the two groups have the same variance (revisit
+    your notes on the t-test and the pooled estimate of the SE).
+  \item
+    Repeat the randomization test but this time use an F-statistic. How
+    do the results of this analysis this compare to the results in part
+    (a)?
+  \item
+    Calculate an ANOVA table for this comparison and report the value of
+    \(\sqrt{MS_{residuals}}\), which is an estimate of \(\sigma\). How
+    does that compare to the estimate of the standard deviation that you
+    used for the t-statistic (\(s_{p}\))?
+  \end{enumerate}
+
+  You are welcome to use built-in R commands for this question, if
+  appropriate.
+\end{enumerate}
+
+\newpage{}
+
+More questions to come next week!
+
+
+
+
+\end{document}

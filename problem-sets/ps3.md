@@ -87,7 +87,70 @@ toc-title: Table of contents
 
 
 
-More questions to come next week!
+3.  **Poison**. Medical researchers investigated how to combat the
+    effects of certain toxic agents (indeed poison, not Poisson!). For
+    this, they randomly assigned 48 to a group where they are treated
+    with a poison and a drug to counteract the poison. The survival time
+    of the animal was recorded as the response of interest\[\^death\].
+    Three poisons and four drugs were considered, and four mice were
+    assigned to each poison/drug combination. The responses are recorded
+    in hours.
+
+    You can access the data as a csv file at:
+    <https://stat158.berkeley.edu/spring-2026/data/poison/poison.csv>
+
+    a.  Create an interaction plot of the data and interpret it.
+    b.  Fit a two factor model with interactions and
+        -   i\. for each component of the model (main effect of poisons,
+            main effect of drugs, interaction effects), calculate the
+            value of observed F statistics and the corresponding
+            p-values. You may calculate the p-values using either
+            randomization-based inference or model-based inference (or
+            both).
+        -   ii\. draw conclusions about differences among poisons,
+            differences among treatments, and interactions between them.
+            Is this a setting where it is important to estimate the
+            interaction effects?
+
+
+
+4.  **Estimation Three Ways**. We laid out the additive model for a
+    two-way factorial with no interactions as
+
+    $$
+    Y_{i} = \mu + \alpha_{j(i)} + \beta_{k(i)} + \epsilon_{i}.
+    $$
+
+    The most commonly used estimators for these parameters are as
+    follows.
+
+    $$
+    \begin{aligned}
+    \hat{\mu} &= \hat{\bar{Y}} \\
+    \hat{\alpha}_j &= \hat{\bar{Y}}_j - \hat{\bar{Y}} \\
+    \hat{\beta}_k &= \hat{\bar{Y}}_k - \hat{\bar{Y}}
+    \end{aligned}
+    $$
+
+    There are three different reasons that these estimates are sensible:
+
+    a.  They provide unbiased estimates of the corresponding causal
+        parameters (shown in class).
+
+    b.  These estimates are the least squares estimates. That is, they
+        are the values that minimize
+
+    $$
+    \sum_{i = 1}^n \left(Y_i - \left( \mu + \alpha_{j(i)} + \beta_{k(i)} \right) \right) ^2
+    $$
+
+    c.  Under a generative model assumption that
+        $\epsilon_{i} \sim N(0, \sigma^2)$, these are the maximum
+        likelihood estimates.
+
+    Pick either b. or c. and brush off your calculus skills to
+    demonstrate that it is true. If you haven't seen maximum likelihood
+    estimation before, stick to b.
 
 [^1]: Question from Problem 3.2 in Oehlert textbook, original data from
     Hanley and Shapiro (1994), \`\`Sexual activity and the lifespan of

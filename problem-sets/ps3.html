@@ -304,7 +304,45 @@ Residuals   120  26314   219.3               </code></pre>
 <p>You are welcome to use built-in R commands for this question, if appropriate.</p></li>
 </ol>
 <div style="page-break-after: always;"></div>
-<p>More questions to come next week!</p>
+<ol start="3" class="example" type="1">
+<li><p><strong>Poison</strong>. Medical researchers investigated how to combat the effects of certain toxic agents (indeed poison, not Poisson!). For this, they randomly assigned 48 to a group where they are treated with a poison and a drug to counteract the poison. The survival time of the animal was recorded as the response of interest[^death]. Three poisons and four drugs were considered, and four mice were assigned to each poison/drug combination. The responses are recorded in hours.</p>
+<p>You can access the data as a csv file at: <a href="https://stat158.berkeley.edu/spring-2026/data/poison/poison.csv" class="uri">https://stat158.berkeley.edu/spring-2026/data/poison/poison.csv</a></p>
+<ol type="a">
+<li>Create an interaction plot of the data and interpret it.</li>
+<li>Fit a two factor model with interactions and
+<ul>
+<li>i. for each component of the model (main effect of poisons, main effect of drugs, interaction effects), calculate the value of observed F statistics and the corresponding p-values. You may calculate the p-values using either randomization-based inference or model-based inference (or both).</li>
+<li>ii. draw conclusions about differences among poisons, differences among treatments, and interactions between them. Is this a setting where it is important to estimate the interaction effects?</li>
+</ul></li>
+</ol></li>
+</ol>
+<div style="page-break-after: always;"></div>
+<ol start="4" class="example" type="1">
+<li><p><strong>Estimation Three Ways</strong>. We laid out the additive model for a two-way factorial with no interactions as</p>
+<p><span class="math display">\[
+Y_{i} = \mu + \alpha_{j(i)} + \beta_{k(i)} + \epsilon_{i}.
+\]</span></p>
+<p>The most commonly used estimators for these parameters are as follows.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{\mu} &amp;= \hat{\bar{Y}} \\
+\hat{\alpha}_j &amp;= \hat{\bar{Y}}_j - \hat{\bar{Y}} \\
+\hat{\beta}_k &amp;= \hat{\bar{Y}}_k - \hat{\bar{Y}}
+\end{aligned}
+\]</span></p>
+<p>There are three different reasons that these estimates are sensible:</p>
+<ol type="a">
+<li><p>They provide unbiased estimates of the corresponding causal parameters (shown in class).</p></li>
+<li><p>These estimates are the least squares estimates. That is, they are the values that minimize</p></li>
+</ol>
+<p><span class="math display">\[
+\sum_{i = 1}^n \left(Y_i - \left( \mu + \alpha_{j(i)} + \beta_{k(i)} \right) \right) ^2
+\]</span></p>
+<ol start="3" type="a">
+<li>Under a generative model assumption that <span class="math inline">\(\epsilon_{i} \sim N(0, \sigma^2)\)</span>, these are the maximum likelihood estimates.</li>
+</ol>
+<p>Pick either b. or c.&nbsp;and brush off your calculus skills to demonstrate that it is true. If you haven’t seen maximum likelihood estimation before, stick to b.</p></li>
+</ol>
 
 
 

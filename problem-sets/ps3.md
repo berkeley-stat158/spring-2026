@@ -101,20 +101,66 @@ toc-title: Table of contents
 
     a.  Create an interaction plot of the data and interpret it.
     b.  Fit a two factor model with interactions and
-        -   i\. for each component of the model (main effect of poisons,
-            main effect of drugs, interaction effects), calculate the
-            value of observed F statistics and the corresponding
-            p-values. You may calculate the p-values using either
-            randomization-based inference or model-based inference (or
-            both).
-        -   ii\. draw conclusions about differences among poisons,
-            differences among treatments, and interactions between them.
-            Is this a setting where it is important to estimate the
-            interaction effects?
+        -   i.  for each component of the model (main effect of poisons,
+                main effect of drugs, interaction effects), calculate
+                the value of observed F statistics and the corresponding
+                p-values. You may calculate the p-values using either
+                randomization-based inference or model-based inference
+                (or both).
+        -   ii. draw conclusions about differences among poisons,
+                differences among treatments, and interactions between
+                them. Is this a setting where it is important to
+                estimate the interaction effects?
 
 
 
-4.  **Estimation Three Ways**. We laid out the additive model for a
+4.  **Growing Herbs**. Botanists studying optimal greenhouse conditions
+    for a fast-growing herb ran a fully-crossed three-way factorial
+    experiment. They manipulated light intensity (low, medium, or high),
+    watering frequency (low, medium, or high), and soil type (sandy or
+    loam). Each of the $3 \times 3 \times 2 = 18$ treatment combinations
+    was replicated twice, yielding $n = 36$ plants. The response is
+    shoot dry weight (grams) measured after four weeks.
+
+    You can load the data directly in R with the following code chunk:
+
+    ::: cell
+    ``` {.r .cell-code}
+    plants <- data.frame(
+      weight = c(12.7,14.2,15.7,12.6,16.4,17.2,15.0,17.4,20.5,
+                 11.9,15.2,16.4,12.9,17.9,18.7,15.9,18.1,25.7,
+                 11.3,13.4,15.5,12.0,16.6,18.0,15.6,17.6,22.1,
+                 14.8,13.9,18.3,14.8,17.8,19.2,16.7,17.9,26.4),
+      light  = gl(3, 1, 36, labels = c("low", "medium", "high")),
+      water  = gl(3, 3, 36, labels = c("low", "medium", "high")),
+      soil   = gl(2, 9, 36, labels = c("sandy", "loam"))
+    )
+    ```
+    :::
+
+    a.  Create a *main effects plot* for each of the three factors ---
+        light intensity, watering frequency, and soil type --- and
+        interpret each one. Which factor appears to have the largest
+        main effect on shoot dry weight?
+
+    b.  Construct *three two-way interaction plots* (one for each pair
+        of factors: light × water, light × soil, water × soil) and
+        interpret them. Do any of the pairs show evidence of an
+        interaction?
+
+    c.  Construct a *three-way interaction plot* by plotting mean shoot
+        dry weight against one factor on the x-axis, a second factor
+        mapped to color and line type, and using `facet_wrap()` on the
+        third. Interpret what you see: is there evidence that a two-way
+        interaction changes in character across levels of the third
+        factor?
+
+    d.  Fit a full three-way ANOVA model using
+        `aov(weight ~ light * water * soil, data = plants)`. Report the
+        ANOVA table and, for each term in the model, state whether you
+        would conclude the effect is present.
+
+5.  **Estimation Three Ways**. We laid out the additive model for a
     two-way factorial with no interactions as
 
     $$

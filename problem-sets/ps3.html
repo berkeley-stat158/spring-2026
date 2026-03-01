@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -311,13 +346,36 @@ Residuals   120  26314   219.3               </code></pre>
 <li>Create an interaction plot of the data and interpret it.</li>
 <li>Fit a two factor model with interactions and
 <ul>
-<li>i. for each component of the model (main effect of poisons, main effect of drugs, interaction effects), calculate the value of observed F statistics and the corresponding p-values. You may calculate the p-values using either randomization-based inference or model-based inference (or both).</li>
-<li>ii. draw conclusions about differences among poisons, differences among treatments, and interactions between them. Is this a setting where it is important to estimate the interaction effects?</li>
+<li><ol type="i">
+<li>for each component of the model (main effect of poisons, main effect of drugs, interaction effects), calculate the value of observed F statistics and the corresponding p-values. You may calculate the p-values using either randomization-based inference or model-based inference (or both).</li>
+</ol></li>
+<li><ol start="2" type="i">
+<li>draw conclusions about differences among poisons, differences among treatments, and interactions between them. Is this a setting where it is important to estimate the interaction effects?</li>
+</ol></li>
 </ul></li>
 </ol></li>
 </ol>
 <div style="page-break-after: always;"></div>
 <ol start="4" class="example" type="1">
+<li><p><strong>Growing Herbs</strong>. Botanists studying optimal greenhouse conditions for a fast-growing herb ran a fully-crossed three-way factorial experiment. They manipulated light intensity (low, medium, or high), watering frequency (low, medium, or high), and soil type (sandy or loam). Each of the <span class="math inline">\(3 \times 3 \times 2 = 18\)</span> treatment combinations was replicated twice, yielding <span class="math inline">\(n = 36\)</span> plants. The response is shoot dry weight (grams) measured after four weeks.</p>
+<p>You can load the data directly in R with the following code chunk:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plants <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">c</span>(<span class="fl">12.7</span>,<span class="fl">14.2</span>,<span class="fl">15.7</span>,<span class="fl">12.6</span>,<span class="fl">16.4</span>,<span class="fl">17.2</span>,<span class="fl">15.0</span>,<span class="fl">17.4</span>,<span class="fl">20.5</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>             <span class="fl">11.9</span>,<span class="fl">15.2</span>,<span class="fl">16.4</span>,<span class="fl">12.9</span>,<span class="fl">17.9</span>,<span class="fl">18.7</span>,<span class="fl">15.9</span>,<span class="fl">18.1</span>,<span class="fl">25.7</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>             <span class="fl">11.3</span>,<span class="fl">13.4</span>,<span class="fl">15.5</span>,<span class="fl">12.0</span>,<span class="fl">16.6</span>,<span class="fl">18.0</span>,<span class="fl">15.6</span>,<span class="fl">17.6</span>,<span class="fl">22.1</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>             <span class="fl">14.8</span>,<span class="fl">13.9</span>,<span class="fl">18.3</span>,<span class="fl">14.8</span>,<span class="fl">17.8</span>,<span class="fl">19.2</span>,<span class="fl">16.7</span>,<span class="fl">17.9</span>,<span class="fl">26.4</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">light  =</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">36</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>)),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">water  =</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">36</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>)),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">soil   =</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">36</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"sandy"</span>, <span class="st">"loam"</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol type="a">
+<li><p>Create a <em>main effects plot</em> for each of the three factors — light intensity, watering frequency, and soil type — and interpret each one. Which factor appears to have the largest main effect on shoot dry weight?</p></li>
+<li><p>Construct <em>three two-way interaction plots</em> (one for each pair of factors: light × water, light × soil, water × soil) and interpret them. Do any of the pairs show evidence of an interaction?</p></li>
+<li><p>Construct a <em>three-way interaction plot</em> by plotting mean shoot dry weight against one factor on the x-axis, a second factor mapped to color and line type, and using <code>facet_wrap()</code> on the third. Interpret what you see: is there evidence that a two-way interaction changes in character across levels of the third factor?</p></li>
+<li><p>Fit a full three-way ANOVA model using <code>aov(weight ~ light * water * soil, data = plants)</code>. Report the ANOVA table and, for each term in the model, state whether you would conclude the effect is present.</p></li>
+</ol></li>
 <li><p><strong>Estimation Three Ways</strong>. We laid out the additive model for a two-way factorial with no interactions as</p>
 <p><span class="math display">\[
 Y_{i} = \mu + \alpha_{j(i)} + \beta_{k(i)} + \epsilon_{i}.

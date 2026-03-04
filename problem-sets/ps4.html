@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Problem Set 3 – STAT 158</title>
+<title>Problem Set 4 – STAT 158</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -162,7 +162,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps3.html">PS 3</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps4.html">PS 4</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -239,13 +239,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../problem-sets/ps3.html" class="sidebar-item-text sidebar-link active">
+  <a href="../problem-sets/ps3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../problem-sets/ps4.html" class="sidebar-item-text sidebar-link">
+  <a href="../problem-sets/ps4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">PS 4</span></a>
   </div>
 </li>
@@ -292,13 +292,13 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ps3.pdf"><i class="bi bi-file-pdf"></i>Typst (stat158handout)</a></li><li><a href="ps3.tex"><i class="bi bi-file"></i>LaTeX</a></li><li><a href="ps3.md"><i class="bi bi-file-code"></i>Markdown</a></li></ul></div></div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ps4.pdf"><i class="bi bi-file-pdf"></i>Typst (stat158handout)</a></li><li><a href="ps4.tex"><i class="bi bi-file"></i>LaTeX</a></li><li><a href="ps4.md"><i class="bi bi-file-code"></i>Markdown</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps3.html">PS 3</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps4.html">PS 4</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Problem Set 3</h1>
+<h1 class="title">Problem Set 4</h1>
 </div>
 
 
@@ -316,97 +316,21 @@ window.Quarto = {
 
 
 <ol class="example" type="1">
-<li><p><strong>The Secret to Longevity</strong>. Scientists are interested in whether the energy costs involved in reproduction affect longevity<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. In this experiment, 125 male fruit flies were divided at random into five sets of 25. In group 1, the males were kept by themselves. In groups 3 and 5, the males were supplied with one or eight receptive virgin female fruit flies per day, respectively. In groups 2 and 4, the males were supplied with one or eight unreceptive (pregnant) female fruit flies per day, respectively. Other than the number and type of companions, the males were treated identically. The longevity of the flies was observed.</p>
-<p>You can access the data as a csv file at: <a href="https://stat158.berkeley.edu/spring-2026/data/fruit-flies/fruit-flies.csv" class="uri">https://stat158.berkeley.edu/spring-2026/data/fruit-flies/fruit-flies.csv</a></p>
+<li><p><strong>Confident in your confidence intervals?</strong> In lecture we formed a randomization-based confidence interval for the difference in mean response between the <span class="math inline">\(X=11\)</span> group and the <span class="math inline">\(X=73\)</span> group in the anchoring experiment. Your goal for this exercise is to use simulation to check the coverage of your interval and evaluate the consequences of using the constant effect assumption when it is violated.</p>
+<p>This simulation requires knowing the value of the true parameter, <span class="math inline">\(ATE\)</span>, so you’ll be playing this question as an all knowing god with all potential outcomes at your fingertips. You can find two full schedules of potential outcomes at the following links.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>godlikeA <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/anchoring/godlike_schedule_A.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>godlikeB <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/anchoring/godlike_schedule_B.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Schedule A represents a world with constant effects: the individual treatment effect for each unit is the same. Schedule B represents a world with variable effects: each unit has a different individual treatment effect.</p>
 <ol type="a">
-<li><p>Visualize the data and interpret what you see. Be sure to comment both on the center of the distributions and their spread.</p></li>
-<li><p><em>ANOVA “by hand”</em>. Without using any of the built-in commands (<code>aov()</code>, <code>anova()</code>) create a one-way ANOVA table minus the p-values. You’re welcome to use either a base R or <code>dplyr</code> approach. It is a bit tedious, however it’s useful to cobble together each of the statistics in an ANOVA table just once in your lives. You can check your answers with the output of <code>aov()</code> shown below.</p></li>
+<li>For each god-like schedule A and B, calculate the true <span class="math inline">\(ATE\)</span> parameters.</li>
+<li>For god-like schedule A, use simulation to create many original experiments and then for each construct a randomization-based CI with a constant effect assumption and evaluate whether it contains the true paramters. Select a <span class="math inline">\(1-\alpha\)</span> confidence level to use that is between 60% and 90%. For A and B separately, report the proportion of confidence intervals that contain the parameter.</li>
+<li>Repeat b. but use god-like schedule B.</li>
+<li>Did your randomization-based CIs with the constant effect assumption from the previous two questions succeed in capturing the parameter with probability <span class="math inline">\(1-\alpha\)</span>? If not, provide some intuition for why not.</li>
 </ol>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)
-factor(trt)   4  11939  2984.8   13.61       
-Residuals   120  26314   219.3               </code></pre>
-</div>
-</div>
-<ol start="3" type="a">
-<li><p>State your conclusion about the scientific question using Model-based inference. Be clear about the data generation model your approach relies upon and the null hypothesis that you’re evaluating. To calculate the p-value, use the <code>pf()</code> function and then verify it using the <code>aov()</code> function<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p></li>
-<li><p>State your conclusion about the scientific question using Randomization-based Inference. Be clear about the data generation model your approach relies upon and the null hypothesis that you’re evaluating. For your test statistic, use the F-statistic that you built the code for from part a above.</p></li>
-<li><p>How do the results of the model-based and randomization-based inference compare? Do they lead to the same conclusion? Do they rely on the same assumptions? Which do you think is more appropriate for this problem?</p></li>
-</ol></li>
-</ol>
-<ol start="2" class="example" type="1">
-<li><p><strong>More Comparisons for Longevity</strong>. In the experiment regarding the fruit flies, the ANOVA analysis only tests whether there were any differences between the group means. Suppose there was further interest in whether the 1 pregnant group was different from the 1 virgin group (for questions a and b, restrict the data set to these two groups).</p>
-<ol type="a">
-<li><p>Perform a randomization test to compare these two groups using the t-statistic. Assume the two groups have the same variance (revisit your notes on the t-test and the pooled estimate of the SE).</p></li>
-<li><p>Repeat the randomization test but this time use an F-statistic. How do the results of this analysis this compare to the results in part (a)?</p></li>
-<li><p>Calculate an ANOVA table for this comparison and report the value of <span class="math inline">\(\sqrt{MS_{residuals}}\)</span>, which is an estimate of <span class="math inline">\(\sigma\)</span>. How does that compare to the estimate of the standard deviation that you used for the t-statistic (<span class="math inline">\(s_{p}\)</span>)?</p></li>
-</ol>
-<p>You are welcome to use built-in R commands for this question, if appropriate.</p></li>
+<p>This is a challenging simulation to set up correctly. If you get stuck please consult the hints<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p></li>
 </ol>
 <div style="page-break-after: always;"></div>
-<ol start="3" class="example" type="1">
-<li><p><strong>Poison</strong>. Medical researchers investigated how to combat the effects of certain toxic agents (indeed poison, not Poisson!). For this, they randomly assigned 48 to a group where they are treated with a poison and a drug to counteract the poison. The survival time of the animal was recorded as the response of interest[^death]. Three poisons and four drugs were considered, and four mice were assigned to each poison/drug combination. The responses are recorded in hours.</p>
-<p>You can access the data as a csv file at: <a href="https://stat158.berkeley.edu/spring-2026/data/poison/poison.csv" class="uri">https://stat158.berkeley.edu/spring-2026/data/poison/poison.csv</a></p>
-<ol type="a">
-<li>Create an interaction plot of the data and interpret it.</li>
-<li>Fit a two factor model with interactions and
-<ul>
-<li><ol type="i">
-<li>for each component of the model (main effect of poisons, main effect of drugs, interaction effects), calculate the value of observed F statistics and the corresponding p-values. You may calculate the p-values using either randomization-based inference or model-based inference (or both)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</li>
-</ol></li>
-<li><ol start="2" type="i">
-<li>draw conclusions about differences among poisons, differences among treatments, and interactions between them. Is this a setting where it is important to estimate the interaction effects?</li>
-</ol></li>
-</ul></li>
-</ol></li>
-</ol>
-<div style="page-break-after: always;"></div>
-<ol start="4" class="example" type="1">
-<li><p><strong>Growing Herbs</strong>. Botanists studying optimal greenhouse conditions for a fast-growing herb ran a fully-crossed three-way factorial experiment. They manipulated light intensity (low, medium, or high), watering frequency (low, medium, or high), and soil type (sandy or loam). Each of the <span class="math inline">\(3 \times 3 \times 2 = 18\)</span> treatment combinations was replicated twice, yielding <span class="math inline">\(n = 36\)</span> plants. The response is shoot dry weight (grams) measured after four weeks.</p>
-<p>You can load the data directly in R with the following code chunk:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plants <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">c</span>(<span class="fl">12.7</span>,<span class="fl">14.2</span>,<span class="fl">15.7</span>,<span class="fl">12.6</span>,<span class="fl">16.4</span>,<span class="fl">17.2</span>,<span class="fl">15.0</span>,<span class="fl">17.4</span>,<span class="fl">20.5</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>             <span class="fl">11.9</span>,<span class="fl">15.2</span>,<span class="fl">16.4</span>,<span class="fl">12.9</span>,<span class="fl">17.9</span>,<span class="fl">18.7</span>,<span class="fl">15.9</span>,<span class="fl">18.1</span>,<span class="fl">25.7</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>             <span class="fl">11.3</span>,<span class="fl">13.4</span>,<span class="fl">15.5</span>,<span class="fl">12.0</span>,<span class="fl">16.6</span>,<span class="fl">18.0</span>,<span class="fl">15.6</span>,<span class="fl">17.6</span>,<span class="fl">22.1</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>             <span class="fl">14.8</span>,<span class="fl">13.9</span>,<span class="fl">18.3</span>,<span class="fl">14.8</span>,<span class="fl">17.8</span>,<span class="fl">19.2</span>,<span class="fl">16.7</span>,<span class="fl">17.9</span>,<span class="fl">26.4</span>),</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">light  =</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">36</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>)),</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">water  =</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">36</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>)),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">soil   =</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">36</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"sandy"</span>, <span class="st">"loam"</span>))</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ol type="a">
-<li><p>Create a <em>main effects plot</em> for each of the three factors — light intensity, watering frequency, and soil type — and interpret each one. Which factor appears to have the largest main effect on shoot dry weight?</p></li>
-<li><p>Construct <em>three two-way interaction plots</em> (one for each pair of factors: light × water, light × soil, water × soil) and interpret them. Do any of the pairs show evidence of an interaction?</p></li>
-<li><p>Construct a <em>three-way interaction plot</em> by plotting mean shoot dry weight against one factor on the x-axis, a second factor mapped to color and line type, and using <code>facet_wrap()</code> on the third. Interpret what you see: is there evidence that a two-way interaction changes in character across levels of the third factor?</p></li>
-<li><p>Fit a full three-way ANOVA model using <code>aov(weight ~ light * water * soil, data = plants)</code>. Report the ANOVA table and, for each term in the model, state whether you would conclude the effect is present.</p></li>
-</ol></li>
-<li><p><strong>Estimation Three Ways</strong>. We laid out the additive model for a two-way factorial with no interactions as</p>
-<p><span class="math display">\[
-Y_{i} = \mu + \alpha_{j(i)} + \beta_{k(i)} + \epsilon_{i}.
-\]</span></p>
-<p>The most commonly used estimators for these parameters are as follows.</p>
-<p><span class="math display">\[
-\begin{aligned}
-\hat{\mu} &amp;= \hat{\bar{Y}} \\
-\hat{\alpha}_j &amp;= \hat{\bar{Y}}_j - \hat{\bar{Y}} \\
-\hat{\beta}_k &amp;= \hat{\bar{Y}}_k - \hat{\bar{Y}}
-\end{aligned}
-\]</span></p>
-<p>There are three different reasons that these estimates are sensible:</p>
-<ol type="a">
-<li><p>They provide unbiased estimates of the corresponding causal parameters (shown in class).</p></li>
-<li><p>These estimates are the least squares estimates. That is, they are the values that minimize</p></li>
-</ol>
-<p><span class="math display">\[
-\sum_{i = 1}^n \left(Y_i - \left( \mu + \alpha_{j(i)} + \beta_{k(i)} \right) \right) ^2
-\]</span></p>
-<ol start="3" type="a">
-<li>Under a generative model assumption that <span class="math inline">\(\epsilon_{i} \sim N(0, \sigma^2)\)</span>, these are the maximum likelihood estimates.</li>
-</ol>
-<p>Pick either b. or c.&nbsp;and brush off your calculus skills to demonstrate that it is true. If you haven’t seen maximum likelihood estimation before, stick to b.</p></li>
-</ol>
+<p>More questions coming soon!</p>
 
 
 
@@ -414,9 +338,18 @@ Y_{i} = \mu + \alpha_{j(i)} + \beta_{k(i)} + \epsilon_{i}.
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Question from Problem 3.2 in Oehlert textbook, original data from Hanley and Shapiro (1994), ``Sexual activity and the lifespan of male fruitflies: a dataset that gets attention,” <em>Journal of Statistics Education 2</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Recall all named probability distributions have a CDF in R with the prefix <code>p</code>. The F-distribution is no exception, so you can use <code>pf()</code> to calculate the p-value for your ANOVA table. The arguments to <code>pf()</code> are the F-statistic, the degrees of freedom for the numerator, and the degrees of freedom for the denominator. Recall a test using the F statistic is a right-tailed test. The standard anova output is available with <code>summary(aov(y ~ x, data))</code> (be sure your <code>x</code> is a factor vector).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Note the interpretation of p-values associated with a test on interaction terms is different for RBI than MBI due to different null hypotheses. To test a null hypothesis analogous to the MBI that <span class="math inline">\(\gamma_{j,k} = 0 \forall j,k\)</span> using RBI requires a more sophisticated shuffling method such as the Freedman-Lane Residual Permutation Test.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>The idea is to recreate the random process that leads to the create of the random confidence interval many times and check the proportion of those intervals that contain the parameter. In randomization-based inference, the only randomness comes from the assignments of units to treatment and control at the start of the original experiment, so that’s were each one of your simulations begins.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>For each of settings A and B above, you will want to write a function. One approach is to write a function that:</p>
+<ol type="1">
+<li>Randomly assigns each unit to one of the two groups.</li>
+<li>Sets the potential outcome that is <em>not</em> observed to be <code>NA</code>. At this stage, you have the analog of an original experimental data set.</li>
+<li>Calculates <span class="math inline">\(\widehat{ATE}\)</span>.</li>
+<li>Uses <span class="math inline">\(\widehat{ATE}\)</span> to impute the missing potential outcomes.</li>
+<li>Using this filled-in schedule, form a randomization-based confidence interval.</li>
+<li>Check whether the interval contains the true parameter and return that logical value.</li>
+</ol>
+<p>Then you can replicate this function many times and count the proportion of <code>TRUE</code>s to estimate the coverage probability. Note that if you use the code from the slides, you will be pivoting the data back and forth between schedule-format (with a column for each potential outcome) and dataframe-format (with all of the observed outcomes in a single column).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>This code may take awhile to run - you’re simulating many randomization-based CIs - so start with small numbers of replicates while you’re still testing your code. You can also take advantage of your computers ability to run multiple R sessions at the same time using the <code>future_replicate()</code> function inside the <code>future.apply</code> package.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

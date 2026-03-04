@@ -106,7 +106,7 @@ toc-title: Table of contents
                 the value of observed F statistics and the corresponding
                 p-values. You may calculate the p-values using either
                 randomization-based inference or model-based inference
-                (or both).
+                (or both)[^3].
         -   ii. draw conclusions about differences among poisons,
                 differences among treatments, and interactions between
                 them. Is this a setting where it is important to
@@ -211,3 +211,10 @@ toc-title: Table of contents
     test using the F statistic is a right-tailed test. The standard
     anova output is available with `summary(aov(y ~ x, data))` (be sure
     your `x` is a factor vector).
+
+[^3]: Note the interpretation of p-values associated with a test on
+    interaction terms is different for RBI than MBI due to different
+    null hypotheses. To test a null hypothesis analogous to the MBI that
+    $\gamma_{j,k} = 0 \forall j,k$ using RBI requires a more
+    sophisticated shuffling method such as the Freedman-Lane Residual
+    Permutation Test.

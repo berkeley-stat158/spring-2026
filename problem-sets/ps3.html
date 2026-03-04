@@ -347,7 +347,7 @@ Residuals   120  26314   219.3               </code></pre>
 <li>Fit a two factor model with interactions and
 <ul>
 <li><ol type="i">
-<li>for each component of the model (main effect of poisons, main effect of drugs, interaction effects), calculate the value of observed F statistics and the corresponding p-values. You may calculate the p-values using either randomization-based inference or model-based inference (or both).</li>
+<li>for each component of the model (main effect of poisons, main effect of drugs, interaction effects), calculate the value of observed F statistics and the corresponding p-values. You may calculate the p-values using either randomization-based inference or model-based inference (or both)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</li>
 </ol></li>
 <li><ol start="2" type="i">
 <li>draw conclusions about differences among poisons, differences among treatments, and interactions between them. Is this a setting where it is important to estimate the interaction effects?</li>
@@ -410,6 +410,7 @@ Y_{i} = \mu + \alpha_{j(i)} + \beta_{k(i)} + \epsilon_{i}.
 <ol>
 <li id="fn1"><p>Question from Problem 3.2 in Oehlert textbook, original data from Hanley and Shapiro (1994), ``Sexual activity and the lifespan of male fruitflies: a dataset that gets attention,” <em>Journal of Statistics Education 2</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Recall all named probability distributions have a CDF in R with the prefix <code>p</code>. The F-distribution is no exception, so you can use <code>pf()</code> to calculate the p-value for your ANOVA table. The arguments to <code>pf()</code> are the F-statistic, the degrees of freedom for the numerator, and the degrees of freedom for the denominator. Recall a test using the F statistic is a right-tailed test. The standard anova output is available with <code>summary(aov(y ~ x, data))</code> (be sure your <code>x</code> is a factor vector).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Note the interpretation of p-values associated with a test on interaction terms is different for RBI than MBI due to different null hypotheses. To test a null hypothesis analogous to the MBI that <span class="math inline">\(\gamma_{j,k} = 0 \forall j,k\)</span> using RBI requires a more sophisticated shuffling method such as the Freedman-Lane Residual Permutation Test.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

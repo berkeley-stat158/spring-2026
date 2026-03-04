@@ -8,7 +8,43 @@ title: Problem Set 4
 toc-title: Table of contents
 ---
 
-1.  **Confident in your confidence intervals?** In lecture we formed a
+1.  **Cancer and Group Therapy II**. Researchers randomly assigned
+    metastatic breast cancer patients to either a control group or a
+    group that received weekly 90-minute sessions of group therapy and
+    self-hypnosis. The group therapy involved discussion and support for
+    coping with the disease. The goal of the experiment was to see
+    whether the latter treatment improved the patients' quality of life
+    at the time, but a followup study on these patients collected data
+    on the number of months of survival after the beginning of the
+    study[^1].
+
+    You can access the data from this study using the following code.
+
+    ::: cell
+    ``` {.r .cell-code}
+    library(tidyverse)
+    cancer <- read.csv("https://stat158.berkeley.edu/spring-2026/data/breast-cancer/breast-cancer.csv")
+    ```
+    :::
+
+    `GROUP` is the original group assigned to the subject. `SURVIVAL` is
+    the survival time in months from the beginning of the study. At the
+    time the survival data was collected (10 years later), some subjects
+    were still alive. They are flagged in the `CENSOR` column. Data (in
+    this case survival time) that can only be known up to some bound is
+    called *censored*.
+
+    a.  The parameter of central interest to researchers is the $ATE$.
+        What is the point estimate of this parameter using this data?
+    b.  Form a 95% confidence interval associated the point estimate
+        using the $t$ distribution. As before use the pooled estimate of
+        the standard deviation[^2].
+    c.  Form a 95% CI using RBI and the constant-effect assumption.
+    d.  Methods b. and c. rely upon different assumptions. Describe what
+        they are and which seem more realistic in this particular
+        setting.
+
+2.  **Confident in your confidence intervals?** In lecture we formed a
     randomization-based confidence interval for the difference in mean
     response between the $X=11$ group and the $X=73$ group in the
     anchoring experiment. Your goal for this exercise is to use
@@ -47,13 +83,21 @@ toc-title: Table of contents
         intuition for why not.
 
     This is a challenging simulation to set up correctly. If you get
-    stuck please consult the hints[^1][^2][^3].
+    stuck please consult the hints[^3][^4][^5].
 
 
 
 More questions coming soon!
 
-[^1]: The idea is to recreate the random process that leads to the
+[^1]: Data from Q 4.31 in *Statistical Sleuth*.
+
+[^2]: In R, you can do this either "by hand" using the point estimate
+    plus and minus a value of `qt()` times your estimate of the SE. You
+    can also return to the last time you saw this dataset, in a testing
+    framework. The object created by `t.test()` has bundled with it the
+    associated confidence interval.
+
+[^3]: The idea is to recreate the random process that leads to the
     create of the random confidence interval many times and check the
     proportion of those intervals that contain the parameter. In
     randomization-based inference, the only randomness comes from the
@@ -61,7 +105,7 @@ More questions coming soon!
     original experiment, so that's were each one of your simulations
     begins.
 
-[^2]: For each of settings A and B above, you will want to write a
+[^4]: For each of settings A and B above, you will want to write a
     function. One approach is to write a function that:
 
     1.  Randomly assigns each unit to one of the two groups.
@@ -82,7 +126,7 @@ More questions coming soon!
     potential outcome) and dataframe-format (with all of the observed
     outcomes in a single column).
 
-[^3]: This code may take awhile to run - you're simulating many
+[^5]: This code may take awhile to run - you're simulating many
     randomization-based CIs - so start with small numbers of replicates
     while you're still testing your code. You can also take advantage of
     your computers ability to run multiple R sessions at the same time

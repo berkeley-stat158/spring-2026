@@ -316,10 +316,23 @@ window.Quarto = {
 
 
 <ol class="example" type="1">
+<li><p><strong>Cancer and Group Therapy II</strong>. Researchers randomly assigned metastatic breast cancer patients to either a control group or a group that received weekly 90-minute sessions of group therapy and self-hypnosis. The group therapy involved discussion and support for coping with the disease. The goal of the experiment was to see whether the latter treatment improved the patients’ quality of life at the time, but a followup study on these patients collected data on the number of months of survival after the beginning of the study<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>You can access the data from this study using the following code.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>cancer <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/breast-cancer/breast-cancer.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>GROUP</code> is the original group assigned to the subject. <code>SURVIVAL</code> is the survival time in months from the beginning of the study. At the time the survival data was collected (10 years later), some subjects were still alive. They are flagged in the <code>CENSOR</code> column. Data (in this case survival time) that can only be known up to some bound is called <em>censored</em>.</p>
+<ol type="a">
+<li>The parameter of central interest to researchers is the <span class="math inline">\(ATE\)</span>. What is the point estimate of this parameter using this data?</li>
+<li>Form a 95% confidence interval associated the point estimate using the <span class="math inline">\(t\)</span> distribution. As before use the pooled estimate of the standard deviation<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</li>
+<li>Form a 95% CI using RBI and the constant-effect assumption.</li>
+<li>Methods b. and c.&nbsp;rely upon different assumptions. Describe what they are and which seem more realistic in this particular setting.</li>
+</ol></li>
 <li><p><strong>Confident in your confidence intervals?</strong> In lecture we formed a randomization-based confidence interval for the difference in mean response between the <span class="math inline">\(X=11\)</span> group and the <span class="math inline">\(X=73\)</span> group in the anchoring experiment. Your goal for this exercise is to use simulation to check the coverage of your interval and evaluate the consequences of using the constant effect assumption when it is violated.</p>
 <p>This simulation requires knowing the value of the true parameter, <span class="math inline">\(ATE\)</span>, so you’ll be playing this question as an all knowing god with all potential outcomes at your fingertips. You can find two full schedules of potential outcomes at the following links.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>godlikeA <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/anchoring/godlike_schedule_A.csv"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>godlikeB <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/anchoring/godlike_schedule_B.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>godlikeA <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/anchoring/godlike_schedule_A.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>godlikeB <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/anchoring/godlike_schedule_B.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Schedule A represents a world with constant effects: the individual treatment effect for each unit is the same. Schedule B represents a world with variable effects: each unit has a different individual treatment effect.</p>
 <ol type="a">
 <li>For each god-like schedule A and B, calculate the true <span class="math inline">\(ATE\)</span> parameters.</li>
@@ -327,7 +340,7 @@ window.Quarto = {
 <li>Repeat b. but use god-like schedule B.</li>
 <li>Did your randomization-based CIs with the constant effect assumption from the previous two questions succeed in capturing the parameter with probability <span class="math inline">\(1-\alpha\)</span>? If not, provide some intuition for why not.</li>
 </ol>
-<p>This is a challenging simulation to set up correctly. If you get stuck please consult the hints<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p></li>
+<p>This is a challenging simulation to set up correctly. If you get stuck please consult the hints<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p></li>
 </ol>
 <div style="page-break-after: always;"></div>
 <p>More questions coming soon!</p>
@@ -338,8 +351,10 @@ window.Quarto = {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>The idea is to recreate the random process that leads to the create of the random confidence interval many times and check the proportion of those intervals that contain the parameter. In randomization-based inference, the only randomness comes from the assignments of units to treatment and control at the start of the original experiment, so that’s were each one of your simulations begins.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>For each of settings A and B above, you will want to write a function. One approach is to write a function that:</p>
+<li id="fn1"><p>Data from Q 4.31 in <em>Statistical Sleuth</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In R, you can do this either “by hand” using the point estimate plus and minus a value of <code>qt()</code> times your estimate of the SE. You can also return to the last time you saw this dataset, in a testing framework. The object created by <code>t.test()</code> has bundled with it the associated confidence interval.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>The idea is to recreate the random process that leads to the create of the random confidence interval many times and check the proportion of those intervals that contain the parameter. In randomization-based inference, the only randomness comes from the assignments of units to treatment and control at the start of the original experiment, so that’s were each one of your simulations begins.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>For each of settings A and B above, you will want to write a function. One approach is to write a function that:</p>
 <ol type="1">
 <li>Randomly assigns each unit to one of the two groups.</li>
 <li>Sets the potential outcome that is <em>not</em> observed to be <code>NA</code>. At this stage, you have the analog of an original experimental data set.</li>
@@ -348,8 +363,8 @@ window.Quarto = {
 <li>Using this filled-in schedule, form a randomization-based confidence interval.</li>
 <li>Check whether the interval contains the true parameter and return that logical value.</li>
 </ol>
-<p>Then you can replicate this function many times and count the proportion of <code>TRUE</code>s to estimate the coverage probability. Note that if you use the code from the slides, you will be pivoting the data back and forth between schedule-format (with a column for each potential outcome) and dataframe-format (with all of the observed outcomes in a single column).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>This code may take awhile to run - you’re simulating many randomization-based CIs - so start with small numbers of replicates while you’re still testing your code. You can also take advantage of your computers ability to run multiple R sessions at the same time using the <code>future_replicate()</code> function inside the <code>future.apply</code> package.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<p>Then you can replicate this function many times and count the proportion of <code>TRUE</code>s to estimate the coverage probability. Note that if you use the code from the slides, you will be pivoting the data back and forth between schedule-format (with a column for each potential outcome) and dataframe-format (with all of the observed outcomes in a single column).<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>This code may take awhile to run - you’re simulating many randomization-based CIs - so start with small numbers of replicates while you’re still testing your code. You can also take advantage of your computers ability to run multiple R sessions at the same time using the <code>future_replicate()</code> function inside the <code>future.apply</code> package.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

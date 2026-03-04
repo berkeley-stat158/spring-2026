@@ -211,6 +211,54 @@
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
+  \textbf{Cancer and Group Therapy II}. Researchers randomly assigned
+  metastatic breast cancer patients to either a control group or a group
+  that received weekly 90-minute sessions of group therapy and
+  self-hypnosis. The group therapy involved discussion and support for
+  coping with the disease. The goal of the experiment was to see whether
+  the latter treatment improved the patients' quality of life at the
+  time, but a followup study on these patients collected data on the
+  number of months of survival after the beginning of the
+  study\footnote{Data from Q 4.31 in \emph{Statistical Sleuth}.}.
+
+  You can access the data from this study using the following code.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\NormalTok{cancer }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"https://stat158.berkeley.edu/spring{-}2026/data/breast{-}cancer/breast{-}cancer.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \texttt{GROUP} is the original group assigned to the subject.
+  \texttt{SURVIVAL} is the survival time in months from the beginning of
+  the study. At the time the survival data was collected (10 years
+  later), some subjects were still alive. They are flagged in the
+  \texttt{CENSOR} column. Data (in this case survival time) that can
+  only be known up to some bound is called \emph{censored}.
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    The parameter of central interest to researchers is the \(ATE\).
+    What is the point estimate of this parameter using this data?
+  \item
+    Form a 95\% confidence interval associated the point estimate using
+    the \(t\) distribution. As before use the pooled estimate of the
+    standard deviation\footnote{In R, you can do this either ``by hand''
+      using the point estimate plus and minus a value of \texttt{qt()}
+      times your estimate of the SE. You can also return to the last
+      time you saw this dataset, in a testing framework. The object
+      created by \texttt{t.test()} has bundled with it the associated
+      confidence interval.}.
+  \item
+    Form a 95\% CI using RBI and the constant-effect assumption.
+  \item
+    Methods b. and c.~rely upon different assumptions. Describe what
+    they are and which seem more realistic in this particular setting.
+  \end{enumerate}
+\item
   \textbf{Confident in your confidence intervals?} In lecture we formed
   a randomization-based confidence interval for the difference in mean
   response between the \(X=11\) group and the \(X=73\) group in the

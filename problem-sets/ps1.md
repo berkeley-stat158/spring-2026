@@ -2,6 +2,7 @@
 resources:
 - \*\*/\*Starter.pdf
 - data/\*\*/\*.csv
+- ../assets/
 title: Problem Set 1
 toc-title: Table of contents
 ---

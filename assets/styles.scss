@@ -1,0 +1,24 @@
+/*-- scss:defaults --*/
+
+// Import Inter font from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+// Set Inter as the primary font
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$headings-font-family: $font-family-sans-serif !default;
+
+// Buttons
+
+$btn-padding-y-sm: .18rem;
+$btn-padding-x-sm: .48rem;
+$btn-font-size-sm: .9rem;
+
+/*-- scss:rules --*/
+
+/* shrink the search icon to 50% */
+.navbar #quarto-search.type-overlay .aa-Autocomplete svg.aa-SubmitIcon {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+

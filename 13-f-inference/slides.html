@@ -94,7 +94,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-6248525f1bfeb46420cc643b2d6e76f6.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0bb8869c6cb94f47f03d0b8f477bab0d.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -1867,6 +1867,43 @@ model_pval
         }
       });
       </script>
+    <script type="text/javascript">
+      window.addEventListener('load', function() {
+        var titleSlide = document.getElementById('title-slide');
+        if (titleSlide) {
+          var img = document.createElement('img');
+          img.src = '/assets/stat158green.png';
+          img.className = 'title-logo';
+          titleSlide.insertBefore(img, titleSlide.firstChild);
+        }
+
+        // Inject slide logo
+        var deck = document.querySelector('.reveal .slides');
+        if (deck) {
+          var logo = document.createElement('img');
+          logo.src = '/assets/stat158-logo-vsmall.png';
+          logo.className = 'slide-logo';
+          logo.style.cursor = 'pointer';
+          document.querySelector('.reveal').appendChild(logo);
+          logo.addEventListener('click', function() {
+            var referrer = document.referrer;
+            if (referrer && new URL(referrer).origin === window.location.origin) {
+              window.location.href = referrer;
+            } else {
+              window.location.href = '/';
+            }
+          });
+        }
+      });
+      Reveal.addEventListener('slidechanged', (event) => {
+        if (event.indexh === 0) {
+          Reveal.configure({ slideNumber: null });
+        }
+        if (event.indexh === 1) {
+          Reveal.configure({ slideNumber: 'c' });
+        }
+      });
+    </script>
     
 
 </body></html>

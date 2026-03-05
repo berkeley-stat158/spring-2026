@@ -4,6 +4,7 @@ execute:
 resources:
 - \*\*/\*Starter.pdf
 - data/\*\*/\*.csv
+- ../assets/
 title: Problem Set 4
 toc-title: Table of contents
 ---

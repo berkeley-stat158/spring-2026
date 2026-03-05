@@ -339,16 +339,13 @@
 
     Then you can replicate this function many times and count the
     proportion of \texttt{TRUE}s to estimate the coverage probability.
-    Note that if you use the code from the slides, you will be pivoting
-    the data back and forth between schedule-format (with a column for
-    each potential outcome) and dataframe-format (with all of the
-    observed outcomes in a single column).}\footnote{This code may take
-    awhile to run - you're simulating many randomization-based CIs - so
-    start with small numbers of replicates while you're still testing
-    your code. You can also take advantage of your computers ability to
-    run multiple R sessions at the same time using the
-    \texttt{future\_replicate()} function inside the
-    \texttt{future.apply} package.}.
+    See \url{https://andrewpbray.github.io/designrbi} for functions to
+    facilitate steps 1-5.}\footnote{This code may take awhile to run -
+    you're simulating many randomization-based CIs - so start with small
+    numbers of replicates while you're still testing your code. You can
+    also take advantage of your computers ability to run multiple R
+    sessions at the same time using the \texttt{future\_replicate()}
+    function inside the \texttt{future.apply} package.}.
 \end{enumerate}
 
 \newpage{}

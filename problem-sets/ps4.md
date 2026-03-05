@@ -1,4 +1,6 @@
 ---
+drafts:
+- ../18-multiple-comparisons/slides.qmd
 execute:
   eval: false
 resources:
@@ -120,11 +122,9 @@ More questions coming soon!
         return that logical value.
 
     Then you can replicate this function many times and count the
-    proportion of `TRUE`s to estimate the coverage probability. Note
-    that if you use the code from the slides, you will be pivoting the
-    data back and forth between schedule-format (with a column for each
-    potential outcome) and dataframe-format (with all of the observed
-    outcomes in a single column).
+    proportion of `TRUE`s to estimate the coverage probability. See
+    <https://andrewpbray.github.io/designrbi> for functions to
+    facilitate steps 1-5.
 
 [^5]: This code may take awhile to run - you're simulating many
     randomization-based CIs - so start with small numbers of replicates

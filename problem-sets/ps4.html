@@ -363,7 +363,7 @@ window.Quarto = {
 <li>Using this filled-in schedule, form a randomization-based confidence interval.</li>
 <li>Check whether the interval contains the true parameter and return that logical value.</li>
 </ol>
-<p>Then you can replicate this function many times and count the proportion of <code>TRUE</code>s to estimate the coverage probability. Note that if you use the code from the slides, you will be pivoting the data back and forth between schedule-format (with a column for each potential outcome) and dataframe-format (with all of the observed outcomes in a single column).<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<p>Then you can replicate this function many times and count the proportion of <code>TRUE</code>s to estimate the coverage probability. See <a href="https://andrewpbray.github.io/designrbi" class="uri">https://andrewpbray.github.io/designrbi</a> for functions to facilitate steps 1-5.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>This code may take awhile to run - you’re simulating many randomization-based CIs - so start with small numbers of replicates while you’re still testing your code. You can also take advantage of your computers ability to run multiple R sessions at the same time using the <code>future_replicate()</code> function inside the <code>future.apply</code> package.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->

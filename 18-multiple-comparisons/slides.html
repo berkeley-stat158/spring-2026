@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
-  <title>STAT 158 – Higher Order Factorial Designs</title>
+  <title>STAT 158 – Multiple Comparisons</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -195,536 +195,52 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Higher Order Factorial Designs</h1>
+  <h1 class="title">Multiple Comparisons</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="higher-order-factorial-design" class="slide level2">
-<h2>Higher Order Factorial Design</h2>
-<p>Conceptually there is nothing that limits us to CR[1] and CR[2]. Can do CR[3], CR[4], …</p>
-<div class="fragment">
-<ul>
-<li class="fragment">In social sciences, higher order designs are less common &gt; small effect sizes and high measurement error means we need to use lots of data to get high power.</li>
-<li class="fragment">In natural sciences, high order designs are more common &gt; larger effect sizes and low measurement error means we can detect effects with less data.</li>
-</ul>
-</div>
+<section>
+<section id="multiple-comparisons" class="title-slide slide level1 center">
+<h1>Multiple Comparisons</h1>
+
 </section>
-<section id="study-making-paper" class="slide level2">
-<h2>Study: Making Paper</h2>
-<p>Researchers tinker with the recipe for making paper to assess the effect on its strength.</p>
+<section id="while-youre-waiting" class="slide level2">
+<h2>While you’re waiting</h2>
+<p>What is the expected number of false positives if you conduct 20 hypothesis tests, each at a significance level of <span class="math inline">\(\alpha = .05\)</span>?</p>
+<p>Said another way, if in reality nothing is going on in all 20 tests, what’s the expected number of tests that would detect something going on?</p>
 <div class="fragment">
-<div class="cell">
-<div class="cell-output-display">
-<div id="bxccmlsaii" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bxccmlsaii table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#bxccmlsaii thead, #bxccmlsaii tbody, #bxccmlsaii tfoot, #bxccmlsaii tr, #bxccmlsaii td, #bxccmlsaii th {
-  border-style: none;
-}
-
-#bxccmlsaii p {
-  margin: 0;
-  padding: 0;
-}
-
-#bxccmlsaii .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 40px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#bxccmlsaii .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#bxccmlsaii .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#bxccmlsaii .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#bxccmlsaii .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#bxccmlsaii .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#bxccmlsaii .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#bxccmlsaii .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#bxccmlsaii .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#bxccmlsaii .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#bxccmlsaii .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#bxccmlsaii .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#bxccmlsaii .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#bxccmlsaii .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#bxccmlsaii .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#bxccmlsaii .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#bxccmlsaii .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#bxccmlsaii .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#bxccmlsaii .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bxccmlsaii .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#bxccmlsaii .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#bxccmlsaii .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#bxccmlsaii .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bxccmlsaii .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#bxccmlsaii .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#bxccmlsaii .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#bxccmlsaii .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bxccmlsaii .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#bxccmlsaii .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#bxccmlsaii .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#bxccmlsaii .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#bxccmlsaii .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#bxccmlsaii .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bxccmlsaii .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#bxccmlsaii .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bxccmlsaii .gt_left {
-  text-align: left;
-}
-
-#bxccmlsaii .gt_center {
-  text-align: center;
-}
-
-#bxccmlsaii .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#bxccmlsaii .gt_font_normal {
-  font-weight: normal;
-}
-
-#bxccmlsaii .gt_font_bold {
-  font-weight: bold;
-}
-
-#bxccmlsaii .gt_font_italic {
-  font-style: italic;
-}
-
-#bxccmlsaii .gt_super {
-  font-size: 65%;
-}
-
-#bxccmlsaii .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#bxccmlsaii .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#bxccmlsaii .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#bxccmlsaii .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#bxccmlsaii .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#bxccmlsaii .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#bxccmlsaii .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#bxccmlsaii .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#bxccmlsaii div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
-<th id="Factor" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Factor</th>
-<th id="Levels" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Levels</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center" headers="Factor">Cooking time of pulp</td>
-<td class="gt_row gt_center" headers="Levels">3, 4 hours</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="Factor">Vat pressure</td>
-<td class="gt_row gt_center" headers="Levels">400, 500, 650 psi</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Factor">% Hardwood in pulp</td>
-<td class="gt_row gt_center" headers="Levels">2, 4, 8%</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><em># treatments</em></p>
 <blockquote>
-<p><span class="fragment">2 = 18</span></p>
+<p>1</p>
 </blockquote>
 </div>
 </section>
-<section>
-<section id="exploratory-data-analysis" class="title-slide slide level1 center">
-<h1>Exploratory Data Analysis</h1>
+<section id="section" class="slide level2">
+<h2></h2>
 
-</section>
+<img data-src="images/significant.png" class="r-stretch"></section>
 <section id="making-paper" class="slide level2 scrollable">
 <h2>Making Paper</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="jplfhjryhi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jplfhjryhi table {
+<div id="ihbobhkpnr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ihbobhkpnr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jplfhjryhi thead, #jplfhjryhi tbody, #jplfhjryhi tfoot, #jplfhjryhi tr, #jplfhjryhi td, #jplfhjryhi th {
+#ihbobhkpnr thead, #ihbobhkpnr tbody, #ihbobhkpnr tfoot, #ihbobhkpnr tr, #ihbobhkpnr td, #ihbobhkpnr th {
   border-style: none;
 }
 
-#jplfhjryhi p {
+#ihbobhkpnr p {
   margin: 0;
   padding: 0;
 }
 
-#jplfhjryhi .gt_table {
+#ihbobhkpnr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -750,12 +266,12 @@
   border-left-color: #D3D3D3;
 }
 
-#jplfhjryhi .gt_caption {
+#ihbobhkpnr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jplfhjryhi .gt_title {
+#ihbobhkpnr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -767,7 +283,7 @@
   border-bottom-width: 0;
 }
 
-#jplfhjryhi .gt_subtitle {
+#ihbobhkpnr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -779,7 +295,7 @@
   border-top-width: 0;
 }
 
-#jplfhjryhi .gt_heading {
+#ihbobhkpnr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -791,13 +307,13 @@
   border-right-color: #D3D3D3;
 }
 
-#jplfhjryhi .gt_bottom_border {
+#ihbobhkpnr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jplfhjryhi .gt_col_headings {
+#ihbobhkpnr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -812,7 +328,7 @@
   border-right-color: #D3D3D3;
 }
 
-#jplfhjryhi .gt_col_heading {
+#ihbobhkpnr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -832,7 +348,7 @@
   overflow-x: hidden;
 }
 
-#jplfhjryhi .gt_column_spanner_outer {
+#ihbobhkpnr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -844,15 +360,15 @@
   padding-right: 4px;
 }
 
-#jplfhjryhi .gt_column_spanner_outer:first-child {
+#ihbobhkpnr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jplfhjryhi .gt_column_spanner_outer:last-child {
+#ihbobhkpnr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jplfhjryhi .gt_column_spanner {
+#ihbobhkpnr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -864,11 +380,11 @@
   width: 100%;
 }
 
-#jplfhjryhi .gt_spanner_row {
+#ihbobhkpnr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jplfhjryhi .gt_group_heading {
+#ihbobhkpnr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -894,7 +410,7 @@
   text-align: left;
 }
 
-#jplfhjryhi .gt_empty_group_heading {
+#ihbobhkpnr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -909,15 +425,15 @@
   vertical-align: middle;
 }
 
-#jplfhjryhi .gt_from_md > :first-child {
+#ihbobhkpnr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jplfhjryhi .gt_from_md > :last-child {
+#ihbobhkpnr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jplfhjryhi .gt_row {
+#ihbobhkpnr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -936,7 +452,7 @@
   overflow-x: hidden;
 }
 
-#jplfhjryhi .gt_stub {
+#ihbobhkpnr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -949,7 +465,7 @@
   padding-right: 5px;
 }
 
-#jplfhjryhi .gt_stub_row_group {
+#ihbobhkpnr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -963,15 +479,15 @@
   vertical-align: top;
 }
 
-#jplfhjryhi .gt_row_group_first td {
+#ihbobhkpnr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jplfhjryhi .gt_row_group_first th {
+#ihbobhkpnr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jplfhjryhi .gt_summary_row {
+#ihbobhkpnr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -981,16 +497,16 @@
   padding-right: 5px;
 }
 
-#jplfhjryhi .gt_first_summary_row {
+#ihbobhkpnr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jplfhjryhi .gt_first_summary_row.thick {
+#ihbobhkpnr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jplfhjryhi .gt_last_summary_row {
+#ihbobhkpnr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1000,7 +516,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#jplfhjryhi .gt_grand_summary_row {
+#ihbobhkpnr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1010,7 +526,7 @@
   padding-right: 5px;
 }
 
-#jplfhjryhi .gt_first_grand_summary_row {
+#ihbobhkpnr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1020,7 +536,7 @@
   border-top-color: #D3D3D3;
 }
 
-#jplfhjryhi .gt_last_grand_summary_row_top {
+#ihbobhkpnr .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1030,11 +546,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#jplfhjryhi .gt_striped {
+#ihbobhkpnr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jplfhjryhi .gt_table_body {
+#ihbobhkpnr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1043,7 +559,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#jplfhjryhi .gt_footnotes {
+#ihbobhkpnr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1057,7 +573,7 @@
   border-right-color: #D3D3D3;
 }
 
-#jplfhjryhi .gt_footnote {
+#ihbobhkpnr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1066,7 +582,7 @@
   padding-right: 5px;
 }
 
-#jplfhjryhi .gt_sourcenotes {
+#ihbobhkpnr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1080,7 +596,7 @@
   border-right-color: #D3D3D3;
 }
 
-#jplfhjryhi .gt_sourcenote {
+#ihbobhkpnr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1088,72 +604,72 @@
   padding-right: 5px;
 }
 
-#jplfhjryhi .gt_left {
+#ihbobhkpnr .gt_left {
   text-align: left;
 }
 
-#jplfhjryhi .gt_center {
+#ihbobhkpnr .gt_center {
   text-align: center;
 }
 
-#jplfhjryhi .gt_right {
+#ihbobhkpnr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jplfhjryhi .gt_font_normal {
+#ihbobhkpnr .gt_font_normal {
   font-weight: normal;
 }
 
-#jplfhjryhi .gt_font_bold {
+#ihbobhkpnr .gt_font_bold {
   font-weight: bold;
 }
 
-#jplfhjryhi .gt_font_italic {
+#ihbobhkpnr .gt_font_italic {
   font-style: italic;
 }
 
-#jplfhjryhi .gt_super {
+#ihbobhkpnr .gt_super {
   font-size: 65%;
 }
 
-#jplfhjryhi .gt_footnote_marks {
+#ihbobhkpnr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jplfhjryhi .gt_asterisk {
+#ihbobhkpnr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jplfhjryhi .gt_indent_1 {
+#ihbobhkpnr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jplfhjryhi .gt_indent_2 {
+#ihbobhkpnr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jplfhjryhi .gt_indent_3 {
+#ihbobhkpnr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jplfhjryhi .gt_indent_4 {
+#ihbobhkpnr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jplfhjryhi .gt_indent_5 {
+#ihbobhkpnr .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jplfhjryhi .katex-display {
+#ihbobhkpnr .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jplfhjryhi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ihbobhkpnr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1391,423 +907,16 @@
 </div>
 </div>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="eda" class="slide level2">
+<h2>EDA</h2>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="main-effects-plot" class="slide level2">
-<h2>Main Effects Plot</h2>
-
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section></section>
-<section>
-<section id="interaction-plots" class="title-slide slide level1 center">
-<h1>Interaction Plots</h1>
-
-</section>
-<section id="two-way-interaction-plots" class="slide level2">
-<h2>Two-way Interaction Plots</h2>
-<p>You’ll need at least one interaction plot for each pairwise combination of factors (1 for CR[2], 3 for CR[3]).</p>
-<ul>
-<li class="fragment">Calculate the mean response over every treatment combination of the two factors.</li>
-<li class="fragment">Plot those means on the y axis, with the first factor on the x and the second factor differentiated by color, linetype or shape.</li>
-<li class="fragment">Draw lines between the means with the same level of the second factor.</li>
-</ul>
-<div class="fragment">
-<blockquote>
-<p>Parallel lines indicate <em>no interaction</em>.</p>
-</blockquote>
-</div>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="three-way-anova" class="slide level2">
+<h2>Three way ANOVA</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>paper</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>   strength hard time pressure
-1     196.6    2 3hrs      400
-2     196.0    2 3hrs      400
-3     198.5    4 3hrs      400
-4     197.2    4 3hrs      400
-5     197.5    8 3hrs      400
-6     196.6    8 3hrs      400
-7     197.7    2 3hrs      500
-8     196.0    2 3hrs      500
-9     196.0    4 3hrs      500
-10    196.9    4 3hrs      500
-11    195.6    8 3hrs      500
-12    196.2    8 3hrs      500
-13    199.8    2 3hrs      650
-14    199.4    2 3hrs      650
-15    198.4    4 3hrs      650
-16    197.6    4 3hrs      650
-17    197.4    8 3hrs      650
-18    198.1    8 3hrs      650
-19    198.4    2 4hrs      400
-20    198.6    2 4hrs      400
-21    197.5    4 4hrs      400
-22    198.1    4 4hrs      400
-23    197.6    8 4hrs      400
-24    198.4    8 4hrs      400
-25    199.6    2 4hrs      500
-26    200.4    2 4hrs      500
-27    198.7    4 4hrs      500
-28    198.0    4 4hrs      500
-29    197.0    8 4hrs      500
-30    197.8    8 4hrs      500
-31    200.6    2 4hrs      650
-32    200.9    2 4hrs      650
-33    199.6    4 4hrs      650
-34    199.0    4 4hrs      650
-35    198.5    8 4hrs      650
-36    199.8    8 4hrs      650</code></pre>
-</div>
-</div>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Time and Pressure</span></span>
-<span id="cb3-2"><a></a>group_means <span class="ot">&lt;-</span> paper <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a></a>  <span class="fu">group_by</span>(time, pressure) <span class="sc">|&gt;</span></span>
-<span id="cb3-4"><a></a>  <span class="fu">summarize</span>(<span class="at">avg_strength =</span> <span class="fu">mean</span>(strength),</span>
-<span id="cb3-5"><a></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb3-6"><a></a>group_means</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-# Groups:   time [2]
-  time  pressure avg_strength     n
-  &lt;fct&gt; &lt;fct&gt;           &lt;dbl&gt; &lt;int&gt;
-1 3hrs  400              197.     6
-2 3hrs  500              196.     6
-3 3hrs  650              198.     6
-4 4hrs  400              198.     6
-5 4hrs  500              199.     6
-6 4hrs  650              200.     6</code></pre>
-</div>
-</div>
-<aside class="notes">
-<p>Before showing the output of the code, ask: how many units are being averaged over in each group here?</p>
-<p>Answer: 6.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Time and Pressure</span></span>
-<span id="cb5-2"><a></a><span class="fu">ggplot</span>(group_means, <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
-<span id="cb5-3"><a></a>                        <span class="at">y =</span> avg_strength,</span>
-<span id="cb5-4"><a></a>                        <span class="at">color =</span> pressure,</span>
-<span id="cb5-5"><a></a>                        <span class="at">group =</span> pressure)) <span class="sc">+</span></span>
-<span id="cb5-6"><a></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb5-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">lwd =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb5-8"><a></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Time and Hardness</span></span>
-<span id="cb6-2"><a></a>group_means <span class="ot">&lt;-</span> paper <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a></a>  <span class="fu">group_by</span>(time, hard) <span class="sc">|&gt;</span></span>
-<span id="cb6-4"><a></a>  <span class="fu">summarize</span>(<span class="at">avg_strength =</span> <span class="fu">mean</span>(strength))</span>
-<span id="cb6-5"><a></a>group_means</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-# Groups:   time [2]
-  time  hard  avg_strength
-  &lt;fct&gt; &lt;fct&gt;        &lt;dbl&gt;
-1 3hrs  2             198.
-2 3hrs  4             197.
-3 3hrs  8             197.
-4 4hrs  2             200.
-5 4hrs  4             198.
-6 4hrs  8             198.</code></pre>
-</div>
-</div>
-</section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Time and Hardness</span></span>
-<span id="cb8-2"><a></a><span class="fu">ggplot</span>(group_means, <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
-<span id="cb8-3"><a></a>                        <span class="at">y =</span> avg_strength,</span>
-<span id="cb8-4"><a></a>                        <span class="at">color =</span> hard,</span>
-<span id="cb8-5"><a></a>                        <span class="at">group =</span> hard)) <span class="sc">+</span></span>
-<span id="cb8-6"><a></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb8-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">lwd =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb8-8"><a></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Pressure and Hardness</span></span>
-<span id="cb9-2"><a></a>group_means <span class="ot">&lt;-</span> paper <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a></a>  <span class="fu">group_by</span>(pressure, hard) <span class="sc">|&gt;</span></span>
-<span id="cb9-4"><a></a>  <span class="fu">summarize</span>(<span class="at">avg_strength =</span> <span class="fu">mean</span>(strength))</span>
-<span id="cb9-5"><a></a>group_means</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 3
-# Groups:   pressure [3]
-  pressure hard  avg_strength
-  &lt;fct&gt;    &lt;fct&gt;        &lt;dbl&gt;
-1 400      2             197.
-2 400      4             198.
-3 400      8             198.
-4 500      2             198.
-5 500      4             197.
-6 500      8             197.
-7 650      2             200.
-8 650      4             199.
-9 650      8             198.</code></pre>
-</div>
-</div>
-</section>
-<section id="section-7" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># Pressure and Hardness</span></span>
-<span id="cb11-2"><a></a><span class="fu">ggplot</span>(group_means, <span class="fu">aes</span>(<span class="at">x =</span> pressure,</span>
-<span id="cb11-3"><a></a>                        <span class="at">y =</span> avg_strength,</span>
-<span id="cb11-4"><a></a>                        <span class="at">color =</span> hard,</span>
-<span id="cb11-5"><a></a>                        <span class="at">group =</span> hard)) <span class="sc">+</span></span>
-<span id="cb11-6"><a></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb11-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">lwd =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb11-8"><a></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="way-interaction-plots" class="slide level2">
-<h2>3-way Interaction Plots</h2>
-<p>You’ll need at least one interaction plot for each <del>pairwise combination</del> <em>level of one of the three factors</em>.</p>
-<ul>
-<li class="fragment"><em>Filter the data for just one level of the first factor.</em></li>
-<li class="fragment">Calculate the mean response over every treatment combination of the two factors.</li>
-<li class="fragment">Plot those means on the y axis, with the first factor on the x and the second factor differentiated by color, linetype or shape.</li>
-<li class="fragment"><em>Label the plot with the level of the third factor.</em></li>
-<li class="fragment">Draw lines between the means with the same level of the second factor.</li>
-</ul>
-</section>
-<section id="way-interaction-plots-gg-style" class="slide level2">
-<h2>3-way Interaction Plots (gg-style)</h2>
-<p>You’ll need at least one interaction plot for each <del>pairwise combination</del> <em>level of one of the three factors</em>.</p>
-<ul>
-<li class="fragment">Calculate the mean response over every treatment combination of the three factors.</li>
-<li class="fragment">Plot those means on the y axis, with the first factor on the x and the second factor differentiated by color, linetype or shape.</li>
-<li class="fragment">Draw lines between the means with the same level of the second factor.</li>
-<li class="fragment">Create a separate facet for each level of the third factor.</li>
-</ul>
-</section>
-<section id="section-8" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Time and Pressure and Hardness</span></span>
-<span id="cb12-2"><a></a>group_means <span class="ot">&lt;-</span> paper <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">group_by</span>(time, pressure, hard) <span class="sc">|&gt;</span></span>
-<span id="cb12-4"><a></a>  <span class="fu">summarize</span>(<span class="at">avg_strength =</span> <span class="fu">mean</span>(strength),</span>
-<span id="cb12-5"><a></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb12-6"><a></a>group_means</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 18 × 5
-# Groups:   time, pressure [6]
-   time  pressure hard  avg_strength     n
-   &lt;fct&gt; &lt;fct&gt;    &lt;fct&gt;        &lt;dbl&gt; &lt;int&gt;
- 1 3hrs  400      2             196.     2
- 2 3hrs  400      4             198.     2
- 3 3hrs  400      8             197.     2
- 4 3hrs  500      2             197.     2
- 5 3hrs  500      4             196.     2
- 6 3hrs  500      8             196.     2
- 7 3hrs  650      2             200.     2
- 8 3hrs  650      4             198      2
- 9 3hrs  650      8             198.     2
-10 4hrs  400      2             198.     2
-11 4hrs  400      4             198.     2
-12 4hrs  400      8             198      2
-13 4hrs  500      2             200      2
-14 4hrs  500      4             198.     2
-15 4hrs  500      8             197.     2
-16 4hrs  650      2             201.     2
-17 4hrs  650      4             199.     2
-18 4hrs  650      8             199.     2</code></pre>
-</div>
-</div>
-<aside class="notes">
-<p>Ask: how many observations are we averaging over in each group?</p>
-<p>Answer: 2</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-9" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb14-1" class="hljs-ln-code"><a></a><span class="co"># Time and Pressure and Hardness</span></span>
-<span id="cb14-2" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(group_means, <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
-<span id="cb14-3" class="hljs-ln-code"><a></a>                        <span class="at">y =</span> avg_strength,</span>
-<span id="cb14-4" class="hljs-ln-code"><a></a>                        <span class="at">color =</span> pressure,</span>
-<span id="cb14-5" class="hljs-ln-code"><a></a>                        <span class="at">group =</span> pressure)) <span class="sc">+</span></span>
-<span id="cb14-6" class="hljs-ln-code"><a></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb14-7" class="hljs-ln-code"><a></a>  <span class="fu">geom_line</span>(<span class="at">lwd =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb14-8" class="hljs-ln-code"><a></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="section-10" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb15-1" class="hljs-ln-code"><a></a><span class="co"># Time and Pressure and Hardness</span></span>
-<span id="cb15-2" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(group_means, <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
-<span id="cb15-3" class="hljs-ln-code"><a></a>                        <span class="at">y =</span> avg_strength,</span>
-<span id="cb15-4" class="hljs-ln-code"><a></a>                        <span class="at">color =</span> pressure,</span>
-<span id="cb15-5" class="hljs-ln-code"><a></a>                        <span class="at">group =</span> pressure)) <span class="sc">+</span></span>
-<span id="cb15-6" class="hljs-ln-code"><a></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb15-7" class="hljs-ln-code"><a></a>  <span class="fu">geom_line</span>(<span class="at">lwd =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb15-8" class="hljs-ln-code"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(hard), <span class="at">labeller =</span> label_both) <span class="sc">+</span></span>
-<span id="cb15-9" class="hljs-ln-code"><a></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="two-way-interaction" class="slide level2">
-<h2>Two-way Interaction</h2>
-<p>For comparison…</p>
-
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section></section>
-<section>
-<section id="modeling" class="title-slide slide level1 center">
-<h1>Modeling</h1>
-
-</section>
-<section id="calculating-estimates" class="slide level2">
-<h2>Calculating estimates</h2>
-<p>A shortcut: use <code>lm()</code>.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">options</span>(<span class="at">contrasts =</span> <span class="fu">c</span>(<span class="st">"contr.sum"</span>, <span class="st">"contr.poly"</span>))</span>
-<span id="cb16-2"><a></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(strength <span class="sc">~</span> time <span class="sc">*</span> pressure <span class="sc">*</span> hard, <span class="at">data =</span> paper)</span>
-<span id="cb16-3"><a></a><span class="fu">summary</span>(m3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = strength ~ time * pressure * hard, data = paper)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--0.8500 -0.3625  0.0000  0.3625  0.8500 
-
-Coefficients:
-                        Estimate Std. Error  t value Pr(&gt;|t|)    
-(Intercept)           198.055556   0.100769 1965.448  &lt; 2e-16 ***
-time1                  -0.750000   0.100769   -7.443 6.75e-07 ***
-pressure1              -0.472222   0.142508   -3.314 0.003863 ** 
-pressure2              -0.563889   0.142508   -3.957 0.000924 ***
-hard1                   0.611111   0.142508    4.288 0.000442 ***
-hard2                  -0.097222   0.142508   -0.682 0.503785    
-time1:pressure1         0.233333   0.142508    1.637 0.118924    
-time1:pressure2        -0.341667   0.142508   -2.398 0.027567 *  
-time1:hard1            -0.333333   0.142508   -2.339 0.031066 *  
-time1:hard2             0.225000   0.142508    1.579 0.131782    
-pressure1:hard1        -0.794444   0.201537   -3.942 0.000956 ***
-pressure2:hard1         0.322222   0.201537    1.599 0.127266    
-pressure1:hard2         0.338889   0.201537    1.682 0.109930    
-pressure2:hard2         0.005556   0.201537    0.028 0.978312    
-time1:pressure1:hard1  -0.250000   0.201537   -1.240 0.230730    
-time1:pressure2:hard1  -0.150000   0.201537   -0.744 0.466314    
-time1:pressure1:hard2   0.316667   0.201537    1.571 0.133535    
-time1:pressure2:hard2  -0.083333   0.201537   -0.413 0.684133    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.6046 on 18 degrees of freedom
-Multiple R-squared:  0.9008,    Adjusted R-squared:  0.807 
-F-statistic: 9.611 on 17 and 18 DF,  p-value: 7.797e-06</code></pre>
-</div>
-</div>
-</section>
-<section id="main-effects-plot-1" class="slide level2">
-<h2>Main Effects Plot</h2>
-
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
-<section id="timepressure-interaction" class="slide level2">
-<h2>Time:Pressure Interaction</h2>
-
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
-<section id="anova-table" class="slide level2">
-<h2>ANOVA Table</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>anova3 <span class="ot">&lt;-</span> <span class="fu">aov</span>(strength <span class="sc">~</span> time <span class="sc">*</span> pressure <span class="sc">*</span> hard, <span class="at">data =</span> paper)</span>
-<span id="cb18-2"><a></a><span class="fu">summary</span>(anova3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(strength <span class="sc">~</span> time <span class="sc">*</span> pressure <span class="sc">*</span> hard, <span class="at">data =</span> paper)</span>
+<span id="cb1-2"><a></a>anova_tab <span class="ot">&lt;-</span> <span class="fu">summary</span>(anova)</span>
+<span id="cb1-3"><a></a>anova_tab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1823,44 +932,132 @@ Residuals          18  6.580   0.366
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">summary</span>(anova3)[[<span class="dv">1</span>]]<span class="sc">$</span><span class="st">`</span><span class="at">F value</span><span class="st">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>How many hypothesis tests are being conducted in this ANOVA table?</p>
+</div>
+<div class="fragment">
+<blockquote>
+<p>7</p>
+</blockquote>
+</div>
+</section>
+<section id="bonferroni" class="slide level2">
+<h2>Bonferroni</h2>
+<p>Original p-values:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>anova_results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">estimate =</span> <span class="fu">row.names</span>(anova_tab[[<span class="dv">1</span>]])[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>],</span>
+<span id="cb3-2"><a></a>                            <span class="at">p_vals =</span> anova_tab[[<span class="dv">1</span>]]<span class="sc">$</span><span class="st">`</span><span class="at">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>])</span>
+<span id="cb3-3"><a></a>anova_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 55.395137 26.499240 10.619301  3.002280  2.847264  4.165653  1.349544
-[8]        NA</code></pre>
+<pre><code>            estimate       p_vals
+1 time               6.745340e-07
+2 pressure           4.327241e-06
+3 hard               8.995614e-04
+4 time:pressure      7.495643e-02
+5 time:hard          8.425969e-02
+6 pressure:hard      1.462624e-02
+7 time:pressure:hard 2.903053e-01</code></pre>
 </div>
 </div>
 </section>
-<section id="randomization-based-inference" class="slide level2">
-<h2>Randomization-based Inference</h2>
-<p>Recall for 2 factor w interactions:</p>
+<section id="bonferroni-1" class="slide level2">
+<h2>Bonferroni</h2>
+<p>Adjust p-values by multiplying them by <span class="math inline">\(K\)</span>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>shuffle_two_factor <span class="ot">&lt;-</span> <span class="cf">function</span>(y, a, b) {</span>
-<span id="cb22-2"><a></a>  Y <span class="ot">&lt;-</span> <span class="fu">sample</span>(y) <span class="co"># source of randomness</span></span>
-<span id="cb22-3"><a></a></span>
-<span id="cb22-4"><a></a>  battery_sim <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lifetime =</span> Y,</span>
-<span id="cb22-5"><a></a>                            <span class="at">temp =</span> a,</span>
-<span id="cb22-6"><a></a>                            <span class="at">material =</span> b)</span>
-<span id="cb22-7"><a></a>  </span>
-<span id="cb22-8"><a></a>  battery_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(lifetime <span class="sc">~</span> temp <span class="sc">*</span> material, <span class="at">data =</span> battery_sim)</span>
-<span id="cb22-9"><a></a>  anova_table <span class="ot">&lt;-</span> <span class="fu">summary</span>(battery_anova)</span>
-<span id="cb22-10"><a></a>  f_stats <span class="ot">&lt;-</span> anova_table[[<span class="dv">1</span>]]<span class="sc">$</span><span class="st">`</span><span class="at">F value</span><span class="st">`</span></span>
-<span id="cb22-11"><a></a>  f_stats</span>
-<span id="cb22-12"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>anova_results <span class="ot">&lt;-</span> anova_results <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">mutate</span>(<span class="at">bon_adjusted =</span> <span class="fu">pmin</span>(p_vals <span class="sc">*</span> <span class="dv">7</span>, <span class="dv">1</span>))</span>
+<span id="cb5-3"><a></a>anova_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>            estimate       p_vals bon_adjusted
+1 time               6.745340e-07 4.721738e-06
+2 pressure           4.327241e-06 3.029069e-05
+3 hard               8.995614e-04 6.296930e-03
+4 time:pressure      7.495643e-02 5.246950e-01
+5 time:hard          8.425969e-02 5.898178e-01
+6 pressure:hard      1.462624e-02 1.023837e-01
+7 time:pressure:hard 2.903053e-01 1.000000e+00</code></pre>
+</div>
+</div>
+</section>
+<section id="holms-procedure" class="slide level2">
+<h2>Holm’s Procedure</h2>
+<p>Original sorted p-values:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>sorted_pvals <span class="ot">&lt;-</span> <span class="fu">sort</span>(anova_results<span class="sc">$</span>p_vals)</span>
+<span id="cb7-2"><a></a>sorted_pvals</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.745340e-07 4.327241e-06 8.995614e-04 1.462624e-02 7.495643e-02
+[6] 8.425969e-02 2.903053e-01</code></pre>
+</div>
+</div>
+</section>
+<section id="holms-procedure-1" class="slide level2">
+<h2>Holm’s Procedure</h2>
+<p>Working from smallest to largest p-values (call the rank <span class="math inline">\(j\)</span>), adjust p-values to max of <span class="math inline">\(K - j + 1\)</span> times the original p-value or the max of previous p-values.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>holm <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">length</span>(sorted_pvals)) <span class="co"># initialize</span></span>
+<span id="cb9-2"><a></a>previous_max <span class="ot">&lt;-</span> sorted_pvals[<span class="dv">1</span>]</span>
+<span id="cb9-3"><a></a>K <span class="ot">&lt;-</span> <span class="fu">length</span>(sorted_pvals)</span>
+<span id="cb9-4"><a></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>K) {</span>
+<span id="cb9-5"><a></a>  holm[j] <span class="ot">&lt;-</span> <span class="fu">max</span>(sorted_pvals[j] <span class="sc">*</span> (K <span class="sc">-</span> j <span class="sc">+</span> <span class="dv">1</span>), previous_max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-6"><a></a>  holm[j] <span class="ot">&lt;-</span> <span class="fu">max</span>(sorted_pvals[j] <span class="sc">*</span> (K <span class="sc">-</span> j <span class="sc">+</span> <span class="dv">1</span>), previous_max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-7"><a></a>  previous_max <span class="ot">&lt;-</span> <span class="fu">max</span>(holm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-8"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
 </div>
+</section>
+<section id="holms-procedure-2" class="slide level2">
+<h2>Holm’s Procedure</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>anova_results <span class="ot">&lt;-</span> anova_results <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a></a>  <span class="fu">arrange</span>(p_vals) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a></a>  <span class="fu">mutate</span>(holm)</span>
+<span id="cb10-4"><a></a>anova_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>            estimate       p_vals bon_adjusted         holm
+1 time               6.745340e-07 4.721738e-06 4.721738e-06
+2 pressure           4.327241e-06 3.029069e-05 2.596345e-05
+3 hard               8.995614e-04 6.296930e-03 4.497807e-03
+4 pressure:hard      1.462624e-02 1.023837e-01 5.850495e-02
+5 time:pressure      7.495643e-02 5.246950e-01 2.248693e-01
+6 time:hard          8.425969e-02 5.898178e-01 2.248693e-01
+7 time:pressure:hard 2.903053e-01 1.000000e+00 2.903053e-01</code></pre>
+</div>
+</div>
+</section>
+<section id="r-shortcut" class="slide level2">
+<h2>R Shortcut</h2>
+<p><code>p.adjust()</code> can adjust p-values using many different methods including:</p>
+<ul>
+<li class="fragment">Bonferroni and Holm</li>
+<li class="fragment">False discovery rate: Benjamini &amp; Hochberg, Benjamini &amp; Yekutieli</li>
+</ul>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>null_stats <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">500</span>, <span class="fu">shuffle_two_factor</span>(<span class="at">y =</span> battery<span class="sc">$</span>lifetime, </span>
-<span id="cb23-2"><a></a>                                                <span class="at">a =</span> battery<span class="sc">$</span>temp,</span>
-<span id="cb23-3"><a></a>                                                <span class="at">b =</span> battery<span class="sc">$</span>material))</span>
-<span id="cb23-4"><a></a>f_temp_null <span class="ot">&lt;-</span> null_stats[<span class="dv">1</span>, ]</span>
-<span id="cb23-5"><a></a>f_material_null <span class="ot">&lt;-</span> null_stats[<span class="dv">2</span>, ]</span>
-<span id="cb23-6"><a></a>f_interaction_null <span class="ot">&lt;-</span> null_stats[<span class="dv">3</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="st">"none"</span>, <span class="st">"holm"</span>, <span class="st">"bonferroni"</span>), p.adjust, <span class="at">p =</span> sorted_pvals)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
-
+<div class="cell-output cell-output-stdout">
+<pre><code>             none         holm   bonferroni
+[1,] 6.745340e-07 4.721738e-06 4.721738e-06
+[2,] 4.327241e-06 2.596345e-05 3.029069e-05
+[3,] 8.995614e-04 4.497807e-03 6.296930e-03
+[4,] 1.462624e-02 5.850495e-02 1.023837e-01
+[5,] 7.495643e-02 2.248693e-01 5.246950e-01
+[6,] 8.425969e-02 2.248693e-01 5.898178e-01
+[7,] 2.903053e-01 2.903053e-01 1.000000e+00</code></pre>
+</div>
 </div>
 
 

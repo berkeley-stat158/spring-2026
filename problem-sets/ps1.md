@@ -1,6 +1,4 @@
 ---
-drafts:
-- ../18-multiple-comparisons/slides.qmd
 resources:
 - \*\*/\*Starter.pdf
 - data/\*\*/\*.csv

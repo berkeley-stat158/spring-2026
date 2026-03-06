@@ -1,6 +1,4 @@
 ---
-execute:
-  eval: false
 resources:
 - \*\*/\*Starter.pdf
 - data/\*\*/\*.csv

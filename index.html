@@ -450,7 +450,7 @@ window.Quarto = {
   <span>Mar 6</span>
   </div>
   <div class="daily-topic-cell">
-  <span class="daily-topic"></span>
+  <span class="daily-topic">Sequential Analysis</span>
   </div>
   <div class="items-cell">
   <!-- Create btns for docs -->
@@ -1386,7 +1386,7 @@ window.Quarto = {
     <span>Mar 6</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
+    <span class="daily-topic">Sequential Analysis</span>
     </div>
 
     <div class="items-cell">
@@ -1488,7 +1488,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stat158\.berkeley\.edu\/spring-2026\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -146,6 +146,13 @@
  
 
 
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{multirow}
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
@@ -407,6 +414,64 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     you about the actual family-wise error rate when using the
     Bonferroni correction in practice?
   \end{enumerate}
+\end{enumerate}
+
+\newpage{}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  \textbf{Babies Walking: Blocks}. Consider the Babies Walking study
+  from lecture where babies were randomly assigned to one of four
+  programs and the time it took for them to walk was recorded.
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    Why would it be difficult to use \emph{parent} as a blocking factor
+    in this study?
+  \item
+    List two factors that \emph{could} be used as blocking factors in
+    this study. For each factor, explain how it could be used as a
+    blocking factor and why it might be a good choice.
+  \item
+    Imagine that one of your blocking factors has five levels, allowing
+    for a complete block design. The data frame below provides the id of
+    each baby in the original study along with their correponding block.
+    Fill in the program column with a random assignment of the four
+    programs to the babies within each block.
+  \end{enumerate}
+
+  \begin{table}
+  \fontsize{12.0pt}{14.0pt}\selectfont
+  \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}rcc}
+  \toprule
+  id & block & program \\ 
+  \midrule\addlinespace[2.5pt]
+  1 & A & NA \\ 
+  2 & A & NA \\ 
+  3 & A & NA \\ 
+  4 & A & NA \\ 
+  5 & A & NA \\ 
+  6 & B & NA \\ 
+  7 & B & NA \\ 
+  8 & B & NA \\ 
+  9 & B & NA \\ 
+  10 & B & NA \\ 
+  11 & C & NA \\ 
+  12 & C & NA \\ 
+  13 & C & NA \\ 
+  14 & C & NA \\ 
+  15 & C & NA \\ 
+  16 & D & NA \\ 
+  17 & D & NA \\ 
+  18 & D & NA \\ 
+  19 & D & NA \\ 
+  20 & D & NA \\ 
+  \bottomrule
+  \end{tabular*}
+  \end{table}
 \end{enumerate}
 
 \newpage{}

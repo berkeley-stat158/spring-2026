@@ -1077,19 +1077,20 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
       </script>
     <script type="text/javascript">
       window.addEventListener('load', function() {
+        // Inject title slide logo
         var titleSlide = document.getElementById('title-slide');
         if (titleSlide) {
           var img = document.createElement('img');
-          img.src = '/assets/stat158green.png';
+          img.src = 'assets/stat158green.png';
           img.className = 'title-logo';
           titleSlide.insertBefore(img, titleSlide.firstChild);
         }
 
-        // Inject slide logo
+        // Inject logo in lower right corner
         var deck = document.querySelector('.reveal .slides');
         if (deck) {
           var logo = document.createElement('img');
-          logo.src = '/assets/stat158-logo-vsmall.png';
+          logo.src = 'assets/stat158-logo-vsmall.png';
           logo.className = 'slide-logo';
           logo.style.cursor = 'pointer';
           document.querySelector('.reveal').appendChild(logo);

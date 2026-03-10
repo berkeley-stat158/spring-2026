@@ -106,7 +106,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../../assets/scroll-branding.js"></script>
+<!-- assets/scroll-branding.html -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const navbar = document.querySelector('.navbar');
+  const navbarBrand = document.querySelector('.navbar-brand');
+  const scrollThreshold = 130;
+
+  // Figure out the site root from the navbar brand link
+  // This is nice because Quarto already renders that link correctly
+  // for both preview and deployed sites.
+  let siteRoot = window.location.origin + '/';
+  if (navbarBrand && navbarBrand.href) {
+    siteRoot = new URL(navbarBrand.getAttribute('href'), window.location.href).href;
+  }
+
+  const logoUrl = new URL('assets/stat158logo_small_green.png', siteRoot).href;
+
+  if (navbarBrand && !document.querySelector('.navbar-brand-logo')) {
+    const logoElement = document.createElement('div');
+    logoElement.className = 'navbar-brand-logo';
+
+    const img = document.createElement('img');
+    img.src = logoUrl;
+    img.alt = 'STAT 158 Logo';
+
+    logoElement.appendChild(img);
+    navbarBrand.appendChild(logoElement);
+  }
+
+  function updateNavbarBranding() {
+    if (!navbar) return;
+
+    if (window.scrollY > scrollThreshold) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateNavbarBranding();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  updateNavbarBranding();
+});
+</script>
 
 
 <link rel="stylesheet" href="../../assets/neural.css">

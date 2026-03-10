@@ -159,6 +159,9 @@ document.addEventListener('DOMContentLoaded', function() {
   updateNavbarBranding();
 });
 </script>
+<script>
+      window.SITE_BASE = "{{< site-url >}}";
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -393,6 +396,33 @@ window.Quarto = {
 <li>Did your randomization-based CIs with the constant effect assumption from the previous two questions succeed in capturing the parameter with probability <span class="math inline">\(1-\alpha\)</span>? If not, provide some intuition for why not.</li>
 </ol>
 <p>This is a challenging simulation to set up correctly. If you get stuck please consult the hints<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p></li>
+</ol>
+<div style="page-break-after: always;"></div>
+<ol start="3" class="example" type="1">
+<li><p><strong>Growing Herbs II</strong>: Botanists studying optimal greenhouse conditions for a fast-growing herb ran a fully-crossed three-way factorial experiment. They manipulated light intensity (low, medium, or high), watering frequency (low, medium, or high), and soil type (sandy or loam). Each of the <span class="math inline">\(3 \times 3 \times 2 = 18\)</span> treatment combinations was replicated twice, yielding <span class="math inline">\(n = 36\)</span> plants. The response is shoot dry weight (grams) measured after four weeks.</p>
+<p>Their results from running a full three-way ANOVA model are shown in the table below.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+light             2 190.54   95.27 135.084 1.45e-11 ***
+water             2 131.53   65.76  93.246 3.17e-10 ***
+soil              1  22.88   22.88  32.442 2.11e-05 ***
+light:water       4  33.41    8.35  11.842 6.85e-05 ***
+light:soil        2   4.98    2.49   3.533   0.0508 .  
+water:soil        2   1.10    0.55   0.781   0.4727    
+light:water:soil  4   6.34    1.59   2.248   0.1043    
+Residuals        18  12.70    0.71                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<ol type="a">
+<li><p>How many total hypothesis tests are being run in this ANOVA table?</p></li>
+<li><p>Use a decision rule that rejects an individual null hypothesis when the p-value is less than or equal to <span class="math inline">\(\alpha = .05\)</span>, what is the probability of making at least one Type I error across all of these tests? (Assume the tests are independent for this calculation).</p></li>
+<li><p>If you wanted to control the strong family-wise error rate at <span class="math inline">\(\gamma = .05\)</span> using a Bonferroni correction, what would be the new significance threshold for each individual test?</p></li>
+<li><p>How many of the tests in the ANOVA table would be considered statistically significant at the <span class="math inline">\(\alpha = .05\)</span> level? How many would be considered statistically significant at the Bonferroni-corrected threshold you calculated in part c.?</p></li>
+<li><p>Consider the proof we went through in class showing that a decision rule that uses the Bonferroni correction keeps the family-wise error rate less than or equal to <span class="math inline">\(\gamma\)</span>. Under what scenario would this bound be tight? That is, when would the family-wise error rate actually equal <span class="math inline">\(\gamma\)</span> when using the Bonferroni correction? Does this seem like a realistic scenario in practice? What does that tell you about the actual family-wise error rate when using the Bonferroni correction in practice?</p></li>
+</ol></li>
 </ol>
 <div style="page-break-after: always;"></div>
 <p>More questions coming soon!</p>

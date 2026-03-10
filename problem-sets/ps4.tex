@@ -350,6 +350,67 @@
 
 \newpage{}
 
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \textbf{Growing Herbs II}: Botanists studying optimal greenhouse
+  conditions for a fast-growing herb ran a fully-crossed three-way
+  factorial experiment. They manipulated light intensity (low, medium,
+  or high), watering frequency (low, medium, or high), and soil type
+  (sandy or loam). Each of the \(3 \times 3 \times 2 = 18\) treatment
+  combinations was replicated twice, yielding \(n = 36\) plants. The
+  response is shoot dry weight (grams) measured after four weeks.
+
+  Their results from running a full three-way ANOVA model are shown in
+  the table below.
+
+\begin{verbatim}
+                 Df Sum Sq Mean Sq F value   Pr(>F)    
+light             2 190.54   95.27 135.084 1.45e-11 ***
+water             2 131.53   65.76  93.246 3.17e-10 ***
+soil              1  22.88   22.88  32.442 2.11e-05 ***
+light:water       4  33.41    8.35  11.842 6.85e-05 ***
+light:soil        2   4.98    2.49   3.533   0.0508 .  
+water:soil        2   1.10    0.55   0.781   0.4727    
+light:water:soil  4   6.34    1.59   2.248   0.1043    
+Residuals        18  12.70    0.71                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    How many total hypothesis tests are being run in this ANOVA table?
+  \item
+    Use a decision rule that rejects an individual null hypothesis when
+    the p-value is less than or equal to \(\alpha = .05\), what is the
+    probability of making at least one Type I error across all of these
+    tests? (Assume the tests are independent for this calculation).
+  \item
+    If you wanted to control the strong family-wise error rate at
+    \(\gamma = .05\) using a Bonferroni correction, what would be the
+    new significance threshold for each individual test?
+  \item
+    How many of the tests in the ANOVA table would be considered
+    statistically significant at the \(\alpha = .05\) level? How many
+    would be considered statistically significant at the
+    Bonferroni-corrected threshold you calculated in part c.?
+  \item
+    Consider the proof we went through in class showing that a decision
+    rule that uses the Bonferroni correction keeps the family-wise error
+    rate less than or equal to \(\gamma\). Under what scenario would
+    this bound be tight? That is, when would the family-wise error rate
+    actually equal \(\gamma\) when using the Bonferroni correction? Does
+    this seem like a realistic scenario in practice? What does that tell
+    you about the actual family-wise error rate when using the
+    Bonferroni correction in practice?
+  \end{enumerate}
+\end{enumerate}
+
+\newpage{}
+
 More questions coming soon!
 
 

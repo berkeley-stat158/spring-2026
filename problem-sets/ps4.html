@@ -417,8 +417,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <ol type="a">
-<li><p>How many total hypothesis tests are being run in this ANOVA table?</p></li>
-<li><p>Use a decision rule that rejects an individual null hypothesis when the p-value is less than or equal to <span class="math inline">\(\alpha = .05\)</span>, what is the probability of making at least one Type I error across all of these tests? (Assume the tests are independent for this calculation).</p></li>
+<li><p>How many distinct null hypotheses are being tested in this ANOVA table?</p></li>
+<li><p>Consider a decision rule that rejects an individual null hypothesis when the p-value is less than or equal to <span class="math inline">\(\alpha = .05\)</span>. If we assume that the tests are independent, what is the probability of making at least one Type I error?</p></li>
 <li><p>If you wanted to control the strong family-wise error rate at <span class="math inline">\(\gamma = .05\)</span> using a Bonferroni correction, what would be the new significance threshold for each individual test?</p></li>
 <li><p>How many of the tests in the ANOVA table would be considered statistically significant at the <span class="math inline">\(\alpha = .05\)</span> level? How many would be considered statistically significant at the Bonferroni-corrected threshold you calculated in part c.?</p></li>
 <li><p>Consider the proof we went through in class showing that a decision rule that uses the Bonferroni correction keeps the family-wise error rate less than or equal to <span class="math inline">\(\gamma\)</span>. Under what scenario would this bound be tight? That is, when would the family-wise error rate actually equal <span class="math inline">\(\gamma\)</span> when using the Bonferroni correction? Does this seem like a realistic scenario in practice? What does that tell you about the actual family-wise error rate when using the Bonferroni correction in practice?</p></li>
@@ -428,29 +428,29 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <ol start="4" class="example" type="1">
 <li><p><strong>Babies Walking: Blocks</strong>. Consider the Babies Walking study from lecture where babies were randomly assigned to one of four programs and the time it took for them to walk was recorded.</p>
 <ol type="a">
-<li><p>Why would it be difficult to use <em>parent</em> as a blocking factor in this study?</p></li>
-<li><p>List two factors that <em>could</em> be used as blocking factors in this study. For each factor, explain how it could be used as a blocking factor and why it might be a good choice.</p></li>
+<li><p>Why would it be difficult to use <em>parent ID</em> as a blocking factor in this study?</p></li>
+<li><p>List two factors that <em>could</em> be used as blocking factors in this study. For each factor, why you would expect it to explain variation in walking time.</p></li>
 <li><p>Imagine that one of your blocking factors has five levels, allowing for a complete block design. The data frame below provides the id of each baby in the original study along with their correponding block. Fill in the program column with a random assignment of the four programs to the babies within each block.</p></li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<div id="jlerfyfsbx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jlerfyfsbx table {
+<div id="kxbewuzsec" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kxbewuzsec table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jlerfyfsbx thead, #jlerfyfsbx tbody, #jlerfyfsbx tfoot, #jlerfyfsbx tr, #jlerfyfsbx td, #jlerfyfsbx th {
+#kxbewuzsec thead, #kxbewuzsec tbody, #kxbewuzsec tfoot, #kxbewuzsec tr, #kxbewuzsec td, #kxbewuzsec th {
   border-style: none;
 }
 
-#jlerfyfsbx p {
+#kxbewuzsec p {
   margin: 0;
   padding: 0;
 }
 
-#jlerfyfsbx .gt_table {
+#kxbewuzsec .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -476,12 +476,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#jlerfyfsbx .gt_caption {
+#kxbewuzsec .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jlerfyfsbx .gt_title {
+#kxbewuzsec .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -493,7 +493,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-bottom-width: 0;
 }
 
-#jlerfyfsbx .gt_subtitle {
+#kxbewuzsec .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -505,7 +505,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-top-width: 0;
 }
 
-#jlerfyfsbx .gt_heading {
+#kxbewuzsec .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -517,13 +517,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#jlerfyfsbx .gt_bottom_border {
+#kxbewuzsec .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jlerfyfsbx .gt_col_headings {
+#kxbewuzsec .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -538,7 +538,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#jlerfyfsbx .gt_col_heading {
+#kxbewuzsec .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -558,7 +558,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   overflow-x: hidden;
 }
 
-#jlerfyfsbx .gt_column_spanner_outer {
+#kxbewuzsec .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -570,15 +570,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 4px;
 }
 
-#jlerfyfsbx .gt_column_spanner_outer:first-child {
+#kxbewuzsec .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jlerfyfsbx .gt_column_spanner_outer:last-child {
+#kxbewuzsec .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jlerfyfsbx .gt_column_spanner {
+#kxbewuzsec .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -590,11 +590,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   width: 100%;
 }
 
-#jlerfyfsbx .gt_spanner_row {
+#kxbewuzsec .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jlerfyfsbx .gt_group_heading {
+#kxbewuzsec .gt_group_heading {
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 5px;
@@ -620,7 +620,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   text-align: left;
 }
 
-#jlerfyfsbx .gt_empty_group_heading {
+#kxbewuzsec .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -635,15 +635,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   vertical-align: middle;
 }
 
-#jlerfyfsbx .gt_from_md > :first-child {
+#kxbewuzsec .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jlerfyfsbx .gt_from_md > :last-child {
+#kxbewuzsec .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jlerfyfsbx .gt_row {
+#kxbewuzsec .gt_row {
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 5px;
@@ -662,7 +662,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   overflow-x: hidden;
 }
 
-#jlerfyfsbx .gt_stub {
+#kxbewuzsec .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -675,7 +675,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 5px;
 }
 
-#jlerfyfsbx .gt_stub_row_group {
+#kxbewuzsec .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -689,15 +689,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   vertical-align: top;
 }
 
-#jlerfyfsbx .gt_row_group_first td {
+#kxbewuzsec .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jlerfyfsbx .gt_row_group_first th {
+#kxbewuzsec .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jlerfyfsbx .gt_summary_row {
+#kxbewuzsec .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -707,16 +707,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 5px;
 }
 
-#jlerfyfsbx .gt_first_summary_row {
+#kxbewuzsec .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jlerfyfsbx .gt_first_summary_row.thick {
+#kxbewuzsec .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jlerfyfsbx .gt_last_summary_row {
+#kxbewuzsec .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -726,7 +726,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#jlerfyfsbx .gt_grand_summary_row {
+#kxbewuzsec .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -736,7 +736,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 5px;
 }
 
-#jlerfyfsbx .gt_first_grand_summary_row {
+#kxbewuzsec .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -746,7 +746,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#jlerfyfsbx .gt_last_grand_summary_row_top {
+#kxbewuzsec .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -756,11 +756,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#jlerfyfsbx .gt_striped {
+#kxbewuzsec .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jlerfyfsbx .gt_table_body {
+#kxbewuzsec .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -769,7 +769,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#jlerfyfsbx .gt_footnotes {
+#kxbewuzsec .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -783,7 +783,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#jlerfyfsbx .gt_footnote {
+#kxbewuzsec .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -792,7 +792,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 5px;
 }
 
-#jlerfyfsbx .gt_sourcenotes {
+#kxbewuzsec .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -806,7 +806,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#jlerfyfsbx .gt_sourcenote {
+#kxbewuzsec .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -814,72 +814,72 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 5px;
 }
 
-#jlerfyfsbx .gt_left {
+#kxbewuzsec .gt_left {
   text-align: left;
 }
 
-#jlerfyfsbx .gt_center {
+#kxbewuzsec .gt_center {
   text-align: center;
 }
 
-#jlerfyfsbx .gt_right {
+#kxbewuzsec .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jlerfyfsbx .gt_font_normal {
+#kxbewuzsec .gt_font_normal {
   font-weight: normal;
 }
 
-#jlerfyfsbx .gt_font_bold {
+#kxbewuzsec .gt_font_bold {
   font-weight: bold;
 }
 
-#jlerfyfsbx .gt_font_italic {
+#kxbewuzsec .gt_font_italic {
   font-style: italic;
 }
 
-#jlerfyfsbx .gt_super {
+#kxbewuzsec .gt_super {
   font-size: 65%;
 }
 
-#jlerfyfsbx .gt_footnote_marks {
+#kxbewuzsec .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jlerfyfsbx .gt_asterisk {
+#kxbewuzsec .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jlerfyfsbx .gt_indent_1 {
+#kxbewuzsec .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jlerfyfsbx .gt_indent_2 {
+#kxbewuzsec .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jlerfyfsbx .gt_indent_3 {
+#kxbewuzsec .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jlerfyfsbx .gt_indent_4 {
+#kxbewuzsec .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jlerfyfsbx .gt_indent_5 {
+#kxbewuzsec .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jlerfyfsbx .katex-display {
+#kxbewuzsec .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jlerfyfsbx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kxbewuzsec div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -915,7 +915,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="id">5</td>
-<td class="gt_row gt_center" headers="block">A</td>
+<td class="gt_row gt_center" headers="block">B</td>
 <td class="gt_row gt_center" headers="program">NA</td>
 </tr>
 <tr class="even">
@@ -935,12 +935,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="id">9</td>
-<td class="gt_row gt_center" headers="block">B</td>
+<td class="gt_row gt_center" headers="block">C</td>
 <td class="gt_row gt_center" headers="program">NA</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="id">10</td>
-<td class="gt_row gt_center" headers="block">B</td>
+<td class="gt_row gt_center" headers="block">C</td>
 <td class="gt_row gt_center" headers="program">NA</td>
 </tr>
 <tr class="odd">
@@ -955,17 +955,17 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="id">13</td>
-<td class="gt_row gt_center" headers="block">C</td>
+<td class="gt_row gt_center" headers="block">D</td>
 <td class="gt_row gt_center" headers="program">NA</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="id">14</td>
-<td class="gt_row gt_center" headers="block">C</td>
+<td class="gt_row gt_center" headers="block">D</td>
 <td class="gt_row gt_center" headers="program">NA</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="id">15</td>
-<td class="gt_row gt_center" headers="block">C</td>
+<td class="gt_row gt_center" headers="block">D</td>
 <td class="gt_row gt_center" headers="program">NA</td>
 </tr>
 <tr class="even">
@@ -975,22 +975,22 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="id">17</td>
-<td class="gt_row gt_center" headers="block">D</td>
+<td class="gt_row gt_center" headers="block">E</td>
 <td class="gt_row gt_center" headers="program">NA</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="id">18</td>
-<td class="gt_row gt_center" headers="block">D</td>
+<td class="gt_row gt_center" headers="block">E</td>
 <td class="gt_row gt_center" headers="program">NA</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="id">19</td>
-<td class="gt_row gt_center" headers="block">D</td>
+<td class="gt_row gt_center" headers="block">E</td>
 <td class="gt_row gt_center" headers="program">NA</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="id">20</td>
-<td class="gt_row gt_center" headers="block">D</td>
+<td class="gt_row gt_center" headers="block">E</td>
 <td class="gt_row gt_center" headers="program">NA</td>
 </tr>
 </tbody>

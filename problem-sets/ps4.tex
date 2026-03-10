@@ -389,12 +389,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
   \item
-    How many total hypothesis tests are being run in this ANOVA table?
+    How many distinct null hypotheses are being tested in this ANOVA
+    table?
   \item
-    Use a decision rule that rejects an individual null hypothesis when
-    the p-value is less than or equal to \(\alpha = .05\), what is the
-    probability of making at least one Type I error across all of these
-    tests? (Assume the tests are independent for this calculation).
+    Consider a decision rule that rejects an individual null hypothesis
+    when the p-value is less than or equal to \(\alpha = .05\). If we
+    assume that the tests are independent, what is the probability of
+    making at least one Type I error?
   \item
     If you wanted to control the strong family-wise error rate at
     \(\gamma = .05\) using a Bonferroni correction, what would be the
@@ -429,12 +430,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
   \item
-    Why would it be difficult to use \emph{parent} as a blocking factor
-    in this study?
+    Why would it be difficult to use \emph{parent ID} as a blocking
+    factor in this study?
   \item
     List two factors that \emph{could} be used as blocking factors in
-    this study. For each factor, explain how it could be used as a
-    blocking factor and why it might be a good choice.
+    this study. For each factor, why you would expect it to explain
+    variation in walking time.
   \item
     Imagine that one of your blocking factors has five levels, allowing
     for a complete block design. The data frame below provides the id of
@@ -453,22 +454,22 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
   2 & A & NA \\ 
   3 & A & NA \\ 
   4 & A & NA \\ 
-  5 & A & NA \\ 
+  5 & B & NA \\ 
   6 & B & NA \\ 
   7 & B & NA \\ 
   8 & B & NA \\ 
-  9 & B & NA \\ 
-  10 & B & NA \\ 
+  9 & C & NA \\ 
+  10 & C & NA \\ 
   11 & C & NA \\ 
   12 & C & NA \\ 
-  13 & C & NA \\ 
-  14 & C & NA \\ 
-  15 & C & NA \\ 
+  13 & D & NA \\ 
+  14 & D & NA \\ 
+  15 & D & NA \\ 
   16 & D & NA \\ 
-  17 & D & NA \\ 
-  18 & D & NA \\ 
-  19 & D & NA \\ 
-  20 & D & NA \\ 
+  17 & E & NA \\ 
+  18 & E & NA \\ 
+  19 & E & NA \\ 
+  20 & E & NA \\ 
   \bottomrule
   \end{tabular*}
   \end{table}

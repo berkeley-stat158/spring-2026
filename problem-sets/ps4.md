@@ -115,14 +115,13 @@ toc-title: Table of contents
     :::
     ::::
 
-    a.  How many total hypothesis tests are being run in this ANOVA
+    a.  How many distinct null hypotheses are being tested in this ANOVA
         table?
 
-    b.  Use a decision rule that rejects an individual null hypothesis
-        when the p-value is less than or equal to $\alpha = .05$, what
-        is the probability of making at least one Type I error across
-        all of these tests? (Assume the tests are independent for this
-        calculation).
+    b.  Consider a decision rule that rejects an individual null
+        hypothesis when the p-value is less than or equal to
+        $\alpha = .05$. If we assume that the tests are independent,
+        what is the probability of making at least one Type I error?
 
     c.  If you wanted to control the strong family-wise error rate at
         $\gamma = .05$ using a Bonferroni correction, what would be the
@@ -149,12 +148,12 @@ toc-title: Table of contents
     lecture where babies were randomly assigned to one of four programs
     and the time it took for them to walk was recorded.
 
-    a.  Why would it be difficult to use *parent* as a blocking factor
-        in this study?
+    a.  Why would it be difficult to use *parent ID* as a blocking
+        factor in this study?
 
     b.  List two factors that *could* be used as blocking factors in
-        this study. For each factor, explain how it could be used as a
-        blocking factor and why it might be a good choice.
+        this study. For each factor, why you would expect it to explain
+        variation in walking time.
 
     c.  Imagine that one of your blocking factors has five levels,
         allowing for a complete block design. The data frame below
@@ -165,23 +164,23 @@ toc-title: Table of contents
 
     :::: cell
     ::: cell-output-display
-    <div id="vsoemzhvyt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-    <style>#vsoemzhvyt table {
+    <div id="rwifthdzbh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+    <style>#rwifthdzbh table {
       font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    #vsoemzhvyt thead, #vsoemzhvyt tbody, #vsoemzhvyt tfoot, #vsoemzhvyt tr, #vsoemzhvyt td, #vsoemzhvyt th {
+    #rwifthdzbh thead, #rwifthdzbh tbody, #rwifthdzbh tfoot, #rwifthdzbh tr, #rwifthdzbh td, #rwifthdzbh th {
       border-style: none;
     }
 
-    #vsoemzhvyt p {
+    #rwifthdzbh p {
       margin: 0;
       padding: 0;
     }
 
-    #vsoemzhvyt .gt_table {
+    #rwifthdzbh .gt_table {
       display: table;
       border-collapse: collapse;
       line-height: normal;
@@ -207,12 +206,12 @@ toc-title: Table of contents
       border-left-color: #D3D3D3;
     }
 
-    #vsoemzhvyt .gt_caption {
+    #rwifthdzbh .gt_caption {
       padding-top: 4px;
       padding-bottom: 4px;
     }
 
-    #vsoemzhvyt .gt_title {
+    #rwifthdzbh .gt_title {
       color: #333333;
       font-size: 125%;
       font-weight: initial;
@@ -224,7 +223,7 @@ toc-title: Table of contents
       border-bottom-width: 0;
     }
 
-    #vsoemzhvyt .gt_subtitle {
+    #rwifthdzbh .gt_subtitle {
       color: #333333;
       font-size: 85%;
       font-weight: initial;
@@ -236,7 +235,7 @@ toc-title: Table of contents
       border-top-width: 0;
     }
 
-    #vsoemzhvyt .gt_heading {
+    #rwifthdzbh .gt_heading {
       background-color: #FFFFFF;
       text-align: center;
       border-bottom-color: #FFFFFF;
@@ -248,13 +247,13 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #vsoemzhvyt .gt_bottom_border {
+    #rwifthdzbh .gt_bottom_border {
       border-bottom-style: solid;
       border-bottom-width: 2px;
       border-bottom-color: #D3D3D3;
     }
 
-    #vsoemzhvyt .gt_col_headings {
+    #rwifthdzbh .gt_col_headings {
       border-top-style: solid;
       border-top-width: 2px;
       border-top-color: #D3D3D3;
@@ -269,7 +268,7 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #vsoemzhvyt .gt_col_heading {
+    #rwifthdzbh .gt_col_heading {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -289,7 +288,7 @@ toc-title: Table of contents
       overflow-x: hidden;
     }
 
-    #vsoemzhvyt .gt_column_spanner_outer {
+    #rwifthdzbh .gt_column_spanner_outer {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -301,15 +300,15 @@ toc-title: Table of contents
       padding-right: 4px;
     }
 
-    #vsoemzhvyt .gt_column_spanner_outer:first-child {
+    #rwifthdzbh .gt_column_spanner_outer:first-child {
       padding-left: 0;
     }
 
-    #vsoemzhvyt .gt_column_spanner_outer:last-child {
+    #rwifthdzbh .gt_column_spanner_outer:last-child {
       padding-right: 0;
     }
 
-    #vsoemzhvyt .gt_column_spanner {
+    #rwifthdzbh .gt_column_spanner {
       border-bottom-style: solid;
       border-bottom-width: 2px;
       border-bottom-color: #D3D3D3;
@@ -321,11 +320,11 @@ toc-title: Table of contents
       width: 100%;
     }
 
-    #vsoemzhvyt .gt_spanner_row {
+    #rwifthdzbh .gt_spanner_row {
       border-bottom-style: hidden;
     }
 
-    #vsoemzhvyt .gt_group_heading {
+    #rwifthdzbh .gt_group_heading {
       padding-top: 2px;
       padding-bottom: 2px;
       padding-left: 5px;
@@ -351,7 +350,7 @@ toc-title: Table of contents
       text-align: left;
     }
 
-    #vsoemzhvyt .gt_empty_group_heading {
+    #rwifthdzbh .gt_empty_group_heading {
       padding: 0.5px;
       color: #333333;
       background-color: #FFFFFF;
@@ -366,15 +365,15 @@ toc-title: Table of contents
       vertical-align: middle;
     }
 
-    #vsoemzhvyt .gt_from_md > :first-child {
+    #rwifthdzbh .gt_from_md > :first-child {
       margin-top: 0;
     }
 
-    #vsoemzhvyt .gt_from_md > :last-child {
+    #rwifthdzbh .gt_from_md > :last-child {
       margin-bottom: 0;
     }
 
-    #vsoemzhvyt .gt_row {
+    #rwifthdzbh .gt_row {
       padding-top: 2px;
       padding-bottom: 2px;
       padding-left: 5px;
@@ -393,7 +392,7 @@ toc-title: Table of contents
       overflow-x: hidden;
     }
 
-    #vsoemzhvyt .gt_stub {
+    #rwifthdzbh .gt_stub {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -406,7 +405,7 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #vsoemzhvyt .gt_stub_row_group {
+    #rwifthdzbh .gt_stub_row_group {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -420,15 +419,15 @@ toc-title: Table of contents
       vertical-align: top;
     }
 
-    #vsoemzhvyt .gt_row_group_first td {
+    #rwifthdzbh .gt_row_group_first td {
       border-top-width: 2px;
     }
 
-    #vsoemzhvyt .gt_row_group_first th {
+    #rwifthdzbh .gt_row_group_first th {
       border-top-width: 2px;
     }
 
-    #vsoemzhvyt .gt_summary_row {
+    #rwifthdzbh .gt_summary_row {
       color: #333333;
       background-color: #FFFFFF;
       text-transform: inherit;
@@ -438,16 +437,16 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #vsoemzhvyt .gt_first_summary_row {
+    #rwifthdzbh .gt_first_summary_row {
       border-top-style: solid;
       border-top-color: #D3D3D3;
     }
 
-    #vsoemzhvyt .gt_first_summary_row.thick {
+    #rwifthdzbh .gt_first_summary_row.thick {
       border-top-width: 2px;
     }
 
-    #vsoemzhvyt .gt_last_summary_row {
+    #rwifthdzbh .gt_last_summary_row {
       padding-top: 8px;
       padding-bottom: 8px;
       padding-left: 5px;
@@ -457,7 +456,7 @@ toc-title: Table of contents
       border-bottom-color: #D3D3D3;
     }
 
-    #vsoemzhvyt .gt_grand_summary_row {
+    #rwifthdzbh .gt_grand_summary_row {
       color: #333333;
       background-color: #FFFFFF;
       text-transform: inherit;
@@ -467,7 +466,7 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #vsoemzhvyt .gt_first_grand_summary_row {
+    #rwifthdzbh .gt_first_grand_summary_row {
       padding-top: 8px;
       padding-bottom: 8px;
       padding-left: 5px;
@@ -477,7 +476,7 @@ toc-title: Table of contents
       border-top-color: #D3D3D3;
     }
 
-    #vsoemzhvyt .gt_last_grand_summary_row_top {
+    #rwifthdzbh .gt_last_grand_summary_row_top {
       padding-top: 8px;
       padding-bottom: 8px;
       padding-left: 5px;
@@ -487,11 +486,11 @@ toc-title: Table of contents
       border-bottom-color: #D3D3D3;
     }
 
-    #vsoemzhvyt .gt_striped {
+    #rwifthdzbh .gt_striped {
       background-color: rgba(128, 128, 128, 0.05);
     }
 
-    #vsoemzhvyt .gt_table_body {
+    #rwifthdzbh .gt_table_body {
       border-top-style: solid;
       border-top-width: 2px;
       border-top-color: #D3D3D3;
@@ -500,7 +499,7 @@ toc-title: Table of contents
       border-bottom-color: #D3D3D3;
     }
 
-    #vsoemzhvyt .gt_footnotes {
+    #rwifthdzbh .gt_footnotes {
       color: #333333;
       background-color: #FFFFFF;
       border-bottom-style: none;
@@ -514,7 +513,7 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #vsoemzhvyt .gt_footnote {
+    #rwifthdzbh .gt_footnote {
       margin: 0px;
       font-size: 90%;
       padding-top: 4px;
@@ -523,7 +522,7 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #vsoemzhvyt .gt_sourcenotes {
+    #rwifthdzbh .gt_sourcenotes {
       color: #333333;
       background-color: #FFFFFF;
       border-bottom-style: none;
@@ -537,7 +536,7 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #vsoemzhvyt .gt_sourcenote {
+    #rwifthdzbh .gt_sourcenote {
       font-size: 90%;
       padding-top: 4px;
       padding-bottom: 4px;
@@ -545,72 +544,72 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #vsoemzhvyt .gt_left {
+    #rwifthdzbh .gt_left {
       text-align: left;
     }
 
-    #vsoemzhvyt .gt_center {
+    #rwifthdzbh .gt_center {
       text-align: center;
     }
 
-    #vsoemzhvyt .gt_right {
+    #rwifthdzbh .gt_right {
       text-align: right;
       font-variant-numeric: tabular-nums;
     }
 
-    #vsoemzhvyt .gt_font_normal {
+    #rwifthdzbh .gt_font_normal {
       font-weight: normal;
     }
 
-    #vsoemzhvyt .gt_font_bold {
+    #rwifthdzbh .gt_font_bold {
       font-weight: bold;
     }
 
-    #vsoemzhvyt .gt_font_italic {
+    #rwifthdzbh .gt_font_italic {
       font-style: italic;
     }
 
-    #vsoemzhvyt .gt_super {
+    #rwifthdzbh .gt_super {
       font-size: 65%;
     }
 
-    #vsoemzhvyt .gt_footnote_marks {
+    #rwifthdzbh .gt_footnote_marks {
       font-size: 75%;
       vertical-align: 0.4em;
       position: initial;
     }
 
-    #vsoemzhvyt .gt_asterisk {
+    #rwifthdzbh .gt_asterisk {
       font-size: 100%;
       vertical-align: 0;
     }
 
-    #vsoemzhvyt .gt_indent_1 {
+    #rwifthdzbh .gt_indent_1 {
       text-indent: 5px;
     }
 
-    #vsoemzhvyt .gt_indent_2 {
+    #rwifthdzbh .gt_indent_2 {
       text-indent: 10px;
     }
 
-    #vsoemzhvyt .gt_indent_3 {
+    #rwifthdzbh .gt_indent_3 {
       text-indent: 15px;
     }
 
-    #vsoemzhvyt .gt_indent_4 {
+    #rwifthdzbh .gt_indent_4 {
       text-indent: 20px;
     }
 
-    #vsoemzhvyt .gt_indent_5 {
+    #rwifthdzbh .gt_indent_5 {
       text-indent: 25px;
     }
 
-    #vsoemzhvyt .katex-display {
+    #rwifthdzbh .katex-display {
       display: inline-flex !important;
       margin-bottom: 0.75em !important;
     }
 
-    #vsoemzhvyt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+    #rwifthdzbh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
       height: 0px !important;
     }
     </style>
@@ -621,22 +620,22 @@ toc-title: Table of contents
       2    A       NA
       3    A       NA
       4    A       NA
-      5    A       NA
+      5    B       NA
       6    B       NA
       7    B       NA
       8    B       NA
-      9    B       NA
-      10   B       NA
+      9    C       NA
+      10   C       NA
       11   C       NA
       12   C       NA
-      13   C       NA
-      14   C       NA
-      15   C       NA
+      13   D       NA
+      14   D       NA
+      15   D       NA
       16   D       NA
-      17   D       NA
-      18   D       NA
-      19   D       NA
-      20   D       NA
+      17   E       NA
+      18   E       NA
+      19   E       NA
+      20   E       NA
 
     </div>
     :::

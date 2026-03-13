@@ -477,6 +477,65 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 \newpage{}
 
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  \textbf{Blocking and Variance: Model-based}. In lecture we worked
+  through the exact standard error of \(\widehat{ATE}\) from the
+  Randomization-Based framework. Consider an analogous parametric
+  framing using the following model:
+
+  \[Y_i \overset{\text{iid}}{\sim} N(\mu_{j(i)}, \sigma^2_{j(i)})\]
+
+  where there are \(J = 2\) groups of size \(n_1\) and \(n_2\), and
+  \(j(i)\) is the treatment that unit \(i\) belongs to.
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    What is the variance of \(\widehat{ATE}\) under this model?
+  \item
+    What guidance does this give us in making designs that maximize
+    precision and power? Specifically comment on four quantities
+    inspected in the lecture: the total number of units, the variances
+    of the outcomes in each group, the balance of the design, and
+    covariance between the outcomes in the two groups. Is there any
+    difference in the guidance provided by this model-based framing
+    compared to the randomization-based framing?
+  \end{enumerate}
+\item
+  \textbf{Blocking and Variance: Unequal Treatment Allocation}. In the
+  GCB design from lecture, each block assigned exactly half its units to
+  treatment and half to control. Suppose instead that block \(A\) (of
+  size \(n_A\)) assigns \(n_{A1}\) units to treatment and
+  \(n_{A0} = n_A - n_{A1}\) to control, and similarly block \(B\)
+  assigns \(n_{B1}\) to treatment and \(n_{B0} = n_B - n_{B1}\) to
+  control, where \(n_{A1}/n_A \neq n_{B1}/n_B\). For these calculations,
+  use the (simpler) model-based framing from the previous question
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    Is the estimator
+    \(\widehat{ATE} = \frac{n_A}{n}\widehat{ATE}_A + \frac{n_B}{n}\widehat{ATE}_B\)
+    still unbiased for the overall ATE? Justify your answer.
+  \item
+    Write out the full expression for \(SE(\widehat{ATE})\),
+    substituting in the CR{[}1{]} formula for each block-level SE
+    (treating each block as its own completely randomized experiment
+    with potentially unequal group sizes).
+  \item
+    Suppose \(\sigma_1^2 > \sigma_0^2\) within block \(A\). Based on the
+    CR{[}1{]} SE formula, what allocation ratio \(n_{A1}/n_{A0}\)
+    minimizes \(Var(\widehat{ATE}_A)\)? What does this suggest about how
+    you should design the experiment when you have prior knowledge about
+    within-block variance?
+  \end{enumerate}
+\end{enumerate}
+
+\newpage{}
+
 More questions coming soon!
 
 

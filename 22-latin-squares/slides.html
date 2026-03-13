@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
-  <title>STAT 158 – Two Blocking Factors</title>
+  <title>STAT 158 – Latin Squares</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,6 +27,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-db736733cce70b0e3969f53d4793608c.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -129,11 +195,19 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Two Blocking Factors</h1>
+  <h1 class="title">Latin Squares</h1>
 
 <div class="quarto-title-authors">
 </div>
 
+</section>
+<section id="diet-and-milk-ls" class="slide level2">
+<h2>Diet and Milk: LS</h2>
+<p><strong>LS</strong>: A <em>Latin Square</em> design is a special case of a CB design with <em>two</em> blocking factors.</p>
+<ul>
+<li class="fragment">Each factor has the same number of levels.</li>
+<li class="fragment">Each treatment appears exactly once in each row and column of the Latin Square.</li>
+</ul>
 </section>
 <section id="while-youre-waiting" class="slide level2">
 <h2>While you’re waiting</h2>
@@ -166,75 +240,261 @@
 </tr>
 </tbody>
 </table>
+<aside class="notes">
+<p>Correct answer of all Latin Squares of order 4 is 576 = 4 * 4! * 3!</p>
+<p>Correct answer of standard Latin Squares of order 4 is 4 = 4! / 4 = 24 / 4</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="counting-latin-squares" class="slide level2">
+<h2>Counting Latin Squares</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column">
+
+</div></div>
+<aside class="notes">
+<p>Say: It’s clear that it’s easy to make an alternative square simply by swapping two rows or two columns. But beyond those variants, how many squares are there? Let’s start by counting the number of squares that have a fixed row and column order. These are called <em>standard</em> Latin Squares.</p>
+<p>Write in right col:</p>
+<p><em>Standard Latin Square</em>: A square with treatments in alphabetical order in the first row and column.</p>
+<p>Say: Let’s count the number of standard squares. Which letters can go in spot (2,2)? There are three cases, A, C, and D.</p>
+<p>Write: A, C, D</p>
+<p>Let’s start with A in (2,2). How many squares result from that? (fill in square as you go and show that there are two squares with A in (2,2)).</p>
+<p>Now let’s put C in (2,2). How many squares result from that? (fill in square as you go and show that there is one square with C in (2,2)).</p>
+<p>Finally, let’s put D in (2,2). How many squares result from that? (fill in square as you go and show that there is one square with D in (2,2)).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="counting-latin-squares-1" class="slide level2">
+<h2>Counting Latin Squares</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>A</td>
+<td>D</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>D</td>
+<td>B</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>C</td>
+<td>A</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td>D</td>
+<td>C</td>
+<td>A</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>A</td>
+<td>D</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>D</td>
+<td>B</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column">
+
+</div></div>
+<aside class="notes">
+<p>Say: Now, we need to count the total number of Latin Squares that one can generate from a given Standard Square.</p>
+<p>Write: Given a standard square of g=4, how many Latin Squares can we generate from it?</p>
+<p>4! squares from permuting the rows 4! squares from permuting the columns Only 1/4 of the squares are unique because of the symmetry of the square (swapping rows and columns can give the same square).</p>
+<p><span class="math display">\[
+\frac{4! \times 4!}{4} = 144
+\]</span></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="counting-latin-squares-2" class="slide level2">
+<h2>Counting Latin Squares</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>g=2</th>
+<th>g=3</th>
+<th>g=4</th>
+<th>g=5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>standard</td>
+<td>1</td>
+<td>1</td>
+<td>4</td>
+<td>56</td>
+</tr>
+<tr class="even">
+<td>all LS</td>
+<td>2</td>
+<td>12</td>
+<td>576</td>
+<td>161280</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="how-to-do-random-assignment-in-ls" class="slide level2">
+<h2>How to do random assignment in LS</h2>
+<ol type="1">
+<li class="fragment">Randomly select a <em>standard</em> latin square (treatments in alphabetical order in first row and column).</li>
+<li class="fragment">Randomly assign levels of the first blocking factor to rows.</li>
+<li class="fragment">Randomly assign levels of the second blocking factor to columns.</li>
+<li class="fragment">Randomly assign treatment levels to letters.</li>
+</ol>
 </section>
 <section>
-<section id="a-study-of-diet-and-milk" class="title-slide slide level1 center">
-<h1>A Study of Diet and Milk</h1>
+<section id="inference" class="title-slide slide level1 center">
+<h1>Inference</h1>
 
 </section>
-<section id="study-diet-and-milk" class="slide level2">
-<h2>Study: Diet and Milk</h2>
-<p>A study was conducted to compare the effect that three diets had on milk production in cows: full grain, partial grain, and roughage. A cohort of cows was recruited after giving birth, when milk production is highest. Once their new diet began, they would sustain it for 6 weeks and then measure milk production. The farm can only offer a single diet at any given time.</p>
+<section id="linear-model-for-ls" class="slide level2">
+<h2>Linear Model for LS</h2>
 <div class="fragment">
-<p><strong>4 Components of the Experiment</strong></p>
-<aside class="notes">
+<p><span class="math display">\[
+Y_{i} = \mu + \alpha_{j(i)} + \beta_{k(i)} + \delta_{l(i)} + \epsilon_i
+\]</span></p>
+<p>Note:</p>
 <ul>
-<li>response is the milk production (measured in pounds per day)</li>
-<li>factor of interest is the diet (full grain, partial grain, roughage)</li>
-<li>experimental unit: cow?</li>
+<li class="fragment">This is a three way factorial with no interactions</li>
+<li class="fragment">Can do an F-test on diet using the sum of squares for diet (<span class="math inline">\(\hat{\delta_{l}}\)</span>)and the residual sum of squares to get an estimate of the error variance.</li>
 </ul>
-<p>Ask: Let’s think through difference designs we could use / methods of allocation.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
-<section id="diet-and-milk-cr" class="slide level2">
-<h2>Diet and Milk: CR</h2>
-<div class="fragment">
-<p><strong>CR</strong>: units assigned to treatments completely at random</p>
-<aside class="notes">
-<p>Say we have nine cows. Draw data frame with cols for cow id and diet.</p>
-<ul>
-<li>cows are randomly assigned to one of the three diets
-<ul>
-<li>neg: variability time block to time block (production is highest at the first time block)</li>
-<li>neg: high cow-cow variability</li>
-</ul></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="model-based-inference" class="slide level2">
+<h2>Model-Based Inference</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(milk <span class="sc">~</span> diet <span class="sc">+</span> cow <span class="sc">+</span> period, <span class="at">data =</span> milk)</span>
+<span id="cb1-2"><a></a><span class="fu">summary</span>(fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
+diet         2  61.56  30.778   5.653  0.150
+cow          2   0.22   0.111   0.020  0.980
+period       2  16.22   8.111   1.490  0.402
+Residuals    2  10.89   5.444               </code></pre>
+</div>
 </div>
 </section>
-<section id="diet-and-milk-cb" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Diet and Milk: CB</h2>
-<p><strong>CB</strong>: units assigned to treatments at random within blocks (each treatment assigned exactly once per block).</p>
+<section id="randomization-based-inference" class="slide level2">
+<h2>Randomization-Based Inference</h2>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>milk</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 4
+  cow   period diet   milk
+  &lt;fct&gt; &lt;fct&gt;  &lt;fct&gt; &lt;dbl&gt;
+1 1     1      F        23
+2 1     2      P        18
+3 1     3      R        15
+4 2     1      P        16
+5 2     2      R        19
+6 2     3      F        22
+7 3     1      R        21
+8 3     2      F        22
+9 3     3      P        14</code></pre>
+</div>
+</div>
+</div><div class="column">
+<p>How could simulate another data set that could have been realized under this design using the Fisher Sharp Null?</p>
+</div></div>
 <aside class="notes">
-<p>Redraw the same DF as the previous slide, but add a third column to the data frame with week: 1-6, 7-12, and 13-18. Each week is a block.</p>
-<ul>
-<li>cows are randomly assigned to one of the three diets within time period block (week)
-<ul>
-<li>pro: variability due to time is controlled</li>
-<li>neg: cow to cow variability is still high</li>
-</ul></li>
-</ul>
+<p>Ask if you can simply permute the Y col? Or the two blocking cols?</p>
+<p>The answer is no: the LS imposes a constraint based on the combination of the blocking factors. You need to select a random Latin Square and then assign the observed Y values to the treatments in that square.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -247,25 +507,21 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="diet-and-milk-cb-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Diet and Milk: CB</h2>
-<p><strong>CB</strong>: units assigned to treatments at random within blocks (each treatment assigned exactly once per block). There are be more than one blocking factor.</p>
-<aside class="notes">
-<p>Change the cow id column to being highlighted as a blocking factor alongside week. Redo the cow id’s so that it’s only three cows total that are studied instead of nine.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="how-to-do-random-assignment-in-ls-1" class="slide level2">
+<h2>How to do random assignment in LS</h2>
+<ol type="1">
+<li class="fragment">Randomly select a <em>standard</em> latin square (treatments in alphabetical order in first row and column).</li>
+<li class="fragment">Randomly assign levels of the first blocking factor to rows.</li>
+<li class="fragment">Randomly assign levels of the second blocking factor to columns.</li>
+<li class="fragment">Randomly assign treatment levels to letters.</li>
+</ol>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
 
 
-</section></section>
+
+<img data-src="images/fisher-window.jpg" class="quarto-figure quarto-figure-center r-stretch"></section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

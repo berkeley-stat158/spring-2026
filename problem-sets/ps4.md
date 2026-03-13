@@ -164,23 +164,23 @@ toc-title: Table of contents
 
     :::: cell
     ::: cell-output-display
-    <div id="fvtrqfsbyw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-    <style>#fvtrqfsbyw table {
+    <div id="dypczbskcd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+    <style>#dypczbskcd table {
       font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    #fvtrqfsbyw thead, #fvtrqfsbyw tbody, #fvtrqfsbyw tfoot, #fvtrqfsbyw tr, #fvtrqfsbyw td, #fvtrqfsbyw th {
+    #dypczbskcd thead, #dypczbskcd tbody, #dypczbskcd tfoot, #dypczbskcd tr, #dypczbskcd td, #dypczbskcd th {
       border-style: none;
     }
 
-    #fvtrqfsbyw p {
+    #dypczbskcd p {
       margin: 0;
       padding: 0;
     }
 
-    #fvtrqfsbyw .gt_table {
+    #dypczbskcd .gt_table {
       display: table;
       border-collapse: collapse;
       line-height: normal;
@@ -206,12 +206,12 @@ toc-title: Table of contents
       border-left-color: #D3D3D3;
     }
 
-    #fvtrqfsbyw .gt_caption {
+    #dypczbskcd .gt_caption {
       padding-top: 4px;
       padding-bottom: 4px;
     }
 
-    #fvtrqfsbyw .gt_title {
+    #dypczbskcd .gt_title {
       color: #333333;
       font-size: 125%;
       font-weight: initial;
@@ -223,7 +223,7 @@ toc-title: Table of contents
       border-bottom-width: 0;
     }
 
-    #fvtrqfsbyw .gt_subtitle {
+    #dypczbskcd .gt_subtitle {
       color: #333333;
       font-size: 85%;
       font-weight: initial;
@@ -235,7 +235,7 @@ toc-title: Table of contents
       border-top-width: 0;
     }
 
-    #fvtrqfsbyw .gt_heading {
+    #dypczbskcd .gt_heading {
       background-color: #FFFFFF;
       text-align: center;
       border-bottom-color: #FFFFFF;
@@ -247,13 +247,13 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #fvtrqfsbyw .gt_bottom_border {
+    #dypczbskcd .gt_bottom_border {
       border-bottom-style: solid;
       border-bottom-width: 2px;
       border-bottom-color: #D3D3D3;
     }
 
-    #fvtrqfsbyw .gt_col_headings {
+    #dypczbskcd .gt_col_headings {
       border-top-style: solid;
       border-top-width: 2px;
       border-top-color: #D3D3D3;
@@ -268,7 +268,7 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #fvtrqfsbyw .gt_col_heading {
+    #dypczbskcd .gt_col_heading {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -288,7 +288,7 @@ toc-title: Table of contents
       overflow-x: hidden;
     }
 
-    #fvtrqfsbyw .gt_column_spanner_outer {
+    #dypczbskcd .gt_column_spanner_outer {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -300,15 +300,15 @@ toc-title: Table of contents
       padding-right: 4px;
     }
 
-    #fvtrqfsbyw .gt_column_spanner_outer:first-child {
+    #dypczbskcd .gt_column_spanner_outer:first-child {
       padding-left: 0;
     }
 
-    #fvtrqfsbyw .gt_column_spanner_outer:last-child {
+    #dypczbskcd .gt_column_spanner_outer:last-child {
       padding-right: 0;
     }
 
-    #fvtrqfsbyw .gt_column_spanner {
+    #dypczbskcd .gt_column_spanner {
       border-bottom-style: solid;
       border-bottom-width: 2px;
       border-bottom-color: #D3D3D3;
@@ -320,11 +320,11 @@ toc-title: Table of contents
       width: 100%;
     }
 
-    #fvtrqfsbyw .gt_spanner_row {
+    #dypczbskcd .gt_spanner_row {
       border-bottom-style: hidden;
     }
 
-    #fvtrqfsbyw .gt_group_heading {
+    #dypczbskcd .gt_group_heading {
       padding-top: 2px;
       padding-bottom: 2px;
       padding-left: 5px;
@@ -350,7 +350,7 @@ toc-title: Table of contents
       text-align: left;
     }
 
-    #fvtrqfsbyw .gt_empty_group_heading {
+    #dypczbskcd .gt_empty_group_heading {
       padding: 0.5px;
       color: #333333;
       background-color: #FFFFFF;
@@ -365,15 +365,15 @@ toc-title: Table of contents
       vertical-align: middle;
     }
 
-    #fvtrqfsbyw .gt_from_md > :first-child {
+    #dypczbskcd .gt_from_md > :first-child {
       margin-top: 0;
     }
 
-    #fvtrqfsbyw .gt_from_md > :last-child {
+    #dypczbskcd .gt_from_md > :last-child {
       margin-bottom: 0;
     }
 
-    #fvtrqfsbyw .gt_row {
+    #dypczbskcd .gt_row {
       padding-top: 2px;
       padding-bottom: 2px;
       padding-left: 5px;
@@ -392,7 +392,7 @@ toc-title: Table of contents
       overflow-x: hidden;
     }
 
-    #fvtrqfsbyw .gt_stub {
+    #dypczbskcd .gt_stub {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -405,7 +405,7 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #fvtrqfsbyw .gt_stub_row_group {
+    #dypczbskcd .gt_stub_row_group {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -419,15 +419,15 @@ toc-title: Table of contents
       vertical-align: top;
     }
 
-    #fvtrqfsbyw .gt_row_group_first td {
+    #dypczbskcd .gt_row_group_first td {
       border-top-width: 2px;
     }
 
-    #fvtrqfsbyw .gt_row_group_first th {
+    #dypczbskcd .gt_row_group_first th {
       border-top-width: 2px;
     }
 
-    #fvtrqfsbyw .gt_summary_row {
+    #dypczbskcd .gt_summary_row {
       color: #333333;
       background-color: #FFFFFF;
       text-transform: inherit;
@@ -437,16 +437,16 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #fvtrqfsbyw .gt_first_summary_row {
+    #dypczbskcd .gt_first_summary_row {
       border-top-style: solid;
       border-top-color: #D3D3D3;
     }
 
-    #fvtrqfsbyw .gt_first_summary_row.thick {
+    #dypczbskcd .gt_first_summary_row.thick {
       border-top-width: 2px;
     }
 
-    #fvtrqfsbyw .gt_last_summary_row {
+    #dypczbskcd .gt_last_summary_row {
       padding-top: 8px;
       padding-bottom: 8px;
       padding-left: 5px;
@@ -456,7 +456,7 @@ toc-title: Table of contents
       border-bottom-color: #D3D3D3;
     }
 
-    #fvtrqfsbyw .gt_grand_summary_row {
+    #dypczbskcd .gt_grand_summary_row {
       color: #333333;
       background-color: #FFFFFF;
       text-transform: inherit;
@@ -466,7 +466,7 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #fvtrqfsbyw .gt_first_grand_summary_row {
+    #dypczbskcd .gt_first_grand_summary_row {
       padding-top: 8px;
       padding-bottom: 8px;
       padding-left: 5px;
@@ -476,7 +476,7 @@ toc-title: Table of contents
       border-top-color: #D3D3D3;
     }
 
-    #fvtrqfsbyw .gt_last_grand_summary_row_top {
+    #dypczbskcd .gt_last_grand_summary_row_top {
       padding-top: 8px;
       padding-bottom: 8px;
       padding-left: 5px;
@@ -486,11 +486,11 @@ toc-title: Table of contents
       border-bottom-color: #D3D3D3;
     }
 
-    #fvtrqfsbyw .gt_striped {
+    #dypczbskcd .gt_striped {
       background-color: rgba(128, 128, 128, 0.05);
     }
 
-    #fvtrqfsbyw .gt_table_body {
+    #dypczbskcd .gt_table_body {
       border-top-style: solid;
       border-top-width: 2px;
       border-top-color: #D3D3D3;
@@ -499,7 +499,7 @@ toc-title: Table of contents
       border-bottom-color: #D3D3D3;
     }
 
-    #fvtrqfsbyw .gt_footnotes {
+    #dypczbskcd .gt_footnotes {
       color: #333333;
       background-color: #FFFFFF;
       border-bottom-style: none;
@@ -513,7 +513,7 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #fvtrqfsbyw .gt_footnote {
+    #dypczbskcd .gt_footnote {
       margin: 0px;
       font-size: 90%;
       padding-top: 4px;
@@ -522,7 +522,7 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #fvtrqfsbyw .gt_sourcenotes {
+    #dypczbskcd .gt_sourcenotes {
       color: #333333;
       background-color: #FFFFFF;
       border-bottom-style: none;
@@ -536,7 +536,7 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #fvtrqfsbyw .gt_sourcenote {
+    #dypczbskcd .gt_sourcenote {
       font-size: 90%;
       padding-top: 4px;
       padding-bottom: 4px;
@@ -544,72 +544,72 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #fvtrqfsbyw .gt_left {
+    #dypczbskcd .gt_left {
       text-align: left;
     }
 
-    #fvtrqfsbyw .gt_center {
+    #dypczbskcd .gt_center {
       text-align: center;
     }
 
-    #fvtrqfsbyw .gt_right {
+    #dypczbskcd .gt_right {
       text-align: right;
       font-variant-numeric: tabular-nums;
     }
 
-    #fvtrqfsbyw .gt_font_normal {
+    #dypczbskcd .gt_font_normal {
       font-weight: normal;
     }
 
-    #fvtrqfsbyw .gt_font_bold {
+    #dypczbskcd .gt_font_bold {
       font-weight: bold;
     }
 
-    #fvtrqfsbyw .gt_font_italic {
+    #dypczbskcd .gt_font_italic {
       font-style: italic;
     }
 
-    #fvtrqfsbyw .gt_super {
+    #dypczbskcd .gt_super {
       font-size: 65%;
     }
 
-    #fvtrqfsbyw .gt_footnote_marks {
+    #dypczbskcd .gt_footnote_marks {
       font-size: 75%;
       vertical-align: 0.4em;
       position: initial;
     }
 
-    #fvtrqfsbyw .gt_asterisk {
+    #dypczbskcd .gt_asterisk {
       font-size: 100%;
       vertical-align: 0;
     }
 
-    #fvtrqfsbyw .gt_indent_1 {
+    #dypczbskcd .gt_indent_1 {
       text-indent: 5px;
     }
 
-    #fvtrqfsbyw .gt_indent_2 {
+    #dypczbskcd .gt_indent_2 {
       text-indent: 10px;
     }
 
-    #fvtrqfsbyw .gt_indent_3 {
+    #dypczbskcd .gt_indent_3 {
       text-indent: 15px;
     }
 
-    #fvtrqfsbyw .gt_indent_4 {
+    #dypczbskcd .gt_indent_4 {
       text-indent: 20px;
     }
 
-    #fvtrqfsbyw .gt_indent_5 {
+    #dypczbskcd .gt_indent_5 {
       text-indent: 25px;
     }
 
-    #fvtrqfsbyw .katex-display {
+    #dypczbskcd .katex-display {
       display: inline-flex !important;
       margin-bottom: 0.75em !important;
     }
 
-    #fvtrqfsbyw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+    #dypczbskcd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
       height: 0px !important;
     }
     </style>
@@ -640,6 +640,52 @@ toc-title: Table of contents
     </div>
     :::
     ::::
+
+
+
+5.  **Blocking and Variance: Model-based**. In lecture we worked through
+    the exact standard error of $\widehat{ATE}$ from the
+    Randomization-Based framework. Consider an analogous parametric
+    framing using the following model:
+
+    $$Y_i \overset{\text{iid}}{\sim} N(\mu_{j(i)}, \sigma^2_{j(i)})$$
+
+    where there are $J = 2$ groups of size $n_1$ and $n_2$, and $j(i)$
+    is the treatment that unit $i$ belongs to.
+
+    a.  What is the variance of $\widehat{ATE}$ under this model?
+
+    b.  What guidance does this give us in making designs that maximize
+        precision and power? Specifically comment on four quantities
+        inspected in the lecture: the total number of units, the
+        variances of the outcomes in each group, the balance of the
+        design, and covariance between the outcomes in the two groups.
+        Is there any difference in the guidance provided by this
+        model-based framing compared to the randomization-based framing?
+
+6.  **Blocking and Variance: Unequal Treatment Allocation**. In the GCB
+    design from lecture, each block assigned exactly half its units to
+    treatment and half to control. Suppose instead that block $A$ (of
+    size $n_A$) assigns $n_{A1}$ units to treatment and
+    $n_{A0} = n_A - n_{A1}$ to control, and similarly block $B$ assigns
+    $n_{B1}$ to treatment and $n_{B0} = n_B - n_{B1}$ to control, where
+    $n_{A1}/n_A \neq n_{B1}/n_B$. For these calculations, use the
+    (simpler) model-based framing from the previous question
+
+    a.  Is the estimator
+        $\widehat{ATE} = \frac{n_A}{n}\widehat{ATE}_A + \frac{n_B}{n}\widehat{ATE}_B$
+        still unbiased for the overall ATE? Justify your answer.
+
+    b.  Write out the full expression for $SE(\widehat{ATE})$,
+        substituting in the CR\[1\] formula for each block-level SE
+        (treating each block as its own completely randomized experiment
+        with potentially unequal group sizes).
+
+    c.  Suppose $\sigma_1^2 > \sigma_0^2$ within block $A$. Based on the
+        CR\[1\] SE formula, what allocation ratio $n_{A1}/n_{A0}$
+        minimizes $Var(\widehat{ATE}_A)$? What does this suggest about
+        how you should design the experiment when you have prior
+        knowledge about within-block variance?
 
 
 

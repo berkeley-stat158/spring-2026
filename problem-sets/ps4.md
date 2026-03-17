@@ -45,6 +45,8 @@ toc-title: Table of contents
         they are and which seem more realistic in this particular
         setting.
 
+<!-- -->
+
 2.  **Confident in your confidence intervals?** In lecture we formed a
     randomization-based confidence interval for the difference in mean
     response between the $X=11$ group and the $X=73$ group in the
@@ -164,23 +166,23 @@ toc-title: Table of contents
 
     :::: cell
     ::: cell-output-display
-    <div id="rubcvyglvh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-    <style>#rubcvyglvh table {
+    <div id="jtwknysobq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+    <style>#jtwknysobq table {
       font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    #rubcvyglvh thead, #rubcvyglvh tbody, #rubcvyglvh tfoot, #rubcvyglvh tr, #rubcvyglvh td, #rubcvyglvh th {
+    #jtwknysobq thead, #jtwknysobq tbody, #jtwknysobq tfoot, #jtwknysobq tr, #jtwknysobq td, #jtwknysobq th {
       border-style: none;
     }
 
-    #rubcvyglvh p {
+    #jtwknysobq p {
       margin: 0;
       padding: 0;
     }
 
-    #rubcvyglvh .gt_table {
+    #jtwknysobq .gt_table {
       display: table;
       border-collapse: collapse;
       line-height: normal;
@@ -206,12 +208,12 @@ toc-title: Table of contents
       border-left-color: #D3D3D3;
     }
 
-    #rubcvyglvh .gt_caption {
+    #jtwknysobq .gt_caption {
       padding-top: 4px;
       padding-bottom: 4px;
     }
 
-    #rubcvyglvh .gt_title {
+    #jtwknysobq .gt_title {
       color: #333333;
       font-size: 125%;
       font-weight: initial;
@@ -223,7 +225,7 @@ toc-title: Table of contents
       border-bottom-width: 0;
     }
 
-    #rubcvyglvh .gt_subtitle {
+    #jtwknysobq .gt_subtitle {
       color: #333333;
       font-size: 85%;
       font-weight: initial;
@@ -235,7 +237,7 @@ toc-title: Table of contents
       border-top-width: 0;
     }
 
-    #rubcvyglvh .gt_heading {
+    #jtwknysobq .gt_heading {
       background-color: #FFFFFF;
       text-align: center;
       border-bottom-color: #FFFFFF;
@@ -247,13 +249,13 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #rubcvyglvh .gt_bottom_border {
+    #jtwknysobq .gt_bottom_border {
       border-bottom-style: solid;
       border-bottom-width: 2px;
       border-bottom-color: #D3D3D3;
     }
 
-    #rubcvyglvh .gt_col_headings {
+    #jtwknysobq .gt_col_headings {
       border-top-style: solid;
       border-top-width: 2px;
       border-top-color: #D3D3D3;
@@ -268,7 +270,7 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #rubcvyglvh .gt_col_heading {
+    #jtwknysobq .gt_col_heading {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -288,7 +290,7 @@ toc-title: Table of contents
       overflow-x: hidden;
     }
 
-    #rubcvyglvh .gt_column_spanner_outer {
+    #jtwknysobq .gt_column_spanner_outer {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -300,15 +302,15 @@ toc-title: Table of contents
       padding-right: 4px;
     }
 
-    #rubcvyglvh .gt_column_spanner_outer:first-child {
+    #jtwknysobq .gt_column_spanner_outer:first-child {
       padding-left: 0;
     }
 
-    #rubcvyglvh .gt_column_spanner_outer:last-child {
+    #jtwknysobq .gt_column_spanner_outer:last-child {
       padding-right: 0;
     }
 
-    #rubcvyglvh .gt_column_spanner {
+    #jtwknysobq .gt_column_spanner {
       border-bottom-style: solid;
       border-bottom-width: 2px;
       border-bottom-color: #D3D3D3;
@@ -320,11 +322,11 @@ toc-title: Table of contents
       width: 100%;
     }
 
-    #rubcvyglvh .gt_spanner_row {
+    #jtwknysobq .gt_spanner_row {
       border-bottom-style: hidden;
     }
 
-    #rubcvyglvh .gt_group_heading {
+    #jtwknysobq .gt_group_heading {
       padding-top: 2px;
       padding-bottom: 2px;
       padding-left: 5px;
@@ -350,7 +352,7 @@ toc-title: Table of contents
       text-align: left;
     }
 
-    #rubcvyglvh .gt_empty_group_heading {
+    #jtwknysobq .gt_empty_group_heading {
       padding: 0.5px;
       color: #333333;
       background-color: #FFFFFF;
@@ -365,15 +367,15 @@ toc-title: Table of contents
       vertical-align: middle;
     }
 
-    #rubcvyglvh .gt_from_md > :first-child {
+    #jtwknysobq .gt_from_md > :first-child {
       margin-top: 0;
     }
 
-    #rubcvyglvh .gt_from_md > :last-child {
+    #jtwknysobq .gt_from_md > :last-child {
       margin-bottom: 0;
     }
 
-    #rubcvyglvh .gt_row {
+    #jtwknysobq .gt_row {
       padding-top: 2px;
       padding-bottom: 2px;
       padding-left: 5px;
@@ -392,7 +394,7 @@ toc-title: Table of contents
       overflow-x: hidden;
     }
 
-    #rubcvyglvh .gt_stub {
+    #jtwknysobq .gt_stub {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -405,7 +407,7 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #rubcvyglvh .gt_stub_row_group {
+    #jtwknysobq .gt_stub_row_group {
       color: #333333;
       background-color: #FFFFFF;
       font-size: 100%;
@@ -419,15 +421,15 @@ toc-title: Table of contents
       vertical-align: top;
     }
 
-    #rubcvyglvh .gt_row_group_first td {
+    #jtwknysobq .gt_row_group_first td {
       border-top-width: 2px;
     }
 
-    #rubcvyglvh .gt_row_group_first th {
+    #jtwknysobq .gt_row_group_first th {
       border-top-width: 2px;
     }
 
-    #rubcvyglvh .gt_summary_row {
+    #jtwknysobq .gt_summary_row {
       color: #333333;
       background-color: #FFFFFF;
       text-transform: inherit;
@@ -437,16 +439,16 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #rubcvyglvh .gt_first_summary_row {
+    #jtwknysobq .gt_first_summary_row {
       border-top-style: solid;
       border-top-color: #D3D3D3;
     }
 
-    #rubcvyglvh .gt_first_summary_row.thick {
+    #jtwknysobq .gt_first_summary_row.thick {
       border-top-width: 2px;
     }
 
-    #rubcvyglvh .gt_last_summary_row {
+    #jtwknysobq .gt_last_summary_row {
       padding-top: 8px;
       padding-bottom: 8px;
       padding-left: 5px;
@@ -456,7 +458,7 @@ toc-title: Table of contents
       border-bottom-color: #D3D3D3;
     }
 
-    #rubcvyglvh .gt_grand_summary_row {
+    #jtwknysobq .gt_grand_summary_row {
       color: #333333;
       background-color: #FFFFFF;
       text-transform: inherit;
@@ -466,7 +468,7 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #rubcvyglvh .gt_first_grand_summary_row {
+    #jtwknysobq .gt_first_grand_summary_row {
       padding-top: 8px;
       padding-bottom: 8px;
       padding-left: 5px;
@@ -476,7 +478,7 @@ toc-title: Table of contents
       border-top-color: #D3D3D3;
     }
 
-    #rubcvyglvh .gt_last_grand_summary_row_top {
+    #jtwknysobq .gt_last_grand_summary_row_top {
       padding-top: 8px;
       padding-bottom: 8px;
       padding-left: 5px;
@@ -486,11 +488,11 @@ toc-title: Table of contents
       border-bottom-color: #D3D3D3;
     }
 
-    #rubcvyglvh .gt_striped {
+    #jtwknysobq .gt_striped {
       background-color: rgba(128, 128, 128, 0.05);
     }
 
-    #rubcvyglvh .gt_table_body {
+    #jtwknysobq .gt_table_body {
       border-top-style: solid;
       border-top-width: 2px;
       border-top-color: #D3D3D3;
@@ -499,7 +501,7 @@ toc-title: Table of contents
       border-bottom-color: #D3D3D3;
     }
 
-    #rubcvyglvh .gt_footnotes {
+    #jtwknysobq .gt_footnotes {
       color: #333333;
       background-color: #FFFFFF;
       border-bottom-style: none;
@@ -513,7 +515,7 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #rubcvyglvh .gt_footnote {
+    #jtwknysobq .gt_footnote {
       margin: 0px;
       font-size: 90%;
       padding-top: 4px;
@@ -522,7 +524,7 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #rubcvyglvh .gt_sourcenotes {
+    #jtwknysobq .gt_sourcenotes {
       color: #333333;
       background-color: #FFFFFF;
       border-bottom-style: none;
@@ -536,7 +538,7 @@ toc-title: Table of contents
       border-right-color: #D3D3D3;
     }
 
-    #rubcvyglvh .gt_sourcenote {
+    #jtwknysobq .gt_sourcenote {
       font-size: 90%;
       padding-top: 4px;
       padding-bottom: 4px;
@@ -544,72 +546,72 @@ toc-title: Table of contents
       padding-right: 5px;
     }
 
-    #rubcvyglvh .gt_left {
+    #jtwknysobq .gt_left {
       text-align: left;
     }
 
-    #rubcvyglvh .gt_center {
+    #jtwknysobq .gt_center {
       text-align: center;
     }
 
-    #rubcvyglvh .gt_right {
+    #jtwknysobq .gt_right {
       text-align: right;
       font-variant-numeric: tabular-nums;
     }
 
-    #rubcvyglvh .gt_font_normal {
+    #jtwknysobq .gt_font_normal {
       font-weight: normal;
     }
 
-    #rubcvyglvh .gt_font_bold {
+    #jtwknysobq .gt_font_bold {
       font-weight: bold;
     }
 
-    #rubcvyglvh .gt_font_italic {
+    #jtwknysobq .gt_font_italic {
       font-style: italic;
     }
 
-    #rubcvyglvh .gt_super {
+    #jtwknysobq .gt_super {
       font-size: 65%;
     }
 
-    #rubcvyglvh .gt_footnote_marks {
+    #jtwknysobq .gt_footnote_marks {
       font-size: 75%;
       vertical-align: 0.4em;
       position: initial;
     }
 
-    #rubcvyglvh .gt_asterisk {
+    #jtwknysobq .gt_asterisk {
       font-size: 100%;
       vertical-align: 0;
     }
 
-    #rubcvyglvh .gt_indent_1 {
+    #jtwknysobq .gt_indent_1 {
       text-indent: 5px;
     }
 
-    #rubcvyglvh .gt_indent_2 {
+    #jtwknysobq .gt_indent_2 {
       text-indent: 10px;
     }
 
-    #rubcvyglvh .gt_indent_3 {
+    #jtwknysobq .gt_indent_3 {
       text-indent: 15px;
     }
 
-    #rubcvyglvh .gt_indent_4 {
+    #jtwknysobq .gt_indent_4 {
       text-indent: 20px;
     }
 
-    #rubcvyglvh .gt_indent_5 {
+    #jtwknysobq .gt_indent_5 {
       text-indent: 25px;
     }
 
-    #rubcvyglvh .katex-display {
+    #jtwknysobq .katex-display {
       display: inline-flex !important;
       margin-bottom: 0.75em !important;
     }
 
-    #rubcvyglvh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+    #jtwknysobq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
       height: 0px !important;
     }
     </style>
@@ -662,6 +664,8 @@ toc-title: Table of contents
         design, and covariance between the outcomes in the two groups.
         Is there any difference in the guidance provided by this
         model-based framing compared to the randomization-based framing?
+
+<!-- -->
 
 6.  **Blocking and Variance: Unequal Treatment Allocation**. In the GCB
     design from lecture, each block assigned exactly half its units to

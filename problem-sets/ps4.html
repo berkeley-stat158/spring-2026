@@ -384,6 +384,8 @@ window.Quarto = {
 <li>Form a 95% CI using RBI and the constant-effect assumption.</li>
 <li>Methods b. and c.&nbsp;rely upon different assumptions. Describe what they are and which seem more realistic in this particular setting.</li>
 </ol></li>
+</ol>
+<ol start="2" class="example" type="1">
 <li><p><strong>Confident in your confidence intervals?</strong> In lecture we formed a randomization-based confidence interval for the difference in mean response between the <span class="math inline">\(X=11\)</span> group and the <span class="math inline">\(X=73\)</span> group in the anchoring experiment. Your goal for this exercise is to use simulation to check the coverage of your interval and evaluate the consequences of using the constant effect assumption when it is violated.</p>
 <p>This simulation requires knowing the value of the true parameter, <span class="math inline">\(ATE\)</span>, so you’ll be playing this question as an all knowing god with all potential outcomes at your fingertips. You can find two full schedules of potential outcomes at the following links.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>godlikeA <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/anchoring/godlike_schedule_A.csv"</span>)</span>
@@ -434,23 +436,23 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<div id="yzslnyozug" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yzslnyozug table {
+<div id="tlqtcvdchd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tlqtcvdchd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yzslnyozug thead, #yzslnyozug tbody, #yzslnyozug tfoot, #yzslnyozug tr, #yzslnyozug td, #yzslnyozug th {
+#tlqtcvdchd thead, #tlqtcvdchd tbody, #tlqtcvdchd tfoot, #tlqtcvdchd tr, #tlqtcvdchd td, #tlqtcvdchd th {
   border-style: none;
 }
 
-#yzslnyozug p {
+#tlqtcvdchd p {
   margin: 0;
   padding: 0;
 }
 
-#yzslnyozug .gt_table {
+#tlqtcvdchd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -476,12 +478,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#yzslnyozug .gt_caption {
+#tlqtcvdchd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yzslnyozug .gt_title {
+#tlqtcvdchd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -493,7 +495,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-bottom-width: 0;
 }
 
-#yzslnyozug .gt_subtitle {
+#tlqtcvdchd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -505,7 +507,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-top-width: 0;
 }
 
-#yzslnyozug .gt_heading {
+#tlqtcvdchd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -517,13 +519,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yzslnyozug .gt_bottom_border {
+#tlqtcvdchd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yzslnyozug .gt_col_headings {
+#tlqtcvdchd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -538,7 +540,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yzslnyozug .gt_col_heading {
+#tlqtcvdchd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -558,7 +560,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   overflow-x: hidden;
 }
 
-#yzslnyozug .gt_column_spanner_outer {
+#tlqtcvdchd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -570,15 +572,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 4px;
 }
 
-#yzslnyozug .gt_column_spanner_outer:first-child {
+#tlqtcvdchd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yzslnyozug .gt_column_spanner_outer:last-child {
+#tlqtcvdchd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yzslnyozug .gt_column_spanner {
+#tlqtcvdchd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -590,11 +592,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   width: 100%;
 }
 
-#yzslnyozug .gt_spanner_row {
+#tlqtcvdchd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yzslnyozug .gt_group_heading {
+#tlqtcvdchd .gt_group_heading {
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 5px;
@@ -620,7 +622,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   text-align: left;
 }
 
-#yzslnyozug .gt_empty_group_heading {
+#tlqtcvdchd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -635,15 +637,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   vertical-align: middle;
 }
 
-#yzslnyozug .gt_from_md > :first-child {
+#tlqtcvdchd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yzslnyozug .gt_from_md > :last-child {
+#tlqtcvdchd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yzslnyozug .gt_row {
+#tlqtcvdchd .gt_row {
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 5px;
@@ -662,7 +664,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   overflow-x: hidden;
 }
 
-#yzslnyozug .gt_stub {
+#tlqtcvdchd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -675,7 +677,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 5px;
 }
 
-#yzslnyozug .gt_stub_row_group {
+#tlqtcvdchd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -689,15 +691,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   vertical-align: top;
 }
 
-#yzslnyozug .gt_row_group_first td {
+#tlqtcvdchd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yzslnyozug .gt_row_group_first th {
+#tlqtcvdchd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yzslnyozug .gt_summary_row {
+#tlqtcvdchd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -707,16 +709,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 5px;
 }
 
-#yzslnyozug .gt_first_summary_row {
+#tlqtcvdchd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yzslnyozug .gt_first_summary_row.thick {
+#tlqtcvdchd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yzslnyozug .gt_last_summary_row {
+#tlqtcvdchd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -726,7 +728,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#yzslnyozug .gt_grand_summary_row {
+#tlqtcvdchd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -736,7 +738,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 5px;
 }
 
-#yzslnyozug .gt_first_grand_summary_row {
+#tlqtcvdchd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -746,7 +748,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#yzslnyozug .gt_last_grand_summary_row_top {
+#tlqtcvdchd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -756,11 +758,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#yzslnyozug .gt_striped {
+#tlqtcvdchd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yzslnyozug .gt_table_body {
+#tlqtcvdchd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -769,7 +771,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#yzslnyozug .gt_footnotes {
+#tlqtcvdchd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -783,7 +785,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yzslnyozug .gt_footnote {
+#tlqtcvdchd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -792,7 +794,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 5px;
 }
 
-#yzslnyozug .gt_sourcenotes {
+#tlqtcvdchd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -806,7 +808,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yzslnyozug .gt_sourcenote {
+#tlqtcvdchd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -814,72 +816,72 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
   padding-right: 5px;
 }
 
-#yzslnyozug .gt_left {
+#tlqtcvdchd .gt_left {
   text-align: left;
 }
 
-#yzslnyozug .gt_center {
+#tlqtcvdchd .gt_center {
   text-align: center;
 }
 
-#yzslnyozug .gt_right {
+#tlqtcvdchd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yzslnyozug .gt_font_normal {
+#tlqtcvdchd .gt_font_normal {
   font-weight: normal;
 }
 
-#yzslnyozug .gt_font_bold {
+#tlqtcvdchd .gt_font_bold {
   font-weight: bold;
 }
 
-#yzslnyozug .gt_font_italic {
+#tlqtcvdchd .gt_font_italic {
   font-style: italic;
 }
 
-#yzslnyozug .gt_super {
+#tlqtcvdchd .gt_super {
   font-size: 65%;
 }
 
-#yzslnyozug .gt_footnote_marks {
+#tlqtcvdchd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yzslnyozug .gt_asterisk {
+#tlqtcvdchd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yzslnyozug .gt_indent_1 {
+#tlqtcvdchd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yzslnyozug .gt_indent_2 {
+#tlqtcvdchd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yzslnyozug .gt_indent_3 {
+#tlqtcvdchd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yzslnyozug .gt_indent_4 {
+#tlqtcvdchd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yzslnyozug .gt_indent_5 {
+#tlqtcvdchd .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yzslnyozug .katex-display {
+#tlqtcvdchd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yzslnyozug div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tlqtcvdchd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1009,6 +1011,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li><p>What is the variance of <span class="math inline">\(\widehat{ATE}\)</span> under this model?</p></li>
 <li><p>What guidance does this give us in making designs that maximize precision and power? Specifically comment on four quantities inspected in the lecture: the total number of units, the variances of the outcomes in each group, the balance of the design, and covariance between the outcomes in the two groups. Is there any difference in the guidance provided by this model-based framing compared to the randomization-based framing?</p></li>
 </ol></li>
+</ol>
+<ol start="6" class="example" type="1">
 <li><p><strong>Blocking and Variance: Unequal Treatment Allocation</strong>. In the GCB design from lecture, each block assigned exactly half its units to treatment and half to control. Suppose instead that block <span class="math inline">\(A\)</span> (of size <span class="math inline">\(n_A\)</span>) assigns <span class="math inline">\(n_{A1}\)</span> units to treatment and <span class="math inline">\(n_{A0} = n_A - n_{A1}\)</span> to control, and similarly block <span class="math inline">\(B\)</span> assigns <span class="math inline">\(n_{B1}\)</span> to treatment and <span class="math inline">\(n_{B0} = n_B - n_{B1}\)</span> to control, where <span class="math inline">\(n_{A1}/n_A \neq n_{B1}/n_B\)</span>. For these calculations, use the (simpler) model-based framing from the previous question</p>
 <ol type="a">
 <li><p>Is the estimator <span class="math inline">\(\widehat{ATE} = \frac{n_A}{n}\widehat{ATE}_A + \frac{n_B}{n}\widehat{ATE}_B\)</span> still unbiased for the overall ATE? Justify your answer.</p></li>

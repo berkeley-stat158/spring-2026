@@ -1,39 +1,41 @@
-// Scroll-triggered branding behavior
 document.addEventListener('DOMContentLoaded', function() {
-    const navbar = document.querySelector('.navbar');
-    const navbarBrand = document.querySelector('.navbar-brand');
-    const scrollThreshold = 130;
+  const navbar = document.querySelector('.navbar');
+  const navbarBrand = document.querySelector('.navbar-brand');
+  const scrollThreshold = 130;
+  const siteBase = window.SITE_BASE || "";
 
-    // Create the logo element if it doesn't exist
-    if (navbarBrand && !document.querySelector('.navbar-brand-logo')) {
-        const logoElement = document.createElement('div');
-        logoElement.className = 'navbar-brand-logo';
-        logoElement.innerHTML = '<img src="/assets/stat158logo_small_green.png" alt="STAT 158 Logo">';
-        navbarBrand.appendChild(logoElement);
+  if (navbarBrand && !document.querySelector('.navbar-brand-logo')) {
+    const logoElement = document.createElement('div');
+    logoElement.className = 'navbar-brand-logo';
+
+    const img = document.createElement('img');
+    img.src = `${siteBase}/assets/stat158logo_small_green.png`;
+    img.alt = 'STAT 158 Logo';
+
+    logoElement.appendChild(img);
+    navbarBrand.appendChild(logoElement);
+  }
+
+  function updateNavbarBranding() {
+    if (!navbar) return;
+
+    if (window.scrollY > scrollThreshold) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
     }
+  }
 
-    function updateNavbarBranding() {
-        const scrollY = window.scrollY;
-        
-        if (scrollY > scrollThreshold) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateNavbarBranding();
+        ticking = false;
+      });
+      ticking = true;
     }
+  });
 
-    // Add scroll event listener with throttling for better performance
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            requestAnimationFrame(function() {
-                updateNavbarBranding();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-
-    // Initial check in case page loads scrolled
-    updateNavbarBranding();
+  updateNavbarBranding();
 });

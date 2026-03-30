@@ -1,4 +1,6 @@
 ---
+engines:
+- path: /opt/quarto/share/extension-subtrees/julia-engine/\_extensions/julia-engine/julia-engine.js
 resources:
 - \*\*/\*Starter.pdf
 - data/\*\*/\*.csv

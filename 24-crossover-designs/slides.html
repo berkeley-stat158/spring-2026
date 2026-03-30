@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.36">
 
-  <title>STAT 158 – Two Blocking Factors</title>
+  <title>STAT 158 – Crossover Designs</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -132,143 +132,71 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Two Blocking Factors</h1>
+  <h1 class="title">Crossover Designs</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="while-youre-waiting" class="slide level2">
-<h2>While you’re waiting</h2>
-<p>The square below has each letter appearing only once in each row and column. How many such squares are there?</p>
-<table class="caption-top">
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>A</td>
-<td>D</td>
-<td>C</td>
-</tr>
-<tr class="odd">
-<td>C</td>
-<td>D</td>
-<td>B</td>
-<td>A</td>
-</tr>
-<tr class="even">
-<td>D</td>
-<td>C</td>
-<td>A</td>
-<td>B</td>
-</tr>
-</tbody>
-</table>
+<section id="section" class="slide level2">
+<h2></h2>
 </section>
-<section>
-<section id="a-study-of-diet-and-milk" class="title-slide slide level1 center">
-<h1>A Study of Diet and Milk</h1>
-
-</section>
-<section id="study-diet-and-milk" class="slide level2">
-<h2>Study: Diet and Milk</h2>
-<p>A study was conducted to compare the effect that three diets had on milk production in cows: full grain, partial grain, and roughage. A cohort of cows was recruited after giving birth, when milk production is highest. Once their new diet began, they would sustain it for 6 weeks and then measure milk production. The farm can only offer a single diet at any given time.</p>
+<section id="version-ac" class="slide level2">
+<h2>Version A/C</h2>
 <div class="fragment">
-<p><strong>4 Components of the Experiment</strong></p>
-<aside class="notes">
-<ul>
-<li>response is the milk production (measured in pounds per day)</li>
-<li>factor of interest is the diet (full grain, partial grain, roughage)</li>
-<li>experimental unit: cow?</li>
-</ul>
-<p>Ask: Let’s think through difference designs we could use / methods of allocation.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/vA.png" class="quarto-figure quarto-figure-center" style="box-shadow: 0 8px 20px rgba(0,0,0,0.3);;width:60.0%"></p>
+</figure>
+</div>
 </div>
 </section>
-<section id="diet-and-milk-cr" class="slide level2">
-<h2>Diet and Milk: CR</h2>
+<section id="version-bd" class="slide level2">
+<h2>Version B/D</h2>
 <div class="fragment">
-<p><strong>CR</strong>: units assigned to treatments completely at random</p>
-<aside class="notes">
-<p>Say we have nine cows. Draw data frame with cols for cow id and diet.</p>
-<ul>
-<li>cows are randomly assigned to one of the three diets
-<ul>
-<li>neg: variability time block to time block (production is highest at the first time block)</li>
-<li>neg: high cow-cow variability</li>
-</ul></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/vB.png" class="quarto-figure quarto-figure-center" style="box-shadow: 0 8px 20px rgba(0,0,0,0.3);;width:60.0%"></p>
+</figure>
+</div>
 </div>
 </section>
-<section id="diet-and-milk-cb" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Diet and Milk: CB</h2>
-<p><strong>CB</strong>: units assigned to treatments at random within blocks (each treatment assigned exactly once per block).</p>
-<aside class="notes">
-<p>Redraw the same DF as the previous slide, but add a third column to the data frame with week: 1-6, 7-12, and 13-18. Each week is a block.</p>
-<ul>
-<li>cows are randomly assigned to one of the three diets within time period block (week)
-<ul>
-<li>pro: variability due to time is controlled</li>
-<li>neg: cow to cow variability is still high</li>
-</ul></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="compounded-vs.-separated" class="slide level2">
+<h2>Compounded vs.&nbsp;Separated</h2>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/q21-composite.png" class="quarto-figure quarto-figure-center" style="box-shadow: 0 8px 20px rgba(0,0,0,0.3);;width:50.0%"></p>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/q21-segmented.png" class="quarto-figure quarto-figure-center" style="box-shadow: 0 8px 20px rgba(0,0,0,0.3);;width:50.0%"></p>
+</figure>
+</div>
+</div>
 </section>
-<section id="diet-and-milk-cb-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Diet and Milk: CB</h2>
-<p><strong>CB</strong>: units assigned to treatments at random within blocks (each treatment assigned exactly once per block). There are be more than one blocking factor.</p>
-<aside class="notes">
-<p>Change the cow id column to being highlighted as a blocking factor alongside week. Redo the cow id’s so that it’s only three cows total that are studied instead of nine.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="compounded-vs.-separated-1" class="slide level2">
+<h2>Compounded vs.&nbsp;Separated</h2>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/q23-composite.png" class="quarto-figure quarto-figure-center" style="box-shadow: 0 8px 20px rgba(0,0,0,0.3);;width:50.0%"></p>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/q23-segmented.png" class="quarto-figure quarto-figure-center" style="box-shadow: 0 8px 20px rgba(0,0,0,0.3);;width:50.0%"></p>
+</figure>
+</div>
 
 
-</section></section>
+</div>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -488,44 +416,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

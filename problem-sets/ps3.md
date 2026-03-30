@@ -1,4 +1,6 @@
 ---
+engines:
+- path: /opt/quarto/share/extension-subtrees/julia-engine/\_extensions/julia-engine/julia-engine.js
 execute:
   eval: false
 resources:
@@ -102,16 +104,16 @@ toc-title: Table of contents
 
     a.  Create an interaction plot of the data and interpret it.
     b.  Fit a two factor model with interactions and
-        -   i.  for each component of the model (main effect of poisons,
-                main effect of drugs, interaction effects), calculate
-                the value of observed F statistics and the corresponding
-                p-values. You may calculate the p-values using either
-                randomization-based inference or model-based inference
-                (or both)[^3].
-        -   ii. draw conclusions about differences among poisons,
-                differences among treatments, and interactions between
-                them. Is this a setting where it is important to
-                estimate the interaction effects?
+        - i.  for each component of the model (main effect of poisons,
+              main effect of drugs, interaction effects), calculate the
+              value of observed F statistics and the corresponding
+              p-values. You may calculate the p-values using either
+              randomization-based inference or model-based inference (or
+              both)[^3].
+        - ii. draw conclusions about differences among poisons,
+              differences among treatments, and interactions between
+              them. Is this a setting where it is important to estimate
+              the interaction effects?
 
 
 
@@ -164,20 +166,16 @@ toc-title: Table of contents
 5.  **Estimation Three Ways**. We laid out the additive model for a
     two-way factorial with no interactions as
 
-    $$
-    Y_{i} = \mu + \alpha_{j(i)} + \beta_{k(i)} + \epsilon_{i}.
-    $$
+    $$Y_{i} = \mu + \alpha_{j(i)} + \beta_{k(i)} + \epsilon_{i}.$$
 
     The most commonly used estimators for these parameters are as
     follows.
 
-    $$
-    \begin{aligned}
+    $$\begin{aligned}
     \hat{\mu} &= \hat{\bar{Y}} \\
     \hat{\alpha}_j &= \hat{\bar{Y}}_j - \hat{\bar{Y}} \\
     \hat{\beta}_k &= \hat{\bar{Y}}_k - \hat{\bar{Y}}
-    \end{aligned}
-    $$
+    \end{aligned}$$
 
     There are three different reasons that these estimates are sensible:
 
@@ -187,9 +185,7 @@ toc-title: Table of contents
     b.  These estimates are the least squares estimates. That is, they
         are the values that minimize
 
-    $$
-    \sum_{i = 1}^n \left(Y_i - \left( \mu + \alpha_{j(i)} + \beta_{k(i)} \right) \right) ^2
-    $$
+    $$\sum_{i = 1}^n \left(Y_i - \left( \mu + \alpha_{j(i)} + \beta_{k(i)} \right) \right) ^2$$
 
     c.  Under a generative model assumption that
         $\epsilon_{i} \sim N(0, \sigma^2)$, these are the maximum

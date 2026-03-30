@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>STAT 158</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -33,19 +36,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8a0808be5b7c0f3678666e7f6e600685.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-c9bf7206968afdc980e2dbaa10ab41c9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a1e8d76ea12d76e61aca98ffd383426f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-c9bf7206968afdc980e2dbaa10ab41c9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7b9390e4c235a498622f4dee709cb677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-7b9390e4c235a498622f4dee709cb677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-7b9390e4c235a498622f4dee709cb677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -188,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -291,6 +293,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./project/proposal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Proposal</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project/design.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Design</span></a>
   </div>
 </li>
       </ul>
@@ -426,44 +434,10 @@ window.Quarto = {
   <!-- Create each day -->
   <div class="daily-sched">
   <div class="date-cell">
-  <span>Mar 16</span>
+  <span>Mar 30</span>
   </div>
   <div class="daily-topic-cell">
-  <span class="daily-topic">Comparing Designs</span>
-  </div>
-  <div class="items-cell">
-  <!-- Create btns for docs -->
-  <!-- ...docs listed under before-class key -->
-  
-  <!-- ...docs listed under in-class key -->
-  
-  <!-- ...docs listed directly under day item -->
-  
-    <div>
-    
-      
-        
-        
-        
-          <a href="./23-comparing-designs/ws.pdf" class="res worksheet-res">worksheet</a>
-        
-      
-    
-    </div>
-  
-  <!-- ...things that are due tomorrow -->
-  
-  </div>
-  </div>
-  
-
-  <!-- Create each day -->
-  <div class="daily-sched">
-  <div class="date-cell">
-  <span>Mar 18</span>
-  </div>
-  <div class="daily-topic-cell">
-  <span class="daily-topic"></span>
+  <span class="daily-topic">Random Effects Models</span>
   </div>
   <div class="items-cell">
   <!-- Create btns for docs -->
@@ -482,10 +456,32 @@ window.Quarto = {
   <!-- Create each day -->
   <div class="daily-sched">
   <div class="date-cell">
-  <span>Mar 20</span>
+  <span>Apr 1</span>
   </div>
   <div class="daily-topic-cell">
-  <span class="daily-topic"></span>
+  <span class="daily-topic">Sequential Analysis</span>
+  </div>
+  <div class="items-cell">
+  <!-- Create btns for docs -->
+  <!-- ...docs listed under before-class key -->
+  
+  <!-- ...docs listed under in-class key -->
+  
+  <!-- ...docs listed directly under day item -->
+  
+  <!-- ...things that are due tomorrow -->
+  
+  </div>
+  </div>
+  
+
+  <!-- Create each day -->
+  <div class="daily-sched">
+  <div class="date-cell">
+  <span>Apr 3</span>
+  </div>
+  <div class="daily-topic-cell">
+  <span class="daily-topic">Sequential Analysis</span>
   </div>
   <div class="items-cell">
   <!-- Create btns for docs -->
@@ -1620,7 +1616,7 @@ window.Quarto = {
     <span>Mar 18</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
+    <span class="daily-topic">Midterm (no class)</span>
     </div>
 
     <div class="items-cell">
@@ -1643,7 +1639,173 @@ window.Quarto = {
     <span>Mar 20</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
+    <span class="daily-topic">Crossover Designs</span>
+    </div>
+
+    <div class="items-cell">
+    <!-- Create btns for docs -->
+    <!-- ...docs listed under before-class key -->
+    
+    <!-- ...docs listed under in-class key -->
+    
+    <!-- ...docs listed directly under day item -->
+    
+      <div>
+      
+        
+          
+          
+          
+            <a href="./24-crossover-designs/slides.html" class="res slides-res">slides</a>
+          
+        
+      
+      </div>
+    
+    <!-- ...things that are due tomorrow -->
+    
+    </div>
+    </div>
+    
+  
+  
+  </div>
+
+  <!-- Create each week -->
+  <!-- <h4>Week 10</h4> -->
+  <div class="week-x-box">
+
+  
+    <!-- Create each day -->
+    <div class="daily-sched">
+    <div class="date-cell">
+    <span>Mar 23</span>
+    </div>
+    <div class="daily-topic-cell">
+    <span class="daily-topic">Spring Break</span>
+    </div>
+
+    <div class="items-cell">
+    <!-- Create btns for docs -->
+    <!-- ...docs listed under before-class key -->
+    
+    <!-- ...docs listed under in-class key -->
+    
+    <!-- ...docs listed directly under day item -->
+    
+    <!-- ...things that are due tomorrow -->
+    
+    </div>
+    </div>
+    
+  
+    <!-- Create each day -->
+    <div class="daily-sched">
+    <div class="date-cell">
+    <span>Mar 25</span>
+    </div>
+    <div class="daily-topic-cell">
+    <span class="daily-topic">Spring Break</span>
+    </div>
+
+    <div class="items-cell">
+    <!-- Create btns for docs -->
+    <!-- ...docs listed under before-class key -->
+    
+    <!-- ...docs listed under in-class key -->
+    
+    <!-- ...docs listed directly under day item -->
+    
+    <!-- ...things that are due tomorrow -->
+    
+    </div>
+    </div>
+    
+  
+    <!-- Create each day -->
+    <div class="daily-sched">
+    <div class="date-cell">
+    <span>Mar 27</span>
+    </div>
+    <div class="daily-topic-cell">
+    <span class="daily-topic">Spring Break</span>
+    </div>
+
+    <div class="items-cell">
+    <!-- Create btns for docs -->
+    <!-- ...docs listed under before-class key -->
+    
+    <!-- ...docs listed under in-class key -->
+    
+    <!-- ...docs listed directly under day item -->
+    
+    <!-- ...things that are due tomorrow -->
+    
+    </div>
+    </div>
+    
+  
+  
+  </div>
+
+  <!-- Create each week -->
+  <!-- <h4>Week 11</h4> -->
+  <div class="week-x-box">
+
+  
+    <!-- Create each day -->
+    <div class="daily-sched">
+    <div class="date-cell">
+    <span>Mar 30</span>
+    </div>
+    <div class="daily-topic-cell">
+    <span class="daily-topic">Random Effects Models</span>
+    </div>
+
+    <div class="items-cell">
+    <!-- Create btns for docs -->
+    <!-- ...docs listed under before-class key -->
+    
+    <!-- ...docs listed under in-class key -->
+    
+    <!-- ...docs listed directly under day item -->
+    
+    <!-- ...things that are due tomorrow -->
+    
+    </div>
+    </div>
+    
+  
+    <!-- Create each day -->
+    <div class="daily-sched">
+    <div class="date-cell">
+    <span>Apr 1</span>
+    </div>
+    <div class="daily-topic-cell">
+    <span class="daily-topic">Sequential Analysis</span>
+    </div>
+
+    <div class="items-cell">
+    <!-- Create btns for docs -->
+    <!-- ...docs listed under before-class key -->
+    
+    <!-- ...docs listed under in-class key -->
+    
+    <!-- ...docs listed directly under day item -->
+    
+    <!-- ...things that are due tomorrow -->
+    
+    </div>
+    </div>
+    
+  
+    <!-- Create each day -->
+    <div class="daily-sched">
+    <div class="date-cell">
+    <span>Apr 3</span>
+    </div>
+    <div class="daily-topic-cell">
+    <span class="daily-topic">Sequential Analysis</span>
     </div>
 
     <div class="items-cell">

@@ -2,130 +2,134 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/office-hours.html</loc>
-    <lastmod>2026-04-02T03:33:20.144Z</lastmod>
+    <lastmod>2026-04-03T22:03:33.409Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/05-testing/code.html</loc>
-    <lastmod>2026-04-02T03:33:19.280Z</lastmod>
+    <lastmod>2026-04-03T22:03:32.548Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/19-blocking/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.324Z</lastmod>
+    <lastmod>2026-04-03T22:03:32.591Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/25-random-effects/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.332Z</lastmod>
+    <lastmod>2026-04-03T22:03:32.600Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/labs/03-power-and-extrapolation/lab.html</loc>
-    <lastmod>2026-04-02T03:33:20.132Z</lastmod>
+    <lastmod>2026-04-03T22:03:33.397Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/labs/04-factorial-design/lab.html</loc>
-    <lastmod>2026-04-02T03:33:20.144Z</lastmod>
+    <lastmod>2026-04-03T22:03:33.409Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/problem-sets/ps4.html</loc>
-    <lastmod>2026-04-02T03:33:20.145Z</lastmod>
+    <lastmod>2026-04-03T22:03:33.409Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/problem-sets/ps1.html</loc>
-    <lastmod>2026-04-02T03:33:20.144Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/04-sampling-distributions/code.html</loc>
-    <lastmod>2026-04-02T03:33:19.273Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/project/overview.html</loc>
-    <lastmod>2026-04-02T03:33:20.145Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/project/proposal.html</loc>
-    <lastmod>2026-04-02T03:33:20.145Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/16-higher-order-effects/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.320Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/24-crossover-designs/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.331Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/code.html</loc>
-    <lastmod>2026-04-02T03:33:19.353Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/21-two-blocking-factors/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.324Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/13-f-inference/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.309Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/17-confidence-intervals/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.321Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/08-power-2/code.html</loc>
-    <lastmod>2026-04-02T03:33:19.295Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/15-main-effects/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.319Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/08-power-2/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.295Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/syllabus.html</loc>
-    <lastmod>2026-04-02T03:33:20.145Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/14-two-factors/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.314Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/20-blocking-and-variance/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.324Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/18-multiple-comparisons/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.323Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stat158.berkeley.edu/spring-2026/22-latin-squares/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.325Z</lastmod>
+    <lastmod>2026-04-03T22:03:33.409Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/index.html</loc>
-    <lastmod>2026-04-02T03:33:19.401Z</lastmod>
+    <lastmod>2026-04-03T22:03:32.677Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/22-latin-squares/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.593Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/18-multiple-comparisons/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.590Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/20-blocking-and-variance/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.591Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/14-two-factors/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.582Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/syllabus.html</loc>
+    <lastmod>2026-04-03T22:03:33.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/08-power-2/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.563Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/15-main-effects/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.587Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/08-power-2/code.html</loc>
+    <lastmod>2026-04-03T22:03:32.563Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/17-confidence-intervals/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.589Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/13-f-inference/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.577Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/21-two-blocking-factors/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.592Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/code.html</loc>
+    <lastmod>2026-04-03T22:03:32.622Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/24-crossover-designs/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.599Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/16-higher-order-effects/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/project/proposal.html</loc>
+    <lastmod>2026-04-03T22:03:33.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/project/overview.html</loc>
+    <lastmod>2026-04-03T22:03:33.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/04-sampling-distributions/code.html</loc>
+    <lastmod>2026-04-03T22:03:32.541Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat158.berkeley.edu/spring-2026/27-sequential-analysis/slides.html</loc>
+    <lastmod>2026-04-03T22:03:32.607Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/problem-sets/ps2.html</loc>
-    <lastmod>2026-04-02T03:33:20.145Z</lastmod>
+    <lastmod>2026-04-03T22:03:33.409Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/problem-sets/ps3.html</loc>
-    <lastmod>2026-04-02T03:33:20.145Z</lastmod>
+    <lastmod>2026-04-03T22:03:33.409Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/labs/02-randomization-tests/lab.html</loc>
-    <lastmod>2026-04-02T03:33:19.460Z</lastmod>
+    <lastmod>2026-04-03T22:03:32.737Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/labs/01-components-and-eda/lab.html</loc>
-    <lastmod>2026-04-02T03:33:19.445Z</lastmod>
+    <lastmod>2026-04-03T22:03:32.722Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/02-components-design-2/code.html</loc>
-    <lastmod>2026-04-02T03:33:19.257Z</lastmod>
+    <lastmod>2026-04-03T22:03:32.525Z</lastmod>
   </url>
   <url>
     <loc>https://stat158.berkeley.edu/spring-2026/26-sequential-analysis/slides.html</loc>
-    <lastmod>2026-04-02T03:33:19.338Z</lastmod>
+    <lastmod>2026-04-03T22:03:32.605Z</lastmod>
   </url>
 </urlset>

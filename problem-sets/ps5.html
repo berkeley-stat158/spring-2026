@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code – STAT 158</title>
+<title>Problem Set 5 – STAT 158</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -61,26 +61,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c9bf7206968afdc980e2dbaa10ab41c9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a1e8d76ea12d76e61aca98ffd383426f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c9bf7206968afdc980e2dbaa10ab41c9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c9bf7206968afdc980e2dbaa10ab41c9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-a1e8d76ea12d76e61aca98ffd383426f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c9bf7206968afdc980e2dbaa10ab41c9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -165,8 +165,37 @@ document.addEventListener('DOMContentLoaded', function() {
       window.SITE_BASE = "{{< site-url >}}";
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="assets/neural.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../assets/neural.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -176,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">STAT 158</span>
     </a>
   </div>
@@ -190,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Code</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps5.html">PS 5</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -204,19 +233,19 @@ document.addEventListener('DOMContentLoaded', function() {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./office-hours.html" class="sidebar-item-text sidebar-link">
+  <a href="../office-hours.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Office Hours</span></a>
   </div>
 </li>
@@ -232,19 +261,19 @@ document.addEventListener('DOMContentLoaded', function() {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project/overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project/proposal.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/proposal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Proposal</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project/design.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../project/design.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Design</span></a>
   </div>
 </li>
@@ -261,31 +290,31 @@ document.addEventListener('DOMContentLoaded', function() {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem-sets/ps1.html" class="sidebar-item-text sidebar-link">
+  <a href="../problem-sets/ps1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem-sets/ps2.html" class="sidebar-item-text sidebar-link">
+  <a href="../problem-sets/ps2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem-sets/ps3.html" class="sidebar-item-text sidebar-link">
+  <a href="../problem-sets/ps3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem-sets/ps4.html" class="sidebar-item-text sidebar-link">
+  <a href="../problem-sets/ps4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem-sets/ps5.html" class="sidebar-item-text sidebar-link">
+  <a href="../problem-sets/ps5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">PS 5</span></a>
   </div>
 </li>
@@ -302,25 +331,25 @@ document.addEventListener('DOMContentLoaded', function() {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/01-components-and-eda/lab.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/01-components-and-eda/lab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/02-randomization-tests/lab.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/02-randomization-tests/lab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/03-power-and-extrapolation/lab.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/03-power-and-extrapolation/lab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/04-factorial-design/lab.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/04-factorial-design/lab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4</span></a>
   </div>
 </li>
@@ -332,21 +361,13 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#r-package-designrbi" id="toc-r-package-designrbi" class="nav-link active" data-scroll-target="#r-package-designrbi">R package: <code>designrbi</code></a></li>
-  <li><a href="#key-functions" id="toc-key-functions" class="nav-link" data-scroll-target="#key-functions">Key Functions</a></li>
-  </ul>
-</nav>
-    </div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ps5.pdf"><i class="bi bi-file-pdf"></i>Typst (stat158handout)</a></li><li><a href="ps5.tex"><i class="bi bi-file"></i>LaTeX</a></li><li><a href="ps5.md"><i class="bi bi-file-code"></i>Markdown</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps5.html">PS 5</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Code</h1>
+<h1 class="title">Problem Set 5</h1>
 </div>
 
 
@@ -363,24 +384,114 @@ document.addEventListener('DOMContentLoaded', function() {
 </header>
 
 
-<section id="r-package-designrbi" class="level3">
-<h3 class="anchored" data-anchor-id="r-package-designrbi">R package: <code>designrbi</code></h3>
-<p>You can install the <code>designrbi</code> package from GitHub using the following code:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the remotes package if you haven't already</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the designrbi package from GitHub</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"andrewbray/designrbi"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="key-functions" class="level3">
-<h3 class="anchored" data-anchor-id="key-functions">Key Functions</h3>
-<ol type="1">
-<li><code>as_schedule()</code>: Converts a data frame into a schedule object.</li>
+<ol class="example" type="1">
+<li><p><strong>Question Format and Score: Crossover Design</strong>. Three weeks ago you took your midterm exam. Unbeknownst to you, the exam was also serving as a crossover experiment. There were four versions (A, B, C, D) where versions A/C shared one structure and versions B/D shared another. The treatment of interest was question <em>format</em>: whether a question was presented as a single compound sentence or as separate sentences/bullet points. Questions 21 and 23 each had a compound and a separated version; the two structures (A/C vs B/D) ensured that if Q21 was compound then Q23 was separated, and vice versa.</p>
+<p>Exam versions were randomly assigned to students in blocks by session (morning or afternoon).</p>
+<ol type="a">
+<li>What are the experimental units in this study? What are the measurement units?</li>
+<li>What is the treatment? How many levels does it have?</li>
+<li>Why is this a crossover design rather than a simple completely randomized design? What is the advantage of each student receiving both formats?</li>
+<li>What is the blocking factor, and why was blocking used?</li>
+</ol></li>
 </ol>
+<ol start="2" class="example" type="1">
+<li><p><strong>Coffee and Reaction Time: Crossover Design</strong>. A researcher wants to know whether drinking coffee before a cognitive test improves reaction time. She recruits 20 subjects and uses a crossover design: each subject takes the cognitive test twice, once after drinking coffee and once after drinking decaf (a placebo). The order (coffee-first vs decaf-first) is randomly assigned, with a one-week washout period between sessions.</p>
+<ol type="a">
+<li>What is the primary advantage of this crossover design compared to a completely randomized design that assigns 10 subjects to coffee and 10 to decaf?</li>
+<li>The researcher is concerned about a <em>carryover effect</em>: caffeine from the first session might still affect performance in the second session even after a week. Explain what a carryover effect is and why it is a threat to this crossover design.</li>
+<li>If carryover effects are present and asymmetric (i.e., the carryover from coffee to decaf is different from the carryover from decaf to coffee), explain why the crossover estimator <span class="math inline">\(\bar{Z}\)</span> (the average of the observed differences) from the previous problem would be biased. What assumption from the previous problem is violated?</li>
+<li>One way to test for carryover is to compare the <em>total</em> response (session 1 + session 2) between the two sequence groups. Explain the logic behind this test: under no carryover, why should the sequence groups have the same expected total?</li>
+</ol></li>
+</ol>
+<ol start="3" class="example" type="1">
+<li><p><strong>Coffee and Reaction Time: Analysis</strong>. The researcher from the previous problem ran her crossover experiment and collected data. You can generate a synthetic version of her dataset with the following code.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">40</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>coffee <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subject  =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sequence =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"coffee_first"</span>, <span class="st">"decaf_first"</span>), <span class="at">each =</span> n <span class="sc">/</span> <span class="dv">2</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subject_ability =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">250</span>, <span class="at">sd =</span> <span class="dv">30</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">period1 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            sequence <span class="sc">==</span> <span class="st">"coffee_first"</span> <span class="sc">~</span> subject_ability <span class="sc">-</span> <span class="dv">8</span> <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">10</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            sequence <span class="sc">==</span> <span class="st">"decaf_first"</span>  <span class="sc">~</span> subject_ability <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">10</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">period2 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>            sequence <span class="sc">==</span> <span class="st">"coffee_first"</span> <span class="sc">~</span> subject_ability <span class="sc">+</span> <span class="dv">5</span> <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">10</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            sequence <span class="sc">==</span> <span class="st">"decaf_first"</span>  <span class="sc">~</span> subject_ability <span class="sc">-</span> <span class="dv">8</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">10</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(subject, sequence, period1, period2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Here, <code>period1</code> and <code>period2</code> are reaction times (in milliseconds) on the cognitive test in session 1 and session 2 respectively. We’ll denote these <span class="math inline">\(Y_{i1}\)</span> and <span class="math inline">\(Y_{i2}\)</span> for subject <span class="math inline">\(i\)</span>. Lower is better. The data-generating process includes a true treatment effect of coffee (coffee lowers reaction time by 8 ms) and a period effect (reaction time increases by 5 ms in period 2, perhaps due to fatigue or reduced novelty). There is no carryover effect.</p>
+<ol type="a">
+<li><p>For each subject, compute <span class="math inline">\(Z_i\)</span>, the within-subject difference in reaction time (decaf <span class="math inline">\(-\)</span> coffee). Be careful: which period corresponds to the coffee score depends on the subject’s sequence. Add this column to the data frame and compute <span class="math inline">\(\bar{Z}\)</span>.</p></li>
+<li><p>Conduct a randomization test of the sharp null hypothesis that coffee has no effect on any subject’s reaction time.</p>
+<ol type="i">
+<li>State the null hypothesis in terms of potential outcomes.</li>
+<li>Simulate 1,000 test statistics under the null by re-randomizing the sequence assignment (a complete randomization of 10 to each sequence).</li>
+<li>Plot the null distribution with the observed statistic and report the two-sided p-value.</li>
+</ol></li>
+<li><p>Reshape the data into long format (one row per subject per period) and fit a linear model with fixed effects for subject:</p>
+<p><span class="math display">\[Y_{ij} = \beta_0 + \beta_1 \text{treatment}_{ij} + \beta_2 \text{period}_{ij} + \alpha_i + \varepsilon_{ij}\]</span></p>
+<p>where <span class="math inline">\(\alpha_i\)</span> is a fixed effect for subject <span class="math inline">\(i\)</span>. Report and interpret <span class="math inline">\(\hat{\beta}_1\)</span>. Compare this with the result from the randomization test.</p></li>
+<li><p>Now fit a simpler model that omits the period effect: <span class="math inline">\(Y_{ij} = \beta_0 + \beta_1 \text{treatment}_{ij} + \alpha_i + \varepsilon_{ij}\)</span>. How does the estimate of the treatment effect change? Explain why the crossover design protects the treatment effect estimate from period effects even when period is not included in the model.</p></li>
+</ol></li>
+</ol>
+<!-- 
+@. **Why Cross Over?**. Consider an experiment with $N = 2n$ subjects and two treatments. Compare two designs:
+
+    - **Design CRD**: A completely randomized design where $n$ subjects are assigned to treatment $A$ and $n$ to treatment $B$.
+    - **Design CO**: A crossover design where each of the $2n$ subjects receives both treatments (in random order).
+
+    Suppose the outcome for subject $i$ under treatment $t$ can be written as $Y_i(t) = \mu_t + s_i + \varepsilon_{it}$, where $s_i \sim N(0, \sigma_s^2)$ is a subject effect and $\varepsilon_{it} \sim N(0, \sigma_\varepsilon^2)$ is random error, with all terms independent.
+
+    a. Under Design CRD, show that $\text{Var}(\hat{\tau}_{CRD}) = \frac{2(\sigma_s^2 + \sigma_\varepsilon^2)}{n}$.
+    b. Under Design CO, each subject provides $Y_i(A) - Y_i(B) = \tau + (\varepsilon_{iA} - \varepsilon_{iB})$. Show that $\text{Var}(\hat{\tau}_{CO}) = \frac{2\sigma_\varepsilon^2}{2n} = \frac{\sigma_\varepsilon^2}{n}$.
+    c. Compute the ratio $\text{Var}(\hat{\tau}_{CRD}) / \text{Var}(\hat{\tau}_{CO})$. Under what conditions on $\sigma_s^2$ and $\sigma_\varepsilon^2$ is the crossover design most advantageous? Give a real-world example where you'd expect this condition to hold strongly.
+
+:::{.content-hidden unless-meta="solutions"}
+
+#### Part a.
+
+Under CRD, $\hat{\tau}_{CRD} = \bar{Y}_A - \bar{Y}_B$ where $\bar{Y}_A = \frac{1}{n}\sum_{i \in A} Y_i(A)$ and $\bar{Y}_B = \frac{1}{n}\sum_{i \in B} Y_i(B)$.
+
+Since subjects in group $A$ are different from subjects in group $B$ (between-subjects comparison), the two group means are independent. Each individual observation has variance $\sigma_s^2 + \sigma_\varepsilon^2$, so:
+
+$$
+\text{Var}(\bar{Y}_A) = \frac{\sigma_s^2 + \sigma_\varepsilon^2}{n}, \quad \text{Var}(\bar{Y}_B) = \frac{\sigma_s^2 + \sigma_\varepsilon^2}{n}
+$$
+
+$$
+\text{Var}(\hat{\tau}_{CRD}) = \text{Var}(\bar{Y}_A) + \text{Var}(\bar{Y}_B) = \frac{2(\sigma_s^2 + \sigma_\varepsilon^2)}{n}
+$$
+
+#### Part b.
+
+Under CO, define $W_i = Y_i(A) - Y_i(B) = \tau + \varepsilon_{iA} - \varepsilon_{iB}$ for each subject. The subject effect $s_i$ cancels out. The estimator is $\hat{\tau}_{CO} = \bar{W} = \frac{1}{2n}\sum_{i=1}^{2n} W_i$.
+
+Each $W_i$ has variance $\text{Var}(\varepsilon_{iA} - \varepsilon_{iB}) = 2\sigma_\varepsilon^2$ (since $\varepsilon_{iA}$ and $\varepsilon_{iB}$ are independent). Therefore:
+
+$$
+\text{Var}(\hat{\tau}_{CO}) = \frac{2\sigma_\varepsilon^2}{2n} = \frac{\sigma_\varepsilon^2}{n}
+$$
+
+#### Part c.
+
+$$
+\frac{\text{Var}(\hat{\tau}_{CRD})}{\text{Var}(\hat{\tau}_{CO})} = \frac{2(\sigma_s^2 + \sigma_\varepsilon^2)/n}{\sigma_\varepsilon^2/n} = \frac{2(\sigma_s^2 + \sigma_\varepsilon^2)}{\sigma_\varepsilon^2} = 2\left(1 + \frac{\sigma_s^2}{\sigma_\varepsilon^2}\right)
+$$
+
+The crossover design is most advantageous when $\sigma_s^2 / \sigma_\varepsilon^2$ is large — that is, when between-subject variability dominates within-subject variability. This is common in biomedical studies: for instance, when measuring blood pressure response to a drug, baseline blood pressure varies enormously between people but the same person's response to a drug across two occasions (the within-subject error) is relatively stable. In such settings, the crossover can be dramatically more efficient than a CRD.
+
+::: -->
+<div style="page-break-after: always;"></div>
+<p>Check back later for more questions.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

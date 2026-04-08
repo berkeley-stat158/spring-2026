@@ -1,0 +1,673 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Lab: Advertisements and Click Rates},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Lab: Advertisements and Click Rates}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Sequential Design}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+
+\subsection{Introduction}\label{introduction}
+
+The goal of today's design is to better understand the foundations of
+sequential testing and its relevance. We study this in an industrial
+context, where it is often referred to as A/B testing. It is often used
+to test software versions or advertisements by large corporations, to
+make their products more profitable. We will then conduct our own
+experiment, implementing the SPRT to analyze our own clicks and reaction
+times!\\
+
+\subsection{The Experiment}\label{the-experiment}
+
+We first look at a recent
+\href{https://netflixtechblog.com/sequential-a-b-testing-keeps-the-world-streaming-netflix-part-1-continuous-data-cba6c7ed49df}{case
+study} by Netflix from 2024 that uses sequential testing for ``canary
+testing''. It selectively rolls out a new software version to try and
+identify bugs and whether play-delay increases in the update. Read
+through the blog post, trying to understand the setting and the role of
+sequential testing here. Also try to interpret their graphs and their
+analysis and other results.\\
+
+Answer the following questions in full sentences.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Identify the treatment and control here. Why do you think these are
+  also called A/B tests?
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  What is the reason behind choosing a sequential test over classical
+  fixed-n tests in this particular setting? Give an example of another,
+  non-software setting where sequential testing may be similarly
+  appropriate.
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Recall the statistical problems with ``Peeking''. Do you think the
+  multiple testing corrections (such as Bonferroni) help correct for
+  this? What would the Bonferroni correction be (p = 0.05) for peeking
+  after each of a 100 data points?
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Give an example of a Null and Alternate Hypothesis that may be
+  applicable to the Netflix study. Interpret the results from the case
+  study.
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Recall the definitions of \(\alpha\) and \(\beta\), w.r.t Type-I and
+  Type-II errors. Which do you think would be higher here?
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+\subsection{Conducting Your Own
+Experiment}\label{conducting-your-own-experiment}
+
+Conduct your own sequential test using reaction times! Split into pairs
+and collect binary outcomes of who reacts faster to the
+\href{https://humanbenchmark.com/tests/reactiontime}{Human Benchmark
+reaction test}. Note that you will collect these data-points
+sequentially and continue the analysis in real time.
+
+Keep the following questions in mind, and write answers explaining your
+choice in each.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Choose the null and alternate hypothesis (\(p_{0}\) and \(p_{1}\))
+  that you plan to investigate and explain why. How does this choice
+  affect the duration of the experiment?
+\end{enumerate}
+
+(Hint: What is the interpretation of \(p = 0.5\) here?)
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Choose \(\alpha\) and \(\beta\), i.e.~your thresholds. Understand the
+  reasons for both higher and lower values. Are you going to keep them
+  equal?
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Is this experiment random at all? If yes, what is random?
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  Do you think the runs of the experiment truly are independent? Do you
+  think the distribution of each person's reaction time changes with
+  longer durations? Would this affect your choice of the earlier
+  factors?
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  Real data is often messy. How would you deal with somebody clicking
+  too early in the reaction test? Do you discard the data or code it in
+  a different way?
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{10}
+\tightlist
+\item
+  Compare group sequential tests and the SPRT in this setting: which do
+  you think would practically be easier? What group size would you
+  choose for a group sequential test here and why?
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+\subsection{Data Analysis}\label{data-analysis}
+
+We will now analyze our own collected data. You will be collecting
+binary data with each iteration of the experiment, and you can simply
+append the outcome (1 or 0) to the \texttt{my\_data} vector below. Also
+remember to load libraries like \texttt{tidyverse} or \texttt{ggplot2}
+if you plan to use them! You may also store your data in a \texttt{.csv}
+file, and append that and reload it if you prefer.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# load your collected data into R}
+
+\NormalTok{my\_data }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{The SPRT}\label{the-sprt}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{11}
+\tightlist
+\item
+  We shall first implement the Sequential Probability Ratio Test (SPRT)
+  for the collected response time data in real time. Identify the
+  assumptions, define the parameters and add your data as you collect
+  them until the SPRT terminates!
+\end{enumerate}
+
+\textbf{Q:} What assumptions are required by the SPRT test in this
+binary setting?
+
+\textbf{A:}\\
+\strut \\
+\strut \\
+\strut \\
+
+First,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# define the parameters}
+
+\CommentTok{\#p0 \textless{}{-}      \# acceptable defect rate under H0}
+\CommentTok{\#p1 \textless{}{-}      \# unacceptable defect rate under H1}
+\CommentTok{\#alpha \textless{}{-}}
+\CommentTok{\#beta  \textless{}{-}}
+\end{Highlighting}
+\end{Shaded}
+
+Calculate the log-likelihood ratio for this Bernoulli case.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate the formula for the log{-}likelihood ratio}
+
+\NormalTok{log\_lr\_function }\OtherTok{\textless{}{-}} 
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Append your data (Cell 1) in real time and calculate the cumulative log{-}LR}
+
+\NormalTok{log\_lr }\OtherTok{\textless{}{-}} \FunctionTok{cumsum}\NormalTok{(}\FunctionTok{log\_lr\_function}\NormalTok{(my\_data))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# SPRT thresholds}
+\NormalTok{A }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ beta) }\SpecialCharTok{/}\NormalTok{ alpha}
+\NormalTok{B }\OtherTok{\textless{}{-}}\NormalTok{ beta }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ alpha)}
+\NormalTok{logA }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(A)}
+\NormalTok{logB }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(B)}
+\end{Highlighting}
+\end{Shaded}
+
+Check and visualize the results of your SPRT with each iteration of data
+below!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Check results}
+
+\NormalTok{current\_log\_lr }\OtherTok{\textless{}{-}} \FunctionTok{tail}\NormalTok{(log\_lr, }\AttributeTok{n =} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Check the SPRT stopping conditions}
+
+\ControlFlowTok{if}\NormalTok{ (current\_log\_lr }\SpecialCharTok{\textgreater{}=}\NormalTok{ logA) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Decision Reached: Crosses Upper Boundary (logA)."}\NormalTok{)}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Conclusion: Reject the Null Hypothesis (H0)."}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (current\_log\_lr }\SpecialCharTok{\textless{}=}\NormalTok{ logB) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Decision Reached: Crosses Lower Boundary (logB)."}\NormalTok{)}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Conclusion: Fail to reject the Null Hypothesis (H0)."}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"No Decision Yet: The statistic is still between the boundaries."}\NormalTok{)}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Conclusion: Continue collecting data!"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot the SPRT}
+
+\CommentTok{\# Load required library}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# Create the dataframe }
+\NormalTok{df\_sprt }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{n =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(log\_lr),}
+  \AttributeTok{log\_lr =}\NormalTok{ log\_lr}
+\NormalTok{)}
+
+\CommentTok{\# Generate the plot}
+\FunctionTok{ggplot}\NormalTok{(df\_sprt, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ n, }\AttributeTok{y =}\NormalTok{ log\_lr)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{linewidth =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =}\NormalTok{ logA, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{linewidth =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =}\NormalTok{ logB, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{linewidth =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"One SPRT path"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Number tested"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Log likelihood ratio"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Group Sequential Tests}\label{group-sequential-tests}
+
+We shall now implement a grouped SPRT test with the group sizes that you
+decided on earlier. Use the same data that you had collected but instead
+batch it in groups.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{12}
+\tightlist
+\item
+  Do you think any of the assumptions of the SPRT changes in this
+  grouped setting?
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+Define the group size below and get started with implementing the
+Grouped SPRT!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Define group size and import groups one at a time}
+
+\NormalTok{group\_size }\OtherTok{=} 
+  
+\CommentTok{\# Calculate how many full groups we can form from our collected data}
+\NormalTok{num\_groups }\OtherTok{\textless{}{-}} \FunctionTok{floor}\NormalTok{()   }\DocumentationTok{\#\# Complete the floor function! }
+
+\CommentTok{\# Extract the indices corresponding to the end of each group}
+\NormalTok{group\_indices }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\AttributeTok{from =}\NormalTok{ group\_size, }\AttributeTok{to =}\NormalTok{ num\_groups }\SpecialCharTok{*}\NormalTok{ group\_size, }\AttributeTok{by =}\NormalTok{ group\_size)}
+\end{Highlighting}
+\end{Shaded}
+
+The log-likelihood ratio for a single observation still stays the same,
+but we just add \texttt{group\_size} many terms to the cumulative sum at
+a time together and visualize it!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculating the grouped log\_lr for each group with fixed size.}
+\CommentTok{\# Note, ith element of grouped\_log\_lr represents }
+   
+\NormalTok{grouped\_log\_lr }\OtherTok{\textless{}{-}}\NormalTok{ log\_lr[group\_indices]   }\DocumentationTok{\#\# Why does this work?}
+\end{Highlighting}
+\end{Shaded}
+
+We now generate the same plot for the Grouped SPRT case. Note that in
+such a grouped setting, there are more efficient ways of selecting the
+thresholds \texttt{logA} and \texttt{logB}, which can be done via the
+\texttt{gsDesign} R package. However, for the purposes of this lab, we
+shall stick to the earlier standard thresholds calculated.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot the SPRT}
+
+\CommentTok{\# Create the dataframe. Complete the steps!}
+
+\NormalTok{df\_grouped\_sprt }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \CommentTok{\#n = 1:length(),}
+  \CommentTok{\#}
+\NormalTok{)}
+
+\CommentTok{\# Generate the plot. Complete the aes!}
+
+\FunctionTok{ggplot}\NormalTok{(df\_grouped\_sprt, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ n, }\AttributeTok{y =}\NormalTok{ )) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#B22222"}\NormalTok{, }\AttributeTok{linewidth =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#B22222"}\NormalTok{, }\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =}\NormalTok{ logA, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{linewidth =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =}\NormalTok{ logB, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{linewidth =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Grouped SPRT path"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Number tested"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Grouped Log likelihood ratio"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{13}
+\tightlist
+\item
+  Compare both the SPRT and the Grouped SPRT plots above. Which stopped
+  faster? Which seemed to converge more convincingly?
+\end{enumerate}
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+
+
+
+
+\end{document}

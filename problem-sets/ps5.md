@@ -48,14 +48,13 @@ toc-title: Table of contents
         coffee and 10 to decaf?
     b.  The researcher is concerned about a *carryover effect*: caffeine
         from the first session might still affect performance in the
-        second session even after a week. Explain what a carryover
-        effect is and why it is a threat to this crossover design.
+        second session even after a week. Explain why it is a threat to
+        this crossover design.
     c.  If carryover effects are present and asymmetric (i.e., the
         carryover from coffee to decaf is different from the carryover
         from decaf to coffee), explain why the crossover estimator
         $\bar{Z}$ (the average of the observed differences) from the
-        previous problem would be biased. What assumption from the
-        previous problem is violated?
+        previous problem would be biased.
     d.  One way to test for carryover is to compare the *total* response
         (session 1 + session 2) between the two sequence groups. Explain
         the logic behind this test: under no carryover, why should the
@@ -182,4 +181,35 @@ The crossover design is most advantageous when $\sigma_s^2 / \sigma_\varepsilon^
 
 
 
+4.  **Sequential Probability Ratio Test: Tinkering with Parameters**.
+    The SPRT is a powerful tool, but its performance depends on the
+    choice of parameters. In this exercise, we will explore how changing
+    the parameters $p_0$, $p_1$, $\alpha$, and $\beta$ affects the
+    behavior of the test that was shown in class[^1].
+
+    a.  Using the same simulation of a single run that was shown in
+        class, lower both the error rates ($\alpha$ and $\beta$) to
+        represent a more stringent test. Plot the same simulated run
+        with the new thresholds. How does the decision process change
+        with the new thresholds? Does it take more or fewer samples to
+        reach a decision?
+
+    b.  Choose a fixed value for $p_0$ (e.g., 0.5) and vary $p_1$ (e.g.,
+        0.6, 0.7, 0.8). For each value of $p_1$, use a full simulation
+        to calculate the expected number of samples needed to reach a
+        decision under both hypotheses.
+
+    c.  Now, fix $p_1$ (e.g., 0.7) and vary $p_0$ (e.g., 0.5, 0.4, 0.3).
+        Again, calculate the expected number of samples needed for each
+        scenario.
+
+    d.  Summarize your findings. How do the choices of $p_0$ and $p_1$
+        affect the efficiency of the SPRT? What trade-offs do you
+        observe when adjusting the error rates $\alpha$ and $\beta$?
+
+
+
 Check back later for more questions.
+
+[^1]: See the slides for Sequential Analysis I for code to simulate the
+    performance of the SPRT.

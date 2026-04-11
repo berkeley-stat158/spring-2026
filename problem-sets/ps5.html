@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,14 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c9bf7206968afdc980e2dbaa10ab41c9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-a1e8d76ea12d76e61aca98ffd383426f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c9bf7206968afdc980e2dbaa10ab41c9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-14d1a05a00048e57088b66f4b82a679f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-30d28943c78b9b3391ea2c0d9883665b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-14d1a05a00048e57088b66f4b82a679f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-900440cab160b950971eb6d3c8df25f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7c4fbe6d38849e621aca6e2e2f235625.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7c4fbe6d38849e621aca6e2e2f235625.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7c4fbe6d38849e621aca6e2e2f235625.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -404,8 +404,8 @@ window.Quarto = {
 <li><p><strong>Coffee and Reaction Time: Crossover Design</strong>. A researcher wants to know whether drinking coffee before a cognitive test improves reaction time. She recruits 20 subjects and uses a crossover design: each subject takes the cognitive test twice, once after drinking coffee and once after drinking decaf (a placebo). The order (coffee-first vs decaf-first) is randomly assigned, with a one-week washout period between sessions.</p>
 <ol type="a">
 <li>What is the primary advantage of this crossover design compared to a completely randomized design that assigns 10 subjects to coffee and 10 to decaf?</li>
-<li>The researcher is concerned about a <em>carryover effect</em>: caffeine from the first session might still affect performance in the second session even after a week. Explain what a carryover effect is and why it is a threat to this crossover design.</li>
-<li>If carryover effects are present and asymmetric (i.e., the carryover from coffee to decaf is different from the carryover from decaf to coffee), explain why the crossover estimator <span class="math inline">\(\bar{Z}\)</span> (the average of the observed differences) from the previous problem would be biased. What assumption from the previous problem is violated?</li>
+<li>The researcher is concerned about a <em>carryover effect</em>: caffeine from the first session might still affect performance in the second session even after a week. Explain why it is a threat to this crossover design.</li>
+<li>If carryover effects are present and asymmetric (i.e., the carryover from coffee to decaf is different from the carryover from decaf to coffee), explain why the crossover estimator <span class="math inline">\(\bar{Z}\)</span> (the average of the observed differences) from the previous problem would be biased.</li>
 <li>One way to test for carryover is to compare the <em>total</em> response (session 1 + session 2) between the two sequence groups. Explain the logic behind this test: under no carryover, why should the sequence groups have the same expected total?</li>
 </ol></li>
 </ol>
@@ -495,11 +495,27 @@ The crossover design is most advantageous when $\sigma_s^2 / \sigma_\varepsilon^
 
 ::: -->
 <div style="page-break-after: always;"></div>
+<ol start="4" class="example" type="1">
+<li><p><strong>Sequential Probability Ratio Test: Tinkering with Parameters</strong>. The SPRT is a powerful tool, but its performance depends on the choice of parameters. In this exercise, we will explore how changing the parameters <span class="math inline">\(p_0\)</span>, <span class="math inline">\(p_1\)</span>, <span class="math inline">\(\alpha\)</span>, and <span class="math inline">\(\beta\)</span> affects the behavior of the test that was shown in class<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<ol type="a">
+<li><p>Using the same simulation of a single run that was shown in class, lower both the error rates (<span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>) to represent a more stringent test. Plot the same simulated run with the new thresholds. How does the decision process change with the new thresholds? Does it take more or fewer samples to reach a decision?</p></li>
+<li><p>Choose a fixed value for <span class="math inline">\(p_0\)</span> (e.g., 0.5) and vary <span class="math inline">\(p_1\)</span> (e.g., 0.6, 0.7, 0.8). For each value of <span class="math inline">\(p_1\)</span>, use a full simulation to calculate the expected number of samples needed to reach a decision under both hypotheses.</p></li>
+<li><p>Now, fix <span class="math inline">\(p_1\)</span> (e.g., 0.7) and vary <span class="math inline">\(p_0\)</span> (e.g., 0.5, 0.4, 0.3). Again, calculate the expected number of samples needed for each scenario.</p></li>
+<li><p>Summarize your findings. How do the choices of <span class="math inline">\(p_0\)</span> and <span class="math inline">\(p_1\)</span> affect the efficiency of the SPRT? What trade-offs do you observe when adjusting the error rates <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>?</p></li>
+</ol></li>
+</ol>
+<div style="page-break-after: always;"></div>
 <p>Check back later for more questions.</p>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>See the slides for Sequential Analysis I for code to simulate the performance of the SPRT.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

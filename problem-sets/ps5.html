@@ -365,6 +365,12 @@ window.Quarto = {
  <span class="menu-text">Lab 5</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/06-power-calculations/lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 6</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -511,7 +517,33 @@ The crossover design is most advantageous when $\sigma_s^2 / \sigma_\varepsilon^
 </ol></li>
 </ol>
 <div style="page-break-after: always;"></div>
-<p>Check back later for more questions.</p>
+<ol start="5" class="example" type="1">
+<li><p><strong>Adaptive Assignment: Implementing UCB</strong>. A pharmaceutical company is running a clinical trial comparing two pain relief drugs. Each patient reports a pain relief score on a continuous scale from 0 to 1 (higher is better). The company wants to use an adaptive assignment strategy that balances learning which drug is better with assigning more patients to the better-performing drug.</p>
+<p>The following code generates potential outcomes for <span class="math inline">\(N = 30\)</span> subjects under both treatments.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>po <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">subject =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Y_A =</span> <span class="fu">rbeta</span>(N, <span class="dv">4</span>, <span class="dv">6</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Y_B =</span> <span class="fu">rbeta</span>(N, <span class="dv">5</span>, <span class="dv">5</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Recall the UCB algorithm with Hoeffding’s Inequality. The upper confidence bound for arm <span class="math inline">\(j\)</span> at time <span class="math inline">\(t\)</span> is:</p>
+<p><span class="math display">\[
+U_j = \hat{\mu}_j + \sqrt{\frac{\ln(t)}{2\, n_j}}
+\]</span></p>
+<p>where <span class="math inline">\(\hat{\mu}_j\)</span> is the sample mean of responses observed so far for arm <span class="math inline">\(j\)</span>, <span class="math inline">\(n_j\)</span> is the number of subjects assigned to arm <span class="math inline">\(j\)</span> so far, and <span class="math inline">\(t\)</span> is the index of the current subject. At each step, the algorithm assigns the next subject to the arm with the highest <span class="math inline">\(U_j\)</span>.</p>
+<ol type="a">
+<li>Write code to implement the UCB algorithm on these potential outcomes. Initialize by assigning the first subject to arm A and the second to arm B, then use the UCB rule for subjects 3 through 30<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Store the results in a data frame with columns for the subject index, assignment, and observed response.</li>
+</ol>
+<ol start="2" type="a">
+<li><p>Create a plot of the cumulative fraction of subjects assigned to arm B (<span class="math inline">\(n_B / t\)</span>) as a function of the subject index <span class="math inline">\(t\)</span>. Describe what you see: when is the algorithm exploring (assigning roughly evenly) and when is it exploiting (favoring one arm)?</p></li>
+<li><p>For a single time step of your choosing between <span class="math inline">\(t = 5\)</span> and <span class="math inline">\(t = 10\)</span>, report the values of <span class="math inline">\(\hat{\mu}_A\)</span>, <span class="math inline">\(\hat{\mu}_B\)</span>, the addition to the mean (aka the Hoeffding bonus), and the resulting <span class="math inline">\(U_j\)</span>. Verify that the algorithm’s assignment matches the arm with the higher <span class="math inline">\(U_j\)</span>. What role does the bonus term play when one arm has been sampled much less than the other?</p></li>
+<li><p>Compute the <em>total regret</em> of the UCB algorithm on these 30 subjects and compare it with the expected total regret of a balanced completely randomized design that assigns 15 subjects to each arm<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. The per-subject regret is <span class="math inline">\(\max(Y_i(A), Y_i(B)) - Y_i(d_i)\)</span>, where <span class="math inline">\(d_i\)</span> is the arm actually assigned. Does the UCB algorithm achieve lower total regret than what we would expect had we used a balanced CR design?</p></li>
+</ol></li>
+</ol>
 
 
 
@@ -520,6 +552,8 @@ The crossover design is most advantageous when $\sigma_s^2 / \sigma_\varepsilon^
 
 <ol>
 <li id="fn1"><p>See the slides for Sequential Analysis I for code to simulate the performance of the SPRT.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Start off by simply writing the code to calculate <span class="math inline">\(U_j\)</span> after observing the first two subjects, and then assign the third subject accordingly. Next, wrap that logic in a loop to handle all subjects up to 30.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>To compute the expected total regret of a balanced CR design, you can simulate many random assignments of 15 subjects to each arm, compute the total regret for each simulation, and then take the average.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

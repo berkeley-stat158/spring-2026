@@ -1,0 +1,529 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Lab: Power Calculations},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Lab: Power Calculations}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Group Project Protocol Guidelines}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+
+\subsection{Introduction}\label{introduction}
+
+The goal of this exercise is to attempt a power calculation based for an
+experiment. This is based on the chosen design and linear model for the
+experiment, for instance a Complete Block Design, Crossover Design etc.
+We shall first run through an example using the Complete Block Design
+setup. You will then need to run a similar power calculation for your
+group's chosen design and setup and submit it as part of the written
+Protocol.
+
+\subsection{Complete Block Design
+Example}\label{complete-block-design-example}
+
+We now look at an example calculation for a sample Complete Blocked
+Design \(CB[1]\) experiment in \texttt{R}. Note that we use fixed Block
+effects here as opposed to random effects.
+
+\paragraph{Step 1: Linear Model and Data Generating
+Process}\label{step-1-linear-model-and-data-generating-process}
+
+We first identify the linear model associated with our design as
+follows:
+
+\[
+Y_i = \mu + \alpha_{j(i)} + \beta_{k(i)} + \epsilon_i
+\]
+
+\[
+\hat{\mu} = \bar{Y}
+\]
+
+\[
+\hat{\alpha}_{j(i)} = \bar{Y}_{j(i)} - \hat{\mu}
+\]
+
+\[
+\hat{\beta}_{k(i)} = \bar{Y}_{k(i)} - \hat{\mu}
+\]
+
+\textbf{Where:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(Y_i\) is the response for observation \(i\);\\
+\item
+  \(\mu\) is the overall (grand) mean;
+\item
+  \(\alpha_{j(i)}\) is the factor effects, where \(j(i)\) indicates the
+  factor level of the \(i\)th observation;
+\item
+  \(\beta_{k(i)}\) are block effects, where \(k(i)\) indicates the block
+  the \(i\)th observation belongs to;\\
+\item
+  \(\epsilon_i\) is the error term,
+  \(\epsilon_i \overset{\text{i.i.d.}}{\sim} \mathcal{N}(0, \sigma^2)\).
+\end{itemize}
+
+\(\bar{Y}, \bar{Y}_{j(i)}, \bar{Y}_{k(i)}\) are sample means.\\
+
+Write this out in R as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Data Generating Process outline}
+
+\CommentTok{\# Write out the linear model as an R function}
+
+\NormalTok{generate\_Y }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(mu, alpha, beta, sigma\_sq, j, k) \{}
+  \CommentTok{\# j: n length vector of factor level indices}
+  \CommentTok{\# k: n length vector of block indices}
+  
+\NormalTok{  n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(j)}
+  
+  \FunctionTok{set.seed}\NormalTok{(}\DecValTok{42}\NormalTok{)}
+\NormalTok{  epsilon }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(n, }\AttributeTok{mean =} \DecValTok{0}\NormalTok{, }\AttributeTok{sd =} \FunctionTok{sqrt}\NormalTok{(sigma\_sq))}
+  
+\NormalTok{  Y }\OtherTok{\textless{}{-}}\NormalTok{ mu }\SpecialCharTok{+}\NormalTok{ alpha[j] }\SpecialCharTok{+}\NormalTok{ beta[k] }\SpecialCharTok{+}\NormalTok{ epsilon}
+  
+  \FunctionTok{return}\NormalTok{(Y)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{Step 2: Choosing
+Parameters}\label{step-2-choosing-parameters}
+
+We now choose the relevant parameters for our power calculation. Set
+effect sizes to the smallest value that would be scientifically
+meaningful to you. For instance, . You may also choose these from
+previous literature etc. Keep in mind that your size should match
+conditions on these parameters (sum to zero etc)!
+
+Next, use an estimate of the error variance \(\sigma^2\), ideally from
+your pilot data or dry run. Set the sample size as a meaningful sample
+size that you feasibly hope to attain or collect while conducting your
+experiment.
+
+For the purposes of our example we stick to two factor levels and two
+blocks, i.e 4 observations in total.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Defining parameter values}
+
+\NormalTok{mu }\OtherTok{\textless{}{-}}
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(,) }\CommentTok{\# Fill in levels of alpha: they should sum to zero!}
+\NormalTok{beta }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(,)  }\CommentTok{\# Fill in levels of beta: they should sum to zero!}
+
+\NormalTok{sigma\_sq }\OtherTok{\textless{}{-}}
+\NormalTok{n }\OtherTok{\textless{}{-}} 
+\end{Highlighting}
+\end{Shaded}
+
+Note in particular the role of \(\sigma^2\) in the power calculations.
+Once you finish steps 1-4, remember to come back and double the value of
+\(\sigma^2\). What do you see?
+
+\paragraph{Step 3: Simulating a dataset and
+Inference}\label{step-3-simulating-a-dataset-and-inference}
+
+We now simulate a dataset using the linear data-generating process and
+the parameters defined above. We can do this simply as follows.
+
+Fill in the missing steps, in particular choose \(j\) and \(k\) for each
+observation and store it in the vectors. Sketching out a table for your
+experiment may be useful here!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Simulating the dataset}
+
+\NormalTok{j }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()  }\CommentTok{\# fill in factor levels}
+\NormalTok{k }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()  }\CommentTok{\# fill in blocks}
+
+\CommentTok{\# Simulate response using the model}
+\NormalTok{Y }\OtherTok{\textless{}{-}} \FunctionTok{generate\_Y}\NormalTok{(mu, alpha, beta, sigma\_sq, j, k)}
+
+\CommentTok{\# Put into a data frame}
+\NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Y =}\NormalTok{ Y,}
+  \AttributeTok{treatment =} \FunctionTok{factor}\NormalTok{(j),}
+  \AttributeTok{block =} \FunctionTok{factor}\NormalTok{(k)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We now proceed to run inference and calculate the p-value for our single
+factor here using the traditional ANOVA and F-test. Complete the steps!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Inference on simulated data }
+
+\CommentTok{\# Fit linear model (fixed effects for both)}
+\NormalTok{fit }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Y }\SpecialCharTok{\textasciitilde{}} \CommentTok{\# fill in linear model}
+\NormalTok{          , }\AttributeTok{data =}\NormalTok{ dat)}
+
+\CommentTok{\# Extract ANOVA table}
+\NormalTok{aov\_tab }\OtherTok{\textless{}{-}} \FunctionTok{anova}\NormalTok{(fit)}
+
+\CommentTok{\# Get p{-}value for treatment effect}
+\NormalTok{p\_val }\OtherTok{\textless{}{-}}\NormalTok{ aov\_tab[}\StringTok{"treatment"}\NormalTok{, }\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]}
+
+\CommentTok{\# Convert to rejection indicator}
+\NormalTok{reject }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(p\_val }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{)}
+
+\NormalTok{reject}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{Step 4: Iterating to calculate
+Power}\label{step-4-iterating-to-calculate-power}
+
+Now that we have outlined the pipeline for simulating a dataset and
+doing inference, we compile it together into a single \texttt{R}
+function so that it is easy to replicate.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# One simulation run through of Steps 1{-}3}
+
+\NormalTok{one\_sim }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(mu, alpha, beta, sigma\_sq, j, k) \{}
+  \CommentTok{\# Generate data}
+\NormalTok{  Y }\OtherTok{\textless{}{-}} \FunctionTok{generate\_Y}\NormalTok{(mu, alpha, beta, sigma\_sq, j, k)}
+  
+\NormalTok{  dat }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+    \AttributeTok{Y =}\NormalTok{ Y,}
+    \AttributeTok{treatment =} \FunctionTok{factor}\NormalTok{(j),}
+    \AttributeTok{block =} \FunctionTok{factor}\NormalTok{(k)}
+\NormalTok{  )}
+  
+  \CommentTok{\# Fit model}
+\NormalTok{  fit }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ treatment }\SpecialCharTok{+}\NormalTok{ block, }\AttributeTok{data =}\NormalTok{ dat)}
+  
+  \CommentTok{\# Extract ANOVA p{-}value for treatment}
+\NormalTok{  p\_val }\OtherTok{\textless{}{-}} \FunctionTok{anova}\NormalTok{(fit)[}\StringTok{"treatment"}\NormalTok{, }\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]}
+  
+  \CommentTok{\# Return rejection indicator}
+  \FunctionTok{return}\NormalTok{(}\FunctionTok{as.integer}\NormalTok{(p\_val }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Now, we use our single-run function to iterate over many such simulated
+datasets under the same proposed ``Alternate Hypothesis'' of our chosen
+effect sizes. We use the Monte Carlo machinery from previous power
+calculations to estimate the probability of rejecting the null () under
+this alternate!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Iterate over Steps 1{-}3 multiple times: Turn the Monte Carlo crank!}
+
+\CommentTok{\# Number of simulations}
+\NormalTok{iter }\OtherTok{\textless{}{-}} \DecValTok{1000}
+
+\CommentTok{\# Run simulations}
+\NormalTok{reject\_vec }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(}
+\NormalTok{  iter,}
+  \FunctionTok{one\_sim}\NormalTok{(mu, alpha, beta, sigma\_sq, j, k)}
+\NormalTok{)}
+
+\CommentTok{\# Estimated power}
+\NormalTok{power\_est }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(reject\_vec)}
+
+\NormalTok{power\_est}
+\end{Highlighting}
+\end{Shaded}
+
+Thus, \texttt{power\_est} gives us an estimate for power under our
+specified design and alternative (the minimum deviation from the null
+that we care about!). We can also run some diagnostics to make sure this
+estimate has correctly converged.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# Running Monte Carlo estimate of power}
+\NormalTok{running\_power }\OtherTok{\textless{}{-}} \FunctionTok{cumsum}\NormalTok{(reject\_vec) }\SpecialCharTok{/} \FunctionTok{seq\_along}\NormalTok{(reject\_vec)}
+
+\CommentTok{\# Put into a data frame for ggplot}
+\NormalTok{df\_power }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{iter =} \FunctionTok{seq\_along}\NormalTok{(reject\_vec),}
+  \AttributeTok{power =}\NormalTok{ running\_power}
+\NormalTok{)}
+
+\CommentTok{\# Convergence plot}
+\FunctionTok{ggplot}\NormalTok{(df\_power, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ iter, }\AttributeTok{y =}\NormalTok{ power)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{linewidth =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \FunctionTok{mean}\NormalTok{(reject\_vec), }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Monte Carlo Power Estimate Convergence"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Number of Simulations"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Estimated Power"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+If the value of the estimate starts to stay constant after a few
+iterations, it means that it is stable and reliable as an estimate of
+your power!
+
+Feel free to go back and change your parameters and rerun the power
+analysis. In particular, investigate the effect of changing
+\(\sigma^2\)!
+
+\hfill\break
+\#\# Applying this to your own Group Projects
+
+Use the same pipeline as above, following Steps 1-4 for your own group
+projects!
+
+\textbf{Step 1:} Update the linear model and the data generating process
+according to the design you choose for your experiment. Be careful about
+random effects, and model constraints.
+
+\textbf{Step 2:} Choose the effect sizes, and sample size that best
+reflects your setting and the question you want to answer. Keep in mind
+zero-sum constraints etc!
+
+\textbf{Step 3:} Fill out the design matrix or table for your
+experiment, and use this to fill out \texttt{i} and \texttt{j} vectors.
+Add other factors or terms as necessary. Simulate a dataset and
+hypothesis test.
+
+\textbf{Step 4:} Iterate through these steps as many times as needed to
+ensure your power estimate has converged!\\
+
+This should give you an idea of what power you can achieve with your
+chosen design and sample size. Discuss as a group if it is sufficient
+for your purposes or not. A power of 0.7 - 0.9 is usually considered
+ideal.
+
+Experiment with different sample sizes to see what size is suitable for
+your experiment. Feel free to try out different designs, random vs fixed
+block effects, or play around with the number of factors, levels etc.
+See which of these gives you the highest power, you may use this to pin
+down a design/factors if you're still uncertain. Another way of
+increasing power is by decreasing \(\sigma^2\), either by blocking,
+protocols, or better measurement.
+
+Evaluate your group project ideas and submit a protocol. Best of luck
+with your experiments :)
+
+
+
+
+\end{document}

@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f5551d4e48d7f7973afdfbad6171c3bc.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -169,10 +235,411 @@
 <blockquote>
 <p>3: <span class="math inline">\(Y_{ij}(1, 0), Y_{ij}(0, 1), Y_{ij}(0, 0)\)</span></p>
 </blockquote>
-
-
 </div>
 </section>
+<section>
+<section id="simulated-school-attendance" class="title-slide slide level1 center">
+<h1>Simulated School Attendance</h1>
+
+</section>
+<section id="simulated-school-attendance-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Simulated School Attendance</h2>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40,000 × 5
+   household_id student_id treated_household treated_student     Y
+          &lt;int&gt;      &lt;int&gt;             &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;
+ 1            1          1                 0               0 0.802
+ 2            1          2                 0               0 0.859
+ 3            2          1                 0               0 0.778
+ 4            2          2                 0               0 0.838
+ 5            3          1                 1               0 0.891
+ 6            3          2                 1               1 0.956
+ 7            4          1                 1               0 0.924
+ 8            4          2                 1               1 0.975
+ 9            5          1                 1               1 0.897
+10            5          2                 1               0 0.902
+# ℹ 39,990 more rows</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a></a><span class="co"># treated students in treated households</span></span>
+<span id="cb2-2" class="hljs-ln-code"><a></a>ybar_1_0 <span class="ot">&lt;-</span> attendance <span class="sc">|&gt;</span></span>
+<span id="cb2-3" class="hljs-ln-code"><a></a>  <span class="fu">filter</span>(treated_household <span class="sc">==</span> <span class="dv">1</span>, treated_student <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-4" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">avg_y =</span> <span class="fu">mean</span>(Y)) <span class="sc">|&gt;</span></span>
+<span id="cb2-5" class="hljs-ln-code"><a></a>  <span class="fu">pull</span>()</span>
+<span id="cb2-6" class="hljs-ln-code"><a></a>ybar_1_0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8799312</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="simulated-school-attendance-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Simulated School Attendance</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40,000 × 5
+   household_id student_id treated_household treated_student     Y
+          &lt;int&gt;      &lt;int&gt;             &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;
+ 1            1          1                 0               0 0.802
+ 2            1          2                 0               0 0.859
+ 3            2          1                 0               0 0.778
+ 4            2          2                 0               0 0.838
+ 5            3          1                 1               0 0.891
+ 6            3          2                 1               1 0.956
+ 7            4          1                 1               0 0.924
+ 8            4          2                 1               1 0.975
+ 9            5          1                 1               1 0.897
+10            5          2                 1               0 0.902
+# ℹ 39,990 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a></a><span class="co"># their untreated siblings</span></span>
+<span id="cb5-2" class="hljs-ln-code"><a></a>ybar_0_1 <span class="ot">&lt;-</span> attendance <span class="sc">|&gt;</span></span>
+<span id="cb5-3" class="hljs-ln-code"><a></a>  <span class="fu">filter</span>(treated_household <span class="sc">==</span> <span class="dv">1</span>, treated_student <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-4" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">avg_y =</span> <span class="fu">mean</span>(Y)) <span class="sc">|&gt;</span></span>
+<span id="cb5-5" class="hljs-ln-code"><a></a>  <span class="fu">pull</span>()</span>
+<span id="cb5-6" class="hljs-ln-code"><a></a>ybar_0_1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8697945</code></pre>
+</div>
+</div>
+</section>
+<section id="simulated-school-attendance-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Simulated School Attendance</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40,000 × 5
+   household_id student_id treated_household treated_student     Y
+          &lt;int&gt;      &lt;int&gt;             &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;
+ 1            1          1                 0               0 0.802
+ 2            1          2                 0               0 0.859
+ 3            2          1                 0               0 0.778
+ 4            2          2                 0               0 0.838
+ 5            3          1                 1               0 0.891
+ 6            3          2                 1               1 0.956
+ 7            4          1                 1               0 0.924
+ 8            4          2                 1               1 0.975
+ 9            5          1                 1               1 0.897
+10            5          2                 1               0 0.902
+# ℹ 39,990 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb8-1" class="hljs-ln-code"><a></a><span class="co"># students in untreated households</span></span>
+<span id="cb8-2" class="hljs-ln-code"><a></a>ybar_0_0 <span class="ot">&lt;-</span> attendance <span class="sc">|&gt;</span></span>
+<span id="cb8-3" class="hljs-ln-code"><a></a>  <span class="fu">filter</span>(treated_household <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-4" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">avg_y =</span> <span class="fu">mean</span>(Y)) <span class="sc">|&gt;</span></span>
+<span id="cb8-5" class="hljs-ln-code"><a></a>  <span class="fu">pull</span>()</span>
+<span id="cb8-6" class="hljs-ln-code"><a></a>ybar_0_0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8502641</code></pre>
+</div>
+</div>
+</section>
+<section id="estimates" class="slide level2">
+<h2>Estimates</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>direct_hat <span class="ot">&lt;-</span> ybar_1_0 <span class="sc">-</span> ybar_0_0</span>
+<span id="cb10-2"><a></a>direct_hat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0296671</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>spillover_hat <span class="ot">&lt;-</span> ybar_0_1 <span class="sc">-</span> ybar_0_0</span>
+<span id="cb12-2"><a></a>spillover_hat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01953034</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Traditional estimate:</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>ate_hat_1 <span class="ot">&lt;-</span> ybar_1_0 <span class="sc">-</span> ybar_0_1 <span class="co"># diff in means within treated households</span></span>
+<span id="cb14-2"><a></a>ate_hat_1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01013676</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="rand.-test-under-interference" class="slide level2">
+<h2>Rand. test under interference</h2>
+<p><strong>Question</strong>: How would you do a randomization test for the direct effect of treatment?</p>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">Hold outcome for each student fixed.</li>
+<li class="fragment">Reassign households to treatment or control and then students to treatment or control.</li>
+<li class="fragment">Calculate <code>direct_hat</code> statistic.</li>
+<li class="fragment">Repeat many times.</li>
+</ol>
+</div>
+</section></section>
+<section>
+<section id="case-studies" class="title-slide slide level1 center">
+<h1>Case Studies</h1>
+
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>How would one person’s treatment influence another’s outcome in each one? What kind of bias could this introduce? Could you redesign the experiment to avoid the interference?</p>
+<div class="fragment">
+<p><em>3000 students at UC Berkeley agree to participate in a study, and 1000 of them are chosen at random to receive a new kind of flu shot. All students are monitored for flu virus for the following eight weeks.</em></p>
+<aside class="notes">
+<p>Even untreated students will gain immunity if many others are treated, so the control group may have lower flu rates than they would in a world where no one was treated. This could lead to an underestimate of the vaccine’s effectiveness. To avoid this, we could randomize at the dormitory level instead of the individual level, so that all students in a dorm either receive the vaccine or do not. This would help to isolate the direct effect of the vaccine without interference from untreated individuals gaining immunity through herd effects.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+<div class="fragment">
+<p><strong>Saturation Model</strong>: Modeling spillover effects as a function of the fraction of treated individuals in a cluster (e.g., dormitory) rather than individual treatment status.</p>
+<p><span class="math display">\[
+Y_{ij}(D_{ij}, S_j)
+\]</span></p>
+<aside class="notes">
+<p>Where <span class="math inline">\(D_{ij}\)</span> is the treatment status of individual <span class="math inline">\(i\)</span> in cluster <span class="math inline">\(j\)</span>, and <span class="math inline">\(S_j\)</span> is the saturation level (fraction treated) in cluster <span class="math inline">\(j\)</span>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p>How would one person’s treatment influence another’s outcome in each one? What kind of bias could this introduce? Could you redesign the experiment to avoid the interference?</p>
+<p><em>17 pairs of similar geographic locations in Lowell, MA with high crime incidences were identified (“hot-spots”) and one hot-spot in each pair was randomly assigned to receive extra visits from police and extra follow-up by police authorities. Control hot-spots did not receive attention and police captains didn’t know their locations. Rates of emergency calls from each hot-spot were recorded before and after the study.</em></p>
+<aside class="notes">
+<p>The treatment in one hot-spot could reduce crime in nearby hot-spots due to increased police presence and deterrence, leading to spillover effects. This could bias the estimated effect of the treatment if not accounted for. To redesign the experiment, we could increase the distance between treated and control hot-spots to minimize spillover.</p>
+<p>Alternatively, the extra policing in treated hot-spots could displace crime to nearby areas, which would also bias the results. To address this, we could include a buffer zone around each hot-spot and exclude data from that zone in the analysis, or we could use a spatial model to account for potential spillover effects.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!-- 
+## {background-image="images/kenya-schools.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+
+##
+
+How would one person's treatment influence another's outcome in each one? What kind of bias could this introduce? Could you redesign the experiment to avoid the interference?
+
+*64 out of 127 schools in two Kenyan school districts are selected to participate in a merit scholarship program, in which the highest-scoring 15% of female students receive tuition support for two years.  Government exam scores are recorded for all students in all  schools.*
+
+ -->
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<p>How would one person’s treatment influence another’s outcome in each one? What kind of bias could this introduce? Could you redesign the experiment to avoid the interference?</p>
+<p><em>4.9 million eBay users were assigned either to a control condition, or to a treatment under which they received an email notification six hours before the end of any auction they bid in. The outcome is the amount of money spent by the user on eBay.</em></p>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p>How would one person’s treatment influence another’s outcome in each one? What kind of bias could this introduce? Could you redesign the experiment to avoid the interference?</p>
+<p><em>A retail store is introducing a new “Salesperson of the Month” award, which will be given at random to one of the employees. The record the amount of sales of all employees.</em></p>
+</section>
+<section id="sales-award-revisited" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Sales Award Revisited</h2>
+<p><span class="math display">\[
+Y_{i}(D_M, D_P, D_L)
+\]</span></p>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">agent</th>
+<th style="text-align: right;">Y(1,0,0)</th>
+<th style="text-align: right;">Y(0,1,0)</th>
+<th style="text-align: right;">Y(0,0,1)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mary</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">70</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peter</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Linus</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">90</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="sales-award-revisited-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Sales Award Revisited</h2>
+<p><span class="math display">\[
+Y_i(D_M, D_P, D_L)
+\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">agent</th>
+<th style="text-align: right;">Y(1,0,0)</th>
+<th style="text-align: right;">Y(0,1,0)</th>
+<th style="text-align: right;">Y(0,0,1)</th>
+<th style="text-align: right;">Y(0,0,0)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mary</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">70</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peter</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Linus</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">90</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sales-award-revisited-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Sales Award Revisited</h2>
+<p><span class="math display">\[
+Y_i(D_M, D_P, D_L)
+\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">store</th>
+<th style="text-align: left;">agent</th>
+<th style="text-align: right;">Y(1,0,0)</th>
+<th style="text-align: right;">Y(0,1,0)</th>
+<th style="text-align: right;">Y(0,0,1)</th>
+<th style="text-align: right;">Y(0,0,0)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Mary</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">70</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Peter</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Linus</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">90</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Priya</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Leo</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">55</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Ethan</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">85</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -2,7 +2,7 @@
 engines:
 - path: /opt/quarto/share/extension-subtrees/julia-engine/\_extensions/julia-engine/julia-engine.js
 execute:
-  eval: false
+  eval: true
 resources:
 - \*\*/\*Starter.pdf
 - data/\*\*/\*.csv

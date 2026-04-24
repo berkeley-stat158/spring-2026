@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>STAT 158 – Multiple Comparisons</title>
+  <title>STAT 158 – Non-compliance</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,72 +30,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-      }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-    div.sourceCode
-      { color: #24292e;  }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #24292e; } /* Normal */
-    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
-    code span.an { color: #6a737d; } /* Annotation */
-    code span.at { color: #d73a49; } /* Attribute */
-    code span.bn { color: #005cc5; } /* BaseN */
-    code span.bu { color: #d73a49; } /* BuiltIn */
-    code span.cf { color: #d73a49; } /* ControlFlow */
-    code span.ch { color: #032f62; } /* Char */
-    code span.cn { color: #005cc5; } /* Constant */
-    code span.co { color: #6a737d; } /* Comment */
-    code span.cv { color: #6a737d; } /* CommentVar */
-    code span.do { color: #6a737d; } /* Documentation */
-    code span.dt { color: #d73a49; } /* DataType */
-    code span.dv { color: #005cc5; } /* DecVal */
-    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
-    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
-    code span.fl { color: #005cc5; } /* Float */
-    code span.fu { color: #6f42c1; } /* Function */
-    code span.im { color: #032f62; } /* Import */
-    code span.in { color: #6a737d; } /* Information */
-    code span.kw { color: #d73a49; } /* Keyword */
-    code span.op { color: #24292e; } /* Operator */
-    code span.ot { color: #6f42c1; } /* Other */
-    code span.pp { color: #d73a49; } /* Preprocessor */
-    code span.re { color: #6a737d; } /* RegionMarker */
-    code span.sc { color: #005cc5; } /* SpecialChar */
-    code span.ss { color: #032f62; } /* SpecialString */
-    code span.st { color: #032f62; } /* String */
-    code span.va { color: #e36209; } /* Variable */
-    code span.vs { color: #032f62; } /* VerbatimString */
-    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f5551d4e48d7f7973afdfbad6171c3bc.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -198,83 +132,78 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Multiple Comparisons</h1>
+  <h1 class="title">Non-compliance</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section>
-<section id="multiple-comparisons" class="title-slide slide level1 center">
-<h1>Multiple Comparisons</h1>
-
+<section id="section" class="slide level2" data-background-image="images/i-voted.jpg" data-background-size="contain">
+<h2></h2>
+<p><img data-src="images/canvassing.png" class="fragment absolute" style="top: 10mm; left: 50mm; "></p>
 </section>
-<section id="while-youre-waiting" class="slide level2">
-<h2>While you’re waiting</h2>
-<p>What is the expected number of false positives if you conduct 20 hypothesis tests, each at a significance level of <span class="math inline">\(\alpha = .05\)</span>?</p>
-<p>Said another way, if in reality nothing is going on in all 20 tests, what’s the expected number of tests that would detect something going on?</p>
+<section id="study-getting-out-the-vote" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Study: Getting out the vote</h2>
+<p>During the weeks before the 1998 midterm elections, households of over 30,000 voters in New Haven, Connecticut were randomly assigned to a treatment group or a control group in a study run by Gerber and Green. Treated households were visited by canvassers who knocked on their doors to talk to them about the importance of voting. At the end of the election, the public registries were checked to see which of the original group of voters had cast a vote in the election.</p>
+<p>What kind of experiment is this? What are the units?</p>
 <div class="fragment">
 <blockquote>
-<p>1</p>
+<p>CR[1]. Experimental units are households. Measurement units are voters.</p>
 </blockquote>
 </div>
 </section>
-<section id="section" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
-
-<img data-src="images/significant.png" class="r-stretch"></section>
-<section id="making-paper" class="slide level2 scrollable">
-<h2>Making Paper</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="thowyldtfv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#thowyldtfv table {
+<div id="yfuzwwunfg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yfuzwwunfg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#thowyldtfv thead, #thowyldtfv tbody, #thowyldtfv tfoot, #thowyldtfv tr, #thowyldtfv td, #thowyldtfv th {
+#yfuzwwunfg thead, #yfuzwwunfg tbody, #yfuzwwunfg tfoot, #yfuzwwunfg tr, #yfuzwwunfg td, #yfuzwwunfg th {
   border-style: none;
 }
 
-#thowyldtfv p {
+#yfuzwwunfg p {
   margin: 0;
   padding: 0;
 }
 
-#thowyldtfv .gt_table {
+#yfuzwwunfg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: normal;
   font-style: normal;
   background-color: #FFFFFF;
   width: auto;
   border-top-style: solid;
   border-top-width: 2px;
-  border-top-color: #A8A8A8;
+  border-top-color: #000000;
   border-right-style: none;
   border-right-width: 2px;
   border-right-color: #D3D3D3;
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
+  border-bottom-color: #000000;
   border-left-style: none;
   border-left-width: 2px;
   border-left-color: #D3D3D3;
 }
 
-#thowyldtfv .gt_caption {
+#yfuzwwunfg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#thowyldtfv .gt_title {
+#yfuzwwunfg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -286,7 +215,7 @@
   border-bottom-width: 0;
 }
 
-#thowyldtfv .gt_subtitle {
+#yfuzwwunfg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -298,7 +227,7 @@
   border-top-width: 0;
 }
 
-#thowyldtfv .gt_heading {
+#yfuzwwunfg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -310,19 +239,19 @@
   border-right-color: #D3D3D3;
 }
 
-#thowyldtfv .gt_bottom_border {
+#yfuzwwunfg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#thowyldtfv .gt_col_headings {
+#yfuzwwunfg .gt_col_headings {
   border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
+  border-top-width: 1px;
+  border-top-color: #000000;
   border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
+  border-bottom-width: 1px;
+  border-bottom-color: #000000;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -331,7 +260,7 @@
   border-right-color: #D3D3D3;
 }
 
-#thowyldtfv .gt_col_heading {
+#yfuzwwunfg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -351,7 +280,7 @@
   overflow-x: hidden;
 }
 
-#thowyldtfv .gt_column_spanner_outer {
+#yfuzwwunfg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -363,18 +292,18 @@
   padding-right: 4px;
 }
 
-#thowyldtfv .gt_column_spanner_outer:first-child {
+#yfuzwwunfg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#thowyldtfv .gt_column_spanner_outer:last-child {
+#yfuzwwunfg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#thowyldtfv .gt_column_spanner {
+#yfuzwwunfg .gt_column_spanner {
   border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
+  border-bottom-width: 1px;
+  border-bottom-color: #000000;
   vertical-align: bottom;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -383,11 +312,11 @@
   width: 100%;
 }
 
-#thowyldtfv .gt_spanner_row {
+#yfuzwwunfg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#thowyldtfv .gt_group_heading {
+#yfuzwwunfg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -398,10 +327,10 @@
   font-weight: initial;
   text-transform: inherit;
   border-top-style: solid;
-  border-top-width: 2px;
+  border-top-width: 0px;
   border-top-color: #D3D3D3;
   border-bottom-style: solid;
-  border-bottom-width: 2px;
+  border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
   border-left-style: none;
   border-left-width: 1px;
@@ -413,32 +342,32 @@
   text-align: left;
 }
 
-#thowyldtfv .gt_empty_group_heading {
+#yfuzwwunfg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
   font-weight: initial;
   border-top-style: solid;
-  border-top-width: 2px;
+  border-top-width: 0px;
   border-top-color: #D3D3D3;
   border-bottom-style: solid;
-  border-bottom-width: 2px;
+  border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
   vertical-align: middle;
 }
 
-#thowyldtfv .gt_from_md > :first-child {
+#yfuzwwunfg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#thowyldtfv .gt_from_md > :last-child {
+#yfuzwwunfg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#thowyldtfv .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#yfuzwwunfg .gt_row {
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 5px;
   padding-right: 5px;
   margin: 10px;
@@ -455,7 +384,7 @@
   overflow-x: hidden;
 }
 
-#thowyldtfv .gt_stub {
+#yfuzwwunfg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -468,7 +397,7 @@
   padding-right: 5px;
 }
 
-#thowyldtfv .gt_stub_row_group {
+#yfuzwwunfg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -482,15 +411,15 @@
   vertical-align: top;
 }
 
-#thowyldtfv .gt_row_group_first td {
-  border-top-width: 2px;
+#yfuzwwunfg .gt_row_group_first td {
+  border-top-width: 0px;
 }
 
-#thowyldtfv .gt_row_group_first th {
-  border-top-width: 2px;
+#yfuzwwunfg .gt_row_group_first th {
+  border-top-width: 0px;
 }
 
-#thowyldtfv .gt_summary_row {
+#yfuzwwunfg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -500,16 +429,16 @@
   padding-right: 5px;
 }
 
-#thowyldtfv .gt_first_summary_row {
+#yfuzwwunfg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#thowyldtfv .gt_first_summary_row.thick {
+#yfuzwwunfg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#thowyldtfv .gt_last_summary_row {
+#yfuzwwunfg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -519,7 +448,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#thowyldtfv .gt_grand_summary_row {
+#yfuzwwunfg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -529,7 +458,7 @@
   padding-right: 5px;
 }
 
-#thowyldtfv .gt_first_grand_summary_row {
+#yfuzwwunfg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -539,7 +468,7 @@
   border-top-color: #D3D3D3;
 }
 
-#thowyldtfv .gt_last_grand_summary_row_top {
+#yfuzwwunfg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -549,11 +478,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#thowyldtfv .gt_striped {
+#yfuzwwunfg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#thowyldtfv .gt_table_body {
+#yfuzwwunfg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -562,7 +491,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#thowyldtfv .gt_footnotes {
+#yfuzwwunfg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -576,7 +505,7 @@
   border-right-color: #D3D3D3;
 }
 
-#thowyldtfv .gt_footnote {
+#yfuzwwunfg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -585,7 +514,7 @@
   padding-right: 5px;
 }
 
-#thowyldtfv .gt_sourcenotes {
+#yfuzwwunfg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -599,7 +528,7 @@
   border-right-color: #D3D3D3;
 }
 
-#thowyldtfv .gt_sourcenote {
+#yfuzwwunfg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -607,301 +536,99 @@
   padding-right: 5px;
 }
 
-#thowyldtfv .gt_left {
+#yfuzwwunfg .gt_left {
   text-align: left;
 }
 
-#thowyldtfv .gt_center {
+#yfuzwwunfg .gt_center {
   text-align: center;
 }
 
-#thowyldtfv .gt_right {
+#yfuzwwunfg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#thowyldtfv .gt_font_normal {
+#yfuzwwunfg .gt_font_normal {
   font-weight: normal;
 }
 
-#thowyldtfv .gt_font_bold {
+#yfuzwwunfg .gt_font_bold {
   font-weight: bold;
 }
 
-#thowyldtfv .gt_font_italic {
+#yfuzwwunfg .gt_font_italic {
   font-style: italic;
 }
 
-#thowyldtfv .gt_super {
+#yfuzwwunfg .gt_super {
   font-size: 65%;
 }
 
-#thowyldtfv .gt_footnote_marks {
+#yfuzwwunfg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#thowyldtfv .gt_asterisk {
+#yfuzwwunfg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#thowyldtfv .gt_indent_1 {
+#yfuzwwunfg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#thowyldtfv .gt_indent_2 {
+#yfuzwwunfg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#thowyldtfv .gt_indent_3 {
+#yfuzwwunfg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#thowyldtfv .gt_indent_4 {
+#yfuzwwunfg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#thowyldtfv .gt_indent_5 {
+#yfuzwwunfg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#thowyldtfv .katex-display {
+#yfuzwwunfg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#thowyldtfv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#yfuzwwunfg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" style="table-layout:fixed;" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="strength" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">strength</th>
-<th id="hard" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">hard</th>
-<th id="time" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">time</th>
-<th id="pressure" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">pressure</th>
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Treatment-group" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Treatment group</th>
+<th id="Control-group" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Control group</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="strength">196.6</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
+<th id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Turnout rate among those contacted by canvassers</th>
+<td class="gt_row gt_center" headers="stub_1_1 Treatment group">54.43 (395)</td>
+<td class="gt_row gt_center" headers="stub_1_1 Control group"></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="strength">196.0</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
+<th id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Turnout rate among those not contacted by canvassers</th>
+<td class="gt_row gt_center" headers="stub_1_2 Treatment group">36.48 (1,050)</td>
+<td class="gt_row gt_center" headers="stub_1_2 Control group">37.54 (5,645)</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="strength">198.5</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">197.2</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">197.5</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">196.6</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">197.7</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">196.0</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">196.0</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">196.9</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">195.6</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">196.2</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">199.8</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">199.4</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">198.4</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">197.6</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">197.4</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">198.1</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">3hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">198.4</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">198.6</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">197.5</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">198.1</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">197.6</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">198.4</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">400</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">199.6</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">200.4</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">198.7</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">198.0</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">197.0</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">197.8</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">500</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">200.6</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">200.9</td>
-<td class="gt_row gt_center" headers="hard">2</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">199.6</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">199.0</td>
-<td class="gt_row gt_center" headers="hard">4</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="strength">198.5</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="strength">199.8</td>
-<td class="gt_row gt_center" headers="hard">8</td>
-<td class="gt_row gt_center" headers="time">4hrs</td>
-<td class="gt_row gt_center" headers="pressure">650</td>
+<th id="stub_1_3" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Overall turnout rate</th>
+<td class="gt_row gt_center" headers="stub_1_3 Treatment group">41.38 (1,445)</td>
+<td class="gt_row gt_center" headers="stub_1_3 Control group">37.54 (5,645)</td>
 </tr>
 </tbody>
 </table>
@@ -909,163 +636,534 @@
 </div>
 </div>
 </div>
-</section>
-<section id="eda" class="slide level2">
-<h2>EDA</h2>
-
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section id="three-way-anova" class="slide level2">
-<h2>Three way ANOVA</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(strength <span class="sc">~</span> time <span class="sc">*</span> pressure <span class="sc">*</span> hard, <span class="at">data =</span> paper)</span>
-<span id="cb1-2"><a></a>anova_tab <span class="ot">&lt;-</span> <span class="fu">summary</span>(anova)</span>
-<span id="cb1-3"><a></a>anova_tab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>                   Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-time                1 20.250  20.250  55.395 6.75e-07 ***
-pressure            2 19.374   9.687  26.499 4.33e-06 ***
-hard                2  7.764   3.882  10.619   0.0009 ***
-time:pressure       2  2.195   1.097   3.002   0.0750 .  
-time:hard           2  2.082   1.041   2.847   0.0843 .  
-pressure:hard       4  6.091   1.523   4.166   0.0146 *  
-time:pressure:hard  4  1.973   0.493   1.350   0.2903    
-Residuals          18  6.580   0.366                     
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
 <div class="fragment">
-<p>How many hypothesis tests are being conducted in this ANOVA table?</p>
+<p><br>
+</p>
+<p>What is <span class="math inline">\(ITT_Y\)</span>?</p>
 </div>
 <div class="fragment">
 <blockquote>
-<p>7</p>
+<p><span class="math inline">\(41.38 - 37.54 = 3.84\)</span></p>
+</blockquote>
+</div>
+<div class="fragment">
+<p>What is <span class="math inline">\(ITT_D\)</span>?</p>
+</div>
+<div class="fragment">
+<blockquote>
+<p><span class="math inline">\(395 / 1445 = 27.3\)</span></p>
 </blockquote>
 </div>
 </section>
-<section id="bonferroni" class="slide level2">
-<h2>Bonferroni</h2>
-<p>Original p-values:</p>
+<section id="section-2" class="slide level2">
+<h2></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>anova_results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">estimate =</span> <span class="fu">row.names</span>(anova_tab[[<span class="dv">1</span>]])[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>],</span>
-<span id="cb3-2"><a></a>                            <span class="at">p_vals =</span> anova_tab[[<span class="dv">1</span>]]<span class="sc">$</span><span class="st">`</span><span class="at">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>])</span>
-<span id="cb3-3"><a></a>anova_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>            estimate       p_vals
-1 time               6.745340e-07
-2 pressure           4.327241e-06
-3 hard               8.995614e-04
-4 time:pressure      7.495643e-02
-5 time:hard          8.425969e-02
-6 pressure:hard      1.462624e-02
-7 time:pressure:hard 2.903053e-01</code></pre>
-</div>
-</div>
-</section>
-<section id="bonferroni-1" class="slide level2">
-<h2>Bonferroni</h2>
-<p>Adjust p-values by multiplying them by <span class="math inline">\(K\)</span>.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>anova_results <span class="ot">&lt;-</span> anova_results <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a></a>  <span class="fu">mutate</span>(<span class="at">bon_adjusted =</span> <span class="fu">pmin</span>(p_vals <span class="sc">*</span> <span class="dv">7</span>, <span class="dv">1</span>))</span>
-<span id="cb5-3"><a></a>anova_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>            estimate       p_vals bon_adjusted
-1 time               6.745340e-07 4.721738e-06
-2 pressure           4.327241e-06 3.029069e-05
-3 hard               8.995614e-04 6.296930e-03
-4 time:pressure      7.495643e-02 5.246950e-01
-5 time:hard          8.425969e-02 5.898178e-01
-6 pressure:hard      1.462624e-02 1.023837e-01
-7 time:pressure:hard 2.903053e-01 1.000000e+00</code></pre>
-</div>
-</div>
-</section>
-<section id="holms-procedure" class="slide level2">
-<h2>Holm’s Procedure</h2>
-<p>Original sorted p-values:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>sorted_pvals <span class="ot">&lt;-</span> <span class="fu">sort</span>(anova_results<span class="sc">$</span>p_vals)</span>
-<span id="cb7-2"><a></a>sorted_pvals</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6.745340e-07 4.327241e-06 8.995614e-04 1.462624e-02 7.495643e-02
-[6] 8.425969e-02 2.903053e-01</code></pre>
-</div>
-</div>
-</section>
-<section id="holms-procedure-1" class="slide level2">
-<h2>Holm’s Procedure</h2>
-<p>Working from smallest to largest p-values (call the rank <span class="math inline">\(j\)</span>), adjust p-values to max of <span class="math inline">\(K - j + 1\)</span> times the original p-value or the max of previous p-values.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>holm <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">length</span>(sorted_pvals)) <span class="co"># initialize</span></span>
-<span id="cb9-2"><a></a>previous_max <span class="ot">&lt;-</span> sorted_pvals[<span class="dv">1</span>]</span>
-<span id="cb9-3"><a></a>K <span class="ot">&lt;-</span> <span class="fu">length</span>(sorted_pvals)</span>
-<span id="cb9-4"><a></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>K) {</span>
-<span id="cb9-5"><a></a>  holm[j] <span class="ot">&lt;-</span> <span class="fu">max</span>(sorted_pvals[j] <span class="sc">*</span> (K <span class="sc">-</span> j <span class="sc">+</span> <span class="dv">1</span>), previous_max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-6"><a></a>  holm[j] <span class="ot">&lt;-</span> <span class="fu">max</span>(sorted_pvals[j] <span class="sc">*</span> (K <span class="sc">-</span> j <span class="sc">+</span> <span class="dv">1</span>), previous_max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-7"><a></a>  previous_max <span class="ot">&lt;-</span> <span class="fu">max</span>(holm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-8"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
+<div class="cell-output-display">
+<div id="uijfydougv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uijfydougv table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#uijfydougv thead, #uijfydougv tbody, #uijfydougv tfoot, #uijfydougv tr, #uijfydougv td, #uijfydougv th {
+  border-style: none;
+}
+
+#uijfydougv p {
+  margin: 0;
+  padding: 0;
+}
+
+#uijfydougv .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#uijfydougv .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#uijfydougv .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#uijfydougv .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#uijfydougv .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#uijfydougv .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uijfydougv .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#uijfydougv .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#uijfydougv .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#uijfydougv .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#uijfydougv .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#uijfydougv .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#uijfydougv .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#uijfydougv .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#uijfydougv .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#uijfydougv .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#uijfydougv .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#uijfydougv .gt_row {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#uijfydougv .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uijfydougv .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#uijfydougv .gt_row_group_first td {
+  border-top-width: 0px;
+}
+
+#uijfydougv .gt_row_group_first th {
+  border-top-width: 0px;
+}
+
+#uijfydougv .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uijfydougv .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#uijfydougv .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#uijfydougv .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uijfydougv .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uijfydougv .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#uijfydougv .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uijfydougv .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#uijfydougv .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uijfydougv .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#uijfydougv .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uijfydougv .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#uijfydougv .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uijfydougv .gt_left {
+  text-align: left;
+}
+
+#uijfydougv .gt_center {
+  text-align: center;
+}
+
+#uijfydougv .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#uijfydougv .gt_font_normal {
+  font-weight: normal;
+}
+
+#uijfydougv .gt_font_bold {
+  font-weight: bold;
+}
+
+#uijfydougv .gt_font_italic {
+  font-style: italic;
+}
+
+#uijfydougv .gt_super {
+  font-size: 65%;
+}
+
+#uijfydougv .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#uijfydougv .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#uijfydougv .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#uijfydougv .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#uijfydougv .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#uijfydougv .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#uijfydougv .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#uijfydougv .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#uijfydougv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" style="table-layout:fixed;" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Treatment-group" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Treatment group</th>
+<th id="Control-group" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Control group</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<th id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Turnout rate among those contacted by canvassers</th>
+<td class="gt_row gt_center" headers="stub_1_1 Treatment group">54.43 (395)</td>
+<td class="gt_row gt_center" headers="stub_1_1 Control group"></td>
+</tr>
+<tr class="even">
+<th id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Turnout rate among those not contacted by canvassers</th>
+<td class="gt_row gt_center" headers="stub_1_2 Treatment group">36.48 (1,050)</td>
+<td class="gt_row gt_center" headers="stub_1_2 Control group">37.54 (5,645)</td>
+</tr>
+<tr class="odd">
+<th id="stub_1_3" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Overall turnout rate</th>
+<td class="gt_row gt_center" headers="stub_1_3 Treatment group">41.38 (1,445)</td>
+<td class="gt_row gt_center" headers="stub_1_3 Control group">37.54 (5,645)</td>
+</tr>
+</tbody>
+</table>
 
 </div>
-</section>
-<section id="holms-procedure-2" class="slide level2">
-<h2>Holm’s Procedure</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>anova_results <span class="ot">&lt;-</span> anova_results <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a></a>  <span class="fu">arrange</span>(p_vals) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a></a>  <span class="fu">mutate</span>(holm)</span>
-<span id="cb10-4"><a></a>anova_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>            estimate       p_vals bon_adjusted         holm
-1 time               6.745340e-07 4.721738e-06 4.721738e-06
-2 pressure           4.327241e-06 3.029069e-05 2.596345e-05
-3 hard               8.995614e-04 6.296930e-03 4.497807e-03
-4 pressure:hard      1.462624e-02 1.023837e-01 5.850495e-02
-5 time:pressure      7.495643e-02 5.246950e-01 2.248693e-01
-6 time:hard          8.425969e-02 5.898178e-01 2.248693e-01
-7 time:pressure:hard 2.903053e-01 1.000000e+00 2.903053e-01</code></pre>
 </div>
 </div>
-</section>
-<section id="r-shortcut" class="slide level2">
-<h2>R Shortcut</h2>
-<p><code>p.adjust()</code> can adjust p-values using many different methods including:</p>
-<ul>
-<li class="fragment">Bonferroni and Holm</li>
-<li class="fragment">False discovery rate: Benjamini &amp; Hochberg, Benjamini &amp; Yekutieli</li>
-</ul>
+<p><span class="math display">\[
+CACE = \frac{ITT_Y}{ITT_D}
+\]</span></p>
 <div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="st">"none"</span>, <span class="st">"holm"</span>, <span class="st">"bonferroni"</span>), p.adjust, <span class="at">p =</span> sorted_pvals)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span class="math display">\[
+CACE = 3.84 / .273 = 14.07
+\]</span></p>
 </div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>             none         holm   bonferroni
-[1,] 6.745340e-07 4.721738e-06 4.721738e-06
-[2,] 4.327241e-06 2.596345e-05 3.029069e-05
-[3,] 8.995614e-04 4.497807e-03 6.296930e-03
-[4,] 1.462624e-02 5.850495e-02 1.023837e-01
-[5,] 7.495643e-02 2.248693e-01 5.246950e-01
-[6,] 8.425969e-02 2.248693e-01 5.898178e-01
-[7,] 2.903053e-01 2.903053e-01 1.000000e+00</code></pre>
+<div class="fragment">
+<ul>
+<li class="fragment">The naive estimate of, <span class="math inline">\(ITT_Y\)</span>, yields an underestimate.</li>
+<li class="fragment">The corrected estimate (<span class="math inline">\(CACE\)</span>) is only the ATE of compliers.</li>
+</ul>
 </div>
-</div>
+</section>
+<section id="cace-vs-itt_y" class="slide level2">
+<h2><span class="math inline">\(CACE\)</span> vs <span class="math inline">\(ITT_Y\)</span></h2>
+<p>Which parameter are you more interested in?</p>
+<ol type="1">
+<li class="fragment"><p>You are a political scientist and want to understand the interactions that cause people to change their voting behavior as a general rule.</p></li>
+<li class="fragment"><p>You are a campaign consultant and want to know how much extra turnout you can get from canvassing a city, relative to spending the effort on more web ads.</p></li>
+</ol>
 
 
-</div>
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <title>STAT 158 – Regression Adjustments</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f5551d4e48d7f7973afdfbad6171c3bc.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+  <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <script src="../site_libs/plotly-binding-4.11.0/plotly.js"></script>
+  <script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+  <link href="../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+  <script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+  <link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+  <script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Regression Adjustments</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="study-meadowfoam" class="slide level2">
+<h2>Study: Meadowfoam</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Meadowfoam is a flowering California native plant.</p>
+<p>Can we effect the <em>number of flowers</em> produced by plants by providing extra light treatment, which varies in its <em>intensity</em> as well as it’s <em>timing</em>?</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/35/Limnanthes_douglasii.jpg"></p>
+</div></div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><aside class="notes">
+<p>How would you describe the effect of intensity and timing? Would you fit an ANOVA or a regression model? Why?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>A model for a categorical and continuous effect (ANCOVA):</p>
+<p><span class="math display">\[
+y_{ij} = \mu + \alpha_i + \beta_1 x_{ij} + \epsilon_{ij}
+\]</span></p>
+<div class="fragment">
+<p>Each group has a linear model with the same effect on <span class="math inline">\(x\)</span> and different effect on the categorical effect (two intercepts).</p>
+<p><span class="math display">\[\begin{align}
+y_{i1} &amp;= \mu + \alpha_1 + \beta_1 x_{i1} + \epsilon_{i1} = \mu_1 + \beta_1 x_{i1} + \epsilon_{i1} \\
+y_{i2} &amp;= \mu + \alpha_2 + \beta_1 x_{i2} + \epsilon_{i2} = \mu_2 + \beta_1 x_{i2} + \epsilon_{i2}
+\end{align}\]</span></p>
+</div>
+</section>
+<section>
+<section id="regression-adjustments" class="title-slide slide level1 center">
+<h1>Regression Adjustments</h1>
+
+</section>
+<section id="meadowfoam" class="slide level2">
+<h2>Meadowfoam</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>meadowfoam</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 24 × 6
+   FLOWERS  TIME INTENS intensity flowers time 
+     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;
+ 1    62.3     1    150       150    62.3 late 
+ 2    77.4     1    150       150    77.4 late 
+ 3    55.3     1    300       300    55.3 late 
+ 4    54.2     1    300       300    54.2 late 
+ 5    49.6     1    450       450    49.6 late 
+ 6    61.9     1    450       450    61.9 late 
+ 7    39.4     1    600       600    39.4 late 
+ 8    45.7     1    600       600    45.7 late 
+ 9    31.3     1    750       750    31.3 late 
+10    44.9     1    750       750    44.9 late 
+# ℹ 14 more rows</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Let’s say that only <code>timing</code> was randomly assigned and <code>intensity</code> was another variable that was recorded that we know is a good predictor of <code>flowers</code>.</p>
+</div>
+</section>
+<section id="section-2" class="slide level2 smaller">
+<h2></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">options</span>(<span class="at">contrasts=</span><span class="fu">c</span>(<span class="st">"contr.sum"</span>,<span class="st">"contr.poly"</span>))</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a>m_full <span class="ot">&lt;-</span> <span class="fu">lm</span>(flowers <span class="sc">~</span> intensity <span class="sc">+</span> time, <span class="at">data =</span> meadowfoam)</span>
+<span id="cb3-4"><a></a>m_no_time <span class="ot">&lt;-</span> <span class="fu">lm</span>(flowers <span class="sc">~</span> intensity, <span class="at">data =</span> meadowfoam)</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a><span class="fu">summary</span>(m_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = flowers ~ intensity + time, data = meadowfoam)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-9.652 -4.139 -1.558  5.632 12.165 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 77.385000   2.998156  25.811  &lt; 2e-16 ***
+intensity   -0.040471   0.005132  -7.886 1.04e-07 ***
+time1        6.079166   1.314779   4.624 0.000146 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.441 on 21 degrees of freedom
+Multiple R-squared:  0.7992,    Adjusted R-squared:   0.78 
+F-statistic: 41.78 on 2 and 21 DF,  p-value: 4.786e-08</code></pre>
+</div>
+</div>
+</section>
+<section id="section-3" class="slide level2 smaller">
+<h2></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">summary</span>(m_no_time)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = flowers ~ intensity, data = meadowfoam)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.7314  -7.8052   0.0186   6.1857  13.2686 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 77.385000   4.161186  18.597 6.06e-15 ***
+intensity   -0.040471   0.007123  -5.682 1.03e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 8.94 on 22 degrees of freedom
+Multiple R-squared:  0.5947,    Adjusted R-squared:  0.5763 
+F-statistic: 32.28 on 1 and 22 DF,  p-value: 1.03e-05</code></pre>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">anova</span>(m_no_time, m_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: flowers ~ intensity
+Model 2: flowers ~ intensity + time
+  Res.Df     RSS Df Sum of Sq      F    Pr(&gt;F)    
+1     22 1758.19                                  
+2     21  871.24  1    886.95 21.379 0.0001464 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="cautions" class="slide level2">
+<h2>Cautions</h2>
+<p>When fitting regression models to experimental data:</p>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">Non-experimental variables have no causal interpretation.</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li class="fragment">Regression adjustments generally should not be used in very small datasets (<span class="math inline">\(N &lt; 20\)</span>) because df are better spent estimating causal effects.</li>
+</ol>
+</div>
+</section></section>
+<section>
+<section id="collinearity" class="title-slide slide level1 center">
+<h1>Collinearity</h1>
+
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p>Simulated data with two explanatory variables.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 100 × 3
+        y     x1     x2
+    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1  6.31  -0.812 -1.13 
+ 2 -1.96   0.243  0.132
+ 3  8.50  -1.34  -0.178
+ 4  2.09  -0.592  0.814
+ 5  7.23  -1.01  -0.888
+ 6  1.24  -0.415 -0.555
+ 7  0.923 -0.330  0.987
+ 8  6.13  -1.44  -0.124
+ 9  1.81   0.522 -1.55 
+10  0.619 -0.107  0.425
+# ℹ 90 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">pairs</span>(weak_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">cor</span>(weak_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>            y         x1         x2
+y   1.0000000 -0.9023189 -0.5401852
+x1 -0.9023189  1.0000000  0.1631887
+x2 -0.5401852  0.1631887  1.0000000</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Collinearity</strong>: describes the presence of linear relationships between the <em>explanatory</em> variables.</p>
+</div>
+</section>
+<section id="results-from-linear-models" class="slide level2">
+<h2>Results from Linear Models</h2>
+<p><span class="math display">\[
+\hat{\boldsymbol{\beta}} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
+Var(\hat{\boldsymbol{\beta}}) = \sigma^2 (\mathbf{X}^\top \mathbf{X})^{-1}
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+Var(\hat{\beta}_j) = \frac{\sigma^2}{(n-1) Var(X_j)} \cdot \frac{1}{1 - R^2_j}
+\]</span></p>
+<p>where <span class="math inline">\(R_2_j\)</span> is the <span class="math inline">\(R^2\)</span> from regression <span class="math inline">\(X_j\)</span> on other <span class="math inline">\(X\)</span>. The second term is called the <strong>Variance Inflation Factor</strong> (VIF).</p>
+</div>
+</section>
+<section id="weak-collinearity" class="slide level2">
+<h2>Weak Collinearity</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> weak_collinearity)</span>
+<span id="cb13-2"><a></a><span class="fu">summary</span>(m1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ x1 + x2, data = weak_collinearity)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.1468 -0.6517 -0.0337  0.7072  2.5085 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -0.11193    0.09458  -1.184    0.239    
+x1          -4.99571    0.10137 -49.283   &lt;2e-16 ***
+x2          -2.11523    0.08893 -23.785   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.9393 on 97 degrees of freedom
+Multiple R-squared:  0.9728,    Adjusted R-squared:  0.9722 
+F-statistic:  1735 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>This linear model corresponds to a plane in 3D.</p>
+</div>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-d688e9ee9f9a7347b8d0" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-d688e9ee9f9a7347b8d0">{"x":{"visdat":{"4155ca3c431":["function () ","plotlyVisDat"]},"cur_data":"4155ca3c431","attrs":{"4155ca3c431":{"x":{},"y":{},"z":{},"showlegend":false,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","marker":{"size":5,"opacity":0.59999999999999998,"color":"steelblue"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"x1"},"yaxis":{"title":"x2"},"zaxis":{"title":"y"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"data":[{"x":[-0.81176894260326959,0.24315199204064095,-1.3425361328246845,-0.59160843552430675,-1.0083501612333665,-0.41479192800114134,-0.32999313465319124,-1.4367351784284939,0.5219513474299794,-0.10684077024648019,1.0720164493590152,0.037920842602609042,0.40886163740625875,0.74788086671039655,1.1574299106494863,-0.73003173582609004,-0.29870895881228599,0.21202079975657673,-0.31898733264096668,-0.12304220415168576,0.77458123951543079,-1.7170882887680106,1.1108462371617458,-0.53200523689563795,0.64423070505635172,0.3506342845513441,0.3979448952106302,-0.16889319213629292,1.8303236624189398,-0.54961601290871809,-0.49083452374529946,0.93057067477760635,0.76112179174802341,0.21655636275859924,2.2848900298190551,-1.2872189899126538,0.013879191123037773,0.39044295727335221,0.70297755770008896,0.54275715102654798,0.50648243737933474,-0.055555396747135728,-0.4430141560637213,0.81809614298637112,0.4553136865046154,0.2055969251653765,1.3610751710082134,0.81748690543643909,-1.1911098381148426,0.015803175604384451,0.7319017191032029,-1.3148648197145765,0.035733943153294957,0.36677689631714355,0.16914336049804604,-0.41316983909024441,-0.79034806727047713,-1.9824720524901418,0.45095103962799149,0.078941142434288972,-0.32959369802402316,-0.61926370084462457,-2.7674208258040291,0.39145848297168129,-0.75730789137776022,0.69897097010300535,-1.3653166091684446,0.71201793252832823,-1.4560926214907581,-0.62952856066579022,0.4732873950889509,0.51381174977691701,1.857274329194966,-1.6936154776733707,0.17957337555401739,2.5013169058380313,0.18256112716089057,-0.55229534399236146,-0.9420393277964112,1.4854161139011532,-0.90691403300632156,0.17179973808468013,-0.36827826197663088,-1.1943622879942704,1.5285459840303197,-0.96909790274224805,1.0949930287982408,0.65483164711124775,-0.35568792747995742,-1.5277499035142748,0.93260951838480544,0.37458942072874329,-0.21014225748407028,0.56257418920761459,0.1598206436721186,0.17255757110838649,-1.178251914220199,0.26265313565982906,-1.5219294053402896,-0.55466773041904271],"y":[-1.1326214755885939,0.1324877732350192,-0.17846869596445877,0.81387025295048154,-0.88813035478473401,-0.55466733078602104,0.98749213652577827,-0.12370022168987409,-1.546782460989766,0.42497879204958172,-1.6070476433648768,-2.2838748345666464,1.88641040400871,-2.670520465855545,0.66317899677117775,0.27381975952180737,-1.1948601539189041,-0.78381907499351289,0.1810684467646155,-0.78139707639375466,0.023562001974503623,-1.4891007985880345,0.82471605365039136,-0.31926206702604371,0.55468935204567149,0.47331360754956109,-0.46356328892663951,0.067068607183379064,-0.15441069526994589,-0.7678834484251974,-1.657667362351281,0.55729231967627879,1.6084586730406385,1.9826010159993399,0.69632617157692345,-0.44052280835791385,1.266801790484025,0.19701663168378167,-0.074789402743567615,-0.92895932413907234,0.58344879494659974,-0.61086013074892509,-1.3213103086940723,-0.1531439768971071,0.49763219309193518,2.3434783551426395,-0.36345007723690625,0.073764503298118358,0.10383996689207445,-2.0266091389344458,0.28269404453884328,-0.64794758341648107,1.189014377992019,-0.81151411574063237,-1.3216860629396543,-1.2164824571817163,-0.013581694635439073,0.52251655845074219,0.30178869668506419,0.10824117708928611,1.0249284350690424,-0.6406780477748949,-0.17423574771672384,-0.22933333251987806,1.0695845991338342,-1.9916280066202781,0.0600529084299702,-0.46832024007962708,1.9060896735972039,-0.89648681649902073,-0.0055660614468859863,-0.32814901625291787,0.8195954502025169,-0.92255499759081094,0.46115029370527,0.034504060748070373,2.8832634416218696,0.50322331950389976,0.14091095446178309,0.15213194521897197,-1.7244904389723306,-0.26952799604097832,-1.7504269068464671,-0.20691075751623716,1.0999230273313552,-1.8415253039100274,1.7063058662434918,0.075789466390967272,0.04839284796102717,1.6037807692984796,0.63566240580568723,-1.5442244603914363,0.2241494926650951,-1.1535050933753139,0.23984675828650376,-1.1509917693749134,-1.1679703106985053,1.295088702717323,-1.1731743314949059,-2.0208157687518917],"z":[6.3118055320275239,-1.9642502455273203,8.4988516978196404,2.0943937485617048,7.2264124233945708,1.2423549849924809,0.92299809025842494,6.1298822944770297,1.8054714063789499,0.61857043925027921,-2.6897102079558732,5.46438025482274,-7.4657853774840888,1.4801843521437545,-8.1938859659254568,3.3092958514051771,3.9131861236292691,-0.63262088041925102,2.1759302995708918,1.1456566750161297,-5.1716991420278493,11.704417929200575,-8.2381423134504175,2.6376189652916522,-5.0680931649628107,-1.4015061769886388,-2.6969964746806738,1.2541035655631367,-7.2584546971362354,4.5826524256515926,6.1285095991890977,-6.1379927911579895,-7.1849359166114013,-5.3689620938048046,-13.056572450695166,6.3294330529440419,-2.1707705345372461,-2.2043772686159633,-5.0028508994414951,-1.5273769934925543,-4.4448171601214179,0.034424736678824397,3.9229625200627876,-4.0255956729356379,-2.7765051106976912,-5.6063354093623845,-5.9552211935498631,-5.6189183883595542,5.1078194567438322,3.8467345108990783,-5.3996798833914683,8.1545523559339319,-3.4042122490022408,-0.70845455655878897,1.9991227735687624,4.5381139422447276,2.9382476181206947,7.9831686416890051,-1.9614530581496812,-0.68479410349655545,-0.67336048246078528,5.2103427286485582,13.757079122570657,-2.2284611658588265,0.56626785991037831,0.096057743077079649,8.6706617794013958,-2.4629644056323068,2.3996289693663204,4.6971321668240824,-1.1230663447174243,-2.5536838942140889,-8.61550979328727,10.66901034751657,-0.78157149974594131,-11.56648333169381,-7.8856782608572358,0.52784943539837492,3.6971171589981213,-10.001219966043845,6.9967039510910851,-0.51432894920457883,5.2984356396449845,6.6981709226719612,-9.4053855448239361,10.271889601274538,-10.145781682564607,-4.104581493152569,1.5967016763144681,4.9061152411263445,-5.1334473833930065,2.3185747057283344,1.3997778421402627,0.36544181318961166,-0.4740838225884535,0.8613941229127472,9.7616031819083489,-3.4049916367621447,9.5958282143920499,7.007544409836175],"showlegend":false,"type":"scatter3d","mode":"markers","marker":{"color":"steelblue","size":5,"opacity":0.59999999999999998,"line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="strong-collinearity" class="slide level2">
+<h2>Strong Collinearity</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 100 × 3
+         y       x1      x2
+     &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+ 1  -0.147 -0.0424  -0.0168
+ 2 -14.7    2.10     2.21  
+ 3   0.489 -0.00534  0.173 
+ 4  -4.77   0.752    0.668 
+ 5  -8.39   0.943    0.996 
+ 6  -7.34   0.939    0.965 
+ 7   4.96  -0.728   -0.658 
+ 8   8.46  -1.07    -1.08  
+ 9  19.7   -2.63    -2.78  
+10   6.49  -0.750   -0.710 
+# ℹ 90 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="strong-collinearity-1" class="slide level2">
+<h2>Strong Collinearity</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">pairs</span>(strong_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="strong-collinearity-2" class="slide level2">
+<h2>Strong collinearity</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">cor</span>(strong_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>            y         x1         x2
+y   1.0000000 -0.9889119 -0.9832587
+x1 -0.9889119  1.0000000  0.9907429
+x2 -0.9832587  0.9907429  1.0000000</code></pre>
+</div>
+</div>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-7052800768608b539731" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-7052800768608b539731">{"x":{"visdat":{"415653e230f":["function () ","plotlyVisDat"]},"cur_data":"415653e230f","attrs":{"415653e230f":{"x":{},"y":{},"z":{},"showlegend":false,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","marker":{"size":5,"opacity":0.59999999999999998,"color":"steelblue"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"x1"},"yaxis":{"title":"x2"},"zaxis":{"title":"y"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"data":[{"x":[-0.042409401051284448,2.100099592113096,-0.0053364130871444825,0.75201481436919337,0.94268491976044633,0.9386179759712292,-0.72792622641541205,-1.0672057999266653,-2.6326858741167731,-0.74955385694379728,-0.03183138313227047,-0.20419035582398529,1.745333784512509,0.52741840106382376,0.18459602220804686,-0.22147600666486711,-0.57883823883463914,1.3292744112951962,-0.61415484898342454,1.7397186772347815,0.20917094123927352,-0.76420916531163585,0.014915520604426521,0.73903041118439194,0.27470458707605722,0.13385736402266291,0.25469809923101339,-1.7588740845192701,2.4275319334168755,-0.77642232580483317,1.9789061422606518,0.43115771557245541,0.87467534054962337,0.57080037555446572,-0.063785469264780542,-0.16432137344082806,1.7102949430465266,-0.060434297766571637,-0.07939456421777924,1.5279754506511407,-0.97114202223280433,-1.0612134283232113,0.18691342045020948,0.28812456268967096,0.10595165109956872,0.039647536266470551,-0.7849787511607923,1.3405420823736938,-0.56755863519819538,-1.066598279746966,0.69958501433069054,0.93706315117113781,1.2956893682918544,0.2914350598435051,0.50803686616081134,-0.77390168676627069,-0.77836767628128489,-0.1622523633895222,1.1904120334408939,2.0338082697562694,-0.44108607394038574,1.6679325092329047,-0.063656884133565253,-1.5337153542483406,-0.92290699301948431,1.5355542359145431,-1.2710260423219581,-0.34631913132334058,0.86813245219074542,-0.5798320615160143,-0.37381314336137278,-1.7056641629336537,-1.588661536502403,0.88429616600105043,-1.2322383659479752,0.49331020839707168,-0.1409685319965514,0.26448738697912955,0.58757713516860421,-0.0037177705996732815,-0.8752248954415166,0.58754118235320862,-0.51810543743991033,-0.089407324717476075,0.81994898577582154,0.15595781601568093,-0.10264207205613406,0.65049627616906791,-0.66715304030729494,0.44361373379027763,0.46012639902783958,0.53504970128626561,1.7893615856166396,-0.49814623089886612,0.41526994822479285,0.018200681095251803,-0.21510719833973313,-0.050776039102833015,0.64041516693894784,1.0691625541936951],"y":[-0.016801637267169132,2.2146880071072412,0.17345188181328935,0.66785113661805584,0.99640552199593191,0.9649843872932965,-0.65784379876841648,-1.0793516921309527,-2.7750891303464167,-0.71003591671658828,0.019172613970316672,0.077602440024925862,1.5411178533175123,0.60078098676806335,0.55037745913671354,-0.038549946738108902,-0.31564664428176376,1.2733342622302672,-0.38271633263902427,1.6128339559727856,0.098357420999690956,-0.68960021486734147,-0.013012116077302464,0.67558298655359339,0.23527318774580669,0.043374360941582209,0.27320431376344556,-1.6995389431184009,2.4863911754139232,-1.0728642375226436,1.7211129148858799,0.20724835518037027,0.8622685287420947,0.59578688342876607,-0.20737885620992189,0.03560001444506565,1.5845282883100142,-0.080589024237503082,-0.24000584411336018,1.5904041605013863,-0.85875085677341778,-0.93466819455971828,0.3155557322814701,0.26069490159371089,0.078006012967488811,0.27071320257512288,-0.5762781315676212,1.3443197487173892,-0.56965704459614119,-0.97340056199632585,0.83974901983880179,0.74591046885776791,1.334850049077162,0.33979103723936893,0.35636161592167398,-0.62766172882257676,-0.69058701324230332,-0.19046602614610056,1.1554651724721889,2.1245682449112566,-0.65958593181389724,1.6710755166827966,0.062416509453934101,-1.5384303390459659,-1.0203624386756178,1.6206323360338553,-1.1028217556191791,-0.28118944896954146,0.78707292199666568,-0.74484368678425206,-0.29381255982217624,-1.7311117679018713,-1.7830795156310368,0.81466437258093949,-1.2756347733519005,0.54653081262577741,-0.24448998549755627,0.23422196732939643,0.68623495449334393,-0.0050820066161919586,-0.783678261055891,0.46371002504881492,-0.56033507686029715,-0.08442980859109897,1.0187666413909404,0.21567690446750179,-0.18600117905530725,0.58340161843177352,-0.57197944320099026,0.4201740129454124,0.4794279024691348,0.55475034399471612,1.5972151927751683,-0.46616518068160567,0.28263270879599633,-0.048516083810854517,0.0459286473070818,0.14551382379479275,0.52161289380398768,0.95497337669553817],"z":[-0.14704387928051837,-14.715334141997101,0.48933037834341436,-4.7735942241086189,-8.3911958327624436,-7.3356056045130238,4.9563348729425636,8.4613481041132186,19.697195422149328,6.4905069605644812,-2.3966069182853058,-0.5826896388565157,-11.771640826689573,-3.3555026166572088,-2.2623179658492609,0.82202074372121492,3.6479902178517047,-9.8687824377276474,3.642331867254279,-14.241662350998247,-2.7451953343704978,3.8033396125206798,0.064618807291236119,-5.5454048820194792,-2.1743413769467503,-0.46041286197745379,-2.7622013697667711,12.657457799778031,-17.078890963941205,4.8713424000751093,-12.606777151571107,-3.9373660749687929,-5.690896556615491,-3.7242210531121387,0.92702699996837434,2.3764222565314701,-9.7400804344571963,0.37169123309956642,0.31109600736530629,-10.572419444267728,6.1212025716875278,6.3755562227108786,-1.6262270881221601,-1.3918542002087784,-1.925817291040707,0.39456661607829391,5.8260490119734545,-8.6571136726072506,4.0721902076266154,6.8040422150634576,-5.9930725356103718,-5.6489564146097413,-10.76319969150998,-2.7365651081642008,-5.4838788412982549,4.0029834423131874,5.8358002212178395,0.93791994447152693,-5.9882496025306491,-14.616633436148604,2.8974963451179541,-10.851223663202534,-1.6356161567938525,11.110003702469394,6.4628391120204949,-10.49450210904206,9.0073151725293812,3.1913645461564935,-5.5050710081461078,4.4915365933737306,3.8193549061351297,12.594843816766328,11.102452133475145,-4.5774836956838136,10.06129118628977,-4.5991239966276893,1.5712667275287282,-3.4166790975120076,-2.6549885384370606,-0.31735133140740612,6.0036549976201066,-4.4554560191522405,4.118970734366191,2.4773389948825768,-7.4523426213497554,-1.6133330262604357,-0.0014595995144377483,-3.7216649325485776,5.2797842725835062,-4.5207495969822702,-5.3353820972221122,-4.1053970599575784,-13.645211994307324,3.4530439077750033,-4.0298876588396055,0.36447675627519316,1.3619104758718132,0.72985496718800191,-4.8449718707220084,-6.6384276417279269],"showlegend":false,"type":"scatter3d","mode":"markers","marker":{"color":"steelblue","size":5,"opacity":0.59999999999999998,"line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="designed-experiment" class="slide level2">
+<h2>Designed Experiment</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 100 × 3
+         y    x1    x2
+     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1  19.5      -3    -3
+ 2  10.5      -1    -3
+ 3   6.10      0    -3
+ 4   0.800     1    -3
+ 5 -10.2       3    -3
+ 6  17.9      -3    -1
+ 7   7.70     -1    -1
+ 8   2.23      0    -1
+ 9  -3.63      1    -1
+10 -12.2       3    -1
+# ℹ 90 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="designed-experiment-1" class="slide level2">
+<h2>Designed Experiment</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">pairs</span>(designed_exp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="design-experiment" class="slide level2">
+<h2>Design Experiment</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">cor</span>(designed_exp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>            y         x1         x2
+y   1.0000000 -0.9287288 -0.3606505
+x1 -0.9287288  1.0000000  0.0000000
+x2 -0.3606505  0.0000000  1.0000000</code></pre>
+</div>
+</div>
+</section>
+<section id="section-10" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-d6283fd1334dab38ef58" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-d6283fd1334dab38ef58">{"x":{"visdat":{"4154308a613":["function () ","plotlyVisDat"]},"cur_data":"4154308a613","attrs":{"4154308a613":{"x":{},"y":{},"z":{},"showlegend":false,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","marker":{"size":5,"opacity":0.59999999999999998,"color":"steelblue"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"x1"},"yaxis":{"title":"x2"},"zaxis":{"title":"y"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"data":[{"x":[-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3],"y":[-3,-3,-3,-3,-3,-1,-1,-1,-1,-1,0,0,0,0,0,1,1,1,1,1,3,3,3,3,3,-3,-3,-3,-3,-3,-1,-1,-1,-1,-1,0,0,0,0,0,1,1,1,1,1,3,3,3,3,3,-3,-3,-3,-3,-3,-1,-1,-1,-1,-1,0,0,0,0,0,1,1,1,1,1,3,3,3,3,3,-3,-3,-3,-3,-3,-1,-1,-1,-1,-1,0,0,0,0,0,1,1,1,1,1,3,3,3,3,3],"z":[19.460299356421832,10.467821041908158,6.1023997994741332,0.8003306058473818,-10.173244407822576,17.89638366935776,7.7042459237458667,2.234512356623501,-3.6322732693808724,-12.225980516055861,14.774335062376977,4.8411433692836079,-0.62499630833068054,-6.4174684086113727,-15.691876939495881,13.42646067017332,4.681919890726741,-2.5168257414037165,-6.2425809910067249,-18.476433447379879,9.1332052920695777,0.77049862716173134,-5.7513697877254666,-12.933315163101039,-19.937202576610304,18.532082876428014,10.865192034325545,6.6145746100712808,0.1446591150279749,-9.4996389428023544,16.213831864155697,5.5057485810380511,1.5088952796570714,-1.3358517880345746,-12.072568811049029,15.246023868690781,6.2890126885143562,-0.33811760427708426,-6.4481205995103617,-15.267030152568468,14.233776926929712,2.5982359324432238,-0.33468234617497505,-6.9987454165827412,-16.552940459864569,8.9247391295361584,-1.8401778152854371,-5.0158206781378221,-9.2952971713114021,-21.666632199414195,23.219690949702461,10.564447364203289,5.7038957078790249,0.63569339357760901,-8.818627425799102,16.467987483094394,7.3673714183575827,2.016113592579909,-3.5093994095855598,-13.744226753222152,14.427884958540869,5.8067543287050967,-0.86185906338840523,-4.9934784489544359,-14.54315949922889,12.712257267694676,1.9627218305028731,-1.7388080822001473,-6.6899409513265278,-19.783845257331347,7.7414635326559305,-0.97537565942570881,-5.6815175146709267,-9.8967218413892795,-20.08650479286803,19.549021047541913,12.542481740460504,5.977325520246306,1.8793134676197161,-8.7121710571060991,17.38881932689468,6.2541764050895914,2.0854171150099763,-4.3350487385094825,-12.631189558742426,14.501184828063426,4.7669269907094147,-0.58537473525297712,-6.2389910708359366,-15.453444736649985,13.15887301332244,3.9736474158376915,-2.7673266084504844,-7.2646832828653567,-16.540443393784244,9.7455551642959275,-2.3445988765271442,-6.7502439134871723,-10.635969446626305,-20.933853757508022],"showlegend":false,"type":"scatter3d","mode":"markers","marker":{"color":"steelblue","size":5,"opacity":0.59999999999999998,"line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":false,"chalkEffect":0.2},
+'drop': {"button":false,"shortcut":"`","engine":"webr","webr":{"packages":[]},"pyodide":{"packages":[]}},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: false,
+
+        // Display the page number of the current slide
+        slideNumber: 'c',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/stat158\.berkeley\.edu\/spring-2026\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script type="text/javascript">
+      window.addEventListener('load', function() {
+        const base = 'https://stat158.berkeley.edu/spring-2026';
+        const extBase = `${base}/_extensions/stat158/stat158slides`;
+
+        // Inject title slide logo
+        var titleSlide = document.getElementById('title-slide');
+        if (titleSlide) {
+          var img = document.createElement('img');
+          img.src = `${extBase}/title-slide-image.png`;
+          img.className = 'title-logo';
+          titleSlide.insertBefore(img, titleSlide.firstChild);
+        }
+
+        // Inject logo in lower right corner
+        var revealRoot = document.querySelector('.reveal');
+        if (revealRoot) {
+          var logo = document.createElement('img');
+          logo.src = `${extBase}/tiny-logo.png`;
+          logo.className = 'slide-logo';
+          logo.style.cursor = 'pointer';
+          revealRoot.appendChild(logo);
+
+          logo.addEventListener('click', function() {
+            var referrer = document.referrer;
+            if (referrer && new URL(referrer).origin === window.location.origin) {
+              window.location.href = referrer;
+            } else {
+              window.location.href = '/';
+            }
+          });
+        }
+
+        if (window.Reveal) {
+          Reveal.on('slidechanged', function(event) {
+            if (event.indexh === 0) {
+              Reveal.configure({ slideNumber: false });
+            } else {
+              Reveal.configure({ slideNumber: 'c' });
+            }
+          });
+        }
+      });
+    </script>
+    
+
+</body></html>

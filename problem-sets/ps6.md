@@ -58,8 +58,43 @@ toc-title: Table of contents
 
 
 
+2.  **Bring Out Your Bins: Non-compliance** Cotterill et al. report the
+    results of an experiment conducted in an area of the United Kingdom
+    where only half of the local residents recycle their trash[^2].
+    Canvassers visited homes and encouraged residents to recycle.
+    Outcomes were measured by whether the home put out a recycling bin
+    on at least one occasion during the following three weeks. We
+    restrict our attention here to homes that did not recycle trash
+    during a pre-experimental period of observation. When implementing
+    the intervention, researchers encountered one-side noncompliance:
+    1,105 of the 1,849 homes assigned to the treatment group were
+    successfully canvassed; none of the 1,430 homes assigned to the
+    control group were canvassed. These researchers found that 591 homes
+    in the treatment group recycled, as opposed to 377 in the control
+    group. The researchers also observed that 429 of 1,105 homes that
+    were successfully canvassed recycled, as opposed to 539 of the 2,264
+    homes that were not canvassed.
+
+<!-- -->
+
+a.  Estimate the $ITT_Y$ and interpret what that statistic captures in
+    the context of this study.
+
+b.  Estimate the $ITT_D$ and interpret what that statistic captures.
+
+c.  Estimate the $CACE$ and interpret what that statistic captures.
+
+d.  Explain why comparing the recycling rates of the treated and
+    untreated subjects tends to produce misleading estimates of the
+    $CACE$ and the $ATE$.
+
 More questions coming soon!
 
 [^1]: Sinclair, McConnell, and Green (2012). *"Detecting Spillover
     Effects: Design and Analysis of Multilevel Experiments"* in
     *American Journal of Political Science*.
+
+[^2]: Cotteril el al (2009). *"Mobilizing Citizen Effort to Enhance
+    Environmental Outcomes: A Randomized Controlled Trail of a
+    Door-to-Door Recycling Campaign."* in *Journal of Environmental
+    Management*.

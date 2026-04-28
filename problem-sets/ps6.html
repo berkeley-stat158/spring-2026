@@ -379,7 +379,7 @@ window.Quarto = {
 </header>
 
 
-<ol type="1">
+<ol class="example" type="1">
 <li><p><strong>Under pressure: Interference</strong> (from G &amp; G Ch. 8): In their study of spillover effects, Sinclair, McConnell, and Green<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> sent mailings to randomly selected households in Chicago encouraging them to vote in an upcoming special election on April 7th 2009 (<a href="#fig-postcard" class="quarto-xref">Figure&nbsp;1</a>). The mailings used a form of social pressure, disclosing whether the targeted individual had voted in previous elections. Because this type of mail had proven to increase turnout by approximately 4-5 percentage points in previous experiments, the authors used it to study whether the treatment effects are transmitted across households.</p>
 <p>Employing a multilevel design, they randomly assigned all, half, or none of the members of each nine-digit zip code to receive mail. For purposes of this example, we focus only on households with one registered voter. The outcome variable is voter turnout as measured by the registrar of voters. The results are as follows. Among registered voters in untreated zip codes, 1,201 of 6,217 cast ballots. Among untreated voters in zip codes where half of the households received mail, 526 of 3,316 registered voters cast ballots. Among treated voters in zip codes where half of the households received mail, 620 of 2,949 voted. Finally, among treated voters in zip codes where every household received mail, turnout was 1,316 of 6,377.</p>
 <ol type="a">
@@ -401,6 +401,15 @@ Figure&nbsp;1: Example of postcard mailed to registered voters.
 </div></li>
 </ol>
 <div style="page-break-after: always;"></div>
+<ol start="2" class="example" type="1">
+<li><strong>Bring Out Your Bins: Non-compliance</strong> Cotterill et al.&nbsp;report the results of an experiment conducted in an area of the United Kingdom where only half of the local residents recycle their trash<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Canvassers visited homes and encouraged residents to recycle. Outcomes were measured by whether the home put out a recycling bin on at least one occasion during the following three weeks. We restrict our attention here to homes that did not recycle trash during a pre-experimental period of observation. When implementing the intervention, researchers encountered one-side noncompliance: 1,105 of the 1,849 homes assigned to the treatment group were successfully canvassed; none of the 1,430 homes assigned to the control group were canvassed. These researchers found that 591 homes in the treatment group recycled, as opposed to 377 in the control group. The researchers also observed that 429 of 1,105 homes that were successfully canvassed recycled, as opposed to 539 of the 2,264 homes that were not canvassed.</li>
+</ol>
+<ol type="a">
+<li><p>Estimate the <span class="math inline">\(ITT_Y\)</span> and interpret what that statistic captures in the context of this study.</p></li>
+<li><p>Estimate the <span class="math inline">\(ITT_D\)</span> and interpret what that statistic captures.</p></li>
+<li><p>Estimate the <span class="math inline">\(CACE\)</span> and interpret what that statistic captures.</p></li>
+<li><p>Explain why comparing the recycling rates of the treated and untreated subjects tends to produce misleading estimates of the <span class="math inline">\(CACE\)</span> and the <span class="math inline">\(ATE\)</span>.</p></li>
+</ol>
 <p>More questions coming soon!</p>
 
 
@@ -410,6 +419,7 @@ Figure&nbsp;1: Example of postcard mailed to registered voters.
 
 <ol>
 <li id="fn1"><p>Sinclair, McConnell, and Green (2012). <em>“Detecting Spillover Effects: Design and Analysis of Multilevel Experiments”</em> in <em>American Journal of Political Science</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Cotteril el al (2009). <em>“Mobilizing Citizen Effort to Enhance Environmental Outcomes: A Randomized Controlled Trail of a Door-to-Door Recycling Campaign.”</em> in <em>Journal of Environmental Management</em>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

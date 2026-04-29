@@ -192,15 +192,6 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
-  <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-  <script src="../site_libs/plotly-binding-4.11.0/plotly.js"></script>
-  <script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
-  <script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
-  <link href="../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
-  <script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
-  <link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
-  <script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -213,7 +204,12 @@
 </div>
 
 </section>
-<section id="study-meadowfoam" class="slide level2">
+<section>
+<section id="study-meadowfoam" class="title-slide slide level1 center">
+<h1>Study: Meadowfoam</h1>
+
+</section>
+<section id="study-meadowfoam-1" class="slide level2">
 <h2>Study: Meadowfoam</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -253,7 +249,7 @@ y_{i1} &amp;= \mu + \alpha_1 + \beta_1 x_{i1} + \epsilon_{i1} = \mu_1 + \beta_1 
 y_{i2} &amp;= \mu + \alpha_2 + \beta_1 x_{i2} + \epsilon_{i2} = \mu_2 + \beta_1 x_{i2} + \epsilon_{i2}
 \end{align}\]</span></p>
 </div>
-</section>
+</section></section>
 <section>
 <section id="regression-adjustments" class="title-slide slide level1 center">
 <h1>Regression Adjustments</h1>
@@ -266,92 +262,77 @@ y_{i2} &amp;= \mu + \alpha_2 + \beta_1 x_{i2} + \epsilon_{i2} = \mu_2 + \beta_1 
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 24 × 6
-   FLOWERS  TIME INTENS intensity flowers time 
-     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;
- 1    62.3     1    150       150    62.3 late 
- 2    77.4     1    150       150    77.4 late 
- 3    55.3     1    300       300    55.3 late 
- 4    54.2     1    300       300    54.2 late 
- 5    49.6     1    450       450    49.6 late 
- 6    61.9     1    450       450    61.9 late 
- 7    39.4     1    600       600    39.4 late 
- 8    45.7     1    600       600    45.7 late 
- 9    31.3     1    750       750    31.3 late 
-10    44.9     1    750       750    44.9 late 
+<pre><code># A tibble: 24 × 3
+   flowers time  intensity
+     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+ 1    62.3 late        150
+ 2    77.4 late        150
+ 3    55.3 late        300
+ 4    54.2 late        300
+ 5    49.6 late        450
+ 6    61.9 late        450
+ 7    39.4 late        600
+ 8    45.7 late        600
+ 9    31.3 late        750
+10    44.9 late        750
 # ℹ 14 more rows</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>Let’s say that only <code>timing</code> was randomly assigned and <code>intensity</code> was another variable that was recorded that we know is a good predictor of <code>flowers</code>.</p>
+<p>Let’s say that only <code>time</code> was randomly assigned and <code>intensity</code> was another variable that was recorded that we know is a good predictor of <code>flowers</code>.</p>
 </div>
 </section>
-<section id="section-2" class="slide level2 smaller">
-<h2></h2>
+<section id="what-weve-been-doing" class="slide level2">
+<h2>What we’ve been doing</h2>
+<p>Since <code>time</code> is the only experimental factor, we would fit this model:</p>
+<div class="fragment">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">options</span>(<span class="at">contrasts=</span><span class="fu">c</span>(<span class="st">"contr.sum"</span>,<span class="st">"contr.poly"</span>))</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a>m_full <span class="ot">&lt;-</span> <span class="fu">lm</span>(flowers <span class="sc">~</span> intensity <span class="sc">+</span> time, <span class="at">data =</span> meadowfoam)</span>
-<span id="cb3-4"><a></a>m_no_time <span class="ot">&lt;-</span> <span class="fu">lm</span>(flowers <span class="sc">~</span> intensity, <span class="at">data =</span> meadowfoam)</span>
-<span id="cb3-5"><a></a></span>
-<span id="cb3-6"><a></a><span class="fu">summary</span>(m_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-2"><a></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(flowers <span class="sc">~</span> time, <span class="at">data =</span> meadowfoam)</span>
+<span id="cb3-3"><a></a><span class="fu">summary</span>(m1)<span class="sc">$</span>coef</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = flowers ~ intensity + time, data = meadowfoam)
-
-Residuals:
-   Min     1Q Median     3Q    Max 
--9.652 -4.139 -1.558  5.632 12.165 
-
-Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 77.385000   2.998156  25.811  &lt; 2e-16 ***
-intensity   -0.040471   0.005132  -7.886 1.04e-07 ***
-time1        6.079166   1.314779   4.624 0.000146 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 6.441 on 21 degrees of freedom
-Multiple R-squared:  0.7992,    Adjusted R-squared:   0.78 
-F-statistic: 41.78 on 2 and 21 DF,  p-value: 4.786e-08</code></pre>
+<pre><code>             Estimate Std. Error   t value     Pr(&gt;|t|)
+(Intercept) 56.137500   2.556552 21.958286 1.874990e-16
+time1        6.079166   2.556552  2.377877 2.652621e-02</code></pre>
+</div>
 </div>
 </div>
 </section>
-<section id="section-3" class="slide level2 smaller">
-<h2></h2>
+<section id="adjust-for-intensity" class="slide level2">
+<h2>Adjust for intensity</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">summary</span>(m_no_time)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>m_full <span class="ot">&lt;-</span> <span class="fu">lm</span>(flowers <span class="sc">~</span> intensity <span class="sc">+</span> time, <span class="at">data =</span> meadowfoam)</span>
+<span id="cb5-2"><a></a>m_no_time <span class="ot">&lt;-</span> <span class="fu">lm</span>(flowers <span class="sc">~</span> intensity, <span class="at">data =</span> meadowfoam)</span>
+<span id="cb5-3"><a></a><span class="fu">summary</span>(m_full)<span class="sc">$</span>coef</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = flowers ~ intensity, data = meadowfoam)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--15.7314  -7.8052   0.0186   6.1857  13.2686 
-
-Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 77.385000   4.161186  18.597 6.06e-15 ***
-intensity   -0.040471   0.007123  -5.682 1.03e-05 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 8.94 on 22 degrees of freedom
-Multiple R-squared:  0.5947,    Adjusted R-squared:  0.5763 
-F-statistic: 32.28 on 1 and 22 DF,  p-value: 1.03e-05</code></pre>
+<pre><code>               Estimate Std. Error   t value     Pr(&gt;|t|)
+(Intercept) 77.38500017 2.99815637 25.810862 2.166375e-17
+intensity   -0.04047143 0.00513237 -7.885525 1.036787e-07
+time1        6.07916641 1.31477854  4.623719 1.463777e-04</code></pre>
 </div>
 </div>
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">anova</span>(m_no_time, m_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">summary</span>(m_no_time)<span class="sc">$</span>coef</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>               Estimate  Std. Error   t value     Pr(&gt;|t|)
+(Intercept) 77.38500017 4.161186173 18.596861 6.059011e-15
+intensity   -0.04047143 0.007123293 -5.681562 1.029503e-05</code></pre>
+</div>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">anova</span>(m_no_time, m_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -370,70 +351,64 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="cautions" class="slide level2">
 <h2>Cautions</h2>
 <p>When fitting regression models to experimental data:</p>
-<div class="fragment">
 <ol type="1">
-<li class="fragment">Non-experimental variables have no causal interpretation.</li>
+<li class="fragment"><p>Non-experimental variables have no causal interpretation.</p></li>
+<li class="fragment"><p>Regression adjustments generally should not be used in very small datasets (<span class="math inline">\(N &lt; 20\)</span>) because df are better spent estimating causal effects.</p></li>
 </ol>
-</div>
-<div class="fragment">
-<ol start="2" type="1">
-<li class="fragment">Regression adjustments generally should not be used in very small datasets (<span class="math inline">\(N &lt; 20\)</span>) because df are better spent estimating causal effects.</li>
-</ol>
-</div>
 </section></section>
 <section>
 <section id="collinearity" class="title-slide slide level1 center">
 <h1>Collinearity</h1>
 
 </section>
-<section id="section-5" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <p>Simulated data with two explanatory variables.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 3
-         y      x1     x2
-     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
- 1  0.0963  0.495  -0.870
- 2 -8.85    1.42    0.827
- 3  2.47   -0.423  -0.208
- 4 -6.01    0.865   0.988
- 5 11.3    -1.86   -0.563
- 6 -1.09    0.626  -0.632
- 7 -2.70    0.332   0.782
- 8  1.35    0.0630 -0.163
- 9  2.00   -0.956   0.762
-10 -0.933   0.101   0.559
+       y     x1     x2
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1 -6.74  0.793  1.17 
+ 2 -9.99  1.78   0.895
+ 3 -2.66 -0.218  0.734
+ 4  5.01 -0.800 -0.331
+ 5  4.19 -0.630 -1.08 
+ 6 -9.90  1.55   0.724
+ 7 -6.12  1.19  -0.395
+ 8 -2.76 -0.332  1.19 
+ 9 -2.19 -0.178  2.56 
+10  5.96 -1.03  -0.250
 # ℹ 90 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">pairs</span>(weak_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="section-6" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">pairs</span>(weak_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="section-7" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">cor</span>(weak_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">cor</span>(weak_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>           y         x1         x2
-y   1.000000 -0.9219270 -0.4802380
-x1 -0.921927  1.0000000  0.1503897
-x2 -0.480238  0.1503897  1.0000000</code></pre>
+<pre><code>            y          x1          x2
+y   1.0000000 -0.90616679 -0.44532917
+x1 -0.9061668  1.00000000  0.07951636
+x2 -0.4453292  0.07951636  1.00000000</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -454,68 +429,49 @@ Var(\hat{\boldsymbol{\beta}}) = \sigma^2 (\mathbf{X}^\top \mathbf{X})^{-1}
 <p><span class="math display">\[
 Var(\hat{\beta}_j) = \frac{\sigma^2}{(n-1) Var(X_j)} \cdot \frac{1}{1 - R^2_j}
 \]</span></p>
-<p>where <span class="math inline">\(R_2_j\)</span> is the <span class="math inline">\(R^2\)</span> from regression <span class="math inline">\(X_j\)</span> on other <span class="math inline">\(X\)</span>. The second term is called the <strong>Variance Inflation Factor</strong> (VIF).</p>
+<p>where <span class="math inline">\(R^2_j\)</span> is the <span class="math inline">\(R^2\)</span> from regressing <span class="math inline">\(X_j\)</span> on other <span class="math inline">\(X\)</span>. The second term is called the <strong>Variance Inflation Factor</strong> (VIF).</p>
 </div>
 </section>
 <section id="weak-collinearity" class="slide level2">
 <h2>Weak Collinearity</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> weak_collinearity)</span>
-<span id="cb13-2"><a></a><span class="fu">summary</span>(m1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> weak_collinearity)</span>
+<span id="cb15-2"><a></a><span class="fu">summary</span>(m1)<span class="sc">$</span>coef</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = y ~ x1 + x2, data = weak_collinearity)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--2.29590 -0.83827  0.05631  0.68765  2.03869 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  0.01615    0.09858   0.164     0.87    
-x1          -4.86001    0.10054 -48.338   &lt;2e-16 ***
-x2          -2.06931    0.10649 -19.432   &lt;2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.9747 on 97 degrees of freedom
-Multiple R-squared:  0.9693,    Adjusted R-squared:  0.9687 
-F-statistic:  1533 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre><code>               Estimate Std. Error     t value     Pr(&gt;|t|)
+(Intercept)  0.07846378  0.1119610   0.7008133 4.850973e-01
+x1          -4.92618742  0.1125587 -43.7655093 1.111778e-65
+x2          -1.98898166  0.1060150 -18.7613218 4.832478e-34</code></pre>
 </div>
 </div>
 <div class="fragment">
 <p>This linear model corresponds to a plane in 3D.</p>
 </div>
 </section>
-<section id="section-8" class="slide level2">
+<section id="section-7" class="slide level2">
 <h2></h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-9ef92c847c9c6756be82" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-9ef92c847c9c6756be82">{"x":{"visdat":{"40c16dbefd":["function () ","plotlyVisDat"]},"cur_data":"40c16dbefd","attrs":{"40c16dbefd":{"x":{},"y":{},"z":{},"showlegend":false,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","marker":{"size":5,"opacity":0.59999999999999998,"color":"steelblue"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"x1"},"yaxis":{"title":"x2"},"zaxis":{"title":"y"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"data":[{"x":[0.49457314257995805,1.4232751489205435,-0.42310057057438211,0.86487921030446602,-1.8564141981987814,0.62637690389028144,0.33213881069162488,0.062965818176868457,-0.95636370220056444,0.10132079502342352,1.6432183368444746,1.8415320848688219,0.24083539311290728,-0.41739482179949899,2.0239452439746199,-0.2337712342861136,0.78554847903192082,0.0024410247538675621,1.0532219620469667,-1.5059807040004047,-2.1459678479558892,-1.6608155186075519,1.2162051414680275,0.99455734490131431,0.42552617016463806,-0.1950209066353496,-2.4100467855608505,1.6507925171696431,-1.5771192919344996,-0.0195146965852247,0.47028219721612907,-0.32530388824363987,1.2666379776728132,0.6454303165250348,0.73515292850139458,0.31345061983474765,0.47858452586579203,1.3657277310132063,1.3283688288920827,-1.7555143659031847,0.47411710406297869,1.2387288845163602,0.93305348159940582,0.41370277372119868,0.41334021301163199,0.82369654694819372,-0.69143560825083927,-1.0654519318847404,0.94176431350813949,-0.25012154697129846,-0.17772189903517488,-0.47816325326473536,-0.65819183395938119,0.42703867139681639,0.90855901122744909,0.14039797412684879,-0.85828137594294229,-0.5757990275688516,0.13270972299413766,-0.58490948535036957,-0.097170582869847852,-1.2703438659079447,0.6584433717574617,0.96538018139652881,0.28523515579552738,-2.3786357669829883,1.1663497386495201,-0.96973424294908595,-0.88840505485458199,-0.13918396109914932,-0.29758466878338419,-0.052057493021635474,0.98746486743527406,-0.52481618326956114,-0.38804850336654634,0.65805829372592783,-1.0144657728013862,-0.25679235332678457,2.4387290267910422,-1.3426519552823946,-1.1018706569190584,-0.21343210044300448,0.031571901801504161,0.37263588367191219,-0.64888071861501839,-0.69087117501306283,-1.299383006863686,1.3477649890937735,0.37343562856266876,0.59100066456568923,-0.46772581735094404,-0.6888750295366548,0.17743125961691109,-0.3556280179849502,0.1606208276117152,-0.070240224941201232,-0.1878297896271218,1.4039564281850372,-0.41512502140948709,1.2627501882877126],"y":[-0.87028715186488337,0.8273884833760371,-0.20809163853847515,0.98828873664987305,-0.56341003396722367,-0.63205507665140481,0.78176710216105127,-0.16281957140310441,0.76245628603492011,0.55886719336747137,-1.0531643554005869,1.2203426501485866,1.1375570908277275,-1.0418610450479482,-0.33365693317053796,-1.1416223088978386,0.73224201434378822,-0.54093866781637812,-1.0763605150627444,-0.52154158936007566,0.28923779379796927,-2.2510452293911394,0.67606974292523825,-0.46736675267488687,0.46085155963654423,0.48960381177142387,0.19084170879579238,0.56065730635997946,-1.2800976028141653,0.58944435984755972,0.7816101384088302,0.8039896973344558,-0.339996751782774,-0.93360119552105836,-2.0151043869859109,0.083298420228868186,-1.0873331917795135,0.49553941891268333,0.4484820247536937,0.060075698059247777,0.25108757424242634,0.6963432421257989,-0.51102621938075188,2.2069831184586781,0.73115578629642064,2.555014352863286,1.4069990717027578,0.65541165821629799,-0.90710654164300453,0.3194165462471017,-0.99695271459068968,0.12579816524062859,0.84676561682586315,0.04986169694577175,0.84769421220151009,-1.2910396410287037,0.087412153361700981,-0.88042044294431698,1.0075680833831029,1.1470407428074154,0.24304965919579757,-1.7270667186361213,1.2628088802605466,0.6982140299220605,-0.50860542762532046,1.035877076546647,-0.52340001689394366,-0.61950282462395667,-0.31909258310423433,0.36612772884585365,0.41719276865153637,0.93180833957036291,1.9486067629399533,-0.37461261000821444,2.1766291091909613,0.57281535741322154,0.066623346353637314,0.36242083225970828,0.94779328556166875,0.18895690193521347,-0.39475850824963882,0.54700603149252292,-0.4662582852739946,-0.30106336975809789,0.12070538703362525,-0.72251466089622685,0.65896322258731865,1.2508331169950409,0.60872430816055512,-0.203996531705921,1.397095726526405,0.071907201411079424,2.3565933795859562,0.15140329802837296,-1.5430675089949639,-1.1449322476875043,-0.59313710194069791,-0.51903838243154876,-0.088999849871085404,0.57323085229855897],"z":[0.096345040290854334,-8.849156058087825,2.4672986314942893,-6.0096786594141731,11.252524434859954,-1.0935359404014273,-2.696213374392078,1.3471871658662617,1.9980986569969437,-0.93332060446624676,-5.4240760184965158,-11.159420323080425,-4.4540790543835822,4.5962653076994906,-10.870844220152462,4.143879159755695,-3.8501074371890849,1.2443545852336537,-2.4965430535255742,7.9182829757029252,9.7838916199885695,13.168955321159137,-8.1252459866691282,-2.9892090455669447,-1.9486559253739981,-0.31329462815041559,11.414352686672643,-8.6651503081409125,9.4303847993968422,-1.2384981477964763,-4.3173135693145088,-0.062643845673713547,-7.0101602693071534,-2.2190333325168972,0.72708299330671777,-2.1239978092968705,-1.3272956177441675,-8.6646610365991901,-5.9889036112295049,9.5874958793222529,-1.6475823190123251,-6.0435464310239215,-1.8501308743635492,-7.5417852696204912,-1.6846100679108935,-10.138105421536066,-0.7443175676076883,3.9569526827606643,-4.0639501120371122,-0.85389114429148005,1.2091522321983605,1.1805171846018134,1.7905360903478025,-0.92280117103214598,-4.4152026565175522,3.3877750665667969,4.5560036468925755,5.6083631105963008,-0.87388124033886472,0.013889568533256069,0.77898922545754912,8.9548765709283735,-7.3645519406847662,-5.3190896111853085,0.42820709070917751,9.009570671038837,-5.3469516183605403,6.5688010878590406,4.9651623733407284,-2.3609443238223196,1.0832208326275494,-1.4406134893024209,-8.697318949109075,4.2933563445655771,-3.4602468816920018,-4.3349980438367313,4.6649554088958336,2.0199614989045798,-14.975212722444086,5.9408951473309717,7.1871821282107335,-0.38245664102934268,0.75863833729289021,-2.1210743189608947,1.9739590794531152,3.8934551319502586,3.4097002641947296,-8.8210436029884995,-3.7758608808320462,-2.8373935512387716,0.15200480725830723,3.8990099891779986,-3.6839990545048122,0.036768365693121474,1.8340453661444442,3.0795773007545186,1.4315333364649052,-5.5946178458401228,1.9018003246093824,-8.5834126336141807],"showlegend":false,"type":"scatter3d","mode":"markers","marker":{"color":"steelblue","size":5,"opacity":0.59999999999999998,"line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
+<iframe src="images/weak_collinearity_plot.html" width="100%" height="1000px" frameborder="0">
+</iframe>
 </section>
 <section id="strong-collinearity" class="slide level2">
 <h2>Strong Collinearity</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 3
-        y      x1     x2
-    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
- 1  -4.80  0.715   0.612
- 2  10.3  -1.15   -1.26 
- 3  -8.20  1.41    1.46 
- 4   6.55 -0.945  -1.09 
- 5  14.5  -2.06   -1.80 
- 6  -5.93  0.617   0.700
- 7 -14.4   2.05    1.87 
- 8   1.00  0.0495 -0.174
- 9  -2.61  0.436   0.348
-10  -7.00  1.12    1.11 
+        y      x1      x2
+    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1  1.66  -0.0918 -0.0543
+ 2 -9.80   1.37    1.51  
+ 3  1.72  -0.281  -0.511 
+ 4 -5.17   0.765   0.676 
+ 5  1.79  -0.126  -0.0470
+ 6 12.6   -1.84   -1.77  
+ 7 -3.71   0.451   0.190 
+ 8  1.33  -0.141  -0.164 
+ 9  0.126  0.102   0.0331
+10  2.24  -0.462  -0.121 
 # ℹ 90 more rows</code></pre>
 </div>
 </div>
@@ -523,13 +479,13 @@ F-statistic:  1533 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="strong-collinearity-1" class="slide level2">
 <h2>Strong Collinearity</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">pairs</span>(strong_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">pairs</span>(strong_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -538,25 +494,24 @@ F-statistic:  1533 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="strong-collinearity-2" class="slide level2">
 <h2>Strong collinearity</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">cor</span>(strong_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">cor</span>(strong_collinearity)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>            y         x1         x2
-y   1.0000000 -0.9903937 -0.9860524
-x1 -0.9903937  1.0000000  0.9923999
-x2 -0.9860524  0.9923999  1.0000000</code></pre>
+y   1.0000000 -0.9895630 -0.9859929
+x1 -0.9895630  1.0000000  0.9894227
+x2 -0.9859929  0.9894227  1.0000000</code></pre>
 </div>
+</div>
+<div class="fragment">
+<p>High <strong>collinearity</strong> leads to high <strong>VIF</strong>.</p>
 </div>
 </section>
-<section id="section-9" class="slide level2">
+<section id="section-8" class="slide level2">
 <h2></h2>
-<div class="cell">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-ed884e24f98b0ead4d75" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-ed884e24f98b0ead4d75">{"x":{"visdat":{"40c309919a1":["function () ","plotlyVisDat"]},"cur_data":"40c309919a1","attrs":{"40c309919a1":{"x":{},"y":{},"z":{},"showlegend":false,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","marker":{"size":5,"opacity":0.59999999999999998,"color":"steelblue"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"x1"},"yaxis":{"title":"x2"},"zaxis":{"title":"y"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"data":[{"x":[0.7150787585164019,-1.1512082846214953,1.4127310333706133,-0.94521851734418072,-2.0577658513688881,0.61654645091887483,2.0492220785199833,0.049464992217677431,0.43624721289971802,1.1233506490895404,0.99448276966251037,1.696332370758638,0.67419662973909178,2.0538403174937869,0.035614238662414213,1.6502927093820103,1.1574079889442561,-2.2255685013158288,-0.18127355438606632,0.76241416512024873,-1.0220297942472123,2.1385397071337522,-1.4068766686591496,0.019582833985308232,0.94810712279351361,-0.77025698624513572,-0.066854581888104489,-1.2210902962116377,1.2216039632276472,-0.25137308668685959,1.6318988057497741,-2.027232611002912,-0.22229919155562169,0.30002435832576141,-1.4202228842779818,1.3512659081527936,1.2088759099091837,0.13070350453422508,-0.18776662988679943,-0.061020686958381982,-0.016160211273793489,0.6307835609329846,0.46697552866715936,-0.14487557742634186,-0.43996264254452672,-1.2604099841417284,2.2034376326586935,-0.42584724168157378,0.68540131104131474,-0.5917190495082616,-0.44418004211089773,-1.2057555410582015,0.91162191541312743,0.60388308057351225,-0.23506374707925601,1.1075495208261881,0.24358331586429172,0.10420606036781836,-0.10300297106661321,0.45740360063325608,0.85934126418968748,-0.72565634156739778,0.26725170379033403,0.46376389640186177,1.9409542276010709,-0.51030334577869985,-1.1671701315809793,1.3885280286842754,0.096158461458858216,0.49442423306478961,0.22260005512226502,-0.41817562706639222,-0.18453414906843801,0.1539720990136671,0.16584980514827619,-1.4180195431970968,-0.73602271880250847,0.50468076531560113,-0.22136584793833247,-0.90772350784595246,-0.91417488473327269,-1.4144806344992731,0.15483566642677873,-0.04736979320012933,-0.23370536904453265,0.50557327328645008,0.16984937437558206,0.52433392725576144,-0.42179893989214623,-0.35164637842331603,-0.5445044101494082,-0.14898840093639665,-0.31717459644426083,-0.50183435268462484,0.28115058087316047,1.9053282554310258,-0.3667662202080384,2.0938784360682865,0.78095234625457677,-0.89521330115514997],"y":[0.61158262729588353,-1.2615734241018071,1.459044730921526,-1.0900973268288672,-1.8030944366401316,0.7000421278500244,1.8748513244553937,-0.17413314132488342,0.34770918200329853,1.1077537424382167,1.1022415079485852,1.6772161602289821,0.64093370999467125,2.205799218753377,0.095497808843702306,1.5736711275959627,1.278467369065849,-2.2546760318112624,-0.14322090563793435,0.7215637950069167,-0.98274765958860877,2.3494418531067427,-1.2880638595523686,-0.36075575123957004,0.98162723111279715,-0.71221583593450122,0.23642226640126807,-1.1998455290340762,1.3104653472580514,-0.23162294753252677,1.8261877296771258,-2.0596252054988211,-0.38207471103453494,0.75858475718672125,-1.2677233691959653,1.60460413343617,1.2319981595083151,0.024123630712221119,-0.24307720256254081,-0.16137638319373199,-0.037566972789547001,0.63643020588571808,0.37545392074201622,-0.25992121556030323,-0.37283016415172193,-1.2978962163950096,2.2410033803909664,-0.37527355523706168,0.56431843348314381,-0.44765570080934391,-0.49859121435940806,-1.268720384873449,0.76131765245370264,0.74306715436915627,-0.30512182411318883,1.0254084673266453,0.33742895555865476,0.23726223252136799,-0.13387740399087469,0.40724779180428983,0.71174458723068168,-0.94761648274660859,0.25430354768593877,0.58763593835576766,1.7269118330315671,-0.44452259210965916,-1.2409370835999367,1.2737847758734466,0.081607885475754885,0.41160237118302218,0.071134233919015633,-0.45780155870903272,-0.17854794070850838,0.099259491672894731,0.070740018843869601,-1.5046918186031228,-0.76873070391451181,0.37604907945896421,-0.19397640973733465,-0.87849189594475008,-0.82474057757164554,-1.5086994557898341,0.14675380873718669,-0.16145137790750339,-0.37004739288442534,0.42884298856218561,0.074961330082303032,0.43876929073333987,-0.37138480406593516,-0.35822113644015524,-0.56806663972621774,-0.19570825749604381,-0.36291665795259281,-0.55321025490502385,0.3644114288430057,1.9301069363590013,-0.43303023925506146,2.2189082282730244,0.98760597434394526,-1.0379733823235082],"z":[-4.7983641437600797,10.264884424601433,-8.1980727099421209,6.5483545341332414,14.528323354432031,-5.9289991720627615,-14.421636249479057,1.0046308713372827,-2.6075306643326108,-7.0035765633411531,-6.0501957199946315,-12.172076848836472,-3.4077380463204663,-15.602358521339925,-2.2982018255007408,-10.19226837306717,-8.8492668846040026,14.369654810866965,0.6712809761765266,-5.966616002129177,6.6345490945972401,-14.627735434154147,9.098247080117341,-1.1039798604384241,-6.0229086795117066,4.6525383813816479,-0.060379204520917079,9.3686262277231656,-8.7664997933175997,2.1777615019310521,-10.98004068505289,12.805508959650545,3.2142853033087224,-2.6902253965515071,11.799745296585805,-10.57342401771117,-7.0489443782398551,-0.23455190671133741,0.80427509272407693,1.3944176732525841,-1.1579192129141473,-4.5469033524238744,-3.4252177046444285,1.3067862246034632,2.7043377008251723,9.515754985761669,-14.734010412352486,3.2995240955175098,-1.8403793036393141,4.2869155659050238,3.1259809933889633,9.2047520741780264,-6.3445480275340733,-4.062091526520752,1.685017039324944,-8.1734184030558765,-1.7156656964088568,-0.45754923422243632,1.5989694353721569,-3.375278803250676,-4.9730959512622581,7.0119821593572471,-0.71719361141329196,-4.4439205187873352,-13.336763995174447,4.157716322753588,9.1658195846979709,-9.3931326774163946,-0.91583868477576269,-4.2606561679668866,-1.9252873337582024,2.0978273194814041,1.75764594823494,0.29586823340213386,-0.39324122054402844,9.11877519461361,6.3526297934612614,-3.7859358160369672,1.5985886424195148,5.0578457624408486,7.048791600705437,9.095279085498289,-0.14814849814372433,-0.12115299291141379,2.3033928404163633,-5.3488819796300859,-0.17126743535065347,-4.4716631699260114,1.8479761303410431,3.2701667335725348,2.8728107616732874,0.2207440210266951,4.2024779382323842,3.9812180468712968,-2.6066182575344738,-13.266333038885682,3.1430471346477558,-15.166877415290065,-3.9909728438908498,6.0138640116961897],"showlegend":false,"type":"scatter3d","mode":"markers","marker":{"color":"steelblue","size":5,"opacity":0.59999999999999998,"line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
+<iframe src="images/strong_collinearity_plot.html" width="100%" height="1000px" frameborder="0">
+</iframe>
 </section>
 <section id="designed-experiment" class="slide level2">
 <h2>Designed Experiment</h2>
@@ -565,16 +520,16 @@ x2 -0.9860524  0.9923999  1.0000000</code></pre>
 <pre><code># A tibble: 100 × 3
         y    x1    x2
     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1  19.6     -3    -3
- 2  10.1     -1    -3
- 3   8.19     0    -3
- 4   1.20     1    -3
- 5 -11.0      3    -3
- 6  19.1     -3    -1
- 7   7.14    -1    -1
- 8   1.49     0    -1
- 9  -4.14     1    -1
-10 -14.0      3    -1
+ 1  21.8     -3    -3
+ 2  11.1     -1    -3
+ 3   5.98     0    -3
+ 4   1.18     1    -3
+ 5 -10.7      3    -3
+ 6  16.6     -3    -1
+ 7   6.44    -1    -1
+ 8   2.04     0    -1
+ 9  -4.25     1    -1
+10 -13.5      3    -1
 # ℹ 90 more rows</code></pre>
 </div>
 </div>
@@ -582,13 +537,13 @@ x2 -0.9860524  0.9923999  1.0000000</code></pre>
 <section id="designed-experiment-1" class="slide level2">
 <h2>Designed Experiment</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">pairs</span>(designed_exp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">pairs</span>(designed_exp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -597,25 +552,24 @@ x2 -0.9860524  0.9923999  1.0000000</code></pre>
 <section id="design-experiment" class="slide level2">
 <h2>Design Experiment</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">cor</span>(designed_exp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">cor</span>(designed_exp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>            y         x1         x2
-y   1.0000000 -0.9323337 -0.3490678
-x1 -0.9323337  1.0000000  0.0000000
-x2 -0.3490678  0.0000000  1.0000000</code></pre>
+y   1.0000000 -0.9299668 -0.3584929
+x1 -0.9299668  1.0000000  0.0000000
+x2 -0.3584929  0.0000000  1.0000000</code></pre>
 </div>
+</div>
+<div class="fragment">
+<p>No collinearity leads to . . .</p>
 </div>
 </section>
-<section id="section-10" class="slide level2">
+<section id="section-9" class="slide level2">
 <h2></h2>
-<div class="cell">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-051cca96f84db744c94e" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-051cca96f84db744c94e">{"x":{"visdat":{"40c740584cb":["function () ","plotlyVisDat"]},"cur_data":"40c740584cb","attrs":{"40c740584cb":{"x":{},"y":{},"z":{},"showlegend":false,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","marker":{"size":5,"opacity":0.59999999999999998,"color":"steelblue"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"x1"},"yaxis":{"title":"x2"},"zaxis":{"title":"y"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"data":[{"x":[-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3,-3,-1,0,1,3],"y":[-3,-3,-3,-3,-3,-1,-1,-1,-1,-1,0,0,0,0,0,1,1,1,1,1,3,3,3,3,3,-3,-3,-3,-3,-3,-1,-1,-1,-1,-1,0,0,0,0,0,1,1,1,1,1,3,3,3,3,3,-3,-3,-3,-3,-3,-1,-1,-1,-1,-1,0,0,0,0,0,1,1,1,1,1,3,3,3,3,3,-3,-3,-3,-3,-3,-1,-1,-1,-1,-1,0,0,0,0,0,1,1,1,1,1,3,3,3,3,3],"z":[19.575882565739967,10.117577827112774,8.1938269042641494,1.1986939783791031,-10.954901104806289,19.144471080547223,7.142955823319709,1.4925815894441201,-4.1406968543235338,-14.006600286920735,16.967240972649741,4.1794925083221157,0.98324844434962566,-6.0814170475862506,-16.671377711220909,12.49538305067075,5.0857530805935411,-1.5409176256184722,-5.8185839994272666,-17.301656059615059,8.3931916802364643,0.50629286694340903,-4.4136184164048471,-9.5486135123553701,-21.395251255323164,20.444628406916838,10.685058124254814,6.9389139149730763,0.5180979604396162,-9.0294862082979392,16.328972679331219,7.4859561337935618,3.1625256712797185,-3.9140579096897037,-13.14518889775386,14.663310451090059,5.1780669219578748,-0.064739242096709199,-6.8829609822553337,-16.655817663826376,11.523946173754851,3.3900593611534218,-1.0146056630313658,-6.4587169347816875,-16.406099865601949,7.9297336307213895,-0.35565639845352448,-6.305798206170846,-9.3849836305838625,-22.147910514023057,19.192532543656124,11.391017671668434,5.2889740514499834,0.37085446632730312,-9.561591977919603,15.199714632137047,7.7705078362028548,1.5776489491120635,-4.2636758973133428,-13.648746478300293,14.327926293187197,4.9158794693906289,0.57213058244688819,-5.4299651163319735,-14.430201002410838,12.301452779872022,1.927594277851604,-3.3455078652314256,-8.7047717110096112,-16.372672253539058,9.209718833761082,-0.44016698554018996,-5.0045688025507786,-10.635076970339302,-22.357469256424551,21.546643643694019,9.6314039370820694,7.4071154512497017,1.0239728176250833,-9.7666014282982871,16.260517442910011,6.6349814516339505,1.1331302144006319,-2.9516503654151887,-12.226564042592646,13.243763579682794,4.8310982007000458,-0.23688901934067308,-6.234020036790282,-15.435663257754381,12.74140656842742,3.1446768282892825,-2.9061320260445829,-7.7190833596739896,-17.125412129103868,10.937637144302212,1.812101701733293,-7.0260242946679989,-9.9589690381746152,-21.828303660100968],"showlegend":false,"type":"scatter3d","mode":"markers","marker":{"color":"steelblue","size":5,"opacity":0.59999999999999998,"line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
+<iframe src="images/designed_exp_plot.html" width="100%" height="1000px" frameborder="0">
+</iframe>
 
 
 </section></section>

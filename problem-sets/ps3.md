@@ -7,6 +7,7 @@ resources:
 - \*\*/\*Starter.pdf
 - data/\*\*/\*.csv
 - ../assets/
+- ../37-wrap-up/Midterm Review Topics List.pdf
 title: Problem Set 3
 toc-title: Table of contents
 ---

@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -410,7 +445,18 @@ Figure&nbsp;1: Example of postcard mailed to registered voters.
 <li><p>Estimate the <span class="math inline">\(CACE\)</span> and interpret what that statistic captures.</p></li>
 <li><p>Explain why comparing the recycling rates of the treated and untreated subjects tends to produce misleading estimates of the <span class="math inline">\(CACE\)</span> and the <span class="math inline">\(ATE\)</span>.</p></li>
 </ol>
-<p>More questions coming soon!</p>
+<div style="page-break-after: always;"></div>
+<ol start="3" class="example" type="1">
+<li><p><strong>Babies Walking: Adjusted</strong> Consider an extended version of our familiar babies data set called <code>babies2</code>. As before, the unit is a single baby, the response is the number of months from birth until walking (<code>walk</code>), and the experimental variable is the <code>program</code>. There are two additional covariates, <code>income</code> and <code>sibs</code> (the number of siblings), which have both been normalized to have roughly mean zero and unit SD. You can load the data with the following:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>babies2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://stat158.berkeley.edu/spring-2026/data/babies-walking/babies2.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol type="a">
+<li><p>To establish a baseline analysis, calculate the F statistic from a one-way ANOVA for the effect of <code>program</code> on <code>walk</code> with no additional covariates. Conduct a hypothesis test on that statistic then report and interpret the p-value (you can use either a randomization test or the model-based F-test).</p></li>
+<li><p>Create a pairs plot (see either <code>?pairs</code> or google <code>ggpairs</code>) of the data frame containing the response, the experimental factor, <code>income</code>, and <code>siblings</code>. Describe the extent to which the new covariates appear good predictors of the response and the degree to which they’re collinear with one another.</p></li>
+<li><p>Do a second analysis of the effect of <code>program</code> on <code>walk</code> but this time adjust for <code>income</code> and <code>siblings</code> using the F statistic from a partial F test. Again, report the p-value from your hypothesis test and describe why it differs, if at all, from the baseline analysis.</p></li>
+</ol></li>
+</ol>
 
 
 

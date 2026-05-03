@@ -89,7 +89,39 @@ d.  Explain why comparing the recycling rates of the treated and
     untreated subjects tends to produce misleading estimates of the
     $CACE$ and the $ATE$.
 
-More questions coming soon!
+
+
+3.  **Babies Walking: Adjusted** Consider an extended version of our
+    familiar babies data set called `babies2`. As before, the unit is a
+    single baby, the response is the number of months from birth until
+    walking (`walk`), and the experimental variable is the `program`.
+    There are two additional covariates, `income` and `sibs` (the number
+    of siblings), which have both been normalized to have roughly mean
+    zero and unit SD. You can load the data with the following:
+
+    ::: cell
+    ``` {.r .cell-code}
+    babies2 <- read.csv("https://stat158.berkeley.edu/spring-2026/data/babies-walking/babies2.csv")
+    ```
+    :::
+
+    a.  To establish a baseline analysis, calculate the F statistic from
+        a one-way ANOVA for the effect of `program` on `walk` with no
+        additional covariates. Conduct a hypothesis test on that
+        statistic then report and interpret the p-value (you can use
+        either a randomization test or the model-based F-test).
+
+    b.  Create a pairs plot (see either `?pairs` or google `ggpairs`) of
+        the data frame containing the response, the experimental factor,
+        `income`, and `siblings`. Describe the extent to which the new
+        covariates appear good predictors of the response and the degree
+        to which they're collinear with one another.
+
+    c.  Do a second analysis of the effect of `program` on `walk` but
+        this time adjust for `income` and `siblings` using the F
+        statistic from a partial F test. Again, report the p-value from
+        your hypothesis test and describe why it differs, if at all,
+        from the baseline analysis.
 
 [^1]: Sinclair, McConnell, and Green (2012). *"Detecting Spillover
     Effects: Design and Analysis of Multilevel Experiments"* in
